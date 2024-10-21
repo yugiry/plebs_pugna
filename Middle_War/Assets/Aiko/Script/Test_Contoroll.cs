@@ -7,6 +7,7 @@ public class Test_Contoroll : MonoBehaviour
     Rigidbody2D rbody;
     int AP = 0;
     int AP_syouhi = 1;
+    float move = 4.5f;
     //public int Penalty = 2; 
 
     // Start is called before the first frame update
@@ -20,22 +21,22 @@ public class Test_Contoroll : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            this.transform.Translate(0, 4, 0);
+            this.transform.Translate(0, move, 0);
             AP -= AP_syouhi;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            this.transform.Translate(0, -4, 0);
+            this.transform.Translate(0, -move, 0);
             AP -= AP_syouhi;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            this.transform.Translate(4, 0, 0);
+            this.transform.Translate(move, 0, 0);
             AP -= AP_syouhi;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            this.transform.Translate(-4, 0, 0);
+            this.transform.Translate(-move, 0, 0);
             AP -= AP_syouhi;
         }
     }
