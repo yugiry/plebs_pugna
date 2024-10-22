@@ -95,6 +95,12 @@ public class CreateMap : MonoBehaviour
             PUSHSPACE = true;
         }
 
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            Vector2 m_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log("m_pos(" + m_pos.x.ToString("F2") + "," + m_pos.y.ToString("F2") + ")");
+        }
+
         if (PUSHSPACE)
         {
             if(y < MAPSIZE_Y)

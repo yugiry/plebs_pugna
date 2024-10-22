@@ -6,6 +6,8 @@ using UnityEngine;
 public class TileInfo : MonoBehaviour
 {
     public GameObject tile;
+    public GameObject setunit;
+
     public float TILESIZE_X;
     public float TILESIZE_Y;
     public float TILESPACE;
@@ -14,6 +16,9 @@ public class TileInfo : MonoBehaviour
     private float TILE_X;
     private float TILE_Y;
     private float x, y;
+
+    private bool setUnit;
+    private int Unitnum;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +35,46 @@ public class TileInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Unitnum == 0)
+        {
+            setUnit = true;
+        }
+        else
+        {
+            setUnit = false;
+        }
     }
 
     public void OnClicked()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("クリックされました。");
             Debug.Log(TileNum);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Infantry")
+        {
+            Unitnum++;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Infantry")
+        {
+            Unitnum--;
+        }
+    }
+
+    public void SetUnit()
+    {
+        if (setUnit)
+        {
+            Debug.Log("設置されました。");
+            Instantiate(setunit, new Vector3(tile.transform.position.x, tile.transform.position.y, 7.0f), Quaternion.identity);
         }
     }
 }
