@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManger : MonoBehaviour
+public class UIManager2 : MonoBehaviour
 {
+    public GameObject castlevalue;
+    public GameObject castlevalue2;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,12 @@ public class GameManger : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Click()
+    {
+        castlevalue.SetActive(false);
+        castlevalue2.SetActive(true);
+
     }
 }
