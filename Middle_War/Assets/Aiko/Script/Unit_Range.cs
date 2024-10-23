@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Unit_Range : MonoBehaviour,IPointerClickHandler
+public class Unit_Range : MonoBehaviour/*,IPointerClickHandler*/
 {
-    public void OnPointerClick(PointerEventData eventdata)
+    public void OnPointerClick(/*PointerEventData eventdata*/)
     {
         //var eventData = (PointerEventData)data;
 
