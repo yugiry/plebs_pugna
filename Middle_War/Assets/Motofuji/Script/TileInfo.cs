@@ -20,6 +20,7 @@ public class TileInfo : MonoBehaviour
     private bool setUnit;
     private int Unitnum;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class TileInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Unitnum == 0)
+        if (Unitnum == 0)
         {
             setUnit = true;
         }
@@ -47,10 +48,7 @@ public class TileInfo : MonoBehaviour
 
     public void OnClicked()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log(TileNum);
-        }
+        Debug.Log(TileNum);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
