@@ -70,19 +70,19 @@ public class Camera_Operation : MonoBehaviour
                 float x = 5 - ZoomPct * 5;
                 float tmp;
                 tmp = 0.7f;
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
                     CT.position = CT.position + new Vector3(0.0f, 0.1f, 0.0f);
                 }
-                if (Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
                     CT.position = CT.position - new Vector3(0.0f, 0.1f, 0.0f);
                 }
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 {
                     CT.position = CT.position - new Vector3(0.1f, 0.0f, 0.0f);
                 }
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
                     CT.position = CT.position + new Vector3(0.1f, 0.0f, 0.0f);
                 }

@@ -173,6 +173,7 @@ MonoBehaviour:
   TILESIZE_Y: 4
   TILESPACE: 0.5
   TileNum: 0
+  UnitObject: {fileID: 6686210027933580255, guid: 94055043c7d1ad243b0fa834abbedfae, type: 3}
 --- !u!50 &4750638863840624109
 Rigidbody2D:
   serializedVersion: 4

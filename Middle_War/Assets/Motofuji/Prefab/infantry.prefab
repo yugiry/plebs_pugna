@@ -106,7 +106,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 161415242142434892}
           m_TargetAssemblyTypeName: Unit_Operation, Assembly-CSharp
-          m_MethodName: Unit_Move
+          m_MethodName: Unit_Serect
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

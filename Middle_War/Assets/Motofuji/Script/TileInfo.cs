@@ -20,7 +20,6 @@ public class TileInfo : MonoBehaviour
     private bool setUnit;
     private int Unitnum;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +64,7 @@ public class TileInfo : MonoBehaviour
         {
             Unitnum--;
         }
+
     }
 
     public void SetUnit()
