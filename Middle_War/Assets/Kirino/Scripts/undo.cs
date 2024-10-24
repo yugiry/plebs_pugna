@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class undo : MonoBehaviour
+{
+    GameObject clickedGameObject;
+    public GameObject castlevalue;
+    public GameObject infantrystatus;
+    public GameObject archerstatus;
+    public GameObject catapultstatus;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+
+            infantrystatus.SetActive(false);
+            archerstatus.SetActive(false);
+            catapultstatus.SetActive(false);
+            castlevalue.SetActive(true);
+           
+        }
+    }
+}
