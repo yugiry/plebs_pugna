@@ -5,6 +5,9 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject castlevalue;
+    public GameObject infantrystatus;
+    public GameObject archerstatus;
+    public GameObject catapultstatus;
     public GameObject castlevalue2;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,9 @@ public class UIManager : MonoBehaviour
     public void Click()
     {
         castlevalue.SetActive(false);
+        infantrystatus.SetActive(false);
+        archerstatus.SetActive(false);
+        catapultstatus.SetActive(false);
         castlevalue2.SetActive(true);
     }
 }
