@@ -3,23 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Unit_Range : MonoBehaviour/*,IPointerClickHandler*/
+public class Unit_Range : MonoBehaviour, IPointerClickHandler
 {
     int count = 0;
 
     public GameObject kougekihanni;
+    
 
-    public void OnPointerClick(/*PointerEventData eventdata*/)
+    public void OnPointerClick(PointerEventData eventdata)
     {
         //var eventData = (PointerEventData)data;
-
+        
         //kougekihanni.transform.position = new Vector3(100, 0, 0);
         Active_false_selected_by_Tag("Respawn");
 
         Debug.Log(this.name+"クリックされた");
         //GameObject newBlock = Instantiate(kougekihanni, kougekihanni.transform.position, Quaternion.identity);
-        this.gameObject.transform.Find("range tile").gameObject.SetActive(true);
+        this.gameObject.transform.Find("ranges").gameObject.SetActive(true);
+        
     }
+
+    //public void OnPointerClick2(PointerEventData eventdata)
+    //{
+    //    Active_false_selected_by_Tag("Respawn");
+
+    //    Debug.Log(this.name + "クリックされた2");
+
+    //    //Active_false_selected_by_Tag("Respawn");
+    //    this.gameObject.transform.Find("range tile").gameObject.SetActive(false);
+    //}
 
     public void Active_false_selected_by_Tag(string tag)
     {
@@ -33,16 +45,25 @@ public class Unit_Range : MonoBehaviour/*,IPointerClickHandler*/
         }
     }
 
+   
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
-        //if(&&count ==0)
+        //if (Input.GetMouseButtonUp(0) && count == 0)
+        //{
+        //    OnPointerClick();
+
+            //    count++;
+            //}
+        ///*else*/ if (Input.GetMouseButtonUp(0)/* && count != 0*/)
+        //{
+        //    Active_false_selected_by_Tag("Respawn");
+        //    //count--;
+        //}
 
 
     }
