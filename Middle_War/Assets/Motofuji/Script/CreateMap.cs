@@ -20,6 +20,7 @@ public class CreateMap : MonoBehaviour
     //タイル設置の最初の位置
     public float SetTileStart_X;
     public float SetTileStart_Y;
+    public float SetTile_Z;
     //タイルの大きさ
     public float TILESIZE_X;
     public float TILESIZE_Y;
@@ -110,23 +111,23 @@ public class CreateMap : MonoBehaviour
                 switch (map[x + y * MAPSIZE_Y])
                 {
                     case 0://草
-                        Instantiate(grass, new Vector3(SET_X, SET_Y, 9.0f), Quaternion.identity);
+                        Instantiate(grass, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                     case 1://山
-                        Instantiate(mountain, new Vector3(SET_X, SET_Y, 9.0f), Quaternion.identity);
+                        Instantiate(mountain, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                     case 2://水
-                        Instantiate(water, new Vector3(SET_X, SET_Y, 9.0f), Quaternion.identity);
+                        Instantiate(water, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                     case 3://資源
-                        Instantiate(resource, new Vector3(SET_X, SET_Y, 9.0f), Quaternion.identity);
+                        Instantiate(resource, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                 }
             }
             else if (y == MAPSIZE_Y && x == 0)
             {
-                Instantiate(castle1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 22, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 22, 8.0f), Quaternion.identity);
-                Instantiate(castle2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 2, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 2, 8.0f), Quaternion.identity);
+                Instantiate(castle1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 22, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 22, SetTile_Z - 5), Quaternion.identity);
+                Instantiate(castle2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 2, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 2, SetTile_Z - 5), Quaternion.identity);
                 for (int dy = 0; dy < 3; dy++)
                 {
                     for (int dx = 0; dx < 3; dx++)
@@ -134,8 +135,8 @@ public class CreateMap : MonoBehaviour
                         if (dy == 1 && dx == 1) ;
                         else
                         {
-                            Instantiate(area1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (21 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (21 + dy), 8.0f), Quaternion.identity);
-                            Instantiate(area2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (1 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (1 + dy), 8.0f), Quaternion.identity);
+                            Instantiate(area1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (21 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (21 + dy), SetTile_Z - 5), Quaternion.identity);
+                            Instantiate(area2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (1 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (1 + dy), SetTile_Z - 5), Quaternion.identity);
                         }
                     }
                 }

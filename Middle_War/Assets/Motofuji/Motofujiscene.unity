@@ -397,7 +397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661161667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 30}
   m_LocalScale: {x: 113, y: 113, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -426,6 +426,7 @@ MonoBehaviour:
   resource: {fileID: 7153855201956926095, guid: 34d319075ff8ce747b0703070939d38a, type: 3}
   SetTileStart_X: -54
   SetTileStart_Y: 54
+  SetTile_Z: 20
   TILESIZE_X: 4
   TILESIZE_Y: 4
   MAPSIZE_X: 25
