@@ -143,18 +143,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2423143027124811971}
-          m_TargetAssemblyTypeName: TileInfo, Assembly-CSharp
-          m_MethodName: SetUnit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &2423143027124811971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +161,6 @@ MonoBehaviour:
   TILESIZE_Y: 4
   TILESPACE: 0.5
   TileNum: 0
-  UnitObject: {fileID: 6686210027933580255, guid: 94055043c7d1ad243b0fa834abbedfae, type: 3}
 --- !u!50 &4750638863840624109
 Rigidbody2D:
   serializedVersion: 4

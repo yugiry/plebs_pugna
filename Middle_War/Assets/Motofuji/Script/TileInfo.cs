@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 public class TileInfo : MonoBehaviour
 {
     public GameObject tile;
     public GameObject setunit;
+
+    GameObject clickedGameObject;
 
     public float TILESIZE_X;
     public float TILESIZE_Y;
@@ -19,6 +22,8 @@ public class TileInfo : MonoBehaviour
 
     private bool setUnit;
     private int Unitnum;
+
+    Vector3 mousepos;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +48,39 @@ public class TileInfo : MonoBehaviour
         {
             setUnit = false;
         }
+
+        if(setUnit)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+
+                    mousepos.x = mousepos.x + 54;
+                    mousepos.y = -mousepos.y + 54;
+                    //マウスの位置にあるタイルを探す
+                    for (int i = 0; i < 25; i++)
+                    {
+                        for (int j = 0; j < 25; j++)
+                        {
+                            if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
+                            {
+                                if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
+                                {
+                                    if (clickedGameObject.name == "area1(Clone)")
+                                    {
+                                        Debug.Log(clickedGameObject.name);
+                                        setunit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 7.0f);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void OnClicked()
@@ -63,16 +101,6 @@ public class TileInfo : MonoBehaviour
         if(collision.gameObject.tag == "Infantry")
         {
             Unitnum--;
-        }
-
-    }
-
-    public void SetUnit()
-    {
-        if (setUnit)
-        {
-            Debug.Log("設置されました。");
-            Instantiate(setunit, new Vector3(tile.transform.position.x, tile.transform.position.y, 7.0f), Quaternion.identity);
         }
     }
 }
