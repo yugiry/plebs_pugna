@@ -267,6 +267,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 13498830}
+          m_TargetAssemblyTypeName: Unit_Range, Assembly-CSharp
+          m_MethodName: Active_false_selected_by_Tag
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Reapawn
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!61 &13498832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1269,6 +1281,10 @@ PrefabInstance:
       propertyPath: circlePrefab
       value: 
       objectReference: {fileID: 1281995621}
+    - target: {fileID: 7334710493593083400, guid: 367c9291a15fd884fb360a0f9b681254, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7334710493593083400, guid: 367c9291a15fd884fb360a0f9b681254, type: 3}
       propertyPath: m_SortingOrder
       value: 3

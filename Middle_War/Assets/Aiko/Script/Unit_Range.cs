@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Unit_Range : MonoBehaviour/*,IPointerClickHandler*/
 {
-   
+    int count = 0;
 
     public GameObject kougekihanni;
 
@@ -42,6 +42,8 @@ public class Unit_Range : MonoBehaviour/*,IPointerClickHandler*/
     // Update is called once per frame
     void Update()
     {
-        
+        //if(&&count ==0)
+
+
     }
 }
