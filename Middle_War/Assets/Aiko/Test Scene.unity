@@ -1043,6 +1043,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 288696046111558123, guid: c86d529ec1c7446419382ad7f9997329, type: 3}
+      propertyPath: range_tile
+      value: 
+      objectReference: {fileID: 7334710493593083403, guid: 367c9291a15fd884fb360a0f9b681254, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c86d529ec1c7446419382ad7f9997329, type: 3}
 --- !u!1 &1484794015

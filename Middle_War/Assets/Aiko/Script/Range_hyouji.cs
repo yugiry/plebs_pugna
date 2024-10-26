@@ -5,10 +5,12 @@ using UnityEngine;
 public class Range_hyouji : MonoBehaviour
 {
     public GameObject range_child;
+   
     // Start is called before the first frame update
     void Start()
     {
         range_child = GameObject.Find("ranges");
+       
     }
 
     public void range_hyouji()
@@ -20,12 +22,16 @@ public class Range_hyouji : MonoBehaviour
         else
         {
             range_child.SetActive(true);
+            
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButton(0)) 
+        {
+            range_hyouji();
+        }
     }
 }
