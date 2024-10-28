@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 466fa29744931554791c02ea11b4e7c1
+guid: 1bc3d8b7479c3004cb0f24f3e9aee980
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: All_infantry_0
+      name: new_All_Catapult_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7531a11f6acde9f4aa386315d74d1532
-      internalID: -501580518
+      spriteID: 4943bb02eb55bbf46b1917986fd4dc83
+      internalID: -1826807678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_infantry_1
+      name: new_All_Catapult_1
       rect:
         serializedVersion: 2
         x: 64
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbbf55d1b1088c04abd9a21033212f3c
-      internalID: 1576919397
+      spriteID: 961db271fffac0e42bee9dd99f81c201
+      internalID: 1399933609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_infantry_2
+      name: new_All_Catapult_2
       rect:
         serializedVersion: 2
         x: 128
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e125bfee98022e41be0233549fa99ba
-      internalID: 1379055088
+      spriteID: 2917b8068c1ddb6449ee18ed5706f0d8
+      internalID: -1457930077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_infantry_3
+      name: new_All_Catapult_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d2d100ceb25bca4f940ef7d6383136f
-      internalID: 871803263
+      spriteID: 1d66a37a688beb843b9bc30cb44b66dc
+      internalID: -1771878217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_infantry_4
+      name: new_All_Catapult_4
       rect:
         serializedVersion: 2
         x: 64
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c93e7796464eae7488eaf698fbf3ed97
-      internalID: -2040276129
+      spriteID: f4946094e2f4bda41898b560c394ebc7
+      internalID: 1856839188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_infantry_5
+      name: new_All_Catapult_5
       rect:
         serializedVersion: 2
         x: 128
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 842a2934ac7439b4ea75112e0bb87856
-      internalID: 99467252
+      spriteID: 0fa741093b72f42449bce5651dd2c37e
+      internalID: 1950196038
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      All_infantry_0: -501580518
-      All_infantry_1: 1576919397
-      All_infantry_2: 1379055088
-      All_infantry_3: 871803263
-      All_infantry_4: -2040276129
-      All_infantry_5: 99467252
+      new_All_Catapult_0: -1826807678
+      new_All_Catapult_1: 1399933609
+      new_All_Catapult_2: -1457930077
+      new_All_Catapult_3: -1771878217
+      new_All_Catapult_4: 1856839188
+      new_All_Catapult_5: 1950196038
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
