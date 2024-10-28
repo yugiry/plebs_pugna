@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit_Operation : MonoBehaviour
 {
     public GameObject unit;
+    public GameObject act;
     public float Unit_X;
     public float Unit_Y;
     private bool pushmouse;
@@ -32,14 +33,18 @@ public class Unit_Operation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ユニットを動かす処理
-        if (followmouse && !pushmouse)
+        //攻撃
+        //if()
         {
-            //選択したユニットを消す
-            if (Input.GetKeyDown(KeyCode.B))
+            //マウスの位置のユニットを攻撃する
+            if (Input.GetMouseButtonDown(0))
             {
-                Destroy(unit);
+
             }
+        }
+        //移動
+        //if()
+        {
             //ユニットをマウスの位置のタイルに移動させる
             if (Input.GetMouseButtonDown(0))
             {
@@ -69,12 +74,7 @@ public class Unit_Operation : MonoBehaviour
                                     {
                                         Debug.Log(clickedGameObject.name);
                                         unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 7.0f);
-                                        LineRenderer renderer = gameObject.GetComponent<LineRenderer>();
-                                        renderer.SetWidth(1.0f, 1.0f);
-                                        renderer.SetVertexCount(2);
-                                        renderer.SetPosition(0, new Vector3(unit.transform.position.x, unit.transform.position.y, unit.transform.position.z));
-                                        renderer.SetPosition(1, new Vector3(-54 + (j * 4.5f), 54 - (i * 4.5f), 7.0f));
-                                        followmouse = false;
+                                        //clickmove = false;
                                     }
                                 }
                             }
@@ -84,20 +84,14 @@ public class Unit_Operation : MonoBehaviour
             }
         }
         pushmouse = Input.GetMouseButtonDown(0);
-        //右クリックしたら選択をキャンセルする
-        if(Input.GetMouseButtonDown(1))
-        {
-            followmouse = false;
-        }
     }
 
     //ユニットを選択する
     public void Unit_Serect()
     {
-        if (!followmouse)
+        if (!act.activeSelf)
         {
-            followmouse = true;
-            pushmouse = Input.GetMouseButtonDown(0);
+            act.SetActive(true);
         }
     }
 }
