@@ -9,6 +9,10 @@ public class undo : MonoBehaviour
     public GameObject infantrystatus;
     public GameObject archerstatus;
     public GameObject catapultstatus;
+    public GameObject castlevalue2;
+    public GameObject button_infantry;
+    public GameObject button_archer;
+    public GameObject button_catapalt;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +30,10 @@ public class undo : MonoBehaviour
             archerstatus.SetActive(false);
             catapultstatus.SetActive(false);
             castlevalue.SetActive(true);
-           
+            castlevalue2.SetActive(false);
+            button_infantry.SetActive(true);
+            button_archer.SetActive(true);
+            button_catapalt.SetActive(true);
         }
     }
 }

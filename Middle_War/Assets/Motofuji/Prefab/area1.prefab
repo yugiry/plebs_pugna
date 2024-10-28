@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3451950235446734539}
   - component: {fileID: -6110470725466301799}
   - component: {fileID: -6328813433721099338}
+  - component: {fileID: 2065497078183628266}
   - component: {fileID: 4038407726643061542}
   m_Layer: 0
   m_Name: area1
@@ -161,6 +162,20 @@ MonoBehaviour:
   TILESIZE_Y: 4
   TILESPACE: 0.5
   TileNum: 0
+--- !u!114 &2065497078183628266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426507382235697720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428c808c9c436f34db2d83c972106a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropArea:
+  - {fileID: 0}
 --- !u!50 &4038407726643061542
 Rigidbody2D:
   serializedVersion: 4
