@@ -79,18 +79,19 @@ public class Unit_Operation : MonoBehaviour
                                         if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
                                         {
                                             clickedGameObject = hit2d.transform.gameObject;
+                                            Debug.Log(clickedGameObject.name);
                                             if (clickedGameObject.name != "mountain(Clone)" 
                                                 && clickedGameObject.name != "resource(Clone)" 
                                                 && clickedGameObject.name != "castle1(Clone)" 
                                                 && clickedGameObject.name != "castle2(Clone)" 
                                                 && clickedGameObject.name != "area2(Clone)"
-                                                && clickedGameObject.name != "Pinfantry"
+                                                &&clickedGameObject.name!="Einfantry"
+                                                &&clickedGameObject.name !="Pinfantry"
                                                 && clickedGameObject.name != "Parcher"
                                                 && clickedGameObject.name != "Pcatapalt")
                                             {
                                                 //APの量を調べて足りるなら移動
-                                                Debug.Log(clickedGameObject.name);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 7.0f);
+                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
                                                 //clickmove = false;
                                             }
                                         }
@@ -118,10 +119,9 @@ public class Unit_Operation : MonoBehaviour
     //ユニットを選択する
     public void Unit_Serect()
     {
-        if (!act1.activeSelf && !act2.activeSelf && !act3.activeSelf)
+        if (!act1.activeSelf)
         {
             act1.SetActive(true);
         }
     }
 }
-

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6686210027933580255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7}
+  m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 6.2, y: 6.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,13 +157,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 6686210027933580255}
   act1: {fileID: 7219286784236493321}
-  act2: {fileID: 1357947769023258580, guid: 2af40d4128c1c8049913d95457e26168, type: 3}
-  act3: {fileID: 5444054226037858539, guid: 27301030a165f644fb1f39647d859f12, type: 3}
+  act2: {fileID: 0}
+  act3: {fileID: 0}
   Unit_X: 0
   Unit_Y: 0
   hp: 4
   attack: 1
   spawn_ap: 2
+  spawn_resource: 0
   move_ap: 1
   choice_move: 0
 --- !u!1 &7219286784236493321
@@ -191,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 7219286784236493321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16129033, y: 0.16129033, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6686210027933580249}
