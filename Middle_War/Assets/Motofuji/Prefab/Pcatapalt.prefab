@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2849922815102205138}
   m_Layer: 0
-  m_Name: act
-  m_TagString: Untagged
+  m_Name: act_catapalt
+  m_TagString: act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 5444054226037858539}
   act1: {fileID: 1586859972480592464}
-  act2: {fileID: 0}
-  act3: {fileID: 0}
   Unit_X: 0
   Unit_Y: 0
   hp: 7

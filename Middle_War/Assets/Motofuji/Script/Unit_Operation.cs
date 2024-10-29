@@ -6,8 +6,6 @@ public class Unit_Operation : MonoBehaviour
 {
     public GameObject unit;
     public GameObject act1;
-    public GameObject act2;
-    public GameObject act3;
     public float Unit_X;
     public float Unit_Y;
     private bool pushmouse;
@@ -20,6 +18,7 @@ public class Unit_Operation : MonoBehaviour
     public int choice_move;
 
     GameObject clickedGameObject;
+    GameObject[] action;
 
     private bool followmouse;
     private int tilenum;
@@ -119,9 +118,12 @@ public class Unit_Operation : MonoBehaviour
     //ユニットを選択する
     public void Unit_Serect()
     {
-        if (!act1.activeSelf)
+        action = GameObject.FindGameObjectsWithTag("act");
+        foreach (GameObject act in action)
         {
-            act1.SetActive(true);
+            Debug.Log("Enemyタグを持ったオブジェクト名：" + act.name);
+            act.SetActive(false);
         }
+        act1.SetActive(true);
     }
 }

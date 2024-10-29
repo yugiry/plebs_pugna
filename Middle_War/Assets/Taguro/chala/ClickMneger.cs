@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickMneger : MonoBehaviour
 {
-    public GameObject clickPanel
+    public GameObject clickPanel;
 
     // Start is called before the first frame update
     void Start()

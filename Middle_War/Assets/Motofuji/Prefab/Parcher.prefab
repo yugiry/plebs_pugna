@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9056728107147738621}
   m_Layer: 0
-  m_Name: act
-  m_TagString: Untagged
+  m_Name: act_archer
+  m_TagString: act
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 1357947769023258580}
   act1: {fileID: 170321834655978423}
-  act2: {fileID: 0}
-  act3: {fileID: 0}
   Unit_X: 0
   Unit_Y: 0
   hp: 3
