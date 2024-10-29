@@ -5,14 +5,23 @@ using UnityEngine;
 public class Unit_Operation : MonoBehaviour
 {
     public GameObject unit;
-    public GameObject act;
+    public GameObject act1;
+    public GameObject act2;
+    public GameObject act3;
     public float Unit_X;
     public float Unit_Y;
     private bool pushmouse;
 
+    public int hp;
+    public int attack;
+    public int spawn_ap;
+    public int spawn_resource;
+    public int move_ap;
+    public int choice_move;
+
     GameObject clickedGameObject;
 
-    public bool followmouse;
+    private bool followmouse;
     private int tilenum;
 
     private float tile_x;
@@ -33,65 +42,86 @@ public class Unit_Operation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //攻撃
-        //if()
+        if (act1.activeSelf)
         {
-            //マウスの位置のユニットを攻撃する
-            if (Input.GetMouseButtonDown(0))
+            //攻撃か移動か変更
+            if (Input.GetKeyDown(KeyCode.C))
             {
-
-            }
-        }
-        //移動
-        //if()
-        {
-            //ユニットをマウスの位置のタイルに移動させる
-            if (Input.GetMouseButtonDown(0))
-            {
-                mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
-                mousepos.x = mousepos.x + 54;
-                mousepos.y = -mousepos.y + 54;
-                mousepos.z = unit.transform.position.z;
-                tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
-                tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
-                //マウスの位置にあるタイルを探す
-                for (float i = tile_y - 1; i <= tile_y + 1; i++)
+                choice_move++;
+                if (choice_move > 1)
                 {
-                    for (float j = tile_x - 1; j <= tile_x + 1; j++)
+                    choice_move = 0;
+                }
+            }
+            switch (choice_move)
+            {
+                case 0://移動
+                    //ユニットをマウスの位置のタイルに移動させる
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        if (((i == tile_y - 1 || i == tile_y + 1) && j == tile_x) || (i == tile_y && (j == tile_x - 1 || j == tile_x + 1)))
+                        mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+                        mousepos.x = mousepos.x + 54;
+                        mousepos.y = -mousepos.y + 54;
+                        mousepos.z = unit.transform.position.z;
+                        tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
+                        tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
+                        //マウスの位置にあるタイルを探す
+                        for (float i = tile_y - 1; i <= tile_y + 1; i++)
                         {
-                            Debug.Log("通過");
-                            if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
+                            for (float j = tile_x - 1; j <= tile_x + 1; j++)
                             {
-                                Debug.Log("通過");
-                                if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
+                                if (((i == tile_y - 1 || i == tile_y + 1) && j == tile_x) || (i == tile_y && (j == tile_x - 1 || j == tile_x + 1)))
                                 {
-                                    clickedGameObject = hit2d.transform.gameObject;
-                                    if (clickedGameObject.name != "mountain(Clone)" && clickedGameObject.name != "resource(Clone)" && clickedGameObject.name != "castle1(Clone)" && clickedGameObject.name != "castle2(Clone)" && clickedGameObject.name != "area2(Clone)")
+                                    if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
                                     {
-                                        Debug.Log(clickedGameObject.name);
-                                        unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 7.0f);
-                                        //clickmove = false;
+                                        if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
+                                        {
+                                            clickedGameObject = hit2d.transform.gameObject;
+                                            if (clickedGameObject.name != "mountain(Clone)" 
+                                                && clickedGameObject.name != "resource(Clone)" 
+                                                && clickedGameObject.name != "castle1(Clone)" 
+                                                && clickedGameObject.name != "castle2(Clone)" 
+                                                && clickedGameObject.name != "area2(Clone)"
+                                                && clickedGameObject.name != "Pinfantry"
+                                                && clickedGameObject.name != "Parcher"
+                                                && clickedGameObject.name != "Pcatapalt")
+                                            {
+                                                //APの量を調べて足りるなら移動
+                                                Debug.Log(clickedGameObject.name);
+                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 7.0f);
+                                                //clickmove = false;
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
+                    pushmouse = Input.GetMouseButtonDown(0);
+                    break;
+                case 1://攻撃
+                    if (Input.GetMouseButton(0))
+                    {
+
+                    }
+                    break;
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                act1.SetActive(false);
             }
         }
-        pushmouse = Input.GetMouseButtonDown(0);
     }
 
     //ユニットを選択する
     public void Unit_Serect()
     {
-        if (!act.activeSelf)
+        if (!act1.activeSelf && !act2.activeSelf && !act3.activeSelf)
         {
-            act.SetActive(true);
+            act1.SetActive(true);
         }
     }
 }
+
