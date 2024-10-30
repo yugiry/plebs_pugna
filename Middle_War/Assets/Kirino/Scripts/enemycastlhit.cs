@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class castlhit : MonoBehaviour
+public class enemycastlhit : MonoBehaviour
 {
-
     public int maxHealth = 35;  // 最大HP
     private int currentHealth = 35;  // 現在のHP
     public Text healthText;  // HP表示用のテキスト(UI)
 
     public GameObject mainText;//image後で画像表示
-    public Sprite gameOverSpr;
+    public Sprite gameClearSpr;
     public GameObject panel;
     public GameObject restartBotton;
     public GameObject nextBotton;
@@ -44,10 +42,10 @@ public class castlhit : MonoBehaviour
 
         UpdateHealthUI();
 
-        // HPが0になったらゲームオーバー処理
+        // 敵のHPが0になったらゲームクリア処理
         if (currentHealth <= 0)
         {
-            GameOver();
+            GameClear();
         }
     }
 
@@ -60,17 +58,18 @@ public class castlhit : MonoBehaviour
         }
     }
 
-    // ゲームオーバー処理
-    void GameOver()
+    // ゲームクリア処理
+    void GameClear()
     {
-        Debug.Log("Game Over!");
-        // ここにゲームオーバー時の処理を追加（例：シーンのリセットやメニュー画面の表示など）
+        Debug.Log("Game Clear!");
+        // ここにゲームクリア時の処理を追加（例：シーンのリセットやメニュー画面の表示など）
+        //ゲームクリア
         mainText.SetActive(true); //画像を表示する（現在テキストを表示中）
         panel.SetActive(true);    //ボタン（パネル）を表示する
-        //NEXTボタンを無効化する
-        Button bt = nextBotton.GetComponent<Button>();
+        //RESTRTボタンを無効化する
+        Button bu = restartBotton.GetComponent<Button>();
         bt.interactable = false;
-        //mainText.GetComponent<Text>().sprite = gameOverSpr; //画像を設定する
+        //mainText.GetComponent<Text>().sprite = gameClearSpr; //画像を設定する
     }
 
 }
