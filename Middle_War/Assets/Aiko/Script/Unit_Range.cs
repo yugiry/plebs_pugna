@@ -5,11 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Unit_Range : MonoBehaviour, IPointerClickHandler
 {
-    int count = 0;
-
     public GameObject kougekihanni;
     
-
     public void OnPointerClick(PointerEventData eventdata)
     {
         //var eventData = (PointerEventData)data;

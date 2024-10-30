@@ -68,7 +68,7 @@ public class enemycastlhit : MonoBehaviour
         panel.SetActive(true);    //ボタン（パネル）を表示する
         //RESTRTボタンを無効化する
         Button bu = restartBotton.GetComponent<Button>();
-        bt.interactable = false;
+        bu.interactable = false;
         //mainText.GetComponent<Text>().sprite = gameClearSpr; //画像を設定する
     }
 

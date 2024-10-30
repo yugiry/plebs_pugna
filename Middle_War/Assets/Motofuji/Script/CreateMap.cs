@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CreateMap : MonoBehaviour
@@ -41,6 +42,11 @@ public class CreateMap : MonoBehaviour
     public int[] map;
     //csvファイルの場所
     private string csv_place = "Assets/Motofuji/Resources/map.csv";
+
+    //APの管理をする数値+。
+    int Maximam_AP=999;
+    int Now_AP=0;
+    [SerializeField] Text AP_Text;
 
     /// <summary>
     /// csvファイルの読み込み用モジュール
@@ -94,6 +100,8 @@ public class CreateMap : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !PUSHSPACE)
         {
             PUSHSPACE = true;
+            Now_AP += 5;
+            AP_Text.text = Now_AP.ToString() + "/" + Maximam_AP.ToString();
         }
 
         if(Input.GetKeyDown(KeyCode.M))
@@ -104,7 +112,7 @@ public class CreateMap : MonoBehaviour
 
         if (PUSHSPACE)
         {
-            if(y < MAPSIZE_Y)
+            if (y < MAPSIZE_Y)
             {
                 SET_X = SetTileStart_X + (TILESIZE_X + TILESPACE) * x;
                 SET_Y = SetTileStart_Y - (TILESIZE_Y + TILESPACE) * y;
@@ -132,7 +140,10 @@ public class CreateMap : MonoBehaviour
                 {
                     for (int dx = 0; dx < 3; dx++)
                     {
-                        if (dy == 1 && dx == 1) ;
+                        if (dy == 1 && dx == 1)
+                        {
+
+                        }
                         else
                         {
                             Instantiate(area1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (21 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (21 + dy), SetTile_Z - 5), Quaternion.identity);

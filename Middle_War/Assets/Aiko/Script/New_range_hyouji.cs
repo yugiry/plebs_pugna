@@ -12,9 +12,8 @@ public class New_range_hyouji : MonoBehaviour
     public void Click_unit()
     {
         //unitclick = unit_click as GameObject; 
-
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        if (this.gameObject.name == "infantry")
+        if (this.gameObject.name == "Pinfantry(Clone)")
         {
             Destroy_Range();
             Destroy_Range();
@@ -22,19 +21,17 @@ public class New_range_hyouji : MonoBehaviour
             {
                 for (float y = -masume_size; y <= +masume_size; y += masume_size)
                 {
-                    unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, -5.5f), Quaternion.identity, parent) as GameObject;
+                    unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
 
                 }
-
             }
-            
 
             Debug.Log("クリックされたぞい。");
 
             // Destroy(unitclick, 1);
         }
         //弓兵処理
-        else if (this.gameObject.name == "archer")
+        else if (this.gameObject.name == "Parcher(Clone)")
         {
             Destroy_Range();
             Destroy_Range();
@@ -42,15 +39,13 @@ public class New_range_hyouji : MonoBehaviour
             {
                 for (float y = -masume_size * 2; y <= +masume_size * 2; y += masume_size)
                 {
-                    unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, -5.5f), Quaternion.identity, parent) as GameObject;
+                    unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
                 }
 
             }
-
-
         }
         //カタパルト処理
-        else if (this.gameObject.name == "catapult")
+        else if (this.gameObject.name == "Pcatapalt(Clone)")
         {
             Destroy_Range();
             Destroy_Range();
@@ -64,24 +59,11 @@ public class New_range_hyouji : MonoBehaviour
                     }
                     else
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, -5.5f), Quaternion.identity, parent) as GameObject;
+                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
                     }
                 }
-
-
-
-
             }
-
-
-
-
-
-
-
         }
-
-
     }
 
     private void Destroy_Range()

@@ -9,7 +9,7 @@ public class APchange : MonoBehaviour
     [SerializeField] Text apText;
 
     int maxAp = 999;
-    float nowAp = 5;
+    float nowAp = 0;
 
     // Start is called before the first frame update
     void Start()

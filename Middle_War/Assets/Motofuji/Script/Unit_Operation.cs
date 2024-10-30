@@ -29,6 +29,13 @@ public class Unit_Operation : MonoBehaviour
     Vector3 mousepos;
     Vector3 vec;
 
+
+    public GameObject unit_click;
+    public Transform parent;
+    public GameObject base_point_unit;
+    private GameObject unitclick;
+    float masume_size = 4.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,11 +51,12 @@ public class Unit_Operation : MonoBehaviour
         if (act1.activeSelf)
         {
             //弓兵とカタパルトは城を攻撃できる
-            if (unit.name == "Parcher" || unit.name == "Pcatapalt")
+            if (unit.name == "Parcher(Clone)" || unit.name == "Pcatapalt(Clone)")
             {
                 //攻撃か移動か変更
                 if (Input.GetKeyDown(KeyCode.C))
                 {
+                    Destroy_Range();
                     choice_move++;
                     if (choice_move > 1)
                     {
@@ -87,12 +95,12 @@ public class Unit_Operation : MonoBehaviour
                                                  && clickedGameObject.name != "castle1(Clone)"
                                                  && clickedGameObject.name != "castle2(Clone)"
                                                  && clickedGameObject.name != "area2(Clone)"
-                                                 && clickedGameObject.name != "Einfantry"
-                                                 && clickedGameObject.name != "Earcher"
-                                                 && clickedGameObject.name != "Ecatapalt"
-                                                 && clickedGameObject.name != "Pinfantry"
-                                                 && clickedGameObject.name != "Parcher"
-                                                 && clickedGameObject.name != "Pcatapalt")
+                                                 && clickedGameObject.name != "Einfantry(Clone)"
+                                                 && clickedGameObject.name != "Earcher(Clone)"
+                                                 && clickedGameObject.name != "Ecatapalt(Clone)"
+                                                 && clickedGameObject.name != "Pinfantry(Clone)"
+                                                 && clickedGameObject.name != "Parcher(Clone)"
+                                                 && clickedGameObject.name != "Pcatapalt(Clone)")
                                                 {
                                                     //APの量を調べて足りるなら移動
                                                     unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
@@ -107,15 +115,50 @@ public class Unit_Operation : MonoBehaviour
                         pushmouse = Input.GetMouseButtonDown(0);
                         break;
                     case 1://攻撃
+                        Vector3 pos = parent.transform.localPosition;
+                        //弓兵処理
+                        if (this.gameObject.name == "Parcher(Clone)")
+                        {
+                            Destroy_Range();
+                            Destroy_Range();
+                            for (float x = -masume_size * 2; x <= +masume_size * 2; x += masume_size)
+                            {
+                                for (float y = -masume_size * 2; y <= +masume_size * 2; y += masume_size)
+                                {
+                                    unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
+                                }
+
+                            }
+                        }
+                        //カタパルト処理
+                        else if (this.gameObject.name == "Pcatapalt(Clone)")
+                        {
+                            Destroy_Range();
+                            Destroy_Range();
+                            for (float x = -masume_size * 4; x <= +masume_size * 4; x += masume_size)
+                            {
+                                for (float y = -masume_size * 4; y <= +masume_size * 4; y += masume_size)
+                                {
+                                    if (x >= -masume_size * 1 && x <= masume_size * 1 && y >= -masume_size * 1 && y <= masume_size * 1)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
+                                    }
+                                }
+                            }
+                        }
                         if (Input.GetMouseButton(0))
                         {
                             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                             RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
                             clickedGameObject = hit2d.transform.gameObject;
                             Debug.Log(clickedGameObject.name);
-                            if (clickedGameObject.name == "Einfantry"
-                             || clickedGameObject.name == "Earcher"
-                             || clickedGameObject.name == "Ecatapalt")
+                            if (clickedGameObject.name == "Einfantry(Clone)"
+                             || clickedGameObject.name == "Earcher(Clone)"
+                             || clickedGameObject.name == "Ecatapalt(Clone)")
                             {
                                 Debug.Log("ユニット攻撃");
                             }
@@ -131,11 +174,12 @@ public class Unit_Operation : MonoBehaviour
                     act1.SetActive(false);
                 }
             }
-            else if (unit.name == "Pinfantry")
+            else if (unit.name == "Pinfantry(Clone)")
             {
                 //攻撃か移動か変更
                 if (Input.GetKeyDown(KeyCode.C))
                 {
+                    Destroy_Range();
                     choice_move++;
                     if (choice_move > 1)
                     {
@@ -173,12 +217,12 @@ public class Unit_Operation : MonoBehaviour
                                                  && clickedGameObject.name != "castle1(Clone)"
                                                  && clickedGameObject.name != "castle2(Clone)"
                                                  && clickedGameObject.name != "area2(Clone)"
-                                                 && clickedGameObject.name != "Einfantry"
-                                                 && clickedGameObject.name != "Earcher"
-                                                 && clickedGameObject.name != "Ecatapalt"
-                                                 && clickedGameObject.name != "Pinfantry"
-                                                 && clickedGameObject.name != "Parcher"
-                                                 && clickedGameObject.name != "Pcatapalt")
+                                                 && clickedGameObject.name != "Einfantry(Clone)"
+                                                 && clickedGameObject.name != "Earcher(Clone)"
+                                                 && clickedGameObject.name != "Ecatapalt(Clone)"
+                                                 && clickedGameObject.name != "Pinfantry(Clone)"
+                                                 && clickedGameObject.name != "Parcher(Clone)"
+                                                 && clickedGameObject.name != "Pcatapalt(Clone)")
                                                 {
                                                     if (clickedGameObject.name == "resource(Clone)")
                                                     {
@@ -200,15 +244,33 @@ public class Unit_Operation : MonoBehaviour
                         pushmouse = Input.GetMouseButtonDown(0);
                         break;
                     case 1://攻撃
+                        Vector3 pos = parent.transform.localPosition;
+                        if (this.gameObject.name == "Pinfantry(Clone)")
+                        {
+                            Destroy_Range();
+                            Destroy_Range();
+                            for (float x = -masume_size; x <= +masume_size; x += masume_size)
+                            {
+                                for (float y = -masume_size; y <= +masume_size; y += masume_size)
+                                {
+                                    unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
+
+                                }
+                            }
+
+                            Debug.Log("クリックされたぞい。");
+
+                            // Destroy(unitclick, 1);
+                        }
                         if (Input.GetMouseButton(0))
                         {
                             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                             RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
                             clickedGameObject = hit2d.transform.gameObject;
                             Debug.Log(clickedGameObject.name);
-                            if (clickedGameObject.name == "Einfantry"
-                             || clickedGameObject.name == "Earcher"
-                             || clickedGameObject.name == "Ecatapalt")
+                            if (clickedGameObject.name == "Einfantry(Clone)"
+                             || clickedGameObject.name == "Earcher(Clone)"
+                             || clickedGameObject.name == "Ecatapalt(Clone)")
                             {
                                 Debug.Log("攻撃");
                             }
@@ -223,9 +285,24 @@ public class Unit_Operation : MonoBehaviour
         }
     }
 
+    private void Destroy_Range()
+    {
+        GameObject[] unitclick = GameObject.FindGameObjectsWithTag("Respawn");
+
+        if (unit_click.activeSelf)
+        {
+            //var unitclick = Instantiate(unit_click) as GameObject;
+            foreach (GameObject range_child in unitclick)
+            {
+                Destroy(range_child);
+            }
+        }
+    }
+
     //ユニットを選択する
     public void Unit_Serect()
     {
+        Destroy_Range();
         action = GameObject.FindGameObjectsWithTag("act");
         foreach (GameObject act in action)
         {
