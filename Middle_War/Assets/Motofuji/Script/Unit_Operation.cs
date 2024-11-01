@@ -20,6 +20,12 @@ public class Unit_Operation : MonoBehaviour
     GameObject clickedGameObject;
     GameObject[] action;
 
+    GameObject cmobj;
+    CreateMap CMinfo;
+
+    int apnum;
+    int renum;
+
     private bool followmouse;
     private int tilenum;
 
@@ -102,8 +108,17 @@ public class Unit_Operation : MonoBehaviour
                                                  && clickedGameObject.name != "Parcher(Clone)"
                                                  && clickedGameObject.name != "Pcatapalt(Clone)")
                                                 {
+                                                    cmobj = GameObject.Find("map");
+                                                    CMinfo = cmobj.GetComponent<CreateMap>();
+                                                    apnum = CMinfo.Now_AP;
+                                                    renum = CMinfo.Now_Resource;
                                                     //AP‚Ì—Ê‚ð’²‚×‚Ä‘«‚è‚é‚È‚çˆÚ“®
-                                                    unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
+                                                    apnum = apnum - move_ap;
+                                                    if(apnum >= 0)
+                                                    {
+                                                        CMinfo.Change_REAP(apnum, renum);
+                                                        unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
+                                                    }
                                                     //clickmove = false;
                                                 }
                                             }
@@ -230,8 +245,17 @@ public class Unit_Operation : MonoBehaviour
                                                     }
                                                     else
                                                     {
+                                                        cmobj = GameObject.Find("map");
+                                                        CMinfo = cmobj.GetComponent<CreateMap>();
+                                                        apnum = CMinfo.Now_AP;
+                                                        renum = CMinfo.Now_Resource;
                                                         //AP‚Ì—Ê‚ð’²‚×‚Ä‘«‚è‚é‚È‚çˆÚ“®
-                                                        unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
+                                                        apnum = apnum - move_ap;
+                                                        if (apnum >= 0)
+                                                        {
+                                                            CMinfo.Change_REAP(apnum, renum);
+                                                            unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
+                                                        }
                                                         //clickmove = false;
                                                     }
                                                 }

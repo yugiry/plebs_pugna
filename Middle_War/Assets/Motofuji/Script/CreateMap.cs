@@ -44,9 +44,14 @@ public class CreateMap : MonoBehaviour
     private string csv_place = "Assets/Motofuji/Resources/map.csv";
 
     //APの管理をする数値+。
-    int Maximam_AP=999;
-    int Now_AP=0;
+    int Maximam_AP = 999;
+    public int Now_AP = 0;
     [SerializeField] Text AP_Text;
+
+    //資源の管理をする数値。
+    int Maximam_Resource = 999;
+    public int Now_Resource = 0;
+    [SerializeField] Text RE_Text;
 
     /// <summary>
     /// csvファイルの読み込み用モジュール
@@ -101,7 +106,9 @@ public class CreateMap : MonoBehaviour
         {
             PUSHSPACE = true;
             Now_AP += 5;
+            Now_Resource = 0;
             AP_Text.text = Now_AP.ToString() + "/" + Maximam_AP.ToString();
+            RE_Text.text = Now_Resource.ToString() + "/" + Maximam_Resource.ToString();
         }
 
         if(Input.GetKeyDown(KeyCode.M))
@@ -160,5 +167,13 @@ public class CreateMap : MonoBehaviour
                 y++;
             }
         }
+    }
+
+    public void Change_REAP(int ap, int re)
+    {
+        Now_AP = ap;
+        Now_Resource = re;
+        AP_Text.text = Now_AP.ToString() + "/" + Maximam_AP.ToString();
+        RE_Text.text = Now_Resource.ToString() + "/" + Maximam_Resource.ToString();
     }
 }
