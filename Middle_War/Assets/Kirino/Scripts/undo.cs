@@ -14,6 +14,15 @@ public class undo : MonoBehaviour
     public GameObject button_archer;
     public GameObject button_catapalt;
 
+    public GameObject enemycastlevalue;
+    public GameObject enemyinfantrystatus;
+    public GameObject enemyarcherstatus;
+    public GameObject enemycatapultstatus;
+    public GameObject enemycastlevalue2;
+    public GameObject enemybutton_infantry;
+    public GameObject enemybutton_archer;
+    public GameObject enemybutton_catapalt;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +43,15 @@ public class undo : MonoBehaviour
             button_infantry.SetActive(true);
             button_archer.SetActive(true);
             button_catapalt.SetActive(true);
+
+            enemyinfantrystatus.SetActive(false);
+            enemyarcherstatus.SetActive(false);
+            enemycatapultstatus.SetActive(false);
+            enemycastlevalue.SetActive(true);
+            enemycastlevalue2.SetActive(false);
+            enemybutton_infantry.SetActive(true);
+            enemybutton_archer.SetActive(true);
+            enemybutton_catapalt.SetActive(true);
         }
     }
 }
