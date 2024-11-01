@@ -313,14 +313,14 @@ public class Unit_Operation : MonoBehaviour
     {
         GameObject[] unitclick = GameObject.FindGameObjectsWithTag("Respawn");
 
-        if (unit_click.activeSelf)
-        {
-            //var unitclick = Instantiate(unit_click) as GameObject;
-            foreach (GameObject range_child in unitclick)
-            {
-                Destroy(range_child);
-            }
-        }
+        //if (unit_click.activeSelf)
+        //{
+        //    //var unitclick = Instantiate(unit_click) as GameObject;
+        //    foreach (GameObject range_child in unitclick)
+        //    {
+        //        Destroy(range_child);
+        //    }
+        //}
     }
 
     //ユニットを選択する
