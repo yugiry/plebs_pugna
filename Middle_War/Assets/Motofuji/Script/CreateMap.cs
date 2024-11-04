@@ -43,15 +43,25 @@ public class CreateMap : MonoBehaviour
     //csvファイルの場所
     private string csv_place = "Assets/Motofuji/Resources/map.csv";
 
-    //APの管理をする数値+。
-    int Maximam_AP = 999;
-    public int Now_AP = 0;
-    [SerializeField] Text AP_Text;
+    //playerAPの管理をする数値。
+    int Maximam_PAP = 999;
+    public int Now_PAP = 0;
+    [SerializeField] Text PAP_Text;
 
-    //資源の管理をする数値。
-    int Maximam_Resource = 999;
-    public int Now_Resource = 0;
-    [SerializeField] Text RE_Text;
+    //player資源の管理をする数値。
+    int Maximam_PResource = 999;
+    public int Now_PResource = 0;
+    [SerializeField] Text PRE_Text;
+
+    //enemyAPの管理をする数値。
+    int Maximam_EAP = 999;
+    public int Now_EAP = 0;
+    [SerializeField] Text EAP_Text;
+
+    //enemy資源の管理をする数値
+    int Maximam_EResource = 999;
+    public int Now_EResource = 0;
+    [SerializeField] Text ERE_Text;
 
     /// <summary>
     /// csvファイルの読み込み用モジュール
@@ -102,21 +112,28 @@ public class CreateMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //スペースでゲーム開始
         if (Input.GetKeyDown(KeyCode.Space) && !PUSHSPACE)
         {
             PUSHSPACE = true;
-            Now_AP += 5;
-            Now_Resource = 0;
-            AP_Text.text = Now_AP.ToString() + "/" + Maximam_AP.ToString();
-            RE_Text.text = Now_Resource.ToString() + "/" + Maximam_Resource.ToString();
+            Now_PAP = 999;
+            Now_PResource = 0;
+            Now_EAP = 994;
+            Now_EResource = 0;
+            PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();
+            PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
+            EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
+            ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
         }
 
+        //マウスのポジションを表示
         if(Input.GetKeyDown(KeyCode.M))
         {
             Vector2 m_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log("m_pos(" + m_pos.x.ToString("F2") + "," + m_pos.y.ToString("F2") + ")");
         }
 
+        //マップ生成
         if (PUSHSPACE)
         {
             if (y < MAPSIZE_Y)
@@ -167,13 +184,39 @@ public class CreateMap : MonoBehaviour
                 y++;
             }
         }
+
+        //APや資源が上限を超えた場合上限に数値を戻す
+        if(Now_PAP > Maximam_PAP)
+        {
+            Now_PAP = Maximam_PAP;
+        }
+        if(Now_PResource > Maximam_PResource)
+        {
+            Now_PResource = Maximam_PResource;
+        }
+        if(Now_EAP > Maximam_EAP)
+        {
+            Now_EAP = Maximam_EAP;
+        }
+        if(Now_EResource > Maximam_EResource)
+        {
+            Now_EResource = Maximam_EResource;
+        }
     }
 
-    public void Change_REAP(int ap, int re)
+    public void PChange_REAP(int ap, int re)
     {
-        Now_AP = ap;
-        Now_Resource = re;
-        AP_Text.text = Now_AP.ToString() + "/" + Maximam_AP.ToString();
-        RE_Text.text = Now_Resource.ToString() + "/" + Maximam_Resource.ToString();
+        Now_PAP = ap;
+        Now_PResource = re;
+        PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();
+        PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
+    }
+
+    public void EChange_REAP(int ap,int re)
+    {
+        Now_EAP = ap;
+        Now_EResource = re;
+        EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
+        ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Infantry
   - act
+  - Eact
   layers:
   - Default
   - TransparentFX

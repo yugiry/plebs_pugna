@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit_Operation : MonoBehaviour
+public class EUnit_Operation : MonoBehaviour
 {
     public GameObject unit;
     public GameObject act1;
@@ -57,7 +57,7 @@ public class Unit_Operation : MonoBehaviour
         if (act1.activeSelf)
         {
             //弓兵とカタパルトは城を攻撃できる
-            if (unit.name == "Parcher(Clone)" || unit.name == "Pcatapalt(Clone)")
+            if (unit.name == "Earcher(Clone)" || unit.name == "Ecatapalt(Clone)")
             {
                 //攻撃か移動か変更
                 if (Input.GetKeyDown(KeyCode.C))
@@ -114,9 +114,9 @@ public class Unit_Operation : MonoBehaviour
                                                     renum = CMinfo.Now_PResource;
                                                     //APの量を調べて足りるなら移動
                                                     apnum = apnum - move_ap;
-                                                    if(apnum >= 0)
+                                                    if (apnum >= 0)
                                                     {
-                                                        CMinfo.PChange_REAP(apnum, renum);
+                                                        CMinfo.EChange_REAP(apnum, renum);
                                                         unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
                                                     }
                                                     //clickmove = false;
@@ -132,7 +132,7 @@ public class Unit_Operation : MonoBehaviour
                     case 1://攻撃
                         //Vector3 pos = parent.transform.localPosition;
                         ////弓兵処理
-                        //if (this.gameObject.name == "Parcher(Clone)")
+                        //if (this.gameObject.name == "Earcher(Clone)")
                         //{
                         //    Destroy_Range();
                         //    Destroy_Range();
@@ -146,7 +146,7 @@ public class Unit_Operation : MonoBehaviour
                         //    }
                         //}
                         ////カタパルト処理
-                        //else if (this.gameObject.name == "Pcatapalt(Clone)")
+                        //else if (this.gameObject.name == "Ecatapalt(Clone)")
                         //{
                         //    Destroy_Range();
                         //    Destroy_Range();
@@ -171,9 +171,9 @@ public class Unit_Operation : MonoBehaviour
                             RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
                             clickedGameObject = hit2d.transform.gameObject;
                             Debug.Log(clickedGameObject.name);
-                            if (clickedGameObject.name == "Einfantry(Clone)"
-                             || clickedGameObject.name == "Earcher(Clone)"
-                             || clickedGameObject.name == "Ecatapalt(Clone)")
+                            if (clickedGameObject.name == "Pinfantry(Clone)"
+                             || clickedGameObject.name == "Parcher(Clone)"
+                             || clickedGameObject.name == "Pcatapalt(Clone)")
                             {
                                 Debug.Log("ユニット攻撃");
                             }
@@ -189,7 +189,7 @@ public class Unit_Operation : MonoBehaviour
                     act1.SetActive(false);
                 }
             }
-            else if (unit.name == "Pinfantry(Clone)")
+            else if (unit.name == "Einfantry(Clone)")
             {
                 //攻撃か移動か変更
                 if (Input.GetKeyDown(KeyCode.C))
@@ -253,7 +253,7 @@ public class Unit_Operation : MonoBehaviour
                                                         apnum = apnum - move_ap;
                                                         if (apnum >= 0)
                                                         {
-                                                            CMinfo.PChange_REAP(apnum, renum);
+                                                            CMinfo.EChange_REAP(apnum, renum);
                                                             unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
                                                         }
                                                         //clickmove = false;
@@ -269,7 +269,7 @@ public class Unit_Operation : MonoBehaviour
                         break;
                     case 1://攻撃
                         //Vector3 pos = parent.transform.localPosition;
-                        //if (this.gameObject.name == "Pinfantry(Clone)")
+                        //if (this.gameObject.name == "Einfantry(Clone)")
                         //{
                         //    Destroy_Range();
                         //    Destroy_Range();
@@ -292,9 +292,9 @@ public class Unit_Operation : MonoBehaviour
                             RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
                             clickedGameObject = hit2d.transform.gameObject;
                             Debug.Log(clickedGameObject.name);
-                            if (clickedGameObject.name == "Einfantry(Clone)"
-                             || clickedGameObject.name == "Earcher(Clone)"
-                             || clickedGameObject.name == "Ecatapalt(Clone)")
+                            if (clickedGameObject.name == "Pinfantry(Clone)"
+                             || clickedGameObject.name == "Parcher(Clone)"
+                             || clickedGameObject.name == "Pcatapalt(Clone)")
                             {
                                 Debug.Log("攻撃");
                             }
@@ -324,17 +324,17 @@ public class Unit_Operation : MonoBehaviour
     }
 
     //ユニットを選択する
-    public void Unit_Serect()
+    public void EUnit_Serect()
     {
         Destroy_Range();
-        action = GameObject.FindGameObjectsWithTag("act");
+        action = GameObject.FindGameObjectsWithTag("Eact");
         foreach (GameObject act in action)
         {
             Debug.Log("actタグを持ったオブジェクト名：" + act.name);
             act.SetActive(false);
         }
         act1.SetActive(true);
-        if(act1.activeSelf)
+        if (act1.activeSelf)
         {
             choice_move = 0;
         }

@@ -13,6 +13,18 @@ public class infan2 : MonoBehaviour
     private GameObject clickedGameObject;
     public GameObject unit_infantry;
 
+    public int consumed_AP;
+    public int consumed_Resource;
+
+    private GameObject uiobj;
+    private GameObject reapobj;
+
+    private CreateMap CMinfo;
+
+    private int unitnum;
+    private int apnum;
+    private int renum;
+
     public bool click;
     float tile_x;
     float tile_y;
@@ -30,36 +42,52 @@ public class infan2 : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
-                mousepos.x = mousepos.x + 54;
-                mousepos.y = -mousepos.y + 54;
-                mousepos.z = 7.0f;
-                for (int y = 0; y < 25; y++)
+                uiobj = GameObject.Find("map");
+                reapobj = GameObject.Find("map");
+                unitnum = uiobj.GetComponent<UI_Operate>().Unit_Num;
+                CMinfo = reapobj.GetComponent<CreateMap>();
+                apnum = CMinfo.Now_PAP;
+                renum = CMinfo.Now_PResource;
+                apnum = apnum - consumed_AP;
+                renum = renum - consumed_Resource;
+                if (unitnum < 20 && apnum >= 0 && renum >= 0)
                 {
-                    for (int x = 0; x < 25; x++)
+                    mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+                    mousepos.x = mousepos.x + 54;
+                    mousepos.y = -mousepos.y + 54;
+                    mousepos.z = 7.0f;
+                    for (int y = 0; y < 25; y++)
                     {
-                        if (mousepos.x > (x * 4.5f) - 2 && mousepos.x < (x * 4.5f) + 2)
+                        for (int x = 0; x < 25; x++)
                         {
-                            if (mousepos.y > (y * 4.5f) - 2 && mousepos.y < (y * 4.5f) + 2)
+                            if (mousepos.x > (x * 4.5f) - 2 && mousepos.x < (x * 4.5f) + 2)
                             {
-                                clickedGameObject = hit2d.transform.gameObject;
-                                if (clickedGameObject.name == "area2(Clone)")
+                                if (mousepos.y > (y * 4.5f) - 2 && mousepos.y < (y * 4.5f) + 2)
                                 {
-                                    //int jougen = 20;
-                                    //if(jougen < 20)
-                                    //{
-                                    // jougen++;
-                                    //Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 7.0f), Quaternion.identity);
-                                    //  }
-                                    Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
-
-                                    click = false;
+                                    clickedGameObject = hit2d.transform.gameObject;
+                                    if (clickedGameObject.name == "area2(Clone)")
+                                    {
+                                        //int jougen = 20;
+                                        //if(jougen < 20)
+                                        //{
+                                        // jougen++;
+                                        //Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 7.0f), Quaternion.identity);
+                                        //  }
+                                        Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
+                                        CMinfo.PChange_REAP(apnum, renum);
+                                        click = false;
+                                    }
                                 }
                             }
                         }
                     }
+                }
+                else if (apnum < 0 || renum < 0)
+                {
+                    apnum += consumed_AP;
+                    renum += consumed_Resource;
                 }
             }
         }

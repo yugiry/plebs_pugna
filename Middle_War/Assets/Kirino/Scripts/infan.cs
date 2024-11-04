@@ -46,8 +46,8 @@ public class infan : MonoBehaviour
                 reapobj = GameObject.Find("map");
                 unitnum = uiobj.GetComponent<UI_Operate>().Unit_Num;
                 CMinfo = reapobj.GetComponent<CreateMap>();
-                apnum = CMinfo.Now_AP;
-                renum = CMinfo.Now_Resource;
+                apnum = CMinfo.Now_PAP;
+                renum = CMinfo.Now_PResource;
                 apnum = apnum - consumed_AP;
                 renum = renum - consumed_Resource;
                 if (unitnum < 20 && apnum >= 0 && renum >= 0)
@@ -76,7 +76,7 @@ public class infan : MonoBehaviour
                                         //Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 7.0f), Quaternion.identity);
                                         //  }
                                         Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
-                                        CMinfo.Change_REAP(apnum, renum);
+                                        CMinfo.PChange_REAP(apnum, renum);
                                         click = false;
                                     }
                                 }
