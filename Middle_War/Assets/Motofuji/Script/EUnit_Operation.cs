@@ -23,6 +23,9 @@ public class EUnit_Operation : MonoBehaviour
     GameObject cmobj;
     CreateMap CMinfo;
 
+    GameObject rcobj;
+    Resource_Controll RC;
+
     int apnum;
     int renum;
 
@@ -246,13 +249,21 @@ public class EUnit_Operation : MonoBehaviour
                                                     if (clickedGameObject.name == "resource(Clone)")
                                                     {
                                                         Debug.Log("Ž‘Œ¹Šm•Û");
-                                                        renum += 5;
-                                                        CMinfo.EChange_REAP(apnum, renum);
+                                                        rcobj = GameObject.Find("resource(Clone)");
+                                                        RC = rcobj.GetComponent<Resource_Controll>();
+                                                        RC.EGetResource();
                                                     }
                                                     else
                                                     {
                                                         //AP‚Ì—Ê‚ð’²‚×‚Ä‘«‚è‚é‚È‚çˆÚ“®
-                                                        apnum = apnum - move_ap;
+                                                        if(clickedGameObject.name == "water(Clone)")
+                                                        {
+                                                            apnum = apnum - (move_ap + 1);
+                                                        }
+                                                        else
+                                                        {
+                                                            apnum = apnum - move_ap;
+                                                        }
                                                         if (apnum >= 0)
                                                         {
                                                             CMinfo.EChange_REAP(apnum, renum);

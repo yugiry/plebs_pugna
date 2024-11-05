@@ -9,6 +9,9 @@ public class Turn_change : MonoBehaviour
     public GameObject player_turn;
     public GameObject enemy_turn;
 
+    GameObject rcobj;
+    Resource_Controll RC;
+
     private GameObject CMobj;
     CreateMap CM;
     private int PAP;
@@ -57,6 +60,9 @@ public class Turn_change : MonoBehaviour
         ERE = CM.Now_EResource;
         EAP += 5;
         CM.EChange_REAP(EAP, ERE);
+        rcobj = GameObject.Find("resource(Clone)");
+        RC = rcobj.GetComponent<Resource_Controll>();
+        RC.GetTurn();
     }
 
     public void ChangeTurn_Enemy()
@@ -76,5 +82,8 @@ public class Turn_change : MonoBehaviour
         PRE = CM.Now_PResource;
         PAP += 5;
         CM.PChange_REAP(PAP, PRE);
+        rcobj = GameObject.Find("resource(Clone)");
+        RC = rcobj.GetComponent<Resource_Controll>();
+        RC.GetTurn();
     }
 }
