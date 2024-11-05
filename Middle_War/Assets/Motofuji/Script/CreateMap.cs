@@ -116,8 +116,8 @@ public class CreateMap : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !PUSHSPACE)
         {
             PUSHSPACE = true;
-            Now_PAP = 5;
-            Now_PResource = 0;
+            Now_PAP = 999;
+            Now_PResource = 999;
             Now_EAP = 0;
             Now_EResource = 0;
             PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();

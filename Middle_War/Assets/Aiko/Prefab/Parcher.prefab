@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: -7359583552912014074}
   - component: {fileID: 5069155445884796982}
   - component: {fileID: 8704638967290487312}
+  - component: {fileID: 6116729719287268290}
   m_Layer: 0
   m_Name: Parcher
   m_TagString: Untagged
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357947769023258580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff25a24bdd3557d4f8002585287370b0, type: 3}
   m_Name: 
@@ -141,6 +142,9 @@ MonoBehaviour:
   spawn_resource: 0
   move_ap: 2
   choice_move: 0
+  unit_click: {fileID: 0}
+  parent: {fileID: 0}
+  base_point_unit: {fileID: 0}
 --- !u!114 &5069155445884796982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +200,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &6116729719287268290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357947769023258580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 1357947769023258580}
+  act1: {fileID: 0}
+  Unit_X: 0
+  Unit_Y: 0
+  hp: 0
+  attack: 0
+  spawn_ap: 0
+  spawn_resource: 0
+  move_ap: 0
+  choice_move: 0
+  unit_click: {fileID: 1296750472023822560, guid: 367c9291a15fd884fb360a0f9b681254, type: 3}
+  parent: {fileID: 5320921979759783243}
+  base_point_unit: {fileID: 1357947769023258580}

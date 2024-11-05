@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 5069155445884796982}
   - component: {fileID: 8704638967290487312}
   - component: {fileID: 2873105304072086819}
+  - component: {fileID: -5890785385159730961}
+  - component: {fileID: -1554958695490708730}
   m_Layer: 0
   m_Name: Parcher
   m_TagString: Untagged
@@ -173,6 +175,34 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 0
+        - m_Target: {fileID: -1554958695490708730}
+          m_TargetAssemblyTypeName: Proto_Operation, Assembly-CSharp
+          m_MethodName: Unit_Serect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -5890785385159730961}
+          m_TargetAssemblyTypeName: New_range_hyouji, Assembly-CSharp
+          m_MethodName: Click_unit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!61 &8704638967290487312
 BoxCollider2D:
@@ -221,3 +251,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5890785385159730961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357947769023258580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e496d364d8f7144998f7382b79cb43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
+  parent: {fileID: 5320921979759783243}
+  base_point_unit: {fileID: 1357947769023258580}
+--- !u!114 &-1554958695490708730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357947769023258580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 1357947769023258580}
+  act1: {fileID: 170321834655978423}
+  Unit_X: 0
+  Unit_Y: 0
+  hp: 3
+  attack: 2
+  spawn_ap: 6
+  spawn_resource: 0
+  move_ap: 2
+  choice_move: 0
+  NR: {fileID: -5890785385159730961}

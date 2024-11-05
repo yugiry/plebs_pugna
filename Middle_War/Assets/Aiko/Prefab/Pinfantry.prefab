@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -507038763733256445}
   - component: {fileID: -2998615441728175361}
   - component: {fileID: -835060364897594354}
+  - component: {fileID: 8206229381531793807}
   m_Layer: 0
   m_Name: Pinfantry
   m_TagString: Untagged
@@ -165,6 +166,34 @@ MonoBehaviour:
   spawn_resource: 0
   move_ap: 1
   choice_move: 0
+  unit_click: {fileID: 0}
+  parent: {fileID: 0}
+  base_point_unit: {fileID: 0}
+--- !u!114 &8206229381531793807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6686210027933580255}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  act1: {fileID: 0}
+  Unit_X: 0
+  Unit_Y: 0
+  hp: 0
+  attack: 0
+  spawn_ap: 0
+  spawn_resource: 0
+  move_ap: 0
+  choice_move: 0
+  unit_click: {fileID: 0}
+  parent: {fileID: 0}
+  base_point_unit: {fileID: 0}
 --- !u!1 &7219286784236493321
 GameObject:
   m_ObjectHideFlags: 0
