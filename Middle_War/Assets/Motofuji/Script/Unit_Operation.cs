@@ -10,6 +10,9 @@ public class Unit_Operation : MonoBehaviour
     public float Unit_Y;
     private bool pushmouse;
 
+    GameObject ucobj;
+    uniteClick UC;
+
     public int hp;
     public int attack;
     public int spawn_ap;
@@ -317,6 +320,9 @@ public class Unit_Operation : MonoBehaviour
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
+                    ucobj = GameObject.Find("map");
+                    UC = ucobj.GetComponent<uniteClick>();
+                    UC.Dlete();
                 }
             }
         }
@@ -351,5 +357,8 @@ public class Unit_Operation : MonoBehaviour
         {
             choice_move = 0;
         }
+        ucobj = GameObject.Find("map");
+        UC = ucobj.GetComponent<uniteClick>();
+        UC.unite_Serect(hp);
     }
 }

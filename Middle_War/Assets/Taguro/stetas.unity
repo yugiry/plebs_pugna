@@ -1731,6 +1731,8 @@ MonoBehaviour:
   unitstatus1: {fileID: 1835532213}
   unitstatus2: {fileID: 1455593799}
   unit_infantry: {fileID: 6686210027933580255, guid: 94055043c7d1ad243b0fa834abbedfae, type: 3}
+  consumed_AP: 0
+  consumed_Resource: 0
   click: 0
 --- !u!114 &733854186
 MonoBehaviour:
@@ -2004,6 +2006,8 @@ MonoBehaviour:
   unitstatus1: {fileID: 1455593799}
   unitstatus2: {fileID: 1124034173}
   unit_infantry: {fileID: 0}
+  consumed_AP: 0
+  consumed_Resource: 0
   click: 0
 --- !u!212 &741502200
 SpriteRenderer:
@@ -2608,7 +2612,6 @@ GameObject:
   - component: {fileID: 969159360}
   - component: {fileID: 969159361}
   - component: {fileID: 969159362}
-  - component: {fileID: 969159363}
   - component: {fileID: 969159364}
   m_Layer: 0
   m_Name: Main Camera
@@ -2717,6 +2720,14 @@ MonoBehaviour:
   button_infantry: {fileID: 1149278719}
   button_archer: {fileID: 712281065}
   button_catapalt: {fileID: 998008391}
+  enemycastlevalue: {fileID: 0}
+  enemyinfantrystatus: {fileID: 0}
+  enemyarcherstatus: {fileID: 0}
+  enemycatapultstatus: {fileID: 0}
+  enemycastlevalue2: {fileID: 0}
+  enemybutton_infantry: {fileID: 0}
+  enemybutton_archer: {fileID: 0}
+  enemybutton_catapalt: {fileID: 0}
 --- !u!114 &969159362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,19 +2744,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
---- !u!114 &969159363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969159356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9daeb305e4b63914895b214441f46d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickPanel: {fileID: 1761422803}
 --- !u!114 &969159364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,7 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4361ec82642275a47915d06637a40a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onclickPanel: {fileID: 1453050127}
+  panel: {fileID: 1761422803}
 --- !u!1 &973569805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5802,6 +5800,14 @@ MonoBehaviour:
   MAPSIZE_Y: 25
   TILESPACE: 0.5
   map: 
+  Now_PAP: 0
+  PAP_Text: {fileID: 0}
+  Now_PResource: 0
+  PRE_Text: {fileID: 0}
+  Now_EAP: 0
+  EAP_Text: {fileID: 0}
+  Now_EResource: 0
+  ERE_Text: {fileID: 0}
 --- !u!1 &2097456710
 GameObject:
   m_ObjectHideFlags: 0
@@ -6339,6 +6345,8 @@ MonoBehaviour:
   unitstatus1: {fileID: 1124034173}
   unitstatus2: {fileID: 1835532213}
   unit_infantry: {fileID: 0}
+  consumed_AP: 0
+  consumed_Resource: 0
   click: 0
 --- !u!1 &2128981594
 GameObject:

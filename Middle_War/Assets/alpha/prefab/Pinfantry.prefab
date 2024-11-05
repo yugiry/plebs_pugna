@@ -160,6 +160,7 @@ MonoBehaviour:
   act1: {fileID: 7219286784236493321}
   Unit_X: 0
   Unit_Y: 0
+  UC: {fileID: 0}
   hp: 4
   attack: 1
   spawn_ap: 2
