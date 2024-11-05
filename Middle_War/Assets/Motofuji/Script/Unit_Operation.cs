@@ -239,16 +239,18 @@ public class Unit_Operation : MonoBehaviour
                                                  && clickedGameObject.name != "Parcher(Clone)"
                                                  && clickedGameObject.name != "Pcatapalt(Clone)")
                                                 {
+                                                    cmobj = GameObject.Find("map");
+                                                    CMinfo = cmobj.GetComponent<CreateMap>();
+                                                    apnum = CMinfo.Now_PAP;
+                                                    renum = CMinfo.Now_PResource;
                                                     if (clickedGameObject.name == "resource(Clone)")
                                                     {
                                                         Debug.Log("Ž‘Œ¹Šm•Û");
+                                                        renum += 5;
+                                                        CMinfo.PChange_REAP(apnum, renum);
                                                     }
                                                     else
                                                     {
-                                                        cmobj = GameObject.Find("map");
-                                                        CMinfo = cmobj.GetComponent<CreateMap>();
-                                                        apnum = CMinfo.Now_PAP;
-                                                        renum = CMinfo.Now_PResource;
                                                         //AP‚Ì—Ê‚ð’²‚×‚Ä‘«‚è‚é‚È‚çˆÚ“®
                                                         apnum = apnum - move_ap;
                                                         if (apnum >= 0)
