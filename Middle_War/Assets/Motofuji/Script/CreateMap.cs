@@ -107,34 +107,13 @@ public class CreateMap : MonoBehaviour
         {
             map[i] = int.Parse(smap[i]);
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //スペースでゲーム開始
-        if (Input.GetKeyDown(KeyCode.Space) && !PUSHSPACE)
-        {
-            PUSHSPACE = true;
-            Now_PAP = 999;
-            Now_PResource = 999;
-            Now_EAP = 0;
-            Now_EResource = 0;
-            PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();
-            PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
-            EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
-            ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
-        }
+        Now_PAP = 5;
+        Now_PResource = 0;
+        Now_EAP = 0;
+        Now_EResource = 0;
 
-        //マウスのポジションを表示
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            Vector2 m_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log("m_pos(" + m_pos.x.ToString("F2") + "," + m_pos.y.ToString("F2") + ")");
-        }
-
-        //マップ生成
-        if (PUSHSPACE)
+        do
         {
             if (y < MAPSIZE_Y)
             {
@@ -175,7 +154,7 @@ public class CreateMap : MonoBehaviour
                         }
                     }
                 }
-
+                break;
             }
             x++;
             if (x >= MAPSIZE_X)
@@ -183,6 +162,22 @@ public class CreateMap : MonoBehaviour
                 x -= MAPSIZE_X;
                 y++;
             }
+        } while (true);
+
+        PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();
+        PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
+        EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
+        ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //マウスのポジションを表示
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            Vector2 m_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log("m_pos(" + m_pos.x.ToString("F2") + "," + m_pos.y.ToString("F2") + ")");
         }
 
         //APや資源が上限を超えた場合上限に数値を戻す
@@ -204,6 +199,7 @@ public class CreateMap : MonoBehaviour
         }
     }
 
+    //プレイヤー側のAPと資源を変更する関数
     public void PChange_REAP(int ap, int re)
     {
         Now_PAP = ap;
@@ -212,6 +208,7 @@ public class CreateMap : MonoBehaviour
         PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
     }
 
+    //エネミー側のAPと資源を変更する関数
     public void EChange_REAP(int ap,int re)
     {
         Now_EAP = ap;
