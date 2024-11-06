@@ -7,6 +7,9 @@ TagManager:
   - Infantry
   - act
   - Eact
+  - noclick
+  - unit
+  - Eunit
   layers:
   - Default
   - TransparentFX

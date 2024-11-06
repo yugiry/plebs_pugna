@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: -1554958695490708730}
   m_Layer: 0
   m_Name: Parcher
-  m_TagString: Untagged
+  m_TagString: unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   spawn_resource: 0
   move_ap: 2
   choice_move: 0
+  attack_cnt: 0
   unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
   parent: {fileID: 5320921979759783243}
   base_point_unit: {fileID: 1357947769023258580}
@@ -167,34 +168,6 @@ MonoBehaviour:
         - m_Target: {fileID: -7359583552912014074}
           m_TargetAssemblyTypeName: Unit_Operation, Assembly-CSharp
           m_MethodName: Unit_Serect
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 0
-        - m_Target: {fileID: -1554958695490708730}
-          m_TargetAssemblyTypeName: Proto_Operation, Assembly-CSharp
-          m_MethodName: Unit_Serect
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: -5890785385159730961}
-          m_TargetAssemblyTypeName: New_range_hyouji, Assembly-CSharp
-          m_MethodName: Click_unit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -273,7 +246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357947769023258580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
   m_Name: 

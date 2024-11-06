@@ -95,24 +95,30 @@ public class CreateMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         map = new int[MAPSIZE_X * MAPSIZE_Y];
         smap = Csv_Input(csv_place);
 
+        //マップ情報の初期化
         for (int i = 0; i < MAPSIZE_X * MAPSIZE_Y; i++)
         {
             map[i] = -999;
         }
 
+        //マップ情報の読み込み
         for (int i = 0; i < MAPSIZE_X * MAPSIZE_Y; i++)
         {
             map[i] = int.Parse(smap[i]);
         }
 
-        Now_PAP = 5;
-        Now_PResource = 0;
-        Now_EAP = 0;
-        Now_EResource = 0;
+        //APと資源の初期化
+        Now_PAP = 999;
+        Now_PResource = 999;
+        Now_EAP = 999;
+        Now_EResource = 999;
 
+        //マップ生成
         do
         {
             if (y < MAPSIZE_Y)
@@ -164,6 +170,7 @@ public class CreateMap : MonoBehaviour
             }
         } while (true);
 
+        //APと資源をテキストに表示
         PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();
         PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
         EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
@@ -184,18 +191,22 @@ public class CreateMap : MonoBehaviour
         if(Now_PAP > Maximam_PAP)
         {
             Now_PAP = Maximam_PAP;
+            PAP_Text.text = Now_PAP.ToString() + "/" + Maximam_PAP.ToString();
         }
         if(Now_PResource > Maximam_PResource)
         {
             Now_PResource = Maximam_PResource;
+            PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
         }
         if(Now_EAP > Maximam_EAP)
         {
             Now_EAP = Maximam_EAP;
+            EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
         }
         if(Now_EResource > Maximam_EResource)
         {
             Now_EResource = Maximam_EResource;
+            ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
         }
     }
 

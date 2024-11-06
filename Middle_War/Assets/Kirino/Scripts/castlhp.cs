@@ -20,7 +20,15 @@ public class castlhp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //hpText.text = nowhp.ToString();
+        if(nowhp == 0)
+        {
+
+        }
     }
   
+    public void HitAttack(int hit)
+    {
+        nowhp -= hit;
+        hpText.text = nowhp.ToString() + "/" + maxhp.ToString();
+    }
 }

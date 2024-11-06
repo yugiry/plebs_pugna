@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turn_change : MonoBehaviour
 {
     public int nowturn;
 
+    public GameObject noclick_tile;
     public GameObject player_turn;
     public GameObject enemy_turn;
 
@@ -21,6 +23,33 @@ public class Turn_change : MonoBehaviour
 
     GameObject[] action;
 
+    GameObject[] uo;
+    GameObject[] euo;
+
+    Unit_Operation UO;
+    EUnit_Operation EUO;
+
+    public GameObject Pcas;
+    public GameObject Pcas2;
+    public GameObject Pinf;
+    public GameObject Parc;
+    public GameObject Pcat;
+    public GameObject Pinfsta;
+    public GameObject Parcsta;
+    public GameObject Pcatsta;
+    public GameObject Psta;
+
+    public GameObject Ecas;
+    public GameObject Ecas2;
+    public GameObject Einf;
+    public GameObject Earc;
+    public GameObject Ecat;
+    public GameObject Einfsta;
+    public GameObject Earcsta;
+    public GameObject Ecatsta;
+    public GameObject Esta;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,19 +59,10 @@ public class Turn_change : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(nowturn)
-        {
-            case 0:
-                player_turn.SetActive(true);
-                enemy_turn.SetActive(false);
-                break;
-            case 1:
-                player_turn.SetActive(false);
-                enemy_turn.SetActive(true);
-                break;
-        }
+        
     }
 
+    //ターンをエネミーに渡す
     public void ChangeTurn_Player()
     {
         nowturn = 1;
@@ -63,8 +83,27 @@ public class Turn_change : MonoBehaviour
         rcobj = GameObject.Find("resource(Clone)");
         RC = rcobj.GetComponent<Resource_Controll>();
         RC.GetTurn();
+        euo = GameObject.FindGameObjectsWithTag("Eunit");
+        foreach(GameObject gobj in euo)
+        {
+            EUO = gobj.GetComponent<EUnit_Operation>();
+            EUO.SetAttackCnt();
+        }
+        player_turn.SetActive(false);
+        enemy_turn.SetActive(true);
+
+        Pcas.SetActive(true);
+        Pcas2.SetActive(false);
+        Pinf.SetActive(true);
+        Parc.SetActive(true);
+        Pcat.SetActive(true);
+        Pinfsta.SetActive(false);
+        Parcsta.SetActive(false);
+        Pcatsta.SetActive(false);
+        Psta.SetActive(false);
     }
 
+    //ターンをプレイヤーに渡す
     public void ChangeTurn_Enemy()
     {
         nowturn = 0;
@@ -85,5 +124,51 @@ public class Turn_change : MonoBehaviour
         rcobj = GameObject.Find("resource(Clone)");
         RC = rcobj.GetComponent<Resource_Controll>();
         RC.GetTurn();
+        uo = GameObject.FindGameObjectsWithTag("unit");
+        foreach(GameObject gobj in uo)
+        {
+            UO = gobj.GetComponent<Unit_Operation>();
+            UO.SetAttackCnt();
+        }
+        player_turn.SetActive(true);
+        enemy_turn.SetActive(false);
+
+        Ecas.SetActive(true);
+        Ecas2.SetActive(false);
+        Einf.SetActive(true);
+        Earc.SetActive(true);
+        Ecat.SetActive(true);
+        Einfsta.SetActive(false);
+        Earcsta.SetActive(false);
+        Ecatsta.SetActive(false);
+        Esta.SetActive(false);
+    }
+
+    private void PNot_Click()
+    {
+        action = GameObject.FindGameObjectsWithTag("noclick");
+        foreach (GameObject act in action)
+        {
+            Destroy(act);
+        }
+        action = GameObject.FindGameObjectsWithTag("unit");
+        foreach (GameObject act in action)
+        {
+            Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
+        }
+    }
+
+    private void ENot_Click()
+    {
+        action = GameObject.FindGameObjectsWithTag("noclick");
+        foreach (GameObject act in action)
+        {
+            Destroy(act);
+        }
+        action = GameObject.FindGameObjectsWithTag("Eunit");
+        foreach (GameObject act in action)
+        {
+            Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
+        }
     }
 }

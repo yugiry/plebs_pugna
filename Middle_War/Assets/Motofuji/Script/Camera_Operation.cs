@@ -12,12 +12,14 @@ public class Camera_Operation : MonoBehaviour
     private bool ZoomIn;
     private bool ZoomOut;
     public float ZoomPct;
+    private float CameraSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
         CT = this.gameObject.GetComponent<Transform>();
+        CameraSpeed = 0.5f;
     }
 
     // Update is called once per frame
@@ -72,19 +74,19 @@ public class Camera_Operation : MonoBehaviour
                 tmp = 0.7f;
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
-                    CT.position = CT.position + new Vector3(0.0f, 0.1f, 0.0f);
+                    CT.position = CT.position + new Vector3(0.0f, CameraSpeed, 0.0f);
                 }
                 if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
-                    CT.position = CT.position - new Vector3(0.0f, 0.1f, 0.0f);
+                    CT.position = CT.position - new Vector3(0.0f, CameraSpeed, 0.0f);
                 }
                 if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 {
-                    CT.position = CT.position - new Vector3(0.1f, 0.0f, 0.0f);
+                    CT.position = CT.position - new Vector3(CameraSpeed, 0.0f, 0.0f);
                 }
                 if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
-                    CT.position = CT.position + new Vector3(0.1f, 0.0f, 0.0f);
+                    CT.position = CT.position + new Vector3(CameraSpeed, 0.0f, 0.0f);
                 }
 
                 if (CT.position.x > tmp + 11 * x)

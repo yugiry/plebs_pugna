@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: -5310951372752987915}
   m_Layer: 0
   m_Name: Ecatapalt
-  m_TagString: Untagged
+  m_TagString: Eunit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -5310951372752987915}
+          m_TargetAssemblyTypeName: EUnit_Operation, Assembly-CSharp
+          m_MethodName: EUnit_Serect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &-5310951372752987915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +196,7 @@ MonoBehaviour:
   spawn_resource: 10
   move_ap: 3
   choice_move: 0
+  attack_cnt: 0
   unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
   parent: {fileID: 8348815453554849650}
   base_point_unit: {fileID: 4908926347090675981}
