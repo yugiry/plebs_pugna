@@ -8,24 +8,33 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class UI_Operate : MonoBehaviour
 {
-    public int Unit_Num;
+    public int PUnit_Num;
     private int MaxUnit;
-    [SerializeField] Text UnitText;
+    [SerializeField] Text PUnitText;
+    public int EUnit_Num;
+    [SerializeField] Text EUnitText;
 
     // Start is called before the first frame update
     void Start()
     {
-        Unit_Num = 0;
+        PUnit_Num = 0;
+        EUnit_Num = 0;
         MaxUnit = 20;
-        UnitText.text = Unit_Num.ToString() + "/" + MaxUnit.ToString();
+        PUnitText.text = PUnit_Num.ToString() + "/" + MaxUnit.ToString();
+        EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.name == "Pinfantry(Clone)" || other.gameObject.name == "Parcher(Clone)" || other.gameObject.name == "Pcatapalt(Clone)") && Unit_Num < MaxUnit)
+        if ((other.gameObject.name == "Pinfantry(Clone)" || other.gameObject.name == "Parcher(Clone)" || other.gameObject.name == "Pcatapalt(Clone)") && PUnit_Num < MaxUnit)
         {
-            Unit_Num++;
-            UnitText.text = Unit_Num.ToString() + "/" + MaxUnit.ToString();
+            PUnit_Num++;
+            PUnitText.text = PUnit_Num.ToString() + "/" + MaxUnit.ToString();
+        }
+        if ((other.gameObject.name == "Einfantry(Clone)" || other.gameObject.name == "Earcher(Clone)" || other.gameObject.name == "Ecatapalt(Clone)") && EUnit_Num < MaxUnit)
+        {
+            EUnit_Num++;
+            EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
     }
 
@@ -33,8 +42,13 @@ public class UI_Operate : MonoBehaviour
     {
         if (other.gameObject.name == "Pinfantry(Clone)" || other.gameObject.name == "Parcher(Clone)" || other.gameObject.name == "Pcatapalt(Clone)")
         {
-            Unit_Num--;
-            UnitText.text = Unit_Num.ToString() + "/" + MaxUnit.ToString();
+            PUnit_Num--;
+            PUnitText.text = PUnit_Num.ToString() + "/" + MaxUnit.ToString();
+        }
+        if ((other.gameObject.name == "Einfantry(Clone)" || other.gameObject.name == "Earcher(Clone)" || other.gameObject.name == "Ecatapalt(Clone)") && EUnit_Num < MaxUnit)
+        {
+            EUnit_Num--;
+            EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
     }
 

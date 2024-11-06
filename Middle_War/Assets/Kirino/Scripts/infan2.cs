@@ -16,6 +16,8 @@ public class infan2 : MonoBehaviour
     public int consumed_AP;
     public int consumed_Resource;
 
+    public GameObject unitinfo;
+
     private GameObject uiobj;
     private GameObject reapobj;
 
@@ -44,7 +46,7 @@ public class infan2 : MonoBehaviour
             {
                 uiobj = GameObject.Find("map");
                 reapobj = GameObject.Find("map");
-                unitnum = uiobj.GetComponent<UI_Operate>().Unit_Num;
+                unitnum = uiobj.GetComponent<UI_Operate>().EUnit_Num;
                 CMinfo = reapobj.GetComponent<CreateMap>();
                 apnum = CMinfo.Now_EAP;
                 renum = CMinfo.Now_EResource;
@@ -99,6 +101,7 @@ public class infan2 : MonoBehaviour
         infantrystatus.SetActive(true);
         unitstatus1.SetActive(false);
         unitstatus2.SetActive(false);
+        unitinfo.SetActive(false);
         click = true;
     }
 }
