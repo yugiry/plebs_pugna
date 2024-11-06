@@ -43,7 +43,7 @@ public class New_range_hyouji : MonoBehaviour
                     }
                 }
 
-                Debug.Log("クリックされたぞい。");
+                //Debug.Log("クリックされたぞい。");
 
                 // Destroy(unitclick, 1);
             }
@@ -68,7 +68,7 @@ public class New_range_hyouji : MonoBehaviour
                     }
 
                 }
-                Debug.Log("Archer clicked");
+                //Debug.Log("Archer clicked");
             }
             //カタパルト処理
             else if (this.gameObject.name == "Pcatapalt(Clone)")
@@ -90,7 +90,7 @@ public class New_range_hyouji : MonoBehaviour
                     }
                     
                 }
-                Debug.Log("Catapult clicked");
+                //Debug.Log("Catapult clicked");
             }
 
        
