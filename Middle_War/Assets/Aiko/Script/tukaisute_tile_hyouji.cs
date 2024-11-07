@@ -25,9 +25,10 @@ public class tukaisute_tile_hyouji : MonoBehaviour
 
         //unitclick = unit_click as GameObject; 
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        if (this.gameObject.name == "Pinfantry(Clone)"/*&&range_flag!=0*/)
+        if (this.gameObject.name == "Pinfantry(Clone)"&&range_flag!=0)
         {
             tile_flag = 1;
+            Debug.Log(tile_flag);
             if (tile_flag == 1 && range_flag == 1)
             {
                 //range_flag = 0;
@@ -52,17 +53,18 @@ public class tukaisute_tile_hyouji : MonoBehaviour
 
                 // Destroy(unitclick, 1);
             }
-            else if (tile_flag == 1 && range_flag != 1)
+            else if (tile_flag != 1 && range_flag != 1)
             {
                 Destroy_Range();
             }
-
+           
         }
         //弓兵処理
-        else if (this.gameObject.name == "Parcher(Clone)"/* && range_flag != 0*/)
+        else if (this.gameObject.name == "Parcher(Clone)" && range_flag != 0)
         {
 
             tile_flag = 2;
+            Debug.Log(tile_flag);
             if (tile_flag == 2 && range_flag == 1)
             {
                 //range_flag = 0;
@@ -86,15 +88,17 @@ public class tukaisute_tile_hyouji : MonoBehaviour
                 }
                 Debug.Log("Archer clicked");
             }
-            else if (tile_flag == 2 && range_flag != 1)
+            else if (tile_flag != 2 && range_flag != 1)
             {
                 Destroy_Range();
             }
+           
         }
         //カタパルト処理
-        else if (this.gameObject.name == "Pcatapalt(Clone)"/*&& range_flag != 0*/)
+        else if (this.gameObject.name == "Pcatapalt(Clone)"&& range_flag != 0)
         {
             tile_flag = 3;
+            Debug.Log(tile_flag);
             if (tile_flag == 3 && range_flag == 1)
             {
                 //range_flag = 0;
@@ -118,11 +122,11 @@ public class tukaisute_tile_hyouji : MonoBehaviour
                 Debug.Log("Catapult clicked");
             }
         }
-        else if (this.gameObject.name == "Pcatapalt(Clone)" && range_flag != 1)
+        else if (tile_flag!=3&& range_flag != 1)
         {
             Destroy_Range();
         }
-
+       
     }
    
 
@@ -157,7 +161,7 @@ public class tukaisute_tile_hyouji : MonoBehaviour
             if (range_flag == 0)
             {
                 range_flag = 1;
-                Click_unit();
+                //Click_unit();
                 Debug.Log("flag on!" + range_flag);
             }
             else if (range_flag == 1)
