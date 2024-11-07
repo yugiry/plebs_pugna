@@ -11,8 +11,10 @@ public class uniteClick : MonoBehaviour
     public GameObject Enemy;
     [SerializeField] Text PUnit;
     [SerializeField] Text PUnite_state;
+    [SerializeField] Text PUnite_state2;
     [SerializeField] Text EUnit;
     [SerializeField] Text EUnite_state;
+    [SerializeField] Text EUnite_state2;
 
     public GameObject Pcas;
     public GameObject Pcas2;
@@ -45,7 +47,7 @@ public class uniteClick : MonoBehaviour
     }
 
     //ユニットの情報をテキストに表示
-    public void Punite_Serect(GameObject unit, int hp)
+    public void Punite_Serect(GameObject unit, int hp,int moveap)
     {
         Player.SetActive(true);
         Pcas.SetActive(false);
@@ -69,9 +71,10 @@ public class uniteClick : MonoBehaviour
                 break;
         }
         PUnite_state.text = "HP：" + hp;
+        PUnite_state2.text = "移動消費AP：" + moveap;
     }
 
-    public void Eunite_Serect(GameObject unit, int hp)
+    public void Eunite_Serect(GameObject unit, int hp,int moveap)
     {
         Enemy.SetActive(true);
         Ecas.SetActive(false);
@@ -95,6 +98,7 @@ public class uniteClick : MonoBehaviour
                 break;
         }
         EUnite_state.text = "HP：" + hp;
+        EUnite_state2.text = "移動消費AP：" + moveap;
     }
 
     //ユニットの情報を消す

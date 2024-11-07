@@ -11,7 +11,7 @@ public class Turn_change : MonoBehaviour
     public GameObject player_turn;
     public GameObject enemy_turn;
 
-    GameObject rcobj;
+    GameObject[] rcobj;
     Resource_Controll RC;
 
     private GameObject CMobj;
@@ -80,11 +80,14 @@ public class Turn_change : MonoBehaviour
         ERE = CM.Now_EResource;
         EAP += 5;
         CM.EChange_REAP(EAP, ERE);
-        rcobj = GameObject.Find("resource(Clone)");
-        RC = rcobj.GetComponent<Resource_Controll>();
-        RC.GetTurn();
+        rcobj = GameObject.FindGameObjectsWithTag("resource");
+        foreach (GameObject tmp in rcobj)
+        {
+            RC = tmp.GetComponent<Resource_Controll>();
+            RC.GetTurn();
+        }
         euo = GameObject.FindGameObjectsWithTag("Eunit");
-        foreach(GameObject gobj in euo)
+        foreach (GameObject gobj in euo)
         {
             EUO = gobj.GetComponent<EUnit_Operation>();
             EUO.SetAttackCnt();
@@ -121,9 +124,12 @@ public class Turn_change : MonoBehaviour
         PRE = CM.Now_PResource;
         PAP += 5;
         CM.PChange_REAP(PAP, PRE);
-        rcobj = GameObject.Find("resource(Clone)");
-        RC = rcobj.GetComponent<Resource_Controll>();
-        RC.GetTurn();
+        rcobj = GameObject.FindGameObjectsWithTag("resource");
+        foreach (GameObject tmp in rcobj)
+        {
+            RC = tmp.GetComponent<Resource_Controll>();
+            RC.GetTurn();
+        }
         uo = GameObject.FindGameObjectsWithTag("unit");
         foreach(GameObject gobj in uo)
         {

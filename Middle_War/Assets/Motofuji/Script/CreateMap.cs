@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CreateMap : MonoBehaviour
 {
@@ -41,7 +40,8 @@ public class CreateMap : MonoBehaviour
     private List<string> smap = new List<string>();
     public int[] map;
     //csvファイルの場所
-    private string csv_place = "Assets/Motofuji/Resources/map.csv";
+    //private string csv_place = "Resources/map.csv";
+    private string csv_place = "Assets/alpha/Resources/map.csv";
 
     //playerAPの管理をする数値。
     int Maximam_PAP = 999;
@@ -113,10 +113,10 @@ public class CreateMap : MonoBehaviour
         }
 
         //APと資源の初期化
-        Now_PAP = 999;
-        Now_PResource = 999;
-        Now_EAP = 999;
-        Now_EResource = 999;
+        Now_PAP = 5;
+        Now_PResource = 0;
+        Now_EAP = 0;
+        Now_EResource = 0;
 
         //マップ生成
         do

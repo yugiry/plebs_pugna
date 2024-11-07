@@ -107,7 +107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 871803263, guid: 466fa29744931554791c02ea11b4e7c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   spawn_resource: 0
   move_ap: 1
   choice_move: 0
+  attack_cnt: 0
   unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
   parent: {fileID: 4097559809922879630}
   base_point_unit: {fileID: 2604027163686111074}

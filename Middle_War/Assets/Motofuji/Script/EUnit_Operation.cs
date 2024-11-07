@@ -396,8 +396,7 @@ public class EUnit_Operation : MonoBehaviour
                                                     if (clickedGameObject.name == "resource(Clone)")
                                                     {
                                                         Debug.Log("Ž‘Œ¹Šm•Û");
-                                                        rcobj = GameObject.Find("resource(Clone)");
-                                                        RC = rcobj.GetComponent<Resource_Controll>();
+                                                        RC = clickedGameObject.GetComponent<Resource_Controll>();
                                                         RC.EGetResource();
                                                     }
                                                     else
@@ -514,7 +513,7 @@ public class EUnit_Operation : MonoBehaviour
             choice_move = 0;
             ucobj = GameObject.Find("map");
             UC = ucobj.GetComponent<uniteClick>();
-            UC.Eunite_Serect(unit, hp);
+            UC.Eunite_Serect(unit, hp, move_ap);
         }
     }
 

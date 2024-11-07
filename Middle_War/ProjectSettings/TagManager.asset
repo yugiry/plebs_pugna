@@ -10,6 +10,7 @@ TagManager:
   - noclick
   - unit
   - Eunit
+  - resource
   layers:
   - Default
   - TransparentFX
