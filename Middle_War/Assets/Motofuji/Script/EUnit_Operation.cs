@@ -391,7 +391,7 @@ public class EUnit_Operation : MonoBehaviour
                 }
             }
         }
-        if(hp == 0)
+        if(hp <= 0)
         {
             Destroy(unit);
         }
