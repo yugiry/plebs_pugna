@@ -7,6 +7,9 @@ public class Turn_change : MonoBehaviour
 {
     public int nowturn;
 
+    GameObject ccobj;
+    CPU_Controller CC;
+
     public GameObject noclick_tile;
     public GameObject player_turn;
     public GameObject enemy_turn;
@@ -104,6 +107,9 @@ public class Turn_change : MonoBehaviour
         Parcsta.SetActive(false);
         Pcatsta.SetActive(false);
         Psta.SetActive(false);
+        //ccobj = GameObject.Find("a");
+        //CC = ccobj.GetComponent<CPU_Controller>();
+        //CC.Turn_Here();
     }
 
     //ターンをプレイヤーに渡す
