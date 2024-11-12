@@ -39,7 +39,7 @@ public class New_range_hyouji : MonoBehaviour
                     }
                     else
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
+                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 15.0f), Quaternion.identity, parent) as GameObject;
                     }
                 }
             }
@@ -64,7 +64,7 @@ public class New_range_hyouji : MonoBehaviour
                     }
                     else
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
+                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 15.0f), Quaternion.identity, parent) as GameObject;
                     }
 
                 }
@@ -88,7 +88,7 @@ public class New_range_hyouji : MonoBehaviour
                     }
                     else
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 14.0f), Quaternion.identity, parent) as GameObject;
+                        unitclick = Instantiate(unit_click, new Vector3(pos.x + x, pos.y + y, 15.0f), Quaternion.identity, parent) as GameObject;
                     }
                 }
 

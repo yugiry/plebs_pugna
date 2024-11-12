@@ -143,6 +143,7 @@ MonoBehaviour:
   spawn_resource: 0
   move_ap: 2
   choice_move: 0
+  attack_cnt: 0
   unit_click: {fileID: 0}
   parent: {fileID: 0}
   base_point_unit: {fileID: 0}
@@ -236,6 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e496d364d8f7144998f7382b79cb43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit_click: {fileID: 0}
-  parent: {fileID: 0}
-  base_point_unit: {fileID: 0}
+  unit_click: {fileID: 1296750472023822560, guid: 367c9291a15fd884fb360a0f9b681254, type: 3}
+  parent: {fileID: 5320921979759783243}
+  base_point_unit: {fileID: 1357947769023258580}

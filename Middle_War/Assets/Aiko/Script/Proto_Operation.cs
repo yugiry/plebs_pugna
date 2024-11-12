@@ -36,6 +36,7 @@ public class Proto_Operation : MonoBehaviour
     Vector3 vec;
 
     public New_range_hyouji NR;
+   public int choice_range=0;
 
     //public GameObject unit_click;
     //public Transform parent;
@@ -61,6 +62,29 @@ public class Proto_Operation : MonoBehaviour
             //弓兵とカタパルトは城を攻撃できる
             if (unit.name == "Parcher(Clone)" || unit.name == "Pcatapalt(Clone)")
             {
+                //攻撃範囲を表すマス目を表示するかしないか変更
+                if(Input.GetMouseButtonDown(2))
+                    {
+                    choice_range++;
+                    if(choice_range>1)
+                    {
+                        choice_range = 0;
+                    }
+
+                }
+                switch (choice_range) 
+                {
+                    case 0:
+                        NR.Destroy_Range();
+                        break;
+
+                    case 1:
+                        NR.Click_unit();
+                        break;
+
+                
+                }
+
                 //攻撃か移動か変更
                 if (Input.GetKeyDown(KeyCode.C))
                 {
@@ -74,7 +98,7 @@ public class Proto_Operation : MonoBehaviour
                 switch (choice_move)
                 {
                     case 0://移動
-                        NR.Destroy_Range();
+                        
                            //ユニットをマウスの位置のタイルに移動させる
                         if (Input.GetMouseButtonDown(0))
                         {
@@ -134,7 +158,7 @@ public class Proto_Operation : MonoBehaviour
                         pushmouse = Input.GetMouseButtonDown(0);
                         break;
                     case 1://攻撃
-                        NR.Click_unit();
+                       
                         //Vector3 pos = parent.transform.localPosition;
                         ////弓兵処理
                         //if (this.gameObject.name == "Parcher(Clone)")
@@ -198,6 +222,29 @@ public class Proto_Operation : MonoBehaviour
             }
             else if (unit.name == "Pinfantry(Clone)")
             {
+                //攻撃範囲を表すマス目を表示するかしないか変更
+                if (Input.GetMouseButtonDown(2))
+                {
+                    choice_range++;
+                    if (choice_range > 1)
+                    {
+                        choice_range = 0;
+                    }
+
+                }
+                switch (choice_range)
+                {
+                    case 0:
+                        NR.Destroy_Range();
+                        break;
+
+                    case 1:
+                        NR.Click_unit();
+                        break;
+
+
+                }
+
                 //攻撃か移動か変更
                 if (Input.GetKeyDown(KeyCode.C))
                 {
@@ -211,7 +258,7 @@ public class Proto_Operation : MonoBehaviour
                 switch (choice_move)
                 {
                     case 0://移動
-                        NR.Destroy_Range();
+                        //NR.Destroy_Range();
                            //ユニットをマウスの位置のタイルに移動させる
                         if (Input.GetMouseButtonDown(0))
                         {
@@ -276,7 +323,7 @@ public class Proto_Operation : MonoBehaviour
                         pushmouse = Input.GetMouseButtonDown(0);
                         break;
                     case 1://攻撃
-                        NR.Click_unit();
+                       // NR.Click_unit();
                         //Vector3 pos = parent.transform.localPosition;
                         //if (unit.name == "Pinfantry(Clone)")
                         //{

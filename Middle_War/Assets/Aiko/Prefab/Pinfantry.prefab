@@ -152,7 +152,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6686210027933580255}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff25a24bdd3557d4f8002585287370b0, type: 3}
   m_Name: 
@@ -167,6 +167,7 @@ MonoBehaviour:
   spawn_resource: 0
   move_ap: 1
   choice_move: 0
+  attack_cnt: 0
   unit_click: {fileID: 0}
   parent: {fileID: 0}
   base_point_unit: {fileID: 0}
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6686210027933580255}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
   m_Name: 
@@ -205,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e496d364d8f7144998f7382b79cb43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit_click: {fileID: 0}
-  parent: {fileID: 0}
-  base_point_unit: {fileID: 0}
+  unit_click: {fileID: 1296750472023822560, guid: 367c9291a15fd884fb360a0f9b681254, type: 3}
+  parent: {fileID: 6686210027933580249}
+  base_point_unit: {fileID: 6686210027933580255}
 --- !u!1 &7219286784236493321
 GameObject:
   m_ObjectHideFlags: 0
