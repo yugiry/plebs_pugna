@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class infan : MonoBehaviour
 {
+    [SerializeField] GameObject unitobj;
+    GameObject obj;
+
     public GameObject castlevalue;
     public GameObject infantrystatus;
 
@@ -77,8 +80,10 @@ public class infan : MonoBehaviour
                                         // jougen++;
                                         //Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 7.0f), Quaternion.identity);
                                         //  }
-                                        Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
+                                        obj = null;
+                                        obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
                                         CMinfo.PChange_REAP(apnum, renum);
+                                        obj.transform.parent = unitobj.transform;
                                         click = false;
                                     }
                                 }

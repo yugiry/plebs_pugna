@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class CreateMap : MonoBehaviour
 {
+    [SerializeField] private GameObject tileobj;
+    GameObject obj;
+
     //オブジェクト
     public GameObject grass;
     public GameObject mountain;
@@ -113,10 +116,12 @@ public class CreateMap : MonoBehaviour
         }
 
         //APと資源の初期化
-        Now_PAP = 5;
-        Now_PResource = 0;
-        Now_EAP = 0;
-        Now_EResource = 0;
+        Now_PAP = 999;
+        Now_PResource = 999;
+        Now_EAP = 999;
+        Now_EResource = 999;
+
+        obj = null;
 
         //マップ生成
         do
@@ -128,45 +133,86 @@ public class CreateMap : MonoBehaviour
                 switch (map[x + y * MAPSIZE_Y])
                 {
                     case 0://草
-                        Instantiate(grass, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        obj = Instantiate(grass, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                     case 1://山
-                        Instantiate(mountain, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        obj = Instantiate(mountain, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                     case 2://水
-                        Instantiate(water, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        obj = Instantiate(water, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                     case 3://資源
-                        Instantiate(resource, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        obj = Instantiate(resource, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        break;
+                    case 4://PLAYER1の城
+                        obj = Instantiate(castle1, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        for (int i = y - 1; i <= y + 1; i++)
+                        {
+                            for (int j = x - 1; j <= x + 1; j++)
+                            {
+                                if (i == y && j == x) { }
+                                else
+                                {
+                                    GameObject tmpobj = null;
+                                    SET_X = SetTileStart_X + (TILESIZE_X + TILESPACE) * j;
+                                    SET_Y = SetTileStart_Y - (TILESIZE_Y + TILESPACE) * i;
+                                    tmpobj = Instantiate(area1, new Vector3(SET_X, SET_Y, SetTile_Z - 1), Quaternion.identity);
+                                    tmpobj.transform.parent = tileobj.transform;
+                                }
+                            }
+                        }
+                        break;
+                    case 5://PLAYER2の城
+                        obj = Instantiate(castle2, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        for (int i = y - 1; i <= y + 1; i++)
+                        {
+                            for (int j = x - 1; j <= x + 1; j++)
+                            {
+                                if (i == y && j == x) { }
+                                else
+                                {
+                                    GameObject tmpobj = null;
+                                    SET_X = SetTileStart_X + (TILESIZE_X + TILESPACE) * j;
+                                    SET_Y = SetTileStart_Y - (TILESIZE_Y + TILESPACE) * i;
+                                    tmpobj = Instantiate(area2, new Vector3(SET_X, SET_Y, SetTile_Z - 1), Quaternion.identity);
+                                    tmpobj.transform.parent = tileobj.transform;
+                                }
+                            }
+                        }
                         break;
                 }
+                obj.transform.parent = tileobj.transform;
             }
-            else if (y == MAPSIZE_Y && x == 0)
-            {
-                Instantiate(castle1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 22, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 22, SetTile_Z - 5), Quaternion.identity);
-                Instantiate(castle2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 2, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 2, SetTile_Z - 5), Quaternion.identity);
-                for (int dy = 0; dy < 3; dy++)
-                {
-                    for (int dx = 0; dx < 3; dx++)
-                    {
-                        if (dy == 1 && dx == 1)
-                        {
+            //else if (y == MAPSIZE_Y && x == 0)
+            //{
+            //    Instantiate(castle1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 22, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 22, SetTile_Z - 5), Quaternion.identity);
+            //    Instantiate(castle2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 2, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 2, SetTile_Z - 5), Quaternion.identity);
+            //    for (int dy = 0; dy < 3; dy++)
+            //    {
+            //        for (int dx = 0; dx < 3; dx++)
+            //        {
+            //            if (dy == 1 && dx == 1)
+            //            {
 
-                        }
-                        else
-                        {
-                            Instantiate(area1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (21 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (21 + dy), SetTile_Z - 5), Quaternion.identity);
-                            Instantiate(area2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (1 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (1 + dy), SetTile_Z - 5), Quaternion.identity);
-                        }
-                    }
-                }
-                break;
-            }
+            //            }
+            //            else
+            //            {
+            //                Instantiate(area1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (21 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (21 + dy), SetTile_Z - 5), Quaternion.identity);
+            //                Instantiate(area2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (1 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (1 + dy), SetTile_Z - 5), Quaternion.identity);
+            //            }
+            //        }
+            //    }
+            //    break;
+            //}
             x++;
             if (x >= MAPSIZE_X)
             {
                 x -= MAPSIZE_X;
                 y++;
+            }
+            if(y > MAPSIZE_Y)
+            {
+                break;
             }
         } while (true);
 
