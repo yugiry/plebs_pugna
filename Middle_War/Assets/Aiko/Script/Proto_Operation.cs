@@ -63,14 +63,19 @@ public class Proto_Operation : MonoBehaviour
             if (unit.name == "Parcher(Clone)" || unit.name == "Pcatapalt(Clone)")
             {
                 //攻撃範囲を表すマス目を表示するかしないか変更
-                if(Input.GetMouseButtonDown(2))
+                if (Input.GetMouseButtonDown(2))
+                {
+                    if (choice_range == 0)
                     {
-                    choice_range++;
-                    if(choice_range>1)
+                        choice_range = 1;
+                    }
+                }
+                if(Input.GetMouseButtonUp(2))
+                {
+                    if(choice_range == 1)
                     {
                         choice_range = 0;
                     }
-
                 }
                 switch (choice_range) 
                 {
@@ -225,12 +230,17 @@ public class Proto_Operation : MonoBehaviour
                 //攻撃範囲を表すマス目を表示するかしないか変更
                 if (Input.GetMouseButtonDown(2))
                 {
-                    choice_range++;
-                    if (choice_range > 1)
+                    if (choice_range == 0)
+                    {
+                        choice_range = 1;
+                    }
+                }
+                if (Input.GetMouseButtonUp(2))
+                {
+                    if (choice_range == 1)
                     {
                         choice_range = 0;
                     }
-
                 }
                 switch (choice_range)
                 {
@@ -258,7 +268,7 @@ public class Proto_Operation : MonoBehaviour
                 switch (choice_move)
                 {
                     case 0://移動
-                        //NR.Destroy_Range();
+                       // NR.Destroy_Range();
                            //ユニットをマウスの位置のタイルに移動させる
                         if (Input.GetMouseButtonDown(0))
                         {

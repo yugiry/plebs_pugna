@@ -126,29 +126,29 @@ public class New_range_hyouji : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (range_flag == 0)
-            {
-                range_flag = 1;
-                Debug.Log("flag on!" + range_flag);
-            }
-            else if (range_flag == 1)
-            {
-                range_flag = 0;
-                Destroy_Range();
-                Debug.Log("flag off!" + range_flag);
-            }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    if (range_flag == 0)
+        //    {
+        //        range_flag = 1;
+        //        Debug.Log("flag on!" + range_flag);
+        //    }
+        //    else if (range_flag == 1)
+        //    {
+        //        range_flag = 0;
+        //        Destroy_Range();
+        //        Debug.Log("flag off!" + range_flag);
+        //    }
             //エラー発生　フラグオフの状態でユニット以外をクリック→エラー
             //仮説　マップタイルを読み込んでない状態でクリックしたから？
             //オペレーションにはマップタイルクリック時の処理がある
             //こちらのシーンではマップタイルが読み込めなかったためマップなしで実行している。
             //}
-            if (Input.GetMouseButton(0))
-            {
-                Destroy_Range();
-                //range_flag = 0;
-            }
-        }
+        //    if (Input.GetMouseButton(0))
+        //    {
+        //        Destroy_Range();
+        //        //range_flag = 0;
+        //    }
+        //}
     }
 }
