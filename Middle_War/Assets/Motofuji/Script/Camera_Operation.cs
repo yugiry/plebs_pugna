@@ -17,6 +17,7 @@ public class Camera_Operation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
         mainCamera = Camera.main;
         CT = this.gameObject.GetComponent<Transform>();
         CameraSpeed = 0.5f;
