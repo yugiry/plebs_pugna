@@ -2,13 +2,18 @@ using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CreateMap : MonoBehaviour
 {
     [SerializeField] private GameObject tileobj;
+    Transform castletf;
+    GameObject castleobj;
     GameObject obj;
+
+    [SerializeField] CPU_Controller CPUC;
 
     //オブジェクト
     public GameObject grass;
@@ -146,39 +151,9 @@ public class CreateMap : MonoBehaviour
                         break;
                     case 4://PLAYER1の城
                         obj = Instantiate(castle1, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
-                        for (int i = y - 1; i <= y + 1; i++)
-                        {
-                            for (int j = x - 1; j <= x + 1; j++)
-                            {
-                                if (i == y && j == x) { }
-                                else
-                                {
-                                    GameObject tmpobj = null;
-                                    SET_X = SetTileStart_X + (TILESIZE_X + TILESPACE) * j;
-                                    SET_Y = SetTileStart_Y - (TILESIZE_Y + TILESPACE) * i;
-                                    tmpobj = Instantiate(area1, new Vector3(SET_X, SET_Y, SetTile_Z - 1), Quaternion.identity);
-                                    tmpobj.transform.parent = tileobj.transform;
-                                }
-                            }
-                        }
                         break;
                     case 5://PLAYER2の城
                         obj = Instantiate(castle2, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
-                        for (int i = y - 1; i <= y + 1; i++)
-                        {
-                            for (int j = x - 1; j <= x + 1; j++)
-                            {
-                                if (i == y && j == x) { }
-                                else
-                                {
-                                    GameObject tmpobj = null;
-                                    SET_X = SetTileStart_X + (TILESIZE_X + TILESPACE) * j;
-                                    SET_Y = SetTileStart_Y - (TILESIZE_Y + TILESPACE) * i;
-                                    tmpobj = Instantiate(area2, new Vector3(SET_X, SET_Y, SetTile_Z - 1), Quaternion.identity);
-                                    tmpobj.transform.parent = tileobj.transform;
-                                }
-                            }
-                        }
                         break;
                 }
                 obj.transform.parent = tileobj.transform;
@@ -212,6 +187,38 @@ public class CreateMap : MonoBehaviour
             }
             if(y > MAPSIZE_Y)
             {
+                castletf = tileobj.transform.Find("castle1(Clone)");
+                for (int i = -1; i <= 1; i++)
+                {
+                    for (int j = -1; j <= 1; j++)
+                    {
+                        if (i == 0 && j == 0) { }
+                        else
+                        {
+                            GameObject tmpobj = null;
+                            SET_X = castletf.position.x + (TILESIZE_X + TILESPACE) * j;
+                            SET_Y = castletf.position.y + (TILESIZE_Y + TILESPACE) * i;
+                            tmpobj = Instantiate(area1, new Vector3(SET_X, SET_Y, castletf.position.z - 1), Quaternion.identity);
+                            tmpobj.transform.parent = castletf;
+                        }
+                    }
+                }
+                castletf = tileobj.transform.Find("castle2(Clone)");
+                for (int i = -1; i <= 1; i++)
+                {
+                    for (int j = -1; j <= 1; j++)
+                    {
+                        if (i == 0 && j == 0) { }
+                        else
+                        {
+                            GameObject tmpobj = null;
+                            SET_X = castletf.position.x + (TILESIZE_X + TILESPACE) * j;
+                            SET_Y = castletf.position.y + (TILESIZE_Y + TILESPACE) * i;
+                            tmpobj = Instantiate(area2, new Vector3(SET_X, SET_Y, castletf.position.z - 1), Quaternion.identity);
+                            tmpobj.transform.parent = castletf;
+                        }
+                    }
+                }
                 break;
             }
         } while (true);
@@ -221,6 +228,8 @@ public class CreateMap : MonoBehaviour
         PRE_Text.text = Now_PResource.ToString() + "/" + Maximam_PResource.ToString();
         EAP_Text.text = Now_EAP.ToString() + "/" + Maximam_EAP.ToString();
         ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
+
+        CPUC.Map_Collect();
     }
 
     // Update is called once per frame

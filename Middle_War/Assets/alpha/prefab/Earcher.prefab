@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3350755982530704287}
   - component: {fileID: 2625150764588546943}
   - component: {fileID: -313312698644246770}
+  - component: {fileID: -4474272941189162353}
   m_Layer: 0
   m_Name: Earcher
   m_TagString: Eunit
@@ -169,6 +170,27 @@ MonoBehaviour:
   unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
   parent: {fileID: 6564277559733245726}
   base_point_unit: {fileID: 5115921953799137649}
+--- !u!50 &-4474272941189162353
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115921953799137649}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5181115653565386011
 GameObject:
   m_ObjectHideFlags: 0

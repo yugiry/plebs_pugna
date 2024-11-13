@@ -1124,7 +1124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0346443, y: 0.27173793}
   m_AnchorMax: {x: 0.19000001, y: 0.4833573}
-  m_AnchoredPosition: {x: -585.20844, y: -76.09786}
+  m_AnchoredPosition: {x: -585.21124, y: -76.09786}
   m_SizeDelta: {x: 269.70557, y: 125.56752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82519246
@@ -1341,7 +1341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038000003, y: 0.84784514}
   m_AnchorMax: {x: 0.19000001, y: 0.97953606}
-  m_AnchoredPosition: {x: -6.3726807, y: 13.871826}
+  m_AnchoredPosition: {x: -6.3728027, y: 13.871826}
   m_SizeDelta: {x: 64.195984, y: -19.404007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140220745
@@ -3242,7 +3242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038000003, y: 0.67022645}
   m_AnchorMax: {x: 0.19000001, y: 0.85828537}
-  m_AnchoredPosition: {x: -6.3719482, y: 4.213867}
+  m_AnchoredPosition: {x: -6.3720703, y: 4.213867}
   m_SizeDelta: {x: 54.814987, y: 19.919006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461119040
@@ -3653,7 +3653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8145259, y: 0.289}
   m_AnchorMax: {x: 0.9688815, y: 0.5}
-  m_AnchoredPosition: {x: 589.11755, y: -88.21853}
+  m_AnchoredPosition: {x: 589.11755, y: -88.21818}
   m_SizeDelta: {x: 278.7473, y: 124.581985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575241305
@@ -4324,7 +4324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20700002, y: 0.4931374}
   m_AnchorMax: {x: 0.41346413, y: 0.61939603}
-  m_AnchoredPosition: {x: -16.637001, y: 13.4}
+  m_AnchoredPosition: {x: -16.637003, y: 13.4}
   m_SizeDelta: {x: 13.74, y: 33.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635063802
@@ -4504,6 +4504,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656246088}
   m_CullTransparentMesh: 1
+--- !u!1 &663311802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663311804}
+  - component: {fileID: 663311805}
+  m_Layer: 0
+  m_Name: CPU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663311804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663311802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.819029, y: -0.60335076, z: -0.6710818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663311805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663311802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caea9bf7b6685d548a137f05950f8a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infantry: {fileID: 2604027163686111074, guid: 31192b85a818c6347b2368917b952fc6, type: 3}
+  archer: {fileID: 5115921953799137649, guid: 71da5e76bd2b2a34ab78fe341cbad71f, type: 3}
+  catapalt: {fileID: 4908926347090675981, guid: 63f54496187279144aba66743869efa5, type: 3}
+  unitbox: {fileID: 1956785923}
+  tilebox: {fileID: 1021346003}
+  UIO: {fileID: 1523374838}
 --- !u!1 &709427622
 GameObject:
   m_ObjectHideFlags: 0
@@ -8933,6 +8983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileobj: {fileID: 1021346003}
+  CPUC: {fileID: 663311805}
   grass: {fileID: 4821690102011471434, guid: 910c4841c38b42948bf23ae5a256363e, type: 3}
   mountain: {fileID: 5104088506441295888, guid: 33e1834dc703e924a983abded1c94798, type: 3}
   water: {fileID: 7893296592390915762, guid: 8d677c2da07d8cf489bfb035805b3617, type: 3}
@@ -9041,6 +9092,7 @@ MonoBehaviour:
   PUnitText: {fileID: 585244682}
   EUnit_Num: 0
   EUnitText: {fileID: 1144931213}
+  CPUC: {fileID: 663311805}
 --- !u!61 &1523374839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9863,7 +9915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0346443, y: 0.4723454}
   m_AnchorMax: {x: 0.19000001, y: 0.6781787}
-  m_AnchoredPosition: {x: -3.6881104, y: 0.000061035156}
+  m_AnchoredPosition: {x: -3.6879883, y: 0.000061035156}
   m_SizeDelta: {x: 49.446, y: -25.801987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677333994
@@ -10209,7 +10261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8146444, y: 0.84784514}
   m_AnchorMax: {x: 0.97832364, y: 0.9903574}
-  m_AnchoredPosition: {x: -9.277893, y: 9}
+  m_AnchoredPosition: {x: -9.277954, y: 9}
   m_SizeDelta: {x: 45.516, y: -29.147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764445865
@@ -10818,7 +10870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17118834, y: 0.31586263}
   m_AnchorMax: {x: 0.46800002, y: 0.4591374}
-  m_AnchoredPosition: {x: -19.42701, y: -7}
+  m_AnchoredPosition: {x: -19.42701, y: -7.000001}
   m_SizeDelta: {x: -5.9105, y: 26.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844527272
@@ -10979,7 +11031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8146444, y: 0.69100004}
   m_AnchorMax: {x: 0.975, y: 0.86700004}
-  m_AnchoredPosition: {x: -1.9411011, y: -20.006989}
+  m_AnchoredPosition: {x: -1.94104, y: -20.006989}
   m_SizeDelta: {x: 41.478, y: 40.015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900730032
@@ -11056,7 +11108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.214}
   m_AnchorMin: {x: 0.15857574, y: 0.32771426}
   m_AnchorMax: {x: 0.4544239, y: 0.47300002}
-  m_AnchoredPosition: {x: -13.700012, y: -13.799999}
+  m_AnchoredPosition: {x: -13.700014, y: -13.799999}
   m_SizeDelta: {x: -4.063, y: 16.457}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914921824

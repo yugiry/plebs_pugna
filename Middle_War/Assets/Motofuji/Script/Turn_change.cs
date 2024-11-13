@@ -107,9 +107,9 @@ public class Turn_change : MonoBehaviour
         Parcsta.SetActive(false);
         Pcatsta.SetActive(false);
         Psta.SetActive(false);
-        //ccobj = GameObject.Find("a");
-        //CC = ccobj.GetComponent<CPU_Controller>();
-        //CC.Turn_Here();
+        ccobj = GameObject.Find("CPU");
+        CC = ccobj.GetComponent<CPU_Controller>();
+        CC.Turn_Here();
     }
 
     //ターンをプレイヤーに渡す

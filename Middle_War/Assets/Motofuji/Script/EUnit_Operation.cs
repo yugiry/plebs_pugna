@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EUnit_Operation : MonoBehaviour
+public class EUnit_Operation : PlayerUnit_Base
 {
     public GameObject unit;
     public GameObject act1;
@@ -24,23 +24,8 @@ public class EUnit_Operation : MonoBehaviour
     GameObject clickedGameObject;
     GameObject[] action;
 
-    GameObject cmobj;
-    CreateMap CMinfo;
-
-    GameObject rcobj;
-    Resource_Controll RC;
-
     GameObject tcobj;
     Turn_change TC;
-
-    GameObject uoobj;
-    Unit_Operation UO;
-
-    GameObject chobj;
-    Pcastlehp PCH;
-
-    int apnum;
-    int renum;
 
     private bool followmouse;
     private int tilenum;
@@ -50,7 +35,6 @@ public class EUnit_Operation : MonoBehaviour
 
     Vector3 mousepos;
     Vector3 vec;
-
 
     public GameObject unit_click;
     public Transform parent;
@@ -87,88 +71,28 @@ public class EUnit_Operation : MonoBehaviour
                     tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがあるか確認
-                    for (float i = tile_y - 2; i <= tile_y + 2; i++)
+                    if (clickedGameObject.CompareTag("unit"))
                     {
-                        for (float j = tile_x - 2; j <= tile_x + 2; j++)
+                        if (attack_cnt == 0)
                         {
-                            if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
+                            if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, clickedGameObject, unit))
                             {
-                                if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
-                                {
-                                    clickedGameObject = hit2d.transform.gameObject;
-                                    if (clickedGameObject.name == "Pinfantry(Clone)" ||
-                                        clickedGameObject.name == "Parcher(Clone)" ||
-                                        clickedGameObject.name == "Pcatapalt(Clone)")
-                                    {
-                                        if (attack_cnt == 0)
-                                        {
-                                            UO = clickedGameObject.GetComponent<Unit_Operation>();
-                                            Debug.Log("攻撃");
-                                            UO.HitAttack(attack);
-                                            attack_cnt++;
-                                        }
-                                    }
-                                    if (clickedGameObject.name == "castle1(Clone)")
-                                    {
-                                        if (attack_cnt == 0)
-                                        {
-                                            chobj = GameObject.Find("map");
-                                            PCH = chobj.GetComponent<Pcastlehp>();
-                                            Debug.Log("攻撃");
-                                            PCH.HitAttack(attack);
-                                            attack_cnt++;
-                                        }
-                                    }
-                                }
+                                attack_cnt++;
+                            }
+                        }
+                    }
+                    if (clickedGameObject.name == "castle1(Clone)")
+                    {
+                        if (attack_cnt == 0)
+                        {
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, unit))
+                            {
+                                attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    for (float i = tile_y - 1; i <= tile_y + 1; i++)
-                    {
-                        for (float j = tile_x - 1; j <= tile_x + 1; j++)
-                        {
-                            if (((i == tile_y - 1 || i == tile_y + 1) && j == tile_x) || (i == tile_y && (j == tile_x - 1 || j == tile_x + 1)))
-                            {
-                                if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
-                                {
-                                    if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
-                                    {
-                                        clickedGameObject = hit2d.transform.gameObject;
-                                        Debug.Log(clickedGameObject.name);
-                                        if (clickedGameObject.name == "grass(Clone)")
-                                        {
-                                            cmobj = GameObject.Find("map");
-                                            CMinfo = cmobj.GetComponent<CreateMap>();
-                                            apnum = CMinfo.Now_EAP;
-                                            renum = CMinfo.Now_EResource;
-                                            //APの量を調べて足りるなら移動
-                                            apnum = apnum - move_ap;
-                                            if (apnum >= 0)
-                                            {
-                                                CMinfo.EChange_REAP(apnum, renum);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
-                                            }
-                                        }
-                                        else if (clickedGameObject.name == "water(Clone)")
-                                        {
-                                            cmobj = GameObject.Find("map");
-                                            CMinfo = cmobj.GetComponent<CreateMap>();
-                                            apnum = CMinfo.Now_EAP;
-                                            renum = CMinfo.Now_EResource;
-                                            //APの量を調べて足りるなら移動
-                                            apnum = apnum - (move_ap + 1);
-                                            if (apnum >= 0)
-                                            {
-                                                CMinfo.EChange_REAP(apnum, renum);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))
@@ -193,92 +117,28 @@ public class EUnit_Operation : MonoBehaviour
                     tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがあるか確認
-                    for (float i = tile_y - 4; i <= tile_y + 4; i++)
+                    if (clickedGameObject.CompareTag("unit"))
                     {
-                        for (float j = tile_x - 4; j <= tile_x + 4; j++)
+                        if (attack_cnt == 0)
                         {
-                            if ((j >= tile_x - 1 && j <= tile_x + 1) && (i >= tile_y - 1 && i <= tile_y + 1)) ;
-                            else
+                            if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, clickedGameObject, unit))
                             {
-                                if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
-                                {
-                                    if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
-                                    {
-                                        clickedGameObject = hit2d.transform.gameObject;
-                                        if (clickedGameObject.name == "Pinfantry(Clone)" ||
-                                            clickedGameObject.name == "Parcher(Clone)" ||
-                                            clickedGameObject.name == "Pcatapalt(Clone)")
-                                        {
-                                            if (attack_cnt == 0)
-                                            {
-                                                UO = clickedGameObject.GetComponent<Unit_Operation>();
-                                                Debug.Log("攻撃");
-                                                UO.HitAttack(attack);
-                                                attack_cnt++;
-                                            }
-                                        }
-                                        if (clickedGameObject.name == "castle1(Clone)")
-                                        {
-                                            if (attack_cnt == 0)
-                                            {
-                                                chobj = GameObject.Find("map");
-                                                PCH = chobj.GetComponent<Pcastlehp>();
-                                                Debug.Log("攻撃");
-                                                PCH.HitAttack(attack);
-                                                attack_cnt++;
-                                            }
-                                        }
-                                    }
-                                }
+                                attack_cnt++;
+                            }
+                        }
+                    }
+                    if (clickedGameObject.name == "castle1(Clone)")
+                    {
+                        if (attack_cnt == 0)
+                        {
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, unit))
+                            {
+                                attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    for (float i = tile_y - 1; i <= tile_y + 1; i++)
-                    {
-                        for (float j = tile_x - 1; j <= tile_x + 1; j++)
-                        {
-                            if (((i == tile_y - 1 || i == tile_y + 1) && j == tile_x) || (i == tile_y && (j == tile_x - 1 || j == tile_x + 1)))
-                            {
-                                if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
-                                {
-                                    if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
-                                    {
-                                        clickedGameObject = hit2d.transform.gameObject;
-                                        Debug.Log(clickedGameObject.name);
-                                        if (clickedGameObject.name == "grass(Clone)")
-                                        {
-                                            cmobj = GameObject.Find("map");
-                                            CMinfo = cmobj.GetComponent<CreateMap>();
-                                            apnum = CMinfo.Now_EAP;
-                                            renum = CMinfo.Now_EResource;
-                                            //APの量を調べて足りるなら移動
-                                            apnum = apnum - move_ap;
-                                            if (apnum >= 0)
-                                            {
-                                                CMinfo.EChange_REAP(apnum, renum);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
-                                            }
-                                        }
-                                        else if (clickedGameObject.name == "water(Clone)")
-                                        {
-                                            cmobj = GameObject.Find("map");
-                                            CMinfo = cmobj.GetComponent<CreateMap>();
-                                            apnum = CMinfo.Now_EAP;
-                                            renum = CMinfo.Now_EResource;
-                                            //APの量を調べて足りるなら移動
-                                            apnum = apnum - (move_ap + 1);
-                                            if (apnum >= 0)
-                                            {
-                                                CMinfo.EChange_REAP(apnum, renum);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))
@@ -303,83 +163,18 @@ public class EUnit_Operation : MonoBehaviour
                     tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    for (float i = tile_y - 1; i <= tile_y + 1; i++)
+                    if (clickedGameObject.CompareTag("unit"))
                     {
-                        for (float j = tile_x - 1; j <= tile_x + 1; j++)
+                        if (attack_cnt == 0)
                         {
-                            if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
+                            if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 1, 0, attack, clickedGameObject, unit))
                             {
-                                if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
-                                {
-                                    clickedGameObject = hit2d.transform.gameObject;
-                                    if (clickedGameObject.name == "Pinfantry(Clone)" ||
-                                        clickedGameObject.name == "Parcher(Clone)" ||
-                                        clickedGameObject.name == "Pcatapalt(Clone)")
-                                    {
-                                        if (attack_cnt == 0)
-                                        {
-                                            UO = clickedGameObject.GetComponent<Unit_Operation>();
-                                            Debug.Log("攻撃");
-                                            UO.HitAttack(attack);
-                                            attack_cnt++;
-                                        }
-                                    }
-                                }
+                                attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    for (float i = tile_y - 1; i <= tile_y + 1; i++)
-                    {
-                        for (float j = tile_x - 1; j <= tile_x + 1; j++)
-                        {
-                            if (((i == tile_y - 1 || i == tile_y + 1) && j == tile_x) || (i == tile_y && (j == tile_x - 1 || j == tile_x + 1)))
-                            {
-                                if (mousepos.x > (j * 4.5f) - 2 && mousepos.x < (j * 4.5f) + 2)
-                                {
-                                    if (mousepos.y > (i * 4.5f) - 2 && mousepos.y < (i * 4.5f) + 2)
-                                    {
-                                        clickedGameObject = hit2d.transform.gameObject;
-                                        Debug.Log(clickedGameObject.name);
-                                        if (clickedGameObject.name == "grass(Clone)")
-                                        {
-                                            cmobj = GameObject.Find("map");
-                                            CMinfo = cmobj.GetComponent<CreateMap>();
-                                            apnum = CMinfo.Now_EAP;
-                                            renum = CMinfo.Now_EResource;
-                                            //APの量を調べて足りるなら移動
-                                            apnum = apnum - move_ap;
-                                            if (apnum >= 0)
-                                            {
-                                                CMinfo.EChange_REAP(apnum, renum);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
-                                            }
-                                        }
-                                        else if (clickedGameObject.name == "water(Clone)")
-                                        {
-                                            cmobj = GameObject.Find("map");
-                                            CMinfo = cmobj.GetComponent<CreateMap>();
-                                            apnum = CMinfo.Now_EAP;
-                                            renum = CMinfo.Now_EResource;
-                                            //APの量を調べて足りるなら移動
-                                            apnum = apnum - (move_ap + 1);
-                                            if (apnum >= 0)
-                                            {
-                                                CMinfo.EChange_REAP(apnum, renum);
-                                                unit.transform.position = new Vector3(-54 + j * 4.5f, 54 - i * 4.5f, 14.0f);
-                                            }
-                                        }
-                                        else if (clickedGameObject.name == "resource(Clone)")
-                                        {
-                                            Debug.Log("資源確保");
-                                            RC = clickedGameObject.GetComponent<Resource_Controll>();
-                                            RC.EGetResource();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))

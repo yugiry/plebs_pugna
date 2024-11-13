@@ -13,6 +13,8 @@ public class UI_Operate : MonoBehaviour
     public int EUnit_Num;
     [SerializeField] Text EUnitText;
 
+    [SerializeField] CPU_Controller CPUC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class UI_Operate : MonoBehaviour
             EUnit_Num++;
             EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
+        CPUC.UnitNumChange();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -49,6 +52,7 @@ public class UI_Operate : MonoBehaviour
             EUnit_Num--;
             EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
+        CPUC.UnitNumChange();
     }
 
     // Update is called once per frame
