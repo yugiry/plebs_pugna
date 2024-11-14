@@ -10,7 +10,7 @@ public class Rule_hyouji : MonoBehaviour
     //public GameObject text;
     [SerializeField] TextMeshProUGUI text;
 
-     int color_change=0;
+    public int color_change=1;
    public static int hyouji_hihyouji = 0;
 
     // Start is called before the first frame update
@@ -22,7 +22,10 @@ public class Rule_hyouji : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    invisible_rules();
+        //}
     }
 
     public void rule_miseru()
@@ -32,18 +35,46 @@ public class Rule_hyouji : MonoBehaviour
         {
             hyouji_hihyouji = 0;
         }
+        /*switch(hyouji_hihyouji)
+        {
+            case 0:
+                hyouji_hihyouji = 1;
+                //rule_hyouji.SetActive(false);
+                text_color_change();
+
+                invisible_rules();
+
+                Debug.Log(hyouji_hihyouji);
+                break;
+            case 1:
+                text_color_change();
+
+                invisible_rules();
+
+                rule_hyouji.SetActive(true);
+                Debug.Log(hyouji_hihyouji);
+                break;
+
+
+        }*/
 
         if(rule_hyouji.activeSelf )
         {
             hyouji_hihyouji = 1;
             //rule_hyouji.SetActive(false);
+           // text_color_change();
+
             invisible_rules();
+            
             Debug.Log(hyouji_hihyouji);
         }
-        else /*if(hyouji_hihyouji==1)*/
+        else //if(hyouji_hihyouji==1)
         {
+           // text_color_change();
+
             invisible_rules();
-          rule_hyouji.SetActive(true);
+            
+            rule_hyouji.SetActive(true);
             Debug.Log(hyouji_hihyouji);
         }
 
@@ -51,17 +82,26 @@ public class Rule_hyouji : MonoBehaviour
     }
     public void text_color_change()
     {
-        if(color_change==0)
+        color_change++;
+        if(color_change>1)
         {
-            text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-            color_change++;
-            Debug.Log(color_change);
+            color_change = 0;
         }
-         else
+
+        switch(color_change)
         {
-            text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
-            color_change--;
-            Debug.Log(color_change);
+            case 0:
+                //change_black();
+                text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            
+            Debug.Log("t"+color_change);
+                break;
+           
+            case 1:
+                text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+               // change_black();
+            Debug.Log("t"+color_change);
+                break;
         }
 
 
@@ -71,14 +111,43 @@ public class Rule_hyouji : MonoBehaviour
     {
        GameObject[] rule = GameObject.FindGameObjectsWithTag("Respawn");
 
-        if(rule_hyouji.activeSelf)
-        {
+        
             foreach (GameObject Push in rule)
             {
-                rule_hyouji.SetActive(false);
-                Debug.Log("destroy");
+                Push.SetActive(false);
+                Debug.Log("destroy"+Push.name);
             }
-        }
+        
+
+    }
+
+    //public void change_black()
+    //{
+    //    GameObject[] TEXT = GameObject.FindGameObjectsWithTag("Player");
+
+    //    foreach(GameObject color in TEXT)
+    //    {
+    //        text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+    //    }
+
+    //}
+
+    public void change_button_enter()
+    {
+        //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
+
+        
+        
+            this.GetComponent<Renderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        
+    }
+    public void change_button2_exit()
+    {
+        //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
+
+
+
+        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8276441557951231870}
   m_Layer: 5
   m_Name: rule_hyouji_button
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rule_hyouji: {fileID: 8276441559612280876}
   text: {fileID: 8276441558655242847}
+  color_change: 1
 --- !u!61 &8276441557951231867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,6 +168,38 @@ MonoBehaviour:
         - m_Target: {fileID: 8276441557951231868}
           m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
           m_MethodName: text_color_change
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 0
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8276441557951231868}
+          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
+          m_MethodName: change_button_enter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8276441557951231868}
+          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
+          m_MethodName: change_button2_exit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
