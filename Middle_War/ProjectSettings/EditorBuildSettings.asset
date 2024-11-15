@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Aiko/Rule_Kakuninn.unity
     guid: 31130534a55a56240a18d849cb6bd138
+  - enabled: 1
+    path: Assets/Aiko/Test Scene.unity
+    guid: 0fec06ddbda4679408c410985efb4ffd
+  - enabled: 1
+    path: Assets/Aiko/Tile_test_Scene.unity
+    guid: 97ac8943773014341b670b6bee28231b
   m_configObjects: {}
