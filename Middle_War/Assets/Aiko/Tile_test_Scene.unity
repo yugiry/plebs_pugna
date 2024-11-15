@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 186278488600705529, guid: 49df0e356a4af6f46b2a1b3670bd484b, type: 3}
       propertyPath: m_Name
-      value: Button (Legacy)
+      value: Rule_Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49df0e356a4af6f46b2a1b3670bd484b, type: 3}
