@@ -121,6 +121,8 @@ public class CPU_Controller : PlayerUnit_Base
                 case 2://çUåÇ
                     Unit_Attack(unit);
                     break;
+                default:
+                    break;
             }
         }
     }
@@ -231,6 +233,8 @@ public class CPU_Controller : PlayerUnit_Base
                 move_x = 0;
                 move_y = -1;
                 break;
+            default:
+                break;
         }
 
         MC = move_checker.GetComponent<Move_Check>();
@@ -262,45 +266,53 @@ public class CPU_Controller : PlayerUnit_Base
                 CM.EChange_REAP(apnum, renum);
             }
         }
-        move_checker.transform.position = new Vector3(obj.transform.position.x + move_x * (TILESIZE_X + TILESPACE), obj.transform.position.y + move_y * (TILESIZE_Y + TILESPACE), obj.transform.position.z);
+        move_checker.transform.position = new Vector3(obj.transform.position.x + move_x * (TILESIZE_X + TILESPACE), obj.transform.position.y + move_y * (TILESIZE_Y + TILESPACE), move_checker.transform.position.z);
     }
 
     void Unit_Attack(GameObject obj)
     {
         attack_checker = obj.transform.GetChild(1).gameObject;
         EUO = obj.GetComponent<EUnit_Operation>();
-        if (EUO.attack_cnt == 0)
+        if (EUO != null)
         {
-            AC = attack_checker.GetComponent<Attack_Check>();
-            switch (obj.name)
+            if (EUO.attack_cnt == 0)
             {
-                case "Cinfantry(Clone)":
-                    if (AC.Can_Attack() != null)
+                AC = attack_checker.GetComponent<Attack_Check>();
+                if (AC != null)
+                {
+                    switch (obj.name)
                     {
-                        UO = AC.Can_Attack().GetComponent<Unit_Operation>();
-                        UO.HitAttack(EUO.attack);
-                        EUO.attack_cnt++;
+                        case "Cinfantry(Clone)":
+                            if (AC.Can_Attack() != null)
+                            {
+                                UO = AC.Can_Attack().GetComponent<Unit_Operation>();
+                                UO.HitAttack(EUO.attack);
+                                EUO.attack_cnt++;
+                            }
+                            break;
+                        case "Carcher(Clone)":
+                        case "Ccatapalt(Clone)":
+                            if (AC.Can_AllAttack() != null)
+                            {
+                                if (AC.Can_AllAttack().tag == "unit")
+                                {
+                                    UO = AC.Can_Attack().GetComponent<Unit_Operation>();
+                                    UO.HitAttack(EUO.attack);
+                                    EUO.attack_cnt++;
+                                }
+                                if (AC.Can_AllAttack().name == "castle1(Clone)")
+                                {
+                                    chobj = GameObject.Find("map");
+                                    PCH = chobj.GetComponent<Pcastlehp>();
+                                    PCH.HitAttack(EUO.attack);
+                                    EUO.attack_cnt++;
+                                }
+                            }
+                            break;
+                        default:
+                            break;
                     }
-                    break;
-                case "Carcher(Clone)":
-                case "Ccatapalt(Clone)":
-                    if (AC.Can_AllAttack() != null)
-                    {
-                        if(AC.Can_AllAttack().tag == "unit")
-                        {
-                            UO = AC.Can_Attack().GetComponent<Unit_Operation>();
-                            UO.HitAttack(EUO.attack);
-                            EUO.attack_cnt++;
-                        }
-                        if(AC.Can_AllAttack().name == "castle1(Clone)")
-                        {
-                            chobj = GameObject.Find("map");
-                            PCH = chobj.GetComponent<Pcastlehp>();
-                            PCH.HitAttack(EUO.attack);
-                            EUO.attack_cnt++;
-                        }
-                    }
-                    break;
+                }
             }
         }
     }
