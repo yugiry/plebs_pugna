@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;//スクリプトでUI(テキストなど)扱うときはこれ必須！！
 
 public class Rule_hyouji : MonoBehaviour
 {
     public GameObject rule_hyouji;
     private GameObject rule;
-    //public GameObject text;
-    [SerializeField] TextMeshProUGUI text;
+    public Text text;
+    //[SerializeField] TextMeshProUGUI text;
 
     public int color_change=1;
    public static int hyouji_hihyouji = 0;
@@ -98,7 +99,7 @@ public class Rule_hyouji : MonoBehaviour
                 break;
            
             case 1:
-                text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+                text.color = new Color(0.3f, 0.3f, 0.3f, 1.0f);
                // change_black();
             Debug.Log("t"+color_change);
                 break;
@@ -138,7 +139,7 @@ public class Rule_hyouji : MonoBehaviour
 
         
         
-            this.GetComponent<Renderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+            this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
         
     }
     public void change_button2_exit()
