@@ -9,113 +9,53 @@ public class mapfaito : MonoBehaviour
 {
     public int countrynum;
     public GameObject mapbatoru;
-    [SerializeField] public Text text1;
-    [SerializeField] public Text text2;
-    
-   public GameObject Button;
-    //string countrynum;
-    public infan CI;
-    //public Sprite newSprite;
-    //private Square Square;
-
-    //int number = mapClick.countrynum;
+    [SerializeField] public Text text1;//１つ目のテキスト変換
+    [SerializeField] public Text text2;//２つ目のテキスト変換
+    public Image image; //画像表示
+    public GameObject Button;//敵とのバトルボタン
+    public Sprite[] newSprite;//画像表示追加
 
     //// Start is called before the first frame update
-    //void Start() 
-    //{
-       
-    //}
-    
-    public void show_country(int countrynum)
-        {/* number = num;*/
-
-            switch (countrynum)
-            {
-                case 1:
-                    text1.text = "自国";
-                    text2.text = "どんどん敵国を攻め領土を拡張して天下統一を目指そう！！";
-                    //Square = GetComponent<Square>();
-                    //Square.sprite = newSprite;
-                    Button.SetActive(false);
-                    mapbatoru.transform.position = new Vector3(0, 0, 50);
-                break;
-                case 2:
-                    text1.text = "フスラン";
-                    text2.text = "できたばかりの国で国王の権力が低く攻め入りやすい！";
-                //Square = GetComponent<Square>();
-                //Square.sprite = newSprite;
-                    Button.SetActive(true);
-                    mapbatoru.transform.position = new Vector3(0, 0, 50);
-                    break;
-                case 3:
-                    text1.text = "ア・タイリ";
-                    text2.text = "できたばかりではないが国民のまとまりがなくあまり発展していない！";
-                //Square = GetComponent<Square>();
-                //Square.sprite = newSprite; 
-                    Button.SetActive(true);
-                    mapbatoru.transform.position = new Vector3(0, 0, 50);
-                    break;
-                case 4:
-                    text1.text = "アイべり半島";
-                    text2.text = "少し発展しており徐々に宗教が広まっている!!（宗教名ligare）";
-                //Square = GetComponent<Square>();
-                //Square.sprite = newSprite;
-                    Button.SetActive(true);
-                    mapbatoru.transform.position = new Vector3(0, 0, 50);
-                    break;
-                default:
-                    Debug.Log("Default");
-                    break;
-            }
-
-
+    void Start()
+    {
+        
     }
 
-   
-    //}
+    public void Show_country(int countrynum)
+    { //mapClickから受け取った値を読み取る
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    //string countrynum;
-    //}
+        image.sprite = newSprite[countrynum - 1]; //画像表示
 
-    //public void show_country(int num)
-    //{
-    //int number = 1;
+        switch (countrynum) //受け取った値別処理
+        {
+            case 1:
+                text1.text = "自国"; //国名
+                text2.text = "どんどん敵国を攻め領土を拡張して天下統一を目指そう！！"; //国説明
+                Button.SetActive(false); //ボタン表示（自国はボタン表示しない）
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置          
+                break;
+            case 2:
+                text1.text = "フスラン"; //国名
+                text2.text = "できたばかりの国で国王の権力が低く攻め入りやすい！"; //国説明            
+                Button.SetActive(true); //敵国はボタン表示する
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                break;
+            case 3:
+                text1.text = "ア・タイリ"; //国名
+                text2.text = "できたばかりではないが国民のまとまりがなくあまり発展していない！"; //国説明             
+                Button.SetActive(true); //敵国はボタン表示する
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                break;
+            case 4:
+                text1.text = "アイべり半島"; //国名
+                text2.text = "少し発展しており徐々に宗教が広まっている!!（宗教名ligare）"; //国説明          
+                Button.SetActive(true); //敵国はボタン表示する
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                break;
+            default:
+                Debug.Log("Default"); //switch処理の最後
+                break;
+        }
 
-    //switch (num)
-    //{
-    //    case 1:
-    //        text1.text = "";
-    //        text2.text = "どんどん敵国を攻め領土を拡張して天下統一を目指そう！！";
-
-    //        Button.SetActive(false);
-    //        break;
-    //    case 2:
-    //        text1.text = "フスラン";
-    //        text2.text = "できたばかりの国で国王の権力が低く攻め入りやすい！";
-
-    //        //Button = ;
-    //        mapbatoru.transform.position = new Vector3(20, 0, 0);
-    //        break;
-    //    case 3:
-    //        text1.text = "ア・タイリ";
-    //        text2.text = "できたばかりの国ではないが国民のまとまりがなくあまり発展していない国！";
-
-    //        //Button = ;
-    //        mapbatoru.transform.position = new Vector3(20, 0, 0);
-    //        break;
-    //    case 4:
-    //        text1.text = "アイべり半島";
-    //        text2.text = "少し発展しており徐々に宗教が広まっている!（宗教名ligare）";
-
-    //        //Button = ;
-    //        mapbatoru.transform.position = new Vector3(20, 0, 0);
-    //        break;
-    //    default:
-    //        Debug.Log("Default");              
-    //        break;
-    //}
-    //}
+    }
 }

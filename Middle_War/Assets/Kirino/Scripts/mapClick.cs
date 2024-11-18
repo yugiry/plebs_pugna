@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class mapClick : MonoBehaviour
 {
     public GameObject mapbatoru;
-    //public int countrynum;
-    public int countrynum;
-    public GameObject faito;
+    public int countrynum;//クリックした時に値を与える
 
-    [SerializeField] mapfaito mapfaito;
+    [SerializeField] mapfaito mapfaito;//値を送りたいスクリプトの名前
+    //[SerializeField] imagemap imagemap;//値を送りたいスクリプトの名前
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +25,8 @@ public class mapClick : MonoBehaviour
 
     public void Cllik()
     {
-        mapbatoru.SetActive(true);
-        mapfaito.show_country(countrynum);
+        mapbatoru.SetActive(true);//マップボード表示
+        mapfaito.Show_country(countrynum);//mapfaito.csスクリプトにクリックされたcountrynumの値を送る
+        //imagemap.Shew_island(countrynum);//imagemap.csスクリプトにクリックされたcountrynumの値を送る
     }
-
-   
 }
