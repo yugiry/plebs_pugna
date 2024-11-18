@@ -106,7 +106,6 @@ MonoBehaviour:
   TILESIZE_Y: 4
   TILESPACE: 0.5
   TileNum: 0
-  UnitObject: {fileID: 6686210027933580255, guid: 94055043c7d1ad243b0fa834abbedfae, type: 3}
 --- !u!114 &-6254559295307056112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +181,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821690102011471434}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

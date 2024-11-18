@@ -36,9 +36,9 @@ public class EUnit_Operation : PlayerUnit_Base
     Vector3 mousepos;
     Vector3 vec;
 
-    public GameObject unit_click;
-    public Transform parent;
-    public GameObject base_point_unit;
+    //public GameObject unit_click;
+    //public Transform parent;
+    //public GameObject base_point_unit;
     private GameObject unitclick;
     float masume_size = 4.5f;
 

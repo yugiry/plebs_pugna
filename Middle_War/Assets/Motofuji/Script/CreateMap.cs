@@ -49,7 +49,7 @@ public class CreateMap : MonoBehaviour
     public int[] map;
     //csvファイルの場所
     //private string csv_place = "Resources/map.csv";
-    private string csv_place = "Assets/alpha/Resources/map.csv";
+    private string csv_place = "Assets/alpha/Resources/map(stage1).csv";
 
     //playerAPの管理をする数値。
     int Maximam_PAP = 999;
@@ -235,6 +235,10 @@ public class CreateMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Now_EAP = 999;
+        }
         //マウスのポジションを表示
         if(Input.GetKeyDown(KeyCode.M))
         {

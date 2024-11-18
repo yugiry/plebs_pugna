@@ -13,8 +13,6 @@ public class UI_Operate : MonoBehaviour
     public int EUnit_Num;
     [SerializeField] Text EUnitText;
 
-    [SerializeField] CPU_Controller CPUC;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,32 +25,30 @@ public class UI_Operate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.name == "Pinfantry(Clone)" || other.gameObject.name == "Parcher(Clone)" || other.gameObject.name == "Pcatapalt(Clone)") && PUnit_Num < MaxUnit)
+        if (other.tag == "unit" && PUnit_Num < MaxUnit)
         {
             PUnit_Num++;
             PUnitText.text = PUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
-        if ((other.gameObject.name == "Einfantry(Clone)" || other.gameObject.name == "Earcher(Clone)" || other.gameObject.name == "Ecatapalt(Clone)") && EUnit_Num < MaxUnit)
+        if (other.tag == "Eunit" && EUnit_Num < MaxUnit)
         {
             EUnit_Num++;
             EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
-        CPUC.UnitNumChange();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Pinfantry(Clone)" || other.gameObject.name == "Parcher(Clone)" || other.gameObject.name == "Pcatapalt(Clone)")
+        if (other.tag == "unit")
         {
             PUnit_Num--;
             PUnitText.text = PUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
-        if ((other.gameObject.name == "Einfantry(Clone)" || other.gameObject.name == "Earcher(Clone)" || other.gameObject.name == "Ecatapalt(Clone)") && EUnit_Num < MaxUnit)
+        if (other.tag == "Eunit")
         {
             EUnit_Num--;
             EUnitText.text = EUnit_Num.ToString() + "/" + MaxUnit.ToString();
         }
-        CPUC.UnitNumChange();
     }
 
     // Update is called once per frame
