@@ -27,7 +27,7 @@ public class PlayerUnit_Base : MonoBehaviour
     [NonSerialized] public CreateMap CM;
 
     GameObject rcobj;
-    Resource_Controll RC;
+    [NonSerialized] public Resource_Controll RC;
 
     [NonSerialized] public int apnum;
     [NonSerialized] public int renum;

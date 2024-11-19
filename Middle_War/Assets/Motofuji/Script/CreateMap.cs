@@ -121,10 +121,10 @@ public class CreateMap : MonoBehaviour
         }
 
         //APと資源の初期化
-        Now_PAP = 999;
-        Now_PResource = 999;
-        Now_EAP = 999;
-        Now_EResource = 999;
+        Now_PAP = 5;
+        Now_PResource = 0;
+        Now_EAP = 0;
+        Now_EResource = 0;
 
         obj = null;
 
@@ -237,7 +237,7 @@ public class CreateMap : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Now_EAP = 999;
+            Now_EAP = Now_EResource = 999;
         }
         //マウスのポジションを表示
         if(Input.GetKeyDown(KeyCode.M))

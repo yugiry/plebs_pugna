@@ -8,6 +8,7 @@ public class CPU_Controller : PlayerUnit_Base
 {
     bool nowturn;
     bool map_complete;
+    GameObject canmove;
 
     [SerializeField] GameObject infantry;
     [SerializeField] GameObject archer;
@@ -35,6 +36,8 @@ public class CPU_Controller : PlayerUnit_Base
     Move_Check MC;
     GameObject attack_checker;
     Attack_Check AC;
+
+    Resource_Controll CCRC;
 
     public UI_Operate UIO;
     int surd;//ÉÜÉjÉbÉgÇÃèoÇ∑éÌóﬁÇÃÉâÉìÉ_ÉÄ
@@ -74,17 +77,14 @@ public class CPU_Controller : PlayerUnit_Base
             else
             {
                 Debug.Log("ÉÜÉjÉbÉgç›ÇË");
-                summon_or_action = RanDom(0, 4);
-                switch (summon_or_action)
+                summon_or_action = RanDom(0, 10);
+                if(summon_or_action < 1)
                 {
-                    case 0:
-                        Unit_Summon();
-                        break;
-                    case 1:
-                    case 2:
-                    case 3:
-                        Random_Action();
-                        break;
+                    Unit_Summon();
+                }
+                if(summon_or_action < 10)
+                {
+                    Random_Action();
                 }
             }
         }
@@ -108,21 +108,20 @@ public class CPU_Controller : PlayerUnit_Base
     {
         urd = RanDom(0, UIO.EUnit_Num);
         unit = unit_box.transform.GetChild(urd).gameObject;
-        acrd = RanDom(0, 3);
+        acrd = RanDom(0, 10);
         if (unit != null)
         {
-            switch (acrd)
+            if(acrd < 5)//à⁄ìÆ
             {
-                case 0://à⁄ìÆ
-                    Unit_Move(unit);
-                    break;
-                case 1:
-                    break;
-                case 2://çUåÇ
-                    Unit_Attack(unit);
-                    break;
-                default:
-                    break;
+                Unit_Move(unit);
+            }
+            else if(acrd < 8)//çUåÇ
+            {
+                Unit_Attack(unit);
+            }
+            else if(acrd < 10)
+            {
+
             }
         }
     }
@@ -132,7 +131,6 @@ public class CPU_Controller : PlayerUnit_Base
     {
         surd = RanDom(0, 3);
         ard = RanDom(0, 8);
-
         switch (ard)
         {
             case 5:
@@ -182,7 +180,7 @@ public class CPU_Controller : PlayerUnit_Base
                 switch (surd)
                 {
                     case 0://ï‡ï∫è¢ä´
-                        apnum = apnum - IEUO.spawn_ap;
+                        apnum = apnum - 2;
                         if (apnum >= 0)
                         {
                             Sunit = Instantiate(infantry, new Vector3(castle.position.x + (summon_x * (TILESIZE_X + TILESPACE)), castle.position.y + (summon_y * (TILESIZE_Y + TILESPACE)), 14.0f), Quaternion.identity);
@@ -190,7 +188,7 @@ public class CPU_Controller : PlayerUnit_Base
                         }
                         break;
                     case 1://ã|ï∫è¢ä´
-                        apnum = apnum - AEUO.spawn_ap;
+                        apnum = apnum - 6;
                         if (apnum >= 0)
                         {
                             Sunit = Instantiate(archer, new Vector3(castle.position.x + (summon_x * (TILESIZE_X + TILESPACE)), castle.position.y + (summon_y * (TILESIZE_Y + TILESPACE)), 14.0f), Quaternion.identity);
@@ -198,15 +196,22 @@ public class CPU_Controller : PlayerUnit_Base
                         }
                         break;
                     case 2://ÉJÉ^ÉpÉãÉgè¢ä´
-                        apnum = apnum - CEUO.spawn_ap;
-                        if (apnum >= 0)
+                        apnum = apnum - 10;
+                        renum = renum - 10;
+                        if (apnum >= 0 && renum >= 0)
                         {
                             Sunit = Instantiate(catapalt, new Vector3(castle.position.x + (summon_x * (TILESIZE_X + TILESPACE)), castle.position.y + (summon_y * (TILESIZE_Y + TILESPACE)), 14.0f), Quaternion.identity);
                             CM.EChange_REAP(apnum, renum);
                         }
                         break;
+                    default:
+                        Sunit = null;
+                        break;
                 }
-                Sunit.transform.parent = unitbox.transform;
+                if (Sunit != null)
+                {
+                    Sunit.transform.parent = unitbox.transform;
+                }
             }
         }
     }
@@ -237,33 +242,55 @@ public class CPU_Controller : PlayerUnit_Base
                 break;
         }
 
-        MC = move_checker.GetComponent<Move_Check>();
-        if (MC.Can_Move() == 1)
+        Debug.Log("à⁄ìÆ1");
+        if (move_checker != null)
         {
-            cmobj = GameObject.Find("map");
-            CM = cmobj.GetComponent<CreateMap>();
-            EUO = obj.GetComponent<EUnit_Operation>();
-            apnum = CM.Now_EAP;
-            renum = CM.Now_EResource;
-            apnum = apnum - EUO.move_ap;
-            if (apnum > 0)
+            Debug.Log("à⁄ìÆ2");
+            MC = move_checker.GetComponent<Move_Check>();
+            if (MC != null)
             {
-                obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
-                CM.EChange_REAP(apnum, renum);
-            }
-        }
-        else if(MC.Can_Move() == 2)
-        {
-            cmobj = GameObject.Find("map");
-            CM = cmobj.GetComponent<CreateMap>();
-            EUO = obj.GetComponent<EUnit_Operation>();
-            apnum = CM.Now_EAP;
-            renum = CM.Now_EResource;
-            apnum = apnum - (EUO.move_ap + 1);
-            if (apnum > 0)
-            {
-                obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
-                CM.EChange_REAP(apnum, renum);
+                Debug.Log("à⁄ìÆ3");
+                if (MC.Can_Move() != null)
+                {
+                    Debug.Log("à⁄ìÆ4");
+                    if (MC.Can_Move().name == "grass(Clone)" || MC.Can_Move().name == "area2(Clone)")
+                    {
+                        Debug.Log("à⁄ìÆ5.1");
+                        cmobj = GameObject.Find("map");
+                        CM = cmobj.GetComponent<CreateMap>();
+                        EUO = obj.GetComponent<EUnit_Operation>();
+                        apnum = CM.Now_EAP;
+                        renum = CM.Now_EResource;
+                        apnum = apnum - EUO.move_ap;
+                        if (apnum > 0)
+                        {
+                            obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
+                            CM.EChange_REAP(apnum, renum);
+                        }
+                    }
+                    else if (MC.Can_Move().name == "water(Clone)")
+                    {
+                        Debug.Log("à⁄ìÆ5.2");
+                        cmobj = GameObject.Find("map");
+                        CM = cmobj.GetComponent<CreateMap>();
+                        EUO = obj.GetComponent<EUnit_Operation>();
+                        apnum = CM.Now_EAP;
+                        renum = CM.Now_EResource;
+                        apnum = apnum - (EUO.move_ap + 1);
+                        if (apnum > 0)
+                        {
+                            obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
+                            CM.EChange_REAP(apnum, renum);
+                        }
+                    }
+                    else if (MC.Can_Move().name == "resource(Clone)")
+                    {
+                        Debug.Log("à⁄ìÆ5.3");
+                        RC = MC.Can_Move().GetComponent<Resource_Controll>();
+                        RC.EGetResource();
+                        Debug.Log("éëåπâÒé˚");
+                    }
+                }
             }
         }
         move_checker.transform.position = new Vector3(obj.transform.position.x + move_x * (TILESIZE_X + TILESPACE), obj.transform.position.y + move_y * (TILESIZE_Y + TILESPACE), move_checker.transform.position.z);
@@ -275,30 +302,35 @@ public class CPU_Controller : PlayerUnit_Base
         EUO = obj.GetComponent<EUnit_Operation>();
         if (EUO != null)
         {
+            Debug.Log("çUåÇ1");
             if (EUO.attack_cnt == 0)
             {
+                Debug.Log("çUåÇ2");
                 AC = attack_checker.GetComponent<Attack_Check>();
                 if (AC != null)
                 {
-                    switch (obj.name)
+                    Debug.Log("çUåÇ3");
+                    if (AC.Can_Attack() != null)
                     {
-                        case "Cinfantry(Clone)":
-                            if (AC.Can_Attack() != null)
-                            {
-                                UO = AC.Can_Attack().GetComponent<Unit_Operation>();
-                                UO.HitAttack(EUO.attack);
-                                EUO.attack_cnt++;
-                            }
-                            break;
-                        case "Carcher(Clone)":
-                        case "Ccatapalt(Clone)":
-                            if (AC.Can_AllAttack() != null)
-                            {
+                        switch (obj.name)
+                        {
+                            case "Cinfantry(Clone)":
+                                if (AC.Can_Attack().tag == "unit")
+                                {
+                                    UO = AC.Can_Attack().GetComponent<Unit_Operation>();
+                                    UO.HitAttack(EUO.attack);
+                                    EUO.attack_cnt++;
+                                    Debug.Log("çUåÇ4.1");
+                                }
+                                break;
+                            case "Carcher(Clone)":
+                            case "Ccatapalt(Clone)":
                                 if (AC.Can_AllAttack().tag == "unit")
                                 {
                                     UO = AC.Can_Attack().GetComponent<Unit_Operation>();
                                     UO.HitAttack(EUO.attack);
                                     EUO.attack_cnt++;
+                                    Debug.Log("çUåÇ4.4");
                                 }
                                 if (AC.Can_AllAttack().name == "castle1(Clone)")
                                 {
@@ -306,11 +338,12 @@ public class CPU_Controller : PlayerUnit_Base
                                     PCH = chobj.GetComponent<Pcastlehp>();
                                     PCH.HitAttack(EUO.attack);
                                     EUO.attack_cnt++;
+                                    Debug.Log("çUåÇ4.5");
                                 }
-                            }
-                            break;
-                        default:
-                            break;
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }
@@ -322,5 +355,10 @@ public class CPU_Controller : PlayerUnit_Base
         int num = UnityEngine.Random.Range(min, max);
 
         return num;
+    }
+
+    public void Turn_Over()
+    {
+        nowturn = false;
     }
 }
