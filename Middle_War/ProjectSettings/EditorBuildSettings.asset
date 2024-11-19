@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Taguro/taitle.unity
     guid: 8527f3f118255d04ab5c17333298c7fc
+  - enabled: 1
+    path: Assets/Taguro/test.unity
+    guid: 6ae425e67d483ea4ea4914d5a72b05c7
   m_configObjects: {}
