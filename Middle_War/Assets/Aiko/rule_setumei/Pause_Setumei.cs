@@ -1,11 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pause_Setumei : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject click;
+
+    public Sprite When_Open;
+    public Sprite When_Close;
+    int chan_frag = 0;
+
+    public void Change_button()
+    {
+        var img = GetComponent<Image>();
+
+        switch(chan_frag)
+        {
+            case 0:
+                GetComponent<Image>().sprite = When_Open;
+                chan_frag++;
+                break;
+            default:
+                img.sprite = When_Close;
+                chan_frag--;
+                break;
+
+        }
+
+    }
 
     public void Button_Click()
     {

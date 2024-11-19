@@ -62,7 +62,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289742385352282329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.00625, y: 0.028571432, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 289742386651120713}
   - component: {fileID: 289742386651120717}
   - component: {fileID: 289742386651120716}
+  - component: {fileID: -8403598752435370280}
   m_Layer: 5
   m_Name: rule_hyouji_button
   m_TagString: Player
@@ -146,7 +147,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289742386651120715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 160, y: 35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -294,6 +295,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: -8403598752435370280}
+          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
+          m_MethodName: Gazou_wo_Kirikaeyo
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -360,3 +373,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_num: 0
+--- !u!114 &-8403598752435370280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289742386651120715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  summon_gazou: {fileID: 0}
+  image_num: 0
