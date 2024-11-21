@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEditor;
+using Unity.VisualScripting;
 
 public class PlayerUnit_Base : MonoBehaviour
 {
@@ -19,11 +20,10 @@ public class PlayerUnit_Base : MonoBehaviour
     //タイル間の長さ
     [NonSerialized] public float TILESPACE = 0.5f;
 
-    [NonSerialized] public GameObject chobj;
     [NonSerialized] public Pcastlehp PCH;
     [NonSerialized] public Ecastlehp ECH;
 
-    [NonSerialized] public GameObject cmobj;
+    [NonSerialized] public GameObject mapobj;
     [NonSerialized] public CreateMap CM;
 
     GameObject rcobj;
@@ -31,6 +31,14 @@ public class PlayerUnit_Base : MonoBehaviour
 
     [NonSerialized] public int apnum;
     [NonSerialized] public int renum;
+
+    private void Start()
+    {
+        mapobj = GameObject.Find("map");
+        CM = mapobj.GetComponent<CreateMap>();
+        PCH = mapobj.GetComponent<Pcastlehp>();
+        ECH = mapobj.GetComponent<Ecastlehp>();
+    }
 
     //敵ユニットへの攻撃行動(座標１、座標２、攻撃の最大範囲、攻撃の最小範囲、攻撃力、クリックしたオブジェクト、今選択しているオブジェクト)
     public bool Attack_Unit(Vector3 p1, Vector3 p2, float max, float min, int attack, GameObject Cobj, GameObject Uobj)
@@ -74,13 +82,9 @@ public class PlayerUnit_Base : MonoBehaviour
                 switch (Uobj.tag)
                 {
                     case "unit":
-                        chobj = GameObject.Find("map");
-                        ECH = chobj.GetComponent<Ecastlehp>();
                         ECH.HitAttack(attack);
                         break;
                     case "Eunit":
-                        chobj = GameObject.Find("map");
-                        PCH = chobj.GetComponent<Pcastlehp>();
                         PCH.HitAttack(attack);
                         break;
                 }
@@ -121,8 +125,6 @@ public class PlayerUnit_Base : MonoBehaviour
                         case "Pinfantry(Clone)":
                             if (Cobj.name == "grass(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -135,8 +137,6 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             else if (Cobj.name == "water(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -157,8 +157,6 @@ public class PlayerUnit_Base : MonoBehaviour
                         case "Einfantry(Clone)":
                             if (Cobj.name == "grass(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -171,8 +169,6 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             else if (Cobj.name == "water(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -194,8 +190,6 @@ public class PlayerUnit_Base : MonoBehaviour
                         case "Pcatapalt(Clone)":
                             if (Cobj.name == "grass(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -208,8 +202,6 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             else if (Cobj.name == "water(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -225,8 +217,6 @@ public class PlayerUnit_Base : MonoBehaviour
                         case "Ecatapalt(Clone)":
                             if (Cobj.name == "grass(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -239,8 +229,6 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             else if (Cobj.name == "water(Clone)")
                             {
-                                cmobj = GameObject.Find("map");
-                                CM = cmobj.GetComponent<CreateMap>();
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動

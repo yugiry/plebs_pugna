@@ -5,7 +5,7 @@ using UnityEngine;
 public class Move_Check : MonoBehaviour
 {
     GameObject canmove;
-    bool onunit;
+    CPU_TileCheck CTC;
 
     private void Start()
     {
@@ -14,47 +14,63 @@ public class Move_Check : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "unit" || collision.tag == "Eunit")
-        {
-            canmove = null;
-            onunit = true;
-        }
-
+        //if (collision.tag == "unit" || collision.tag == "Eunit")
+        //{
+        //    canmove = null;
+        //    onunit = true;
+        //}
 
         if (collision.name == "grass(Clone)" || collision.name == "area2(Clone)")
         {
-            if (!onunit)
+            CTC = collision.GetComponent<CPU_TileCheck>();
+            if(CTC != null)
             {
-                canmove = collision.gameObject;
+                if(!CTC.Check_Unit())
+                {
+                    canmove = collision.gameObject;
+                }
+                else
+                {
+                    canmove = null;
+                }
+            }
+            else
+            {
+                canmove = null;
             }
         }
         else if (collision.name == "water(Clone)")
         {
-            if (!onunit)
+            CTC = collision.GetComponent<CPU_TileCheck>();
+            if (CTC != null)
             {
-                canmove = collision.gameObject;
+                if (!CTC.Check_Unit())
+                {
+                    canmove = collision.gameObject;
+                }
+                else
+                {
+                    canmove = null;
+                }
+            }
+            else
+            {
+                canmove = null;
             }
         }
         else if(collision.name == "resource(Clone)")
         {
             canmove = collision.gameObject;
         }
-        else
-        {
-            canmove = null;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "unit" || collision.tag == "Eunit")
-        {
-            onunit = false;
-        }
     }
 
     public GameObject Can_Move()
     {
         return canmove;
+    }
+
+    public void Null_CanMove()
+    {
+        canmove = null;
     }
 }

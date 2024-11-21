@@ -10,7 +10,6 @@ public class EUnit_Operation : PlayerUnit_Base
     public float Unit_Y;
     private bool pushmouse;
 
-    GameObject ucobj;
     uniteClick UC;
 
     public int hp;
@@ -24,7 +23,6 @@ public class EUnit_Operation : PlayerUnit_Base
     GameObject clickedGameObject;
     GameObject[] action;
 
-    GameObject tcobj;
     Turn_change TC;
 
     private bool followmouse;
@@ -49,6 +47,9 @@ public class EUnit_Operation : PlayerUnit_Base
         Unit_Y = unit.transform.position.y;
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos.z = unit.transform.position.z;
+        mapobj = GameObject.Find("map");
+        UC = mapobj.GetComponent<uniteClick>();
+        TC = mapobj.GetComponent<Turn_change>();
     }
 
     // Update is called once per frame
@@ -98,8 +99,6 @@ public class EUnit_Operation : PlayerUnit_Base
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
-                    ucobj = GameObject.Find("map");
-                    UC = ucobj.GetComponent<uniteClick>();
                     UC.EDlete();
                 }
             }
@@ -144,8 +143,6 @@ public class EUnit_Operation : PlayerUnit_Base
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
-                    ucobj = GameObject.Find("map");
-                    UC = ucobj.GetComponent<uniteClick>();
                     UC.EDlete();
                 }
             }
@@ -180,8 +177,6 @@ public class EUnit_Operation : PlayerUnit_Base
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
-                    ucobj = GameObject.Find("map");
-                    UC = ucobj.GetComponent<uniteClick>();
                     UC.EDlete();
                 }
             }
@@ -209,8 +204,6 @@ public class EUnit_Operation : PlayerUnit_Base
     //ユニットを選択する
     public void EUnit_Serect()
     {
-        tcobj = GameObject.Find("map");
-        TC = tcobj.GetComponent<Turn_change>();
         if (TC.nowturn == 1)
         {
             Destroy_Range();
@@ -222,8 +215,6 @@ public class EUnit_Operation : PlayerUnit_Base
             }
             act1.SetActive(true);
             choice_move = 0;
-            ucobj = GameObject.Find("map");
-            UC = ucobj.GetComponent<uniteClick>();
             UC.Eunite_Serect(unit, hp, move_ap);
         }
     }

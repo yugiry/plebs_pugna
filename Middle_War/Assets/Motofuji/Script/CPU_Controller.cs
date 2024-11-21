@@ -20,9 +20,6 @@ public class CPU_Controller : PlayerUnit_Base
     [SerializeField] GameObject tilebox;
     Transform castle;
 
-    [NonSerialized] EUnit_Operation IEUO;
-    [NonSerialized] EUnit_Operation AEUO;
-    [NonSerialized] EUnit_Operation CEUO;
     EUnit_Operation EUO;
     Unit_Operation UO;
 
@@ -56,6 +53,8 @@ public class CPU_Controller : PlayerUnit_Base
     void Start()
     {
         map_complete = false;
+        mapobj = GameObject.Find("map");
+        CM = mapobj.GetComponent<CreateMap>();
     }
 
     // Update is called once per frame
@@ -80,7 +79,7 @@ public class CPU_Controller : PlayerUnit_Base
                 summon_or_action = RanDom(0, 10);
                 if(summon_or_action < 1)
                 {
-                    Unit_Summon();
+                   Unit_Summon();
                 }
                 if(summon_or_action < 10)
                 {
@@ -98,9 +97,6 @@ public class CPU_Controller : PlayerUnit_Base
     public void Turn_Here()
     {
         nowturn = true;
-        IEUO = infantry.GetComponent<EUnit_Operation>();
-        AEUO = archer.GetComponent<EUnit_Operation>();
-        CEUO = catapalt.GetComponent<EUnit_Operation>();
     }
 
     //移動、強化、攻撃からランダムで一つ行動する
@@ -109,6 +105,7 @@ public class CPU_Controller : PlayerUnit_Base
         urd = RanDom(0, UIO.EUnit_Num);
         unit = unit_box.transform.GetChild(urd).gameObject;
         acrd = RanDom(0, 10);
+        acrd = 3;
         if (unit != null)
         {
             if(acrd < 5)//移動
@@ -173,8 +170,6 @@ public class CPU_Controller : PlayerUnit_Base
         {
             if (UIO.EUnit_Num < 20)
             {
-                cmobj = GameObject.Find("map");
-                CM = cmobj.GetComponent<CreateMap>();
                 apnum = CM.Now_EAP;
                 renum = CM.Now_EResource;
                 switch (surd)
@@ -242,57 +237,57 @@ public class CPU_Controller : PlayerUnit_Base
                 break;
         }
 
-        Debug.Log("移動1");
-        if (move_checker != null)
-        {
-            Debug.Log("移動2");
-            MC = move_checker.GetComponent<Move_Check>();
-            if (MC != null)
+           // Debug.Log("移動1");
+            if (move_checker != null)
             {
-                Debug.Log("移動3");
-                if (MC.Can_Move() != null)
+             //   Debug.Log("移動2");
+                MC = move_checker.GetComponent<Move_Check>();
+                if (MC != null)
                 {
-                    Debug.Log("移動4");
-                    if (MC.Can_Move().name == "grass(Clone)" || MC.Can_Move().name == "area2(Clone)")
+               //     Debug.Log("移動3");
+                    if (MC.Can_Move() != null)
                     {
-                        Debug.Log("移動5.1");
-                        cmobj = GameObject.Find("map");
-                        CM = cmobj.GetComponent<CreateMap>();
-                        EUO = obj.GetComponent<EUnit_Operation>();
-                        apnum = CM.Now_EAP;
-                        renum = CM.Now_EResource;
-                        apnum = apnum - EUO.move_ap;
-                        if (apnum > 0)
+                        Debug.Log("移動4");
+                        if (MC.Can_Move().name == "grass(Clone)" || MC.Can_Move().name == "area2(Clone)")
                         {
-                            obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
-                            CM.EChange_REAP(apnum, renum);
+                            Debug.Log("移動5.1");
+                            EUO = obj.GetComponent<EUnit_Operation>();
+                            apnum = CM.Now_EAP;
+                            renum = CM.Now_EResource;
+                            apnum = apnum - EUO.move_ap;
+                            if (apnum > 0)
+                            {
+                                obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
+                                CM.EChange_REAP(apnum, renum);
+                                MC.Null_CanMove();
+                            }
                         }
-                    }
-                    else if (MC.Can_Move().name == "water(Clone)")
-                    {
-                        Debug.Log("移動5.2");
-                        cmobj = GameObject.Find("map");
-                        CM = cmobj.GetComponent<CreateMap>();
-                        EUO = obj.GetComponent<EUnit_Operation>();
-                        apnum = CM.Now_EAP;
-                        renum = CM.Now_EResource;
-                        apnum = apnum - (EUO.move_ap + 1);
-                        if (apnum > 0)
+                        else if (MC.Can_Move().name == "water(Clone)")
                         {
-                            obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
-                            CM.EChange_REAP(apnum, renum);
+                            Debug.Log("移動5.2");
+                            EUO = obj.GetComponent<EUnit_Operation>();
+                            apnum = CM.Now_EAP;
+                            renum = CM.Now_EResource;
+                            apnum = apnum - (EUO.move_ap + 1);
+                            if (apnum > 0)
+                            {
+                                obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
+                                CM.EChange_REAP(apnum, renum);
+                                MC.Null_CanMove();
+                            }
                         }
-                    }
-                    else if (MC.Can_Move().name == "resource(Clone)")
-                    {
-                        Debug.Log("移動5.3");
-                        RC = MC.Can_Move().GetComponent<Resource_Controll>();
-                        RC.EGetResource();
-                        Debug.Log("資源回収");
+                        else if (MC.Can_Move().name == "resource(Clone)")
+                        {
+                            Debug.Log("移動5.3");
+                            RC = MC.Can_Move().GetComponent<Resource_Controll>();
+                            RC.EGetResource();
+                            Debug.Log("資源回収");
+                            MC.Null_CanMove();
+                        }
+
                     }
                 }
             }
-        }
         move_checker.transform.position = new Vector3(obj.transform.position.x + move_x * (TILESIZE_X + TILESPACE), obj.transform.position.y + move_y * (TILESIZE_Y + TILESPACE), move_checker.transform.position.z);
     }
 
@@ -334,8 +329,6 @@ public class CPU_Controller : PlayerUnit_Base
                                 }
                                 if (AC.Can_AllAttack().name == "castle1(Clone)")
                                 {
-                                    chobj = GameObject.Find("map");
-                                    PCH = chobj.GetComponent<Pcastlehp>();
                                     PCH.HitAttack(EUO.attack);
                                     EUO.attack_cnt++;
                                     Debug.Log("攻撃4.5");
