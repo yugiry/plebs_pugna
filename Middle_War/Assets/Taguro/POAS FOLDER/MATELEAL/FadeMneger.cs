@@ -44,5 +44,7 @@ public class FadeMneger : MonoBehaviour
         _fadePanel.color = new Color(_fadePanel.color.r, _fadePanel.color.g, _fadePanel.color.b, _fedeAlpha);
     }
 
+   //フェードインパネルが1になったとき
+
 
 }
