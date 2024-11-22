@@ -307,6 +307,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4414931879919172569, guid: fbe820773a697f24387f4d9a97b382c9, type: 3}
+          m_TargetAssemblyTypeName: next_back_button, Assembly-CSharp
+          m_MethodName: next_hyouji
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 0
+        - m_Target: {fileID: 5431199224589012113, guid: 0e24bcd0fac69b9478c8fee92452e660, type: 3}
+          m_TargetAssemblyTypeName: next_back_button, Assembly-CSharp
+          m_MethodName: back_hyouji
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 0
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -385,5 +409,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  summon_gazou: {fileID: 0}
+  summon_gazou:
+  - {fileID: 21300000, guid: e49973cf04b95df4786d61adcbdb5547, type: 3}
+  - {fileID: 21300000, guid: baf9931dd27e0d546b5ff09c9990c119, type: 3}
+  - {fileID: 21300000, guid: 886671876789dda4e80d96c3a3e64d26, type: 3}
+  - {fileID: 21300000, guid: 99a6067427110cb4c88c709dc69a89e8, type: 3}
+  - {fileID: 21300000, guid: 58e07240a65c4c54c8841321326159c4, type: 3}
+  - {fileID: 21300000, guid: ae82dc4a4d9aed141a13ee6d8de77a11, type: 3}
+  - {fileID: 21300000, guid: fbc1386cc991a2f4da21b2b59d1e5b4c, type: 3}
+  - {fileID: 21300000, guid: 85fbce8bd9fbe1b47bd7f4ea485389cb, type: 3}
+  - {fileID: 21300000, guid: cd09b8f5487a4154cbdf599a0a60469c, type: 3}
+  - {fileID: 21300000, guid: 91f8c39d657715a4cbaa0c1a66c05e62, type: 3}
   image_num: 0
+  gazou_sousu: 0
+  next_gazou: []
+  Next: {fileID: 2096247852948103720, guid: fbe820773a697f24387f4d9a97b382c9, type: 3}
+  Back: {fileID: 4457704648285730739, guid: 0e24bcd0fac69b9478c8fee92452e660, type: 3}

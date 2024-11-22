@@ -5,42 +5,86 @@ using UnityEngine.UI;
 
 public class Image_Kirikae : MonoBehaviour
 {
-    public Sprite summon_gazou;
+    SpriteRenderer test;
 
-     Image images;
+    public Sprite[] summon_gazou;
+
+   
     public int image_num;
 
+    public int gazou_sousu;
+    private int gazou_nanmai=0;
+
+    public Sprite[] next_gazou;
+    public GameObject Next;
+    public GameObject Back;
     public void Gazou_wo_Kirikaeyo()
     {
-        var img = GameObject.Find("kirikae_I").GetComponent<Image>();
-        Debug.Log(image_num);
+        
+        test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
         
 
-        switch (image_num)
-        {
-            case 0:
-                img.sprite = summon_gazou;
-                break;
-            case 1:
-                images.sprite = summon_gazou;
-                break;
-
-
-
-        }
+        
+        test.sprite = summon_gazou[image_num];
+        Debug.Log(image_num+"i");
+       
         Debug.Log("nooooooon....");
 
+    }
+
+    public void next_hyouji()
+    {
+        if (this.gameObject.name == "next")
+        {
+            Debug.Log("fffffffffff!!!");
+        }
+
+        test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
+
+        if (gazou_nanmai > gazou_sousu)
+        {
+            gazou_nanmai=0;
+        }
+        else
+        {
+            gazou_nanmai++;
+        }
+        test.sprite = next_gazou[gazou_nanmai];
+
+        Debug.Log(gazou_nanmai);
+    }
+
+    public void back_hyouji()
+    {
+        if (this.gameObject.name == "back")
+        {
+            Debug.Log("!!!");
+        }
+
+        test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
+
+        if (gazou_nanmai < 0)
+        {
+            gazou_nanmai = gazou_sousu;
+        }
+        else
+        {
+            gazou_nanmai--;
+        }
+        test.sprite = next_gazou[gazou_nanmai];
+
+        Debug.Log(gazou_nanmai);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        images = GameObject.Find("kirikae_I").GetComponent<Image>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 }
