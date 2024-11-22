@@ -32,7 +32,7 @@ public class PlayerUnit_Base : MonoBehaviour
     [NonSerialized] public int apnum;
     [NonSerialized] public int renum;
 
-    private void Start()
+    public void component_Start()
     {
         mapobj = GameObject.Find("map");
         CM = mapobj.GetComponent<CreateMap>();
@@ -68,8 +68,10 @@ public class PlayerUnit_Base : MonoBehaviour
     }
 
     //城への攻撃行動(座標１、座標２、攻撃の最大範囲、攻撃の最小範囲、攻撃力、今選択しているオブジェクト)
-    public bool Attack_Castle(Vector3 p1, Vector3 p2, float max, float min, int attack, GameObject Uobj)
+    public bool Attack_Castle(Vector3 p1, Vector3 p2, float max, float min, int attack, GameObject Uobj, Ecastlehp ech, Pcastlehp pch)
     {
+        ECH = ech;
+        PCH = pch;
         Vector3 v;
         v.x = p1.x - p2.x;
         v.y = p1.y - p2.y;
@@ -95,8 +97,10 @@ public class PlayerUnit_Base : MonoBehaviour
     }
 
     //ユニットの移動(ユニットの座標x、ユニットの座標y、マウスの座標、 移動に使うAP、クリックしたオブジェクト、今選択しているオブジェクト)
-    public void Move_Unit(float tx, float ty, Vector3 mousepos, int m_AP, GameObject Cobj, GameObject Uobj)
+    public void Move_Unit(float tx, float ty, Vector3 mousepos, int m_AP, GameObject Cobj, GameObject Uobj, CreateMap cm)
     {
+        CM = cm;
+        Debug.Log("移動スタート");
         for (int i = 0; i < 4; i++)
         {
             float _x = tx;
@@ -137,6 +141,7 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             else if (Cobj.name == "water(Clone)")
                             {
+                                Debug.Log("移動2");
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
                                 //APの量を調べて足りるなら移動
@@ -149,6 +154,7 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             else if (Cobj.name == "resource(Clone)")
                             {
+                                Debug.Log("移動3");
                                 Debug.Log("資源確保");
                                 RC = Cobj.GetComponent<Resource_Controll>();
                                 RC.PGetResource();

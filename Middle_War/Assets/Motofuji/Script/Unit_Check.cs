@@ -8,7 +8,7 @@ public class Unit_Check : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Eunit" || collision.tag == "unit")
+        if (collision.tag == "Eunit" || collision.tag == "unit" || collision.name == "move_checker")
         {
             onunit = true;
         }

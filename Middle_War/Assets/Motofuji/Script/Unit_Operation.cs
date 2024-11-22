@@ -51,6 +51,7 @@ public class Unit_Operation : PlayerUnit_Base
         mapobj = GameObject.Find("map");
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
+        component_Start();
     }
 
     // Update is called once per frame
@@ -74,7 +75,7 @@ public class Unit_Operation : PlayerUnit_Base
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    if (clickedGameObject.CompareTag("Eunit"))
+                    if (clickedGameObject.tag == "Eunit")
                     {
                         if (attack_cnt == 0)
                         {
@@ -88,14 +89,14 @@ public class Unit_Operation : PlayerUnit_Base
                     {
                         if (attack_cnt == 0)
                         {
-                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, unit))
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, unit, ECH, PCH))
                             {
                                 attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))
@@ -120,7 +121,7 @@ public class Unit_Operation : PlayerUnit_Base
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    if (clickedGameObject.CompareTag("Eunit"))
+                    if (clickedGameObject.tag == "Eunit")
                     {
                         if (attack_cnt == 0)
                         {
@@ -134,14 +135,14 @@ public class Unit_Operation : PlayerUnit_Base
                     {
                         if (attack_cnt == 0)
                         {
-                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, unit))
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, unit, ECH, PCH))
                             {
                                 attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))
@@ -166,7 +167,7 @@ public class Unit_Operation : PlayerUnit_Base
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    if (clickedGameObject.CompareTag("Eunit"))
+                    if (clickedGameObject.tag == "Eunit")
                     {
                         vec.x = Mathf.Abs(unit.transform.position.x - clickedGameObject.transform.position.x);
                         vec.y = Mathf.Abs(unit.transform.position.y - clickedGameObject.transform.position.y);
@@ -179,7 +180,7 @@ public class Unit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 
