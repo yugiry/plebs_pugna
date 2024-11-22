@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class FadeMneger : MonoBehaviour
+public class FadeinMneger : MonoBehaviour
 {
     public GameObject fedePanel;
 
     [SerializeField] private Image _fadePanel;
     [SerializeField] private float _fedeTime;
+    
 
     private float _fedeAlpha = 0.0f;
     private bool _isFadeIn = false; 
@@ -20,6 +21,7 @@ public class FadeMneger : MonoBehaviour
     {
         _fedeAlpha = 1.0f;
         _isFadeIn = true;
+      
     }
 
     // Update is called once per frame
@@ -39,12 +41,10 @@ public class FadeMneger : MonoBehaviour
         {
             _fedeAlpha = 0.0f;
             _isFadeIn = false;
+
+            
         }
 
         _fadePanel.color = new Color(_fadePanel.color.r, _fadePanel.color.g, _fadePanel.color.b, _fedeAlpha);
     }
-
-   //フェードインパネルが1になったとき
-
-
 }

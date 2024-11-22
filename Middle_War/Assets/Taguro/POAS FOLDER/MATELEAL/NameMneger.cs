@@ -1,38 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class NameMneger : MonoBehaviour
 {
-   
-    InputField inputField;
     public static string name = "";
-    void Start()
-    {
-        inputField = GetComponent<InputField>();//コンポーネントおよび初期化メソッドの実行
 
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void InputLogger()
+    public void GetText()
     {
-        string inputValue = inputField.text;//Log出力用メソッド
-        Debug.Log(inputValue);//入力値を取得してLogに出力し、初期化
-        
-        //</summary>
-        name = inputValue;
+        Text inputText = GameObject.Find("NameNyuuryoku").GetComponent<Text>();
+
+        string nametext = inputText.text;
+
+        Debug.Log(nametext);
+
+        name = nametext;
 
     }
-
-    //別のシーンから戻ってきても名前が入力した名前が表示されてる
-    public void OnEndEdit(string text)
-    {
-        
-    }
-    
-
 }
 
     
