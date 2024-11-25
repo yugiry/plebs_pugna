@@ -5,8 +5,13 @@ using UnityEngine;
 //using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class mapfaito : MonoBehaviour
 {
+    [SerializeField] AudioClip[] clips;
+    [SerializeField] float pitchRange = 0.1f;
+    protected AudioSource source;
+    //public GameObject mapfai;
     public int countrynum;
     public GameObject mapbatoru;
     [SerializeField] public Text text1;//１つ目のテキスト変換
@@ -20,8 +25,19 @@ public class mapfaito : MonoBehaviour
     {
         
     }
+    private void Awake()
+    {
+        source = GetComponents<AudioSource>()[0];
+    }
 
+    public void PlayFootstepSE()
+    {
+        source.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+        source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+    }
     public void Show_country(int countrynum)
+
+
     { //mapClickから受け取った値を読み取る
 
         image.sprite = newSprite[countrynum - 1]; //画像表示
@@ -58,4 +74,12 @@ public class mapfaito : MonoBehaviour
         }
 
     }
+
+    //public void Cllik()
+    //{
+    //   if(Input.GetMouseButtonDown(1))
+    //    {
+    //        mapfai.SetActive(false);
+    //    }
+    //}
 }

@@ -23,6 +23,8 @@ public class undo : MonoBehaviour
     public GameObject enemybutton_archer;
     public GameObject enemybutton_catapalt;
 
+    public GameObject mapbord;
+
     //public GameObject mapfaito;
 
     // Start is called before the first frame update
@@ -55,7 +57,7 @@ public class undo : MonoBehaviour
             enemybutton_archer.SetActive(true);
             enemybutton_catapalt.SetActive(true);
 
-            //mapfaito.SetActive(false);
+            mapbord.SetActive(false);
         }
     }
 }
