@@ -49,7 +49,10 @@ public class CreateMap : MonoBehaviour
     public int[] map;
     //csvファイルの場所
     //private string csv_place = "Resources/map.csv";
-    private string csv_place = "Assets/alpha/Resources/map(stage1).csv";
+    private string map1 = "Assets/alpha/Resources/map(stage1).csv";
+    private string map2;
+    private string map3 = "Assets/alpha/Resources/map(stage3).csv";
+    private string map4;
 
     //playerAPの管理をする数値。
     int Maximam_PAP = 999;
@@ -100,13 +103,34 @@ public class CreateMap : MonoBehaviour
         return str_lists;//string型リストを戻す
     }
 
+    public void SummonMap(int stage)
+    {
+        map = new int[MAPSIZE_X * MAPSIZE_Y];
+        switch(stage)
+        {
+            case 1:
+                smap = Csv_Input(map1);
+                break;
+            case 2:
+                smap = Csv_Input(map2);
+                break;
+            case 3:
+                smap = Csv_Input(map3);
+                break;
+            case 4:
+                smap = Csv_Input(map4);
+                break;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
 
         map = new int[MAPSIZE_X * MAPSIZE_Y];
-        smap = Csv_Input(csv_place);
+
+        smap = Csv_Input(map1);
 
         //マップ情報の初期化
         for (int i = 0; i < MAPSIZE_X * MAPSIZE_Y; i++)
