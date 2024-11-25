@@ -75,7 +75,7 @@ public class CPU_Controller : PlayerUnit_Base
                 if (UIO.EUnit_Num == 0)
                 {
                     Debug.Log("ƒ†ƒjƒbƒg–³‚µ");
-                    //Unit_Summon();
+                    Unit_Summon();
                 }
                 else
                 {
@@ -83,7 +83,7 @@ public class CPU_Controller : PlayerUnit_Base
                     summon_or_action = RanDom(0, 10);
                     if (summon_or_action < 1)
                     {
-                        //Unit_Summon();
+                        Unit_Summon();
                     }
                     if (summon_or_action < 10)
                     {
@@ -113,8 +113,7 @@ public class CPU_Controller : PlayerUnit_Base
     {
         urd = RanDom(0, UIO.EUnit_Num);
         unit = unit_box.transform.GetChild(urd).gameObject;
-        acrd = RanDom(0, 10);
-        acrd = 7;
+        acrd = RanDom(0, 8);
         if (unit != null)
         {
             if(acrd < 5)//ˆÚ“®
@@ -125,7 +124,7 @@ public class CPU_Controller : PlayerUnit_Base
             {
                 Unit_Attack(unit);
             }
-            else if(acrd < 10)
+            else if(acrd < 10)//‹­‰»
             {
 
             }
@@ -246,14 +245,14 @@ public class CPU_Controller : PlayerUnit_Base
                 break;
         }
 
-        // Debug.Log("ˆÚ“®1");
+        Debug.Log("ˆÚ“®1");
         if (move_checker != null)
         {
-            //   Debug.Log("ˆÚ“®2");
+            Debug.Log("ˆÚ“®2");
             MC = move_checker.GetComponent<Move_Check>();
             if (MC != null)
             {
-                //     Debug.Log("ˆÚ“®3");
+                Debug.Log("ˆÚ“®3");
                 if (MC.Can_Move() != null)
                 {
                     Debug.Log("ˆÚ“®4");
@@ -294,6 +293,10 @@ public class CPU_Controller : PlayerUnit_Base
                         MC.Null_CanMove();
                     }
 
+                }
+                else
+                {
+                    Debug.Log(MC.Can_Move());
                 }
             }
         }

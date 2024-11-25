@@ -143,10 +143,6 @@ public class EUnit_Operation : PlayerUnit_Base
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
             }
-            if (hp <= 0)
-            {
-                Destroy(unit);
-            }
         }
         pushmouse = Input.GetMouseButtonDown(0);
         //右クリックでユニットの選択を解除
@@ -154,6 +150,10 @@ public class EUnit_Operation : PlayerUnit_Base
         {
             act1.SetActive(false);
             UC.EDlete();
+        }
+        if (hp <= 0)
+        {
+            Destroy(unit);
         }
     }
 

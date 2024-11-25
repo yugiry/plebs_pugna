@@ -36,6 +36,7 @@ public class Move_Check : MonoBehaviour
             }
             else
             {
+                Debug.Log("CTCÅAnull");
                 canmove = null;
             }
         }
@@ -55,6 +56,8 @@ public class Move_Check : MonoBehaviour
             }
             else
             {
+
+                Debug.Log("CTCÅAnull");
                 canmove = null;
             }
         }

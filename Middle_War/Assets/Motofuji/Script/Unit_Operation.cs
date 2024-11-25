@@ -59,21 +59,21 @@ public class Unit_Operation : PlayerUnit_Base
     {
         if (act1.activeSelf)
         {
-            //弓兵
-            if (unit.name == "Parcher(Clone)")
+            //ユニットをマウスの位置のタイルに移動させる
+            if (Input.GetMouseButtonDown(0))
             {
-                //ユニットをマウスの位置のタイルに移動させる
-                if (Input.GetMouseButtonDown(0))
+                mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+                clickedGameObject = hit2d.transform.gameObject;
+                mousepos.x = mousepos.x + 54;
+                mousepos.y = -mousepos.y + 54;
+                mousepos.z = unit.transform.position.z;
+                tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
+                tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
+                //弓兵
+                if (unit.name == "Parcher(Clone)")
                 {
-                    mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
-                    mousepos.x = mousepos.x + 54;
-                    mousepos.y = -mousepos.y + 54;
-                    mousepos.z = unit.transform.position.z;
-                    tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
-                    tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
-                    clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
                     if (clickedGameObject.tag == "Eunit")
                     {
@@ -98,28 +98,9 @@ public class Unit_Operation : PlayerUnit_Base
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
-                pushmouse = Input.GetMouseButtonDown(0);
-                if (Input.GetMouseButtonDown(1))
+                //カタパルト
+                else if (unit.name == "Pcatapalt(Clone)")
                 {
-                    act1.SetActive(false);
-                    UC.PDlete();
-                }
-            }
-            //カタパルト
-            else if (unit.name == "Pcatapalt(Clone)")
-            {
-                //ユニットをマウスの位置のタイルに移動させる
-                if (Input.GetMouseButtonDown(0))
-                {
-                    mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
-                    mousepos.x = mousepos.x + 54;
-                    mousepos.y = -mousepos.y + 54;
-                    mousepos.z = unit.transform.position.z;
-                    tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
-                    tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
-                    clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
                     if (clickedGameObject.tag == "Eunit")
                     {
@@ -144,28 +125,9 @@ public class Unit_Operation : PlayerUnit_Base
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
-                pushmouse = Input.GetMouseButtonDown(0);
-                if (Input.GetMouseButtonDown(1))
+                //歩兵
+                else if (unit.name == "Pinfantry(Clone)")
                 {
-                    act1.SetActive(false);
-                    UC.PDlete();
-                }
-            }
-            //歩兵
-            else if (unit.name == "Pinfantry(Clone)")
-            {
-                //ユニットをマウスの位置のタイルに移動させる
-                if (Input.GetMouseButtonDown(0))
-                {
-                    mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
-                    mousepos.x = mousepos.x + 54;
-                    mousepos.y = -mousepos.y + 54;
-                    mousepos.z = unit.transform.position.z;
-                    tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
-                    tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
-                    clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
                     if (clickedGameObject.tag == "Eunit")
                     {
@@ -182,18 +144,17 @@ public class Unit_Operation : PlayerUnit_Base
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
-                pushmouse = Input.GetMouseButtonDown(0);
-                
-                if (Input.GetMouseButtonDown(1))
-                {
-                    act1.SetActive(false);
-                    UC.PDlete();
-                }
             }
-        }
-        if (hp <= 0)
-        {
-            Destroy(unit);
+            pushmouse = Input.GetMouseButtonDown(0);
+            if (Input.GetMouseButtonDown(1))
+            {
+                act1.SetActive(false);
+                UC.PDlete();
+            }
+            if (hp <= 0)
+            {
+                Destroy(unit);
+            }
         }
     }
 
