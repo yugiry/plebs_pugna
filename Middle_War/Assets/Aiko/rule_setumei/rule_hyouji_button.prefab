@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: -8403598752435370280}
   m_Layer: 5
   m_Name: rule_hyouji_button
-  m_TagString: Player
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,30 +307,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 4414931879919172569, guid: fbe820773a697f24387f4d9a97b382c9, type: 3}
-          m_TargetAssemblyTypeName: next_back_button, Assembly-CSharp
-          m_MethodName: next_hyouji
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 0
-        - m_Target: {fileID: 5431199224589012113, guid: 0e24bcd0fac69b9478c8fee92452e660, type: 3}
-          m_TargetAssemblyTypeName: next_back_button, Assembly-CSharp
-          m_MethodName: back_hyouji
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 0
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -422,6 +398,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91f8c39d657715a4cbaa0c1a66c05e62, type: 3}
   image_num: 0
   gazou_sousu: 0
+  gazou_nanmai: 0
   next_gazou: []
-  Next: {fileID: 2096247852948103720, guid: fbe820773a697f24387f4d9a97b382c9, type: 3}
-  Back: {fileID: 4457704648285730739, guid: 0e24bcd0fac69b9478c8fee92452e660, type: 3}
+  Next: {fileID: 8944805801189266979, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+  Back: {fileID: 2276376461948686094, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}

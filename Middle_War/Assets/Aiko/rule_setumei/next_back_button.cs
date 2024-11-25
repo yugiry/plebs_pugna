@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Next_Back
-{
-    public static int next_back_room = 0;
-}
+
 
 public class next_back_button : MonoBehaviour
 {
@@ -17,9 +14,9 @@ public class next_back_button : MonoBehaviour
     //private int gazou_nanmai = 0;
 
     //public Sprite[] next_gazou;
-
+    GameObject obj;
     Image_Kirikae IK;
-    //GameObject obj = GameObject.Find("next");
+    
     
 
     public void n_hyouji()
@@ -39,7 +36,10 @@ public class next_back_button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IK = GetComponent<Image_Kirikae>(); //付いているスクリプトを取得
+        obj = GameObject.Find("rule_hyouji_button");
+
+        IK = obj.GetComponent<Image_Kirikae>(); //付いているスクリプトを取得
+        
     }
 
     // Update is called once per frame

@@ -13,22 +13,44 @@ public class Image_Kirikae : MonoBehaviour
     public int image_num;
 
     public int gazou_sousu;
-    private int gazou_nanmai=0;
+    public int gazou_nanmai;
 
     public Sprite[] next_gazou;
-    public GameObject Next;
-    public GameObject Back;
+     GameObject Next;
+     GameObject Back;
+
+    
+
     public void Gazou_wo_Kirikaeyo()
     {
         
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
-        
 
+        gazou_nanmai = -1;
         
         test.sprite = summon_gazou[image_num];
         Debug.Log(image_num+"i");
        
-        Debug.Log("nooooooon....");
+        
+        Debug.Log("SOUSU" + gazou_sousu);
+
+        if(gazou_sousu>0)
+        {
+            if (!Next.activeSelf || !Back.activeSelf)
+            {
+                Next.SetActive(true);
+                Back.SetActive(true);
+
+            }
+        }
+        else
+        {
+            if (Next.activeSelf||Back.activeSelf)
+            {
+                Next.SetActive(false);
+                Back.SetActive(false);
+            }
+        }
 
     }
 
@@ -41,17 +63,29 @@ public class Image_Kirikae : MonoBehaviour
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
-        if (gazou_nanmai > gazou_sousu)
+        gazou_nanmai++;
+
+        if (gazou_nanmai >= gazou_sousu)
         {
-            gazou_nanmai=0;
+            gazou_nanmai = gazou_sousu - 1;
+            
+            Debug.Log("Gazouha0"+gazou_nanmai);
+            //test.sprite = summon_gazou[image_num];
+            if (Next.activeSelf)
+            {
+                Next.SetActive(false);
+            }
         }
         else
         {
-            gazou_nanmai++;
+            
+            Debug.Log("gazounannmai" + gazou_nanmai);
+            test.sprite = next_gazou[gazou_nanmai];
+            Back.SetActive(true);
         }
-        test.sprite = next_gazou[gazou_nanmai];
+        
 
-        Debug.Log(gazou_nanmai);
+        
     }
 
     public void back_hyouji()
@@ -63,15 +97,26 @@ public class Image_Kirikae : MonoBehaviour
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
-        if (gazou_nanmai < 0)
+        gazou_nanmai--;
+
+        if (gazou_nanmai == -1)
         {
-            gazou_nanmai = gazou_sousu;
+
+            gazou_nanmai = -1;
+            Debug.Log("Gazouha0" + gazou_nanmai);
+            test.sprite = summon_gazou[image_num];
+            if (Back.activeSelf)
+            {
+                Back.SetActive(false);
+            }
         }
         else
         {
-            gazou_nanmai--;
+            
+            test.sprite = next_gazou[gazou_nanmai];
+            Next.SetActive(true);
         }
-        test.sprite = next_gazou[gazou_nanmai];
+        
 
         Debug.Log(gazou_nanmai);
     }
@@ -79,7 +124,10 @@ public class Image_Kirikae : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Next = GameObject.Find("next hyouji");
+        Back = GameObject.Find("back hyouji");
+        Next.SetActive(false);
+       
     }
 
     // Update is called once per frame
