@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class stageboard : MonoBehaviour
 {
     public GameObject mapboard;
@@ -11,7 +12,7 @@ public class stageboard : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
        
