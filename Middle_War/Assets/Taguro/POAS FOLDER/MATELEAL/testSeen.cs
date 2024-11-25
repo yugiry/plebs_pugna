@@ -7,6 +7,10 @@ public class testSeen : MonoBehaviour
 {
     public void change_button()
     {
-        SceneManager.LoadScene("test");
+        if(NameMneger.name != "")
+        {
+            SceneManager.LoadScene("test");
+        }
+       
     }
 }

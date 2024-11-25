@@ -11,6 +11,7 @@ public class TextNamemaneger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nameText.text = NameMneger.name;
         //nameText.text = NameMneger.name;
     }
 

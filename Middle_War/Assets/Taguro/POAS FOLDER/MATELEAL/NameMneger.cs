@@ -13,7 +13,7 @@ public class NameMneger : MonoBehaviour
     {
         Text inputText = GameObject.Find("NameNyuuryoku").GetComponent<Text>();
 
-        string nametext = inputText.text;
+        string nametext = inputText.text.Replace("\n","").Replace(" ","").Replace(" ","").Trim();
 
         Debug.Log(nametext);
 
