@@ -16,18 +16,20 @@ public class next_back_button : MonoBehaviour
     //public Sprite[] next_gazou;
     GameObject obj;
     Image_Kirikae IK;
-    
-    
+
+    int i;
+    int i2;
+    int i3;
 
     public void n_hyouji()
     {
-
+        
         IK.next_hyouji();
     }
 
     public void b_hyouji()
     {
-
+        
         IK.back_hyouji();
         
     }
@@ -45,6 +47,8 @@ public class next_back_button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        i = IK.img;
+        i2 = IK.image_num;
+        i3 = IK.gazou_nanmai;
     }
 }
