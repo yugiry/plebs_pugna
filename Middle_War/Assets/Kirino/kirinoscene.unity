@@ -4823,7 +4823,6 @@ MonoBehaviour:
   enemybutton_infantry: {fileID: 945504764}
   enemybutton_archer: {fileID: 18279089}
   enemybutton_catapalt: {fileID: 836216877}
-  mapbord: {fileID: 1895933787}
 --- !u!114 &969159362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9399,6 +9398,7 @@ GameObject:
   - component: {fileID: 1836512521}
   - component: {fileID: 1836512520}
   - component: {fileID: 1836512523}
+  - component: {fileID: 1836512524}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -9482,6 +9482,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &1836512524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836512516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa65d1e30237a5849a41d2afb6b26e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapboard: {fileID: 1895933787}
 --- !u!1 &1880884458
 GameObject:
   m_ObjectHideFlags: 0
