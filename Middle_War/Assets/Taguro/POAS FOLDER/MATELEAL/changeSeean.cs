@@ -7,6 +7,8 @@ public class changeSeean : MonoBehaviour
 {
     public void change_button()
     {
-        SceneManager.LoadScene("NameSeean");
+        FadeManager.Instance.LoadScene("NameSeean", 1.0f);
+        
+       
     }
 }

@@ -13,7 +13,7 @@ public class CPU_TileCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "unit" || collision.tag == "Eunit")
+        if (collision.tag == "unit" || collision.tag == "Eunit" || collision.name == "move_checker")
         {
             onunit = true;
         }
@@ -29,10 +29,13 @@ public class CPU_TileCheck : MonoBehaviour
 
     public bool Check_Unit()
     {
-        if(onunit)
+        if (onunit)
         {
             return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 }

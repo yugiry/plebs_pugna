@@ -10,7 +10,6 @@ public class Unit_Operation : PlayerUnit_Base
     public float Unit_Y;
     private bool pushmouse;
 
-    GameObject ucobj;
     uniteClick UC;
 
     public int hp;
@@ -24,7 +23,6 @@ public class Unit_Operation : PlayerUnit_Base
     GameObject clickedGameObject;
     GameObject[] action;
 
-    GameObject tcobj;
     Turn_change TC;
 
     private bool followmouse;
@@ -50,6 +48,10 @@ public class Unit_Operation : PlayerUnit_Base
         Unit_Y = unit.transform.position.y;
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos.z = unit.transform.position.z;
+        mapobj = GameObject.Find("map");
+        UC = mapobj.GetComponent<uniteClick>();
+        TC = mapobj.GetComponent<Turn_change>();
+        component_Start();
     }
 
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class Unit_Operation : PlayerUnit_Base
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    if (clickedGameObject.CompareTag("Eunit"))
+                    if (clickedGameObject.tag == "Eunit")
                     {
                         if (attack_cnt == 0)
                         {
@@ -87,21 +89,19 @@ public class Unit_Operation : PlayerUnit_Base
                     {
                         if (attack_cnt == 0)
                         {
-                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, unit))
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, unit, ECH, PCH))
                             {
                                 attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
-                    ucobj = GameObject.Find("map");
-                    UC = ucobj.GetComponent<uniteClick>();
                     UC.PDlete();
                 }
             }
@@ -121,7 +121,7 @@ public class Unit_Operation : PlayerUnit_Base
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    if (clickedGameObject.CompareTag("Eunit"))
+                    if (clickedGameObject.tag == "Eunit")
                     {
                         if (attack_cnt == 0)
                         {
@@ -135,21 +135,19 @@ public class Unit_Operation : PlayerUnit_Base
                     {
                         if (attack_cnt == 0)
                         {
-                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, unit))
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, unit, ECH, PCH))
                             {
                                 attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
-                    ucobj = GameObject.Find("map");
-                    UC = ucobj.GetComponent<uniteClick>();
                     UC.PDlete();
                 }
             }
@@ -169,7 +167,7 @@ public class Unit_Operation : PlayerUnit_Base
                     tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
                     clickedGameObject = hit2d.transform.gameObject;
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
-                    if (clickedGameObject.CompareTag("Eunit"))
+                    if (clickedGameObject.tag == "Eunit")
                     {
                         vec.x = Mathf.Abs(unit.transform.position.x - clickedGameObject.transform.position.x);
                         vec.y = Mathf.Abs(unit.transform.position.y - clickedGameObject.transform.position.y);
@@ -182,15 +180,13 @@ public class Unit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 pushmouse = Input.GetMouseButtonDown(0);
                 
                 if (Input.GetMouseButtonDown(1))
                 {
                     act1.SetActive(false);
-                    ucobj = GameObject.Find("map");
-                    UC = ucobj.GetComponent<uniteClick>();
                     UC.PDlete();
                 }
             }
@@ -218,8 +214,6 @@ public class Unit_Operation : PlayerUnit_Base
     //ユニットを選択する
     public void Unit_Serect()
     {
-        tcobj = GameObject.Find("map");
-        TC = tcobj.GetComponent<Turn_change>();
         if (TC.nowturn == 0)
         {
             Destroy_Range();
@@ -231,8 +225,6 @@ public class Unit_Operation : PlayerUnit_Base
             }
             act1.SetActive(true);
             choice_move = 0;
-            ucobj = GameObject.Find("map");
-            UC = ucobj.GetComponent<uniteClick>();
             UC.Punite_Serect(unit, hp, move_ap);
         }
     }

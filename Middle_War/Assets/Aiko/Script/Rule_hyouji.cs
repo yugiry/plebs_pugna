@@ -9,6 +9,7 @@ public class Rule_hyouji : MonoBehaviour
     public GameObject rule_hyouji;
     private GameObject rule;
     public Text text;
+   
     //[SerializeField] TextMeshProUGUI text;
 
     public int color_change=1;

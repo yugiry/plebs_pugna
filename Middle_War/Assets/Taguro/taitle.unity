@@ -266,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93a6b317cf04e142b6c956b00499e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MidolWarText: {fileID: 194065207}
 --- !u!114 &194065207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +379,6 @@ GameObject:
   - component: {fileID: 570420558}
   - component: {fileID: 570420561}
   - component: {fileID: 570420562}
-  - component: {fileID: 570420563}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -528,21 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ef11baaa0beae49b5642854719b7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &570420563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570420556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1032503c1cde04c95cb08f6703abad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fedePanel: {fileID: 0}
-  _fadePanel: {fileID: 570420559}
-  _fedeTime: 4
 --- !u!1 &613384108
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93a6b317cf04e142b6c956b00499e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MidolWarText: {fileID: 1345969278}
 --- !u!114 &1345969278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,6 +1028,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345969275}
   m_CullTransparentMesh: 1
+--- !u!1001 &1368811537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 130190, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_Name
+      value: FadeManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 130190, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
 --- !u!1 &1502958470
 GameObject:
   m_ObjectHideFlags: 0
