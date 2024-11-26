@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 //using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class mapfaito : MonoBehaviour
@@ -19,6 +20,7 @@ public class mapfaito : MonoBehaviour
     public Image image; //画像表示
     public GameObject Button;//敵とのバトルボタン
     public Sprite[] newSprite;//画像表示追加
+    public string NextScene;
 
     //// Start is called before the first frame update
     void Start()
@@ -36,8 +38,6 @@ public class mapfaito : MonoBehaviour
         source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
     }
     public void Show_country(int countrynum)
-
-
     { //mapClickから受け取った値を読み取る
 
         image.sprite = newSprite[countrynum - 1]; //画像表示
@@ -72,14 +72,9 @@ public class mapfaito : MonoBehaviour
                 Debug.Log("Default"); //switch処理の最後
                 break;
         }
-
     }
-
-    //public void Cllik()
-    //{
-    //   if(Input.GetMouseButtonDown(1))
-    //    {
-    //        mapfai.SetActive(false);
-    //    }
-    //}
+    public void change_button()
+    {
+        SceneManager.LoadScene(NextScene);
+    }
 }
