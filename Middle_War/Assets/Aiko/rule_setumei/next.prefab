@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5535487386941812584}
   - component: {fileID: -5949015371868029385}
   - component: {fileID: 9064190432009093331}
+  - component: {fileID: -2288867031878896344}
   m_Layer: 0
   m_Name: next
   m_TagString: Untagged
@@ -125,6 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ccae4e88c0a7648a1d40359323f95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hyouji_num: 0
+  i1: 0
+  i2: 0
+  i3: 0
+  i4: 0
+  fullpage: 0
+  page: 0
 --- !u!114 &9064190432009093331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +162,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: -8403598752435370280, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
+          m_MethodName: sansyo
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &-2288867031878896344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096247852948103720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode_change: 0
+  summon_gazou: []
+  <image_num>k__BackingField: 0
+  <img>k__BackingField: 0
+  <gazou_sousu>k__BackingField: 0
+  <gazou_nanmai>k__BackingField: 2
+  next_gazou: []
+  Next: {fileID: 0}
+  Back: {fileID: 0}

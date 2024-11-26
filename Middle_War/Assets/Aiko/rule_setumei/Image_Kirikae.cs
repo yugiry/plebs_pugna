@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class Image_Kirikae : MonoBehaviour
 {
-     next_back_button NBB;
+
+    GameObject button;
+
+    
     public int mode_change;
 
     SpriteRenderer test;
@@ -20,66 +23,28 @@ public class Image_Kirikae : MonoBehaviour
     /*[SerializeField]*/
     [field: SerializeField] public int image_num { get; set; }
    
-    //public int i1{
-    //    get
-    //    {
-    //       return image_num;
-    //    }
-    //    set 
-    //    {
-    //        image_num = value;
-    //    }
+    
 
-    //}
     /*[SerializeField]*/
     [field: SerializeField] public int img { get; set; }
 
-    //public int i2{
-    //    get
-    //    {
-    //        return img;
-    //    }
-    //    set
-    //    {
-    //        img = value;
-    //    }
-
-    //}
+    
 
     /*[SerializeField]*/
      [field: SerializeField]
     public int gazou_sousu
     { get; set; }
     
-    //public int i3{
-    //    get
-    //    {
-    //        return gazou_sousu;
-    //    }
-    //    set
-    //    {
-    //        gazou_sousu = value;
-    //    }
 
-    //}
     /*[SerializeField]*/
      [field: SerializeField]
     public int gazou_nanmai
     {
         get; set;
     }
-    
-    //public int i4{
-    //    get
-    //    {
-    //        return gazou_nanmai;
-    //    }
-    //    set
-    //    {
-    //        gazou_nanmai = value;
-    //    }
 
-    //}
+    //GameObject Next;
+    //GameObject Back;
 
     public Sprite[] next_gazou;
     [SerializeField] GameObject Next;
@@ -87,13 +52,51 @@ public class Image_Kirikae : MonoBehaviour
 
     private void Awake()
     {
-        Next = GameObject.Find("Canvas(ALL)/kirikae_I/next hyouji");
-        Back = GameObject.Find("Canvas(ALL)/kirikae_I/back hyouji");
+        //Next = GameObject.Find("Canvas(ALL)/rule_hyouji_button/next hyouji");
+        //Back = GameObject.Find("Canvas(ALL)/rule_hyouji_button/back hyouji");
+
+        //Next = GameObject.Find("Canvas(ALL)/kirikae_I/next hyouji");
+        //Back = GameObject.Find("Canvas(ALL)/kirikae_I/back hyouji");
         
+
+
     }
+
+    void Start()
+    {
+        //Next = button.transform.Find("next_hyouji").gameObject;
+        //Back = button.transform.Find("back_hyouji").gameObject;
+        //button = GameObject.Find("rule_hyouji_button");
+
+        //Next = GameObject.Find("next hyouji");
+        //Back = GameObject.Find("back hyouji");
+        // Next.SetActive(false);
+        // Back.SetActive(false);
+        //NBB=GetComponent<next_back_button>();
+    }
+
+    //public void Destroy_NB()
+    //{
+    //    GameObject[] next_back = GameObject.FindGameObjectsWithTag("Finish");
+
+    //    if (next_back.activeSelf)
+    //    {
+    //        //var unitclick = Instantiate(unit_click) as GameObject;
+    //        foreach (GameObject N_B in next_back)
+    //        {
+    //            N_B.SetActive(false);
+                
+    //        }
+    //    }
+    //}
 
     public void Gazou_wo_Kirikaeyo()
     {
+        //Destroy_NB();
+
+        Next.SetActive(false);
+        Back.SetActive(false);
+
         img = image_num;
 
         Debug.Log("img_tag" + img);
@@ -124,41 +127,41 @@ public class Image_Kirikae : MonoBehaviour
             
         }
 
-        switch (mode_change)
-        {
-            case 1:
-                NBB.fullpage = 4;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 2:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 3:
-                NBB.fullpage = 2;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 4:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 5:
-                NBB.fullpage = 3;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 6:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 7:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 8:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-        }
+        //switch (mode_change)
+        //{
+        //    case 1:
+        //        NBB.fullpage = 4;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 2:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 3:
+        //        NBB.fullpage = 2;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 4:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 5:
+        //        NBB.fullpage = 3;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 6:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 7:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 8:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //}
 
     }
 
@@ -227,17 +230,19 @@ public class Image_Kirikae : MonoBehaviour
         Debug.Log(gazou_nanmai);
     }
 
+    public void sansyo()
+    {
+       i1= image_num;
+       i2= img;
+       i3= gazou_sousu;
+       i4= gazou_nanmai;
+
+        Debug.Log("image_num"+i1+"image_num");
+    }
    
 
     // Start is called before the first frame update
-    void Start()
-    {
-        //Next = GameObject.Find("next hyouji");
-        //Back = GameObject.Find("back hyouji");
-        // Next.SetActive(false);
-        // Back.SetActive(false);
-        NBB=GetComponent<next_back_button>();
-    }
+    
 
     // Update is called once per frame
     void Update()

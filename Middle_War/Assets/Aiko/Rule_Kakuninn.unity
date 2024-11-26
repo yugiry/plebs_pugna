@@ -402,7 +402,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530352975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25ccae4e88c0a7648a1d40359323f95b, type: 3}
   m_Name: 
@@ -619,17 +619,53 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2866212501684505389, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: next_gazou.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866212501684505389, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: <gazou_sousu>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 530352978}
     - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: -8403598752435370280, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: b_hyouji
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Gazou_wo_Kirikaeyo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Image_Kirikae, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308918190426670271, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6856038176572954760, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
       propertyPath: m_RootOrder
@@ -677,6 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3245673949810852541, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
+    - {fileID: 2866212501684505389, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
 --- !u!1001 &1093592706208574358
 PrefabInstance:
@@ -747,16 +784,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 530352976}
     m_Modifications:
     - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 530352978}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: -8403598752435370280, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
     - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: n_hyouji
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: next_hyouji
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Image_Kirikae, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274930837897670123, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4856631863430896570, guid: 5595587915441b94a96a19533adea7c3, type: 3}
       propertyPath: m_RootOrder
@@ -812,6 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7775809828023358223, guid: 5595587915441b94a96a19533adea7c3, type: 3}
+    - {fileID: 2784821409948637200, guid: 5595587915441b94a96a19533adea7c3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5595587915441b94a96a19533adea7c3, type: 3}
 --- !u!4 &6291952436253356475 stripped
 Transform:
@@ -825,6 +891,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 596223277019527311, guid: 4fcac8e87edde34428eeaefd08f1c2d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 883667339070831724, guid: 4fcac8e87edde34428eeaefd08f1c2d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738710924082912327, guid: 4fcac8e87edde34428eeaefd08f1c2d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028415908717959332, guid: 4fcac8e87edde34428eeaefd08f1c2d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7203735965483546820, guid: 4fcac8e87edde34428eeaefd08f1c2d0, type: 3}
       propertyPath: m_Name
       value: rule_hyouji_button

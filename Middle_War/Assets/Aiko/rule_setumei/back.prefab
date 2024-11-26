@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7703445287260429816}
   - component: {fileID: 5431199224589012113}
   - component: {fileID: 3591702077901343379}
+  - component: {fileID: -4498154038192896767}
   m_Layer: 0
   m_Name: back
   m_TagString: Untagged
@@ -125,6 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ccae4e88c0a7648a1d40359323f95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hyouji_num: 0
+  i1: 0
+  i2: 0
+  i3: 0
+  i4: 0
+  fullpage: 0
+  page: 0
 --- !u!114 &3591702077901343379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +162,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-4498154038192896767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457704648285730739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode_change: 0
+  summon_gazou: []
+  <image_num>k__BackingField: 0
+  <img>k__BackingField: 0
+  <gazou_sousu>k__BackingField: 0
+  <gazou_nanmai>k__BackingField: 0
+  next_gazou: []
+  Next: {fileID: 0}
+  Back: {fileID: 0}

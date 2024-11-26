@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4856631863430896570}
   m_Layer: 0
   m_Name: next hyouji
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4856631863430896570
 Transform:
   m_ObjectHideFlags: 0
