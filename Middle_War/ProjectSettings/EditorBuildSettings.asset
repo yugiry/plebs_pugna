@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Taguro/test.unity
     guid: 6ae425e67d483ea4ea4914d5a72b05c7
+  - enabled: 1
+    path: Assets/Kirino/kirinoscene.unity
+    guid: 3a45fcf385b26e449b70b3bd9ad93292
   m_configObjects: {}

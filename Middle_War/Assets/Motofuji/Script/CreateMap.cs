@@ -13,12 +13,16 @@ public class CreateMap : MonoBehaviour
     GameObject castleobj;
     GameObject obj;
 
+    GameObject CN;
+    remenber_country_num RCN;
+
     [SerializeField] CPU_Controller CPUC;
 
     //オブジェクト
     public GameObject grass;
     public GameObject mountain;
     public GameObject water;
+    public GameObject morewater;
     public GameObject castle1;
     public GameObject area1;
     public GameObject castle2;
@@ -49,10 +53,10 @@ public class CreateMap : MonoBehaviour
     public int[] map;
     //csvファイルの場所
     //private string csv_place = "Resources/map.csv";
-    private string map1 = "Assets/alpha/Resources/map(stage1).csv";
-    private string map2;
+    private string map2 = "Assets/alpha/Resources/map(stage2).csv";
     private string map3 = "Assets/alpha/Resources/map(stage3).csv";
-    private string map4;
+    private string map4 = "Assets/alpha/Resources/map(stage4).csv";
+    //private string map5 = "Assets/alpha/Resources/map(stage5).csv";
 
     //playerAPの管理をする数値。
     int Maximam_PAP = 999;
@@ -103,34 +107,32 @@ public class CreateMap : MonoBehaviour
         return str_lists;//string型リストを戻す
     }
 
-    public void SummonMap(int stage)
-    {
-        map = new int[MAPSIZE_X * MAPSIZE_Y];
-        switch(stage)
-        {
-            case 1:
-                smap = Csv_Input(map1);
-                break;
-            case 2:
-                smap = Csv_Input(map2);
-                break;
-            case 3:
-                smap = Csv_Input(map3);
-                break;
-            case 4:
-                smap = Csv_Input(map4);
-                break;
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
-
         map = new int[MAPSIZE_X * MAPSIZE_Y];
 
-        smap = Csv_Input(map1);
+        CN = GameObject.Find("country_info");
+        if (CN != null)
+        {
+            RCN = CN.GetComponent<remenber_country_num>();
+            if( RCN != null )
+            {
+                switch(RCN.country_num )
+                {
+                    case 2:
+                        smap = Csv_Input(map2);
+                        break;
+                    case 3:
+                        smap = Csv_Input(map3);
+                        break;
+                    case 4:
+                        smap = Csv_Input(map4);
+                        break;
+                }
+            }
+        }
 
         //マップ情報の初期化
         for (int i = 0; i < MAPSIZE_X * MAPSIZE_Y; i++)
@@ -179,30 +181,12 @@ public class CreateMap : MonoBehaviour
                     case 5://PLAYER2の城
                         obj = Instantiate(castle2, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
+                    case 6://深水
+                        obj = Instantiate(morewater, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
+                        break;
                 }
                 obj.transform.parent = tileobj.transform;
             }
-            //else if (y == MAPSIZE_Y && x == 0)
-            //{
-            //    Instantiate(castle1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 22, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 22, SetTile_Z - 5), Quaternion.identity);
-            //    Instantiate(castle2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * 2, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * 2, SetTile_Z - 5), Quaternion.identity);
-            //    for (int dy = 0; dy < 3; dy++)
-            //    {
-            //        for (int dx = 0; dx < 3; dx++)
-            //        {
-            //            if (dy == 1 && dx == 1)
-            //            {
-
-            //            }
-            //            else
-            //            {
-            //                Instantiate(area1, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (21 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (21 + dy), SetTile_Z - 5), Quaternion.identity);
-            //                Instantiate(area2, new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * (1 + dx), SetTileStart_Y - (TILESIZE_Y + TILESPACE) * (1 + dy), SetTile_Z - 5), Quaternion.identity);
-            //            }
-            //        }
-            //    }
-            //    break;
-            //}
             x++;
             if (x >= MAPSIZE_X)
             {

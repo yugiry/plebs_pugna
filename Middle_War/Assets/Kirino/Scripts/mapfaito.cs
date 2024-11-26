@@ -6,12 +6,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(AudioSource))]
+//[RequireComponent(typeof(AudioSource))]
 public class mapfaito : MonoBehaviour
 {
-    [SerializeField] AudioClip[] clips;
-    [SerializeField] float pitchRange = 0.1f;
-    protected AudioSource source;
+    //[SerializeField] AudioClip[] clips;
+    //[SerializeField] float pitchRange = 0.1f;
+    //[SerializeField]GameObject button;
+    //protected AudioSource mapselect;
+    //protected AudioSource scenechange;
     //public GameObject mapfai;
     public int countrynum;
     public GameObject mapbatoru;
@@ -21,6 +23,7 @@ public class mapfaito : MonoBehaviour
     public GameObject Button;//敵とのバトルボタン
     public Sprite[] newSprite;//画像表示追加
     public string NextScene;
+    [SerializeField] remenber_country_num RCN;
 
     //// Start is called before the first frame update
     void Start()
@@ -29,13 +32,14 @@ public class mapfaito : MonoBehaviour
     }
     private void Awake()
     {
-        source = GetComponents<AudioSource>()[0];
+        //mapselect = GetComponents<AudioSource>()[0];
+        //scenechange = button.GetComponents<AudioSource>()[0];
     }
 
     public void PlayFootstepSE()
     {
-        source.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
-        source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+        //mapselect.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+        //mapselect.PlayOneShot(clips[Random.Range(0, clips.Length)]);
     }
     public void Show_country(int countrynum)
     { //mapClickから受け取った値を読み取る
@@ -48,25 +52,29 @@ public class mapfaito : MonoBehaviour
                 text1.text = "自国"; //国名
                 text2.text = "どんどん敵国を攻め領土を拡張して天下統一を目指そう！！"; //国説明
                 Button.SetActive(false); //ボタン表示（自国はボタン表示しない）
-                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置          
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
                 break;
             case 2:
                 text1.text = "フスラン"; //国名
                 text2.text = "できたばかりの国で国王の権力が低く攻め入りやすい！"; //国説明            
                 Button.SetActive(true); //敵国はボタン表示する
                 mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
                 break;
             case 3:
                 text1.text = "ア・タイリ"; //国名
                 text2.text = "できたばかりではないが国民のまとまりがなくあまり発展していない！"; //国説明             
                 Button.SetActive(true); //敵国はボタン表示する
                 mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
                 break;
             case 4:
                 text1.text = "アイべり半島"; //国名
                 text2.text = "少し発展しており徐々に宗教が広まっている!!（宗教名ligare）"; //国説明          
                 Button.SetActive(true); //敵国はボタン表示する
                 mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
                 break;
             default:
                 Debug.Log("Default"); //switch処理の最後
