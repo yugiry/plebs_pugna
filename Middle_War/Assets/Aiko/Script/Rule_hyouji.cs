@@ -9,16 +9,18 @@ public class Rule_hyouji : MonoBehaviour
     public GameObject rule_hyouji;
     private GameObject rule;
     public Text text;
-   
+
+    public next_back_button NBB;
     //[SerializeField] TextMeshProUGUI text;
 
-    public int color_change=1;
+    public int mode_change;
    public static int hyouji_hihyouji = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //color_change = 0;
+        
     }
 
     // Update is called once per frame
@@ -32,6 +34,42 @@ public class Rule_hyouji : MonoBehaviour
 
     public void rule_miseru()
     {
+        switch (mode_change)
+        {
+            case 1:
+                NBB.fullpage = 4;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 2:
+                NBB.fullpage = 1;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 3:
+                NBB.fullpage = 2;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 4:
+                NBB.fullpage = 1;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 5:
+                NBB.fullpage = 3;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 6:
+                NBB.fullpage = 1;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 7:
+                NBB.fullpage = 1;
+                NBB.hyouji_num = mode_change;
+                break;
+            case 8:
+                NBB.fullpage = 1;
+                NBB.hyouji_num = mode_change;
+                break;
+        }
+
         hyouji_hihyouji++;
         if(hyouji_hihyouji>1)
         {
@@ -82,31 +120,9 @@ public class Rule_hyouji : MonoBehaviour
 
 
     }
-    public void text_color_change()
+    public void text_mode_change()
     {
-        color_change++;
-        if(color_change>1)
-        {
-            color_change = 0;
-        }
-
-        switch(color_change)
-        {
-            case 0:
-                //change_black();
-                text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-            
-            Debug.Log("t"+color_change);
-                break;
-           
-            case 1:
-                text.color = new Color(0.3f, 0.3f, 0.3f, 1.0f);
-               // change_black();
-            Debug.Log("t"+color_change);
-                break;
-        }
-
-
+        
     }
 
     public void invisible_rules()
