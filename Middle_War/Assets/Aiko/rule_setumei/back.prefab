@@ -13,14 +13,13 @@ GameObject:
   - component: {fileID: 7703445287260429816}
   - component: {fileID: 5431199224589012113}
   - component: {fileID: 3591702077901343379}
-  - component: {fileID: -4498154038192896767}
   m_Layer: 0
   m_Name: back
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1573987598354759792
 Transform:
   m_ObjectHideFlags: 0
@@ -161,25 +160,16 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 0
+        - m_Target: {fileID: -8403598752435370280, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
+          m_MethodName: back_hyouji
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &-4498154038192896767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4457704648285730739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode_change: 0
-  summon_gazou: []
-  <image_num>k__BackingField: 0
-  <img>k__BackingField: 0
-  <gazou_sousu>k__BackingField: 0
-  <gazou_nanmai>k__BackingField: 0
-  next_gazou: []
-  Next: {fileID: 0}
-  Back: {fileID: 0}

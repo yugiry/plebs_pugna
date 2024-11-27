@@ -81,14 +81,14 @@ public class next_back_button : MonoBehaviour
         //obj = GameObject.Find("rule_hyouji_button");
         //IK = obj.GetComponent<Image_Kirikae>(); //付いているスクリプトを取得
 
-        i1 = IK.image_num;
-        i2 = IK.img;
-        i3 = IK.gazou_sousu;
-        i4 = IK.gazou_nanmai;
+        //i1 = IK.image_num;
+        //i2 = IK.img;
+        //i3 = IK.gazou_sousu;
+        //i4 = IK.gazou_nanmai;
 
-        Debug.Log("i1" + i1);
-        Debug.Log("i2" + i2);
-        Debug.Log("i3" + i3);
-        Debug.Log("i4" + i4);
+        //Debug.Log("i1" + i1);
+        //Debug.Log("i2" + i2);
+        //Debug.Log("i3" + i3);
+        //Debug.Log("i4" + i4);
     }
 }

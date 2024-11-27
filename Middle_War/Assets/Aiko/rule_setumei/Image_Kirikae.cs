@@ -47,8 +47,14 @@ public class Image_Kirikae : MonoBehaviour
     //GameObject Back;
 
     public Sprite[] next_gazou;
+    [SerializeField] GameObject Next1;
+    [SerializeField] GameObject Back2;
+
     [SerializeField] GameObject Next;
     [SerializeField] GameObject Back;
+    private GameObject button_hyouji1;
+    private GameObject button_hyouji2;
+    public Transform parent;
 
     private void Awake()
     {
@@ -64,6 +70,9 @@ public class Image_Kirikae : MonoBehaviour
 
     void Start()
     {
+        Destroy_Next();
+        Destroy_Back();
+
         //Next = button.transform.Find("next_hyouji").gameObject;
         //Back = button.transform.Find("back_hyouji").gameObject;
         //button = GameObject.Find("rule_hyouji_button");
@@ -89,13 +98,66 @@ public class Image_Kirikae : MonoBehaviour
     //        }
     //    }
     //}
+    void Summon_Next()
+    {
+        Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
+        Next = parent.transform.Find("next hyouji").gameObject;
+        Next.SetActive(true);
+        Next.transform.position = new Vector3(pos.x + 160, -50, 0.0f);
+
+        //button_hyouji1 = Instantiate(Next, new Vector3(pos.x+360, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+    }
+    void Summon_Back()
+    {
+        Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
+        Back = parent.transform.Find("back hyouji").gameObject;
+        Back.SetActive(true);
+        Back.transform.position = new Vector3(pos.x+500, -50, 0.0f);
+        
+        //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+    }
+
+    void Destroy_Next()
+    {
+        GameObject[] click_next = GameObject.FindGameObjectsWithTag("Finish");
+
+       // if (button_hyouji1.activeSelf)
+        //{
+            foreach (GameObject next_child in click_next)
+            {
+            //Destroy(next_child);
+            next_child.SetActive(false);
+            }
+        //}
+
+
+    }
+
+    void Destroy_Back()
+    {
+        GameObject[] click_back = GameObject.FindGameObjectsWithTag("EditorOnly");
+
+        //if (button_hyouji2.activeSelf)
+        //{
+            foreach (GameObject back_child in click_back)
+            {
+            //Destroy(back_child);
+            back_child.SetActive(false);
+            }
+        //}
+
+    }
 
     public void Gazou_wo_Kirikaeyo()
     {
+       
         //Destroy_NB();
 
-        Next.SetActive(false);
-        Back.SetActive(false);
+        Destroy_Next();
+        Destroy_Back();
+
+       // Next.SetActive(false);
+        //Back.SetActive(false);
 
         img = image_num;
 
@@ -113,17 +175,19 @@ public class Image_Kirikae : MonoBehaviour
 
         if(gazou_sousu>0)
         {
-           
-                Next.SetActive(true);
-                Back.SetActive(false);
+            Summon_Next();
+            Destroy_Back();
+            //Next.SetActive(true);
+            //Back.SetActive(false);
 
-            
+
         }
         else
         {
-            
-                Next.SetActive(false);
-                Back.SetActive(false);
+            Destroy_Next();
+            Destroy_Back();
+               // Next.SetActive(false);
+                //Back.SetActive(false);
             
         }
 
@@ -180,18 +244,21 @@ public class Image_Kirikae : MonoBehaviour
             
             Debug.Log("Gazouha0"+gazou_nanmai);
             test.sprite = next_gazou[gazou_nanmai];
-            if (Next.activeSelf)
-            {
-                Next.SetActive(false);
-                Back.SetActive(true);
-            }
+            
+                Destroy_Next();
+                Summon_Back();
+
+                //Next.SetActive(false);
+                //Back.SetActive(true);
+            
         }
         else
         {
             
             Debug.Log("gazounannmai" + gazou_nanmai);
             test.sprite = next_gazou[gazou_nanmai];
-            Back.SetActive(true);
+            //Back.SetActive(true);
+            Summon_Back();
         }
         
 
@@ -207,38 +274,32 @@ public class Image_Kirikae : MonoBehaviour
 
         gazou_nanmai--;
 
-        if (gazou_nanmai <= -1)
+        if (gazou_nanmai == -1)
         {
 
             gazou_nanmai = -1;
             Debug.Log("Gazouha0" + gazou_nanmai);
             test.sprite = summon_gazou[img];
-            if (Back.activeSelf)
-            {
-                Back.SetActive(false);
-                Next.SetActive(true);
-            }
+            
+                Destroy_Back();
+                Summon_Next();
+                //Back.SetActive(false);
+                //Next.SetActive(true);
+            
         }
         else
         {
             
             test.sprite = next_gazou[gazou_nanmai];
-            Next.SetActive(true);
+            Summon_Next();
+            //Next.SetActive(true);
         }
         
 
         Debug.Log(gazou_nanmai);
     }
 
-    public void sansyo()
-    {
-       i1= image_num;
-       i2= img;
-       i3= gazou_sousu;
-       i4= gazou_nanmai;
-
-        Debug.Log("image_num"+i1+"image_num");
-    }
+    
    
 
     // Start is called before the first frame update

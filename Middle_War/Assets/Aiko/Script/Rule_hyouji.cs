@@ -9,8 +9,8 @@ public class Rule_hyouji : MonoBehaviour
     public GameObject rule_hyouji;
     private GameObject rule;
     public Text text;
-
-    public next_back_button NBB;
+    GameObject Oya_Senyou;
+    //public next_back_button NBB;
     //[SerializeField] TextMeshProUGUI text;
 
     public int mode_change;
@@ -34,41 +34,41 @@ public class Rule_hyouji : MonoBehaviour
 
     public void rule_miseru()
     {
-        switch (mode_change)
-        {
-            case 1:
-                NBB.fullpage = 4;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 2:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 3:
-                NBB.fullpage = 2;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 4:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 5:
-                NBB.fullpage = 3;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 6:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 7:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-            case 8:
-                NBB.fullpage = 1;
-                NBB.hyouji_num = mode_change;
-                break;
-        }
+        //switch (mode_change)
+        //{
+        //    case 1:
+        //        NBB.fullpage = 4;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 2:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 3:
+        //        NBB.fullpage = 2;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 4:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 5:
+        //        NBB.fullpage = 3;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 6:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 7:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //    case 8:
+        //        NBB.fullpage = 1;
+        //        NBB.hyouji_num = mode_change;
+        //        break;
+        //}
 
         hyouji_hihyouji++;
         if(hyouji_hihyouji>1)
@@ -154,19 +154,24 @@ public class Rule_hyouji : MonoBehaviour
     {
         //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
 
-        
-        
-            this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
-        
+        if (this.gameObject.name == "rule_hyouji_button")
+        {
+
+            /*this.*/
+            GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
+        }
     }
     public void change_button2_exit()
     {
         //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
 
+        if (this.gameObject.name == "rule_hyouji_button")
+        {
 
+            /*this.*/
+            GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-
+        }
     }
 
 }
