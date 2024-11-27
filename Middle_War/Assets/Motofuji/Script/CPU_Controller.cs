@@ -86,12 +86,15 @@ public class CPU_Controller : PlayerUnit_Base
                 else
                 {
                     Debug.Log("ユニット在り");
-                    summon_or_action = RanDom(0, 10);
                     if (summon_or_action < 1)
+                    {
+                        Turn_Over();
+                    }
+                    else if(summon_or_action < 35)
                     {
                         Unit_Summon();
                     }
-                    if (summon_or_action < 10)
+                    else if (summon_or_action < 100)
                     {
                         Random_Action();
                     }
@@ -112,6 +115,7 @@ public class CPU_Controller : PlayerUnit_Base
     public void Turn_Here()
     {
         nowturn = true;
+        summon_or_action = RanDom(0, 100);
     }
 
     //移動、強化、攻撃からランダムで一つ行動する
@@ -224,6 +228,7 @@ public class CPU_Controller : PlayerUnit_Base
                 }
             }
         }
+        summon_or_action = RanDom(0, 100);
     }
 
     void Unit_Move(GameObject obj)

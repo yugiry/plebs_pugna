@@ -23,7 +23,8 @@ public class mapfaito : MonoBehaviour
     public GameObject Button;//敵とのバトルボタン
     public Sprite[] newSprite;//画像表示追加
     public string NextScene;
-    [SerializeField] remenber_country_num RCN;
+    GameObject rcnobj;
+    remenber_country_num RCN;
 
     //// Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ public class mapfaito : MonoBehaviour
     {
         //mapselect = GetComponents<AudioSource>()[0];
         //scenechange = button.GetComponents<AudioSource>()[0];
+        rcnobj = GameObject.Find("country_info");
+        RCN = rcnobj.GetComponent<remenber_country_num>();
     }
 
     public void PlayFootstepSE()
@@ -81,6 +84,7 @@ public class mapfaito : MonoBehaviour
                 break;
         }
     }
+
     public void change_button()
     {
         SceneManager.LoadScene(NextScene);

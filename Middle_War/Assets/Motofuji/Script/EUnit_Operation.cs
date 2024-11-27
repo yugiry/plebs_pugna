@@ -47,10 +47,9 @@ public class EUnit_Operation : PlayerUnit_Base
         Unit_Y = unit.transform.position.y;
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos.z = unit.transform.position.z;
-        mapobj = GameObject.Find("map");
+        component_Start();
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
-        component_Start();
     }
 
     // Update is called once per frame
@@ -76,9 +75,10 @@ public class EUnit_Operation : PlayerUnit_Base
                 //弓兵とカタパルトは城を攻撃できる
                 if (unit.name == "Earcher(Clone)")
                 {
-                    //マウスの位置にあるタイルを探して攻撃できる敵ユニットがあるか確認
+                    //マウスの座標に"unit"のタグを持つオブジェクトがいる場合
                     if (clickedGameObject.CompareTag("unit"))
                     {
+                        //attack_cntが0なら攻撃する
                         if (attack_cnt == 0)
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, clickedGameObject, unit))
@@ -87,8 +87,10 @@ public class EUnit_Operation : PlayerUnit_Base
                             }
                         }
                     }
+                    //マウスの座標に城がいる場合
                     if (clickedGameObject.name == "castle1(Clone)")
                     {
+                        //attack_cntが0なら攻撃する
                         if (attack_cnt == 0)
                         {
                             if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, unit, ECH, PCH))
@@ -97,14 +99,15 @@ public class EUnit_Operation : PlayerUnit_Base
                             }
                         }
                     }
-                    //マウスの位置にあるタイルを探して移動できる場所があるか確認
+                    //マウスの座標に移動可能な場所があるなら移動する
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 else if (unit.name == "Ecatapalt(Clone)")
                 {
-                    //マウスの位置にあるタイルを探して攻撃できる敵ユニットがあるか確認
+                    //マウスの座標に"unit"のタグを持つオブジェクトがいる場合
                     if (clickedGameObject.CompareTag("unit"))
                     {
+                        //attack_cntが0なら攻撃する
                         if (attack_cnt == 0)
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, clickedGameObject, unit))
@@ -113,8 +116,10 @@ public class EUnit_Operation : PlayerUnit_Base
                             }
                         }
                     }
+                    //マウスの座標に城がいる場合
                     if (clickedGameObject.name == "castle1(Clone)")
                     {
+                        //attack_cntが0なら攻撃する
                         if (attack_cnt == 0)
                         {
                             if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, unit, ECH, PCH))
@@ -123,14 +128,15 @@ public class EUnit_Operation : PlayerUnit_Base
                             }
                         }
                     }
-                    //マウスの位置にあるタイルを探して移動できる場所があるか確認
+                    //マウスの座標に移動可能な場所があるなら移動する
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
                 else if (unit.name == "Einfantry(Clone)")
                 {
-                    //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
+                    //マウスの座標に"unit"のタグを持つオブジェクトがいる場合
                     if (clickedGameObject.CompareTag("unit"))
                     {
+                        //attack_cntが0なら攻撃する
                         if (attack_cnt == 0)
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 1, 0, attack, clickedGameObject, unit))
@@ -139,7 +145,7 @@ public class EUnit_Operation : PlayerUnit_Base
                             }
                         }
                     }
-                    //マウスの位置にあるタイルを探して移動できる場所があるか確認
+                    //マウスの座標に移動可能な場所があるなら移動する
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
                 }
             }
@@ -151,6 +157,7 @@ public class EUnit_Operation : PlayerUnit_Base
             act1.SetActive(false);
             UC.EDlete();
         }
+        //HPが0より小さいならユニットを破壊する
         if (hp <= 0)
         {
             Destroy(unit);
@@ -172,26 +179,30 @@ public class EUnit_Operation : PlayerUnit_Base
         //}
     }
 
-    //ユニットを選択する
+    //ユニットがクリックされた時
     public void EUnit_Serect()
     {
+        //ゲーム内のターンが自分の場合
         if (TC.nowturn == 1)
         {
             Destroy_Range();
+            //"Eact"のTagが付いているオブジェクトのアクティブを全てfalseにする
             action = GameObject.FindGameObjectsWithTag("Eact");
             foreach (GameObject act in action)
             {
                 Debug.Log("actタグを持ったオブジェクト名：" + act.name);
                 act.SetActive(false);
             }
+            //クリックされたユニットだけアクティブをtrueにする
             act1.SetActive(true);
-            choice_move = 0;
+            //クリックされたユニットのHPと移動にかかるAP消費量の情報をUIに表示させる
             UC.Eunite_Serect(unit, hp, move_ap);
         }
     }
 
     public void HitAttack(int hit)
     {
+        //攻撃された攻撃力分HPを減らす
         hp -= hit;
     }
 

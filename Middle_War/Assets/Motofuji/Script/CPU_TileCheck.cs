@@ -11,7 +11,7 @@ public class CPU_TileCheck : MonoBehaviour
         onunit = false;   
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "unit" || collision.tag == "Eunit" || collision.name == "move_checker")
         {
@@ -21,7 +21,7 @@ public class CPU_TileCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "unit" || collision.tag == "Eunit")
+        if (collision.tag == "unit" || collision.tag == "Eunit" || collision.name == "move_checker")
         {
             onunit = false;
         }

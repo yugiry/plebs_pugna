@@ -5,7 +5,7 @@ using UnityEngine;
 public class PouseManager : MonoBehaviour
 {
     public GameObject pausePanel;
-   
+
     // Start is called before the first frame update
     void Start()
     {

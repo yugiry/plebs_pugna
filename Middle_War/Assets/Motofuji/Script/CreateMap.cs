@@ -52,7 +52,10 @@ public class CreateMap : MonoBehaviour
     private List<string> smap = new List<string>();
     public int[] map;
     //csvファイルの場所
-    //private string csv_place = "Resources/map.csv";
+    private string test_map = "Assets/alpha/Resources/map(stage2).csv";
+    //private string map2 = "Resources/map(stage2).csv";
+    //private string map3 = "Resources/map(stage3).csv";
+    //private string map4 = "Resources/map(stage4).csv";
     private string map2 = "Assets/alpha/Resources/map(stage2).csv";
     private string map3 = "Assets/alpha/Resources/map(stage3).csv";
     private string map4 = "Assets/alpha/Resources/map(stage4).csv";
@@ -113,6 +116,7 @@ public class CreateMap : MonoBehaviour
         Application.targetFrameRate = 60;
         map = new int[MAPSIZE_X * MAPSIZE_Y];
 
+        //ステージセレクトで選択したステージの番号毎にマップの読み込みを変更する
         CN = GameObject.Find("country_info");
         if (CN != null)
         {
@@ -132,6 +136,10 @@ public class CreateMap : MonoBehaviour
                         break;
                 }
             }
+        }
+        else
+        {
+            smap = Csv_Input(test_map);
         }
 
         //マップ情報の初期化
@@ -181,7 +189,7 @@ public class CreateMap : MonoBehaviour
                     case 5://PLAYER2の城
                         obj = Instantiate(castle2, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
-                    case 6://深水
+                    case 6://深い水
                         obj = Instantiate(morewater, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
                 }
@@ -195,6 +203,7 @@ public class CreateMap : MonoBehaviour
             }
             if(y > MAPSIZE_Y)
             {
+                //PLAYER1の城の周りにユニットの召喚可能エリアを配置する
                 castletf = tileobj.transform.Find("castle1(Clone)");
                 for (int i = -1; i <= 1; i++)
                 {
@@ -211,6 +220,7 @@ public class CreateMap : MonoBehaviour
                         }
                     }
                 }
+                //PLAYER2の城の周りにユニットの召喚可能エリアを配置する
                 castletf = tileobj.transform.Find("castle2(Clone)");
                 for (int i = -1; i <= 1; i++)
                 {

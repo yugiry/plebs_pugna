@@ -11,7 +11,7 @@ public class testSeen : MonoBehaviour
     {
         if(NameMneger.name != "")
         {
-            SceneManager.LoadScene(NextScene);
+            FadeManager.Instance.LoadScene(NextScene,1.0f);
         }
        
     }

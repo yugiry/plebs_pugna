@@ -44,10 +44,13 @@ public class PlayerUnit_Base : MonoBehaviour
     public bool Attack_Unit(Vector3 p1, Vector3 p2, float max, float min, int attack, GameObject Cobj, GameObject Uobj)
     {
         Vector3 v;
+        //攻撃したいオブジェクトまでのベクトル距離を計算
         v.x = p1.x - p2.x;
         v.y = p1.y - p2.y;
+        //ベクトル距離を絶対値でそろえる
         v.x = Mathf.Abs(v.x);
         v.y = Mathf.Abs(v.y);
+        //攻撃範囲に攻撃したいオブジェクトがいるか確認
         if (v.x <= max * (TILESIZE_X + TILESPACE) && v.y <= max * (TILESIZE_Y + TILESPACE))
         {
             if (v.x >= min * (TILESIZE_X + TILESPACE) || v.y >= min * (TILESIZE_Y + TILESPACE))
@@ -73,10 +76,13 @@ public class PlayerUnit_Base : MonoBehaviour
         ECH = ech;
         PCH = pch;
         Vector3 v;
+        //攻撃したいオブジェクトまでのベクトル距離を計算
         v.x = p1.x - p2.x;
         v.y = p1.y - p2.y;
+        //ベクトル距離を絶対値でそろえる
         v.x = Mathf.Abs(v.x);
         v.y = Mathf.Abs(v.y);
+        //攻撃範囲に攻撃したいオブジェクトがいるか確認
         if (v.x <= max * (TILESIZE_X + TILESPACE) && v.y <= max * (TILESIZE_Y + TILESPACE))
         {
             if (v.x >= min * (TILESIZE_X + TILESPACE) || v.y >= min * (TILESIZE_Y + TILESPACE))
