@@ -16,6 +16,7 @@ public class next_back_button : MonoBehaviour
     //public Sprite[] next_gazou;
     GameObject obj;
     Image_Kirikae IK;
+    public Transform parent;
 
     public int i1;
     public int i2;
@@ -27,17 +28,22 @@ public class next_back_button : MonoBehaviour
 
     public void n_hyouji()
     {
-        page++;
+        obj = parent.transform.Find("rule_hyouji_button").gameObject;
+        //obj = GameObject.FindWithTag("Finish");
 
-        if (page > fullpage)
-        {
-            page = fullpage;
-        }
+        IK = obj.GetComponent<Image_Kirikae>(); //付いているスクリプトを取得
 
-        if(hyouji_num==1&&page==1)
-        {
+        //page++;
 
-        }
+        //if (page > fullpage)
+        //{
+        //    page = fullpage;
+        //}
+
+        //if(hyouji_num==1&&page==1)
+        //{
+
+        //}
 
         i1 = IK.image_num;
         i2 = IK.img;
@@ -51,11 +57,16 @@ public class next_back_button : MonoBehaviour
 
     public void b_hyouji()
     {
-        page--;
-        if(page < 1)
-        {
-            page = 1;
-        }
+        obj = parent.transform.Find("rule_hyouji_button").gameObject;
+        //obj = GameObject.FindWithTag("Finish");
+
+        IK = obj.GetComponent<Image_Kirikae>(); //付いているスクリプトを取得
+
+        //page--;
+        //if(page < 1)
+        //{
+        //    page = 1;
+        //}
 
         i1 = IK.image_num;
         i2 = IK.img;
@@ -67,10 +78,7 @@ public class next_back_button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        obj = GameObject.Find("rule_hyouji_button");
-        //obj = GameObject.FindWithTag("Finish");
-
-        IK = obj.GetComponent<Image_Kirikae>(); //付いているスクリプトを取得
+        
         
         
     }

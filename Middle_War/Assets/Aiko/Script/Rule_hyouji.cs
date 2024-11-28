@@ -150,28 +150,28 @@ public class Rule_hyouji : MonoBehaviour
 
     //}
 
-    public void change_button_enter()
+   public void OnMouseEnter2()
     {
         //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
 
-        if (this.gameObject.name == "rule_hyouji_button")
-        {
 
-            /*this.*/
-            GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
-        }
+        
+
+
+            this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
+            Debug.Log("change");
+        
     }
-    public void change_button2_exit()
+   public void OnMouseExit2()
     {
         //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
 
-        if (this.gameObject.name == "rule_hyouji_button")
-        {
+        
 
-            /*this.*/
-            GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        }
+            this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+        
     }
 
 }

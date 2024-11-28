@@ -315,7 +315,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 289742386651120719}
           m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
-          m_MethodName: change_button_enter
+          m_MethodName: OnMouseEnter2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -324,14 +324,14 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 289742386651120719}
           m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
-          m_MethodName: change_button2_exit
+          m_MethodName: OnMouseExit2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -340,7 +340,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
 --- !u!50 &289742386651120717
 Rigidbody2D:
   serializedVersion: 4
@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 8221101905429257610}
   - component: {fileID: 1420290686896311509}
   - component: {fileID: 4832153490515178033}
+  - component: {fileID: 7869523376436957945}
   m_Layer: 5
   m_Name: next
   m_TagString: Untagged
@@ -648,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyouji_num: 0
+  parent: {fileID: 289742386651120714}
   i1: 0
   i2: 0
   i3: 0
@@ -683,6 +685,74 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7869523376436957945}
+          m_TargetAssemblyTypeName: button_color_change, Assembly-CSharp
+          m_MethodName: change_button2_exit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7869523376436957945}
+          m_TargetAssemblyTypeName: button_color_change, Assembly-CSharp
+          m_MethodName: change_button_enter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 289742386651120719}
+          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
+          m_MethodName: OnMouseExit2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7869523376436957945}
+          m_TargetAssemblyTypeName: button_color_change, Assembly-CSharp
+          m_MethodName: change_button2_exit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7869523376436957945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581238252720754890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6c0dcdc80782a4aa12e100c3bbbe0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3808094022856752689
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +878,7 @@ GameObject:
   - component: {fileID: 2878906303786246891}
   - component: {fileID: 451681852355130242}
   - component: {fileID: 8990177344577140096}
+  - component: {fileID: 7309221574626658213}
   m_Layer: 5
   m_Name: back
   m_TagString: Untagged
@@ -922,6 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hyouji_num: 0
+  parent: {fileID: 289742386651120714}
   i1: 0
   i2: 0
   i3: 0
@@ -957,3 +1029,71 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7309221574626658213}
+          m_TargetAssemblyTypeName: button_color_change, Assembly-CSharp
+          m_MethodName: change_button2_exit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7309221574626658213}
+          m_TargetAssemblyTypeName: button_color_change, Assembly-CSharp
+          m_MethodName: change_button_enter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 289742386651120719}
+          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
+          m_MethodName: OnMouseExit2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7309221574626658213}
+          m_TargetAssemblyTypeName: button_color_change, Assembly-CSharp
+          m_MethodName: change_button2_exit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7309221574626658213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126532674743617696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6c0dcdc80782a4aa12e100c3bbbe0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

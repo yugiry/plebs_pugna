@@ -56,6 +56,9 @@ public class Image_Kirikae : MonoBehaviour
     private GameObject button_hyouji2;
     public Transform parent;
 
+    button_color_change BCC;
+    
+    
     private void Awake()
     {
         //Next = GameObject.Find("Canvas(ALL)/rule_hyouji_button/next hyouji");
@@ -70,8 +73,12 @@ public class Image_Kirikae : MonoBehaviour
 
     void Start()
     {
+        
+        
+
         Destroy_Next();
         Destroy_Back();
+
 
         //Next = button.transform.Find("next_hyouji").gameObject;
         //Back = button.transform.Find("back_hyouji").gameObject;
@@ -129,8 +136,7 @@ public class Image_Kirikae : MonoBehaviour
             next_child.SetActive(false);
             }
         //}
-
-
+        
     }
 
     void Destroy_Back()
@@ -145,12 +151,13 @@ public class Image_Kirikae : MonoBehaviour
             back_child.SetActive(false);
             }
         //}
-
+        
     }
 
     public void Gazou_wo_Kirikaeyo()
     {
-       
+        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
         //Destroy_NB();
 
         Destroy_Next();
@@ -231,6 +238,7 @@ public class Image_Kirikae : MonoBehaviour
 
     public void next_hyouji()
     {
+        
         img = image_num;
         Debug.Log("img_tag" + img);
 
@@ -267,6 +275,7 @@ public class Image_Kirikae : MonoBehaviour
 
     public void back_hyouji()
     {
+        
         img = image_num;
         Debug.Log("img_tag" + img);
 
