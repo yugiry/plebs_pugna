@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Image_Kirikae : MonoBehaviour
 {
+    public int text_num;
+    private Text my_text;
 
     GameObject button;
 
@@ -13,15 +15,12 @@ public class Image_Kirikae : MonoBehaviour
 
     SpriteRenderer test;
 
-    public Sprite[] summon_gazou;
+    //public Sprite[] summon_gazou;
 
-    int i1;
-    int i2;
-    int i3;
-    int i4;
+    
 
     /*[SerializeField]*/
-    [field: SerializeField] public int image_num { get; set; }
+    [field: SerializeField] public int text_num_num { get; set; }
    
     
 
@@ -74,8 +73,9 @@ public class Image_Kirikae : MonoBehaviour
 
     void Start()
     {
-        
-        
+        my_text = GameObject.Find("setumei").GetComponent<Text>();
+        my_text.color = new Color(1.0f, 1.0f, 1.0f);
+
 
         Destroy_Next();
         Destroy_Back();
@@ -179,6 +179,8 @@ public class Image_Kirikae : MonoBehaviour
 
     public void Gazou_wo_Kirikaeyo()
     {
+        Text_Kakikae();
+
         Kakunou_Mekakusi();
         Yobidasi_Mekakusi();
         //Destroy_NB();
@@ -186,24 +188,25 @@ public class Image_Kirikae : MonoBehaviour
         Destroy_Next();
         Destroy_Back();
 
-       // Next.SetActive(false);
+        // Next.SetActive(false);
         //Back.SetActive(false);
 
-        img = image_num;
+        text_num_num = 0;
 
         Debug.Log("img_tag" + img);
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
-        gazou_nanmai = -1;
+        gazou_nanmai = 0;
         
-        test.sprite = summon_gazou[image_num];
-        Debug.Log(image_num+"i");
+        //test.sprite = summon_gazou[image_num];
+        test.sprite = next_gazou[gazou_nanmai];
+       
        
         
         Debug.Log("SOUSU" + gazou_sousu);
 
-        if(gazou_sousu>0)
+        if(gazou_sousu>1)
         {
             Summon_Next();
             Destroy_Back();
@@ -221,48 +224,17 @@ public class Image_Kirikae : MonoBehaviour
             
         }
 
-        //switch (mode_change)
-        //{
-        //    case 1:
-        //        NBB.fullpage = 4;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 2:
-        //        NBB.fullpage = 1;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 3:
-        //        NBB.fullpage = 2;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 4:
-        //        NBB.fullpage = 1;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 5:
-        //        NBB.fullpage = 3;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 6:
-        //        NBB.fullpage = 1;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 7:
-        //        NBB.fullpage = 1;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //    case 8:
-        //        NBB.fullpage = 1;
-        //        NBB.hyouji_num = mode_change;
-        //        break;
-        //}
+       
 
     }
 
     public void next_hyouji()
     {
-        
-        img = image_num;
+
+        text_num_num++;
+
+        Text_Kakikae();
+
         Debug.Log("img_tag" + img);
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
@@ -298,20 +270,29 @@ public class Image_Kirikae : MonoBehaviour
 
     public void back_hyouji()
     {
+
+        text_num_num--;
+
+        if (text_num_num == 0)
+        {
+            text_num_num = 0;
+        }
+
+        Text_Kakikae();
+
         
-        img = image_num;
         Debug.Log("img_tag" + img);
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
         gazou_nanmai--;
 
-        if (gazou_nanmai == -1)
+        if (gazou_nanmai == 0)
         {
 
-            gazou_nanmai = -1;
+            gazou_nanmai = 0;
             Debug.Log("Gazouha0" + gazou_nanmai);
-            test.sprite = summon_gazou[img];
+            test.sprite = next_gazou[gazou_nanmai];
             
                 Destroy_Back();
                 Summon_Next();
@@ -331,11 +312,93 @@ public class Image_Kirikae : MonoBehaviour
         Debug.Log(gazou_nanmai);
     }
 
-    
-   
+    public void Text_Kakikae()
+    {
+        switch (text_num)
+        {
+            case 0://召喚
+                switch (text_num_num)
+                {
+                    case 0:
+                        my_text.text = "\nUI画面にあるユニットを左クリックしてから自分の陣地を左クリックすると召喚できる。\nただし、召喚に必要なAPまたは資源が足りないと召喚できない。";
+                        break;
+                }
+                break;
+
+            case 1://移動
+                switch (text_num_num)
+                {
+                    case 0:
+                        my_text.text = "\n移動させたいユニットを左クリックしてから行きたいマスを左クリックすれば移動できる。\n";
+                        break;
+                }
+                break;
+            case 2://採取
+                switch (text_num_num)
+                {
+                    case 0:
+                        my_text.text = "\nフィールドマップ上にある資材まで'歩兵'を移動させてから資材を左クリックすることで回収ができる。\n";
+                        break;
+                }
+                break;
+            case 3://攻撃
+                switch (text_num_num)
+                {
+                    case 0:
+                my_text.text = "\n攻撃したいユニットが射程内なら、攻撃させたいユニットを左クリックして、攻撃したいユニットを左クリックすれば攻撃する事ができる。\n各ユニットの攻撃射程はユニットを左クリックしてからマウスホイールでクリックすると確認できる。\n";
+                        break;
+                }
+                break;
+            case 4://勝利条件
+                switch (text_num_num)
+                {
+                    case 0:
+                my_text.text = "\n自軍が敵の本陣のHPを0にすれば勝利となる。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nがんばれ！\n";
+                break;
+                 }
+                break;
+            case 5://敗北条件
+                switch (text_num_num)
+                {
+                    case 0:
+                        my_text.text = "\n敵軍によって自軍の本陣のHPが0にされれば敗北となる。\n";
+                        break;
+                }
+                break;
+            case 6://フィールド情報
+                switch (text_num_num) {
+                    case 0:
+                my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。歩兵で回収が可能。\n川…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n森…どんなユニットも通ることができない場所。\n";
+                        break;  
+                }
+                break;
+            case 7://ユニット情報
+                switch (text_num_num)
+                {
+                    case 0:
+                        my_text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\n";
+                        break;
+                    case 1:
+                        my_text.text = "弓兵…遠距離攻撃が可能な兵士。体力が低く召喚に必要なAPも多い。\n";
+                        break;
+                    case 2:
+                        my_text.text = "カタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる弱点がある。\n";
+                        break;
+                    default:
+                        text_num_num = 2;
+                        break;
+                }
+                              break;
+
+
+        }
+
+
+    }
+
 
     // Start is called before the first frame update
-    
+
 
     // Update is called once per frame
     void Update()

@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 289742386651120712}
   - component: {fileID: 289742386651120713}
   - component: {fileID: 289742386651120717}
-  - component: {fileID: 289742386651120716}
   - component: {fileID: -8403598752435370280}
   m_Layer: 5
   m_Name: rule_hyouji_button
@@ -286,8 +285,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 0
-        - m_Target: {fileID: 289742386651120716}
-          m_TargetAssemblyTypeName: Text_Hyouji, Assembly-CSharp
+        - m_Target: {fileID: -8403598752435370280}
+          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
           m_MethodName: Text_Kakikae
           m_Mode: 1
           m_Arguments:
@@ -297,7 +296,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
         - m_Target: {fileID: -8403598752435370280}
           m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
           m_MethodName: Gazou_wo_Kirikaeyo
@@ -363,19 +362,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &289742386651120716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289742386651120715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50137040fb663484c98f91346e32e8f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text_num: 0
 --- !u!114 &-8403598752435370280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,17 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  summon_gazou:
-  - {fileID: 21300000, guid: e49973cf04b95df4786d61adcbdb5547, type: 3}
-  - {fileID: 21300000, guid: f2a28a6468091b4438fa1a3130f27e9f, type: 3}
-  - {fileID: 21300000, guid: 886671876789dda4e80d96c3a3e64d26, type: 3}
-  - {fileID: 21300000, guid: 99a6067427110cb4c88c709dc69a89e8, type: 3}
-  - {fileID: 21300000, guid: 58e07240a65c4c54c8841321326159c4, type: 3}
-  - {fileID: 21300000, guid: ae82dc4a4d9aed141a13ee6d8de77a11, type: 3}
-  - {fileID: 21300000, guid: fbc1386cc991a2f4da21b2b59d1e5b4c, type: 3}
-  - {fileID: 21300000, guid: 85fbce8bd9fbe1b47bd7f4ea485389cb, type: 3}
-  - {fileID: 21300000, guid: cd09b8f5487a4154cbdf599a0a60469c, type: 3}
-  - {fileID: 21300000, guid: 91f8c39d657715a4cbaa0c1a66c05e62, type: 3}
+  text_num: 0
   <image_num>k__BackingField: 0
   <img>k__BackingField: 0
   <gazou_sousu>k__BackingField: 0

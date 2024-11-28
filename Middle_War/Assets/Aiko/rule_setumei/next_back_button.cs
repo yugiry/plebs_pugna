@@ -45,10 +45,10 @@ public class next_back_button : MonoBehaviour
 
         //}
 
-        i1 = IK.image_num;
-        i2 = IK.img;
-        i3 = IK.gazou_sousu;
-        i4 = IK.gazou_nanmai;
+        //i1 = IK.image_num;
+        //i2 = IK.img;
+        //i3 = IK.gazou_sousu;
+        //i4 = IK.gazou_nanmai;
 
         IK.next_hyouji();
        
@@ -68,10 +68,10 @@ public class next_back_button : MonoBehaviour
         //    page = 1;
         //}
 
-        i1 = IK.image_num;
-        i2 = IK.img;
-        i3 = IK.gazou_sousu;
-        i4 = IK.gazou_nanmai;
+        //i1 = IK.image_num;
+        //i2 = IK.img;
+        //i3 = IK.gazou_sousu;
+        //i4 = IK.gazou_nanmai;
         IK.back_hyouji();
     }
 
