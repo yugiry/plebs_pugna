@@ -9,7 +9,7 @@ public class Image_Kirikae : MonoBehaviour
     GameObject button;
 
     
-    public int mode_change;
+    //public int mode_change;
 
     SpriteRenderer test;
 
@@ -57,8 +57,9 @@ public class Image_Kirikae : MonoBehaviour
     public Transform parent;
 
     button_color_change BCC;
-    
-    
+
+    [SerializeField] GameObject Mekakusi;
+
     private void Awake()
     {
         //Next = GameObject.Find("Canvas(ALL)/rule_hyouji_button/next hyouji");
@@ -110,8 +111,8 @@ public class Image_Kirikae : MonoBehaviour
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
         Next = parent.transform.Find("next hyouji").gameObject;
         Next.SetActive(true);
-        Next.transform.position = new Vector3(pos.x + 160, -50, 0.0f);
-
+        Next.transform.position = new Vector3(pos.x + 160, -51, 0.0f);
+        //Next = parent.transform.Find("next").gameObject;
         //button_hyouji1 = Instantiate(Next, new Vector3(pos.x+360, -10, 15.0f), Quaternion.identity,parent) as GameObject;
     }
     void Summon_Back()
@@ -119,8 +120,8 @@ public class Image_Kirikae : MonoBehaviour
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
         Back = parent.transform.Find("back hyouji").gameObject;
         Back.SetActive(true);
-        Back.transform.position = new Vector3(pos.x+500, -50, 0.0f);
-        
+        Back.transform.position = new Vector3(pos.x+500, -51, 0.0f);
+        //Back = parent.transform.Find("back").gameObject;
         //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
     }
 
@@ -154,10 +155,32 @@ public class Image_Kirikae : MonoBehaviour
         
     }
 
+    void Kakunou_Mekakusi()
+    {
+        GameObject[] _mekakusi = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject mekakusi_child in _mekakusi)
+        {
+            //Destroy(back_child);
+            mekakusi_child.SetActive(false);
+        }
+
+    }
+
+    void Yobidasi_Mekakusi()
+    {
+        Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
+        Mekakusi = parent.transform.Find("mekakusi_hontai").gameObject;
+        Mekakusi.SetActive(true);
+        //Mekakusi.transform.position = new Vector3(pos.x ,pos.y, 0.0f);
+        //Back = parent.transform.Find("back").gameObject;
+        //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+    }
+
     public void Gazou_wo_Kirikaeyo()
     {
-        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-
+        Kakunou_Mekakusi();
+        Yobidasi_Mekakusi();
         //Destroy_NB();
 
         Destroy_Next();
