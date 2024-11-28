@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EUnit_Operation : PlayerUnit_Base
 {
+    private SpriteRenderer SR { get; set; }
+    int colorchange_time;
+
     public GameObject unit;
     public GameObject act1;
     public float Unit_X;
@@ -47,6 +50,7 @@ public class EUnit_Operation : PlayerUnit_Base
         Unit_Y = unit.transform.position.y;
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos.z = unit.transform.position.z;
+        SR = unit.GetComponent<SpriteRenderer>();
         component_Start();
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
@@ -203,11 +207,30 @@ public class EUnit_Operation : PlayerUnit_Base
     public void HitAttack(int hit)
     {
         //UŒ‚‚³‚ê‚½UŒ‚—Í•ªHP‚ðŒ¸‚ç‚·
+        colorchange_time = 0;
+        StartCoroutine("Hit_Anim");
         hp -= hit;
     }
 
     public void SetAttackCnt()
     {
         attack_cnt = 0;
+    }
+
+    IEnumerator Hit_Anim()
+    {
+        while (colorchange_time > 10)
+        {
+            if (colorchange_time % 2 == 0)
+            {
+                SR.color = new Color(1, 0, 0, 1);
+            }
+            else
+            {
+                SR.color = new Color(1, 1, 1, 1);
+            }
+            colorchange_time++;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }

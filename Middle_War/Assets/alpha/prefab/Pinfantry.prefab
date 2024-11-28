@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6102192520378759653}
   - component: {fileID: -5931452850697039062}
   - component: {fileID: 2115252776379223453}
+  - component: {fileID: 6143094781541258155}
   m_Layer: 0
   m_Name: Pinfantry
   m_TagString: unit
@@ -231,6 +232,27 @@ MonoBehaviour:
   move_ap: 1
   choice_move: 0
   NR: {fileID: -5931452850697039062}
+  choice_range: 0
+--- !u!95 &6143094781541258155
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6686210027933580255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9aa1ed23fc013a64f9bd0fa6ad9745e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7219286784236493321
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 using Unity.VisualScripting;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerUnit_Base : MonoBehaviour
 {
@@ -31,6 +32,14 @@ public class PlayerUnit_Base : MonoBehaviour
 
     [NonSerialized] public int apnum;
     [NonSerialized] public int renum;
+
+    [NonSerialized] public Vector3 move_pos;
+    [NonSerialized] public Vector3 unit_pos;
+
+    [NonSerialized] public float MOVE_SPEED = 0.5f;
+
+    [NonSerialized] public float vec_x;
+    [NonSerialized] public float vec_y;
 
     public void component_Start()
     {
@@ -142,7 +151,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -155,7 +178,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             else if (Cobj.name == "resource(Clone)")
@@ -176,7 +213,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -188,7 +239,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             else if (Cobj.name == "resource(Clone)")
@@ -209,7 +274,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -221,7 +300,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             break;
@@ -236,7 +329,21 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -248,13 +355,90 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    Uobj.transform.position = new Vector3(-54 + _x * 4.5f, 54 - _y * 4.5f, 14.0f);
+                                    switch (Now_Move_Anim(_x, _y, Uobj))
+                                    {
+                                        case 0:
+                                            StartCoroutine("MoveUp");
+                                            break;
+                                        case 1:
+                                            StartCoroutine("MoveDown");
+                                            break;
+                                        case 2:
+                                            StartCoroutine("MoveRight");
+                                            break;
+                                        case 3:
+                                            StartCoroutine("MoveLeft");
+                                            break;
+                                    }
                                 }
                             }
                             break;
                     }
                 }
             }
+        }
+    }
+
+    int Now_Move_Anim(float x, float y, GameObject obj)
+    {
+        move_pos = new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f);
+        unit_pos = obj.transform.position;
+        vec_x = move_pos.x - unit_pos.x;
+        vec_y = move_pos.y - unit_pos.y;
+
+        //à⁄ìÆÇ∑ÇÈï˚å¸Çí≤Ç◊ÇÈ
+        if (vec_y >= 2.5f)//è„
+        {
+            return 0;
+        }
+        else if (vec_y <= -2.5f)//â∫
+        {
+            return 1;
+        }
+        else if (vec_x >= 2.5f)//âE
+        {
+            return 2;
+        }
+        else if (vec_x <= -2.5f)//ç∂
+        {
+            return 3;
+        }
+        return -1;
+    }
+
+    IEnumerator MoveUp()
+    {
+        while (transform.position.y < (move_pos.y - 0.25f))
+        {
+            transform.Translate(0, MOVE_SPEED, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator MoveDown()
+    {
+        while (transform.position.y > (move_pos.y + 0.25f))
+        {
+            transform.Translate(0, -MOVE_SPEED, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator MoveRight()
+    {
+        while (transform.position.x < (move_pos.x - 0.25f))
+        {
+            transform.Translate(MOVE_SPEED, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator MoveLeft()
+    {
+        while (transform.position.x > (move_pos.x + 0.25f))
+        {
+            transform.Translate(-MOVE_SPEED, 0, 0);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

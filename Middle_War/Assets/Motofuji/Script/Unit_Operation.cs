@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Unit_Operation : PlayerUnit_Base
 {
+    private SpriteRenderer SR { get; set; }
+    int colorchange_time;
+
     public GameObject unit;
     public GameObject act1;
     public float Unit_X;
@@ -51,6 +54,7 @@ public class Unit_Operation : PlayerUnit_Base
         mapobj = GameObject.Find("map");
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
+        SR = unit.GetComponent<SpriteRenderer>();
         component_Start();
     }
 
@@ -193,10 +197,23 @@ public class Unit_Operation : PlayerUnit_Base
     public void HitAttack(int hit)
     {
         hp -= hit;
+        StartCoroutine("Hit_Anim");
     }
 
     public void SetAttackCnt()
     {
         attack_cnt = 0;
+    }
+
+    IEnumerator Hit_Anim()
+    {
+        while (colorchange_time < 10)
+        {
+            colorchange_time++;
+            SR.color = new Color(255, 50, 50);
+            yield return new WaitForSeconds(0.05f);
+            SR.color = new Color(255, 255, 255);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }

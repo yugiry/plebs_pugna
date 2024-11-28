@@ -235,6 +235,7 @@ public class CPU_Controller : PlayerUnit_Base
     {
         move_checker = obj.transform.GetChild(0).gameObject;
         hrd = RanDom(0, 2);
+        hrd = 1;
         if (hrd == 0)//“ª‚¢‚¢
         {
             castle2 = tilebox.transform.Find("castle1(Clone)");
@@ -368,7 +369,6 @@ public class CPU_Controller : PlayerUnit_Base
                             Debug.Log("Ž‘Œ¹‰ñŽû");
                             MC.Null_CanMove();
                         }
-
                     }
                     else
                     {
