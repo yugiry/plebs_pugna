@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 6410353490768609189}
   - component: {fileID: 4238738838934432006}
   - component: {fileID: 3739583458812135368}
+  - component: {fileID: 1704412977119814097}
   m_Layer: 0
   m_Name: Cinfantry
   m_TagString: Eunit
@@ -378,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1689ddc198acf054e907e2fb99966279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_anim: {fileID: 1704412977119814097}
   unit: {fileID: 5993034535136562698}
   act1: {fileID: 8195225501815251384, guid: 9c32456edd0056848963315fc912914d, type: 3}
   Unit_X: 0
@@ -389,6 +391,26 @@ MonoBehaviour:
   move_ap: 1
   choice_move: 0
   attack_cnt: 0
+--- !u!95 &1704412977119814097
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5993034535136562698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3f9db5d851a91e43b3de0f7afdccb8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8359483358158392083
 GameObject:
   m_ObjectHideFlags: 0

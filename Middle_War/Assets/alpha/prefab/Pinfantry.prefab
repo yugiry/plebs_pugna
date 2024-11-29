@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff25a24bdd3557d4f8002585287370b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_anim: {fileID: 6143094781541258155}
   unit: {fileID: 6686210027933580255}
   act1: {fileID: 7219286784236493321}
   Unit_X: 0
@@ -243,7 +244,7 @@ Animator:
   m_GameObject: {fileID: 6686210027933580255}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9aa1ed23fc013a64f9bd0fa6ad9745e5, type: 2}
+  m_Controller: {fileID: 9100000, guid: d3f9db5d851a91e43b3de0f7afdccb8d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

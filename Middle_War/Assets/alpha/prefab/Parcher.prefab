@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2873105304072086819}
   - component: {fileID: -5890785385159730961}
   - component: {fileID: -1554958695490708730}
+  - component: {fileID: 4328084717605895999}
   m_Layer: 0
   m_Name: Parcher
   m_TagString: unit
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff25a24bdd3557d4f8002585287370b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_anim: {fileID: 4328084717605895999}
   unit: {fileID: 1357947769023258580}
   act1: {fileID: 170321834655978423}
   Unit_X: 0
@@ -262,3 +264,24 @@ MonoBehaviour:
   move_ap: 2
   choice_move: 0
   NR: {fileID: -5890785385159730961}
+  choice_range: 0
+--- !u!95 &4328084717605895999
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357947769023258580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3f9db5d851a91e43b3de0f7afdccb8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

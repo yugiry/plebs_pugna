@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: -3802549049733241283}
   - component: {fileID: -4232326552650790399}
   - component: {fileID: 3792610450106761946}
+  - component: {fileID: 8186392965692272073}
   m_Layer: 0
   m_Name: Pcatapalt
   m_TagString: unit
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff25a24bdd3557d4f8002585287370b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_anim: {fileID: 8186392965692272073}
   unit: {fileID: 5444054226037858539}
   act1: {fileID: 1586859972480592464}
   Unit_X: 0
@@ -247,6 +249,7 @@ MonoBehaviour:
   move_ap: 3
   choice_move: 0
   NR: {fileID: 3792610450106761946}
+  choice_range: 0
 --- !u!114 &3792610450106761946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +265,23 @@ MonoBehaviour:
   unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
   parent: {fileID: 3527112687658814979}
   base_point_unit: {fileID: 5444054226037858539}
+--- !u!95 &8186392965692272073
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444054226037858539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3f9db5d851a91e43b3de0f7afdccb8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

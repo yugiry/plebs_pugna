@@ -68,9 +68,11 @@ public class PlayerUnit_Base : MonoBehaviour
                 {
                     case "unit":
                         Cobj.GetComponent<EUnit_Operation>().HitAttack(attack);
+                        //UŒ‚‰¹º‚ğÄ¶
                         break;
                     case "Eunit":
                         Cobj.GetComponent<Unit_Operation>().HitAttack(attack);
+                        //UŒ‚‰¹º‚ğÄ¶
                         break;
                 }
                 return true;
@@ -100,9 +102,11 @@ public class PlayerUnit_Base : MonoBehaviour
                 {
                     case "unit":
                         ECH.HitAttack(attack);
+                        //é‚Ö‚ÌUŒ‚‚Ì‰¹º‚ğÄ¶
                         break;
                     case "Eunit":
                         PCH.HitAttack(attack);
+                        //é‚Ö‚ÌUŒ‚‚Ì‰¹º‚ğÄ¶
                         break;
                 }
                 return true;
@@ -151,6 +155,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -178,6 +183,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -213,6 +219,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -239,6 +246,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -274,6 +282,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -300,6 +309,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -329,6 +339,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -355,6 +366,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
+                                    //ˆÚ“®‚Ì‰¹º‚ğÄ¶
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
