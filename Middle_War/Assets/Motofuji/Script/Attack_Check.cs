@@ -14,7 +14,7 @@ public class Attack_Check : MonoBehaviour
         canallattack = null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         canattack = collision.gameObject;
         canallattack = collision.gameObject;

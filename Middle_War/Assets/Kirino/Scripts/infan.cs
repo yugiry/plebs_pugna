@@ -74,12 +74,6 @@ public class infan : MonoBehaviour
                                     clickedGameObject = hit2d.transform.gameObject;
                                     if (clickedGameObject.name == "area1(Clone)")
                                     {
-                                        //int jougen = 20;
-                                        //if(jougen < 20)
-                                        //{
-                                        // jougen++;
-                                        //Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 7.0f), Quaternion.identity);
-                                        //  }
                                         obj = null;
                                         obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
                                         CMinfo.PChange_REAP(apnum, renum);

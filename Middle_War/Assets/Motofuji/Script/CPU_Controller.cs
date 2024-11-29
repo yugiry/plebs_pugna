@@ -124,7 +124,6 @@ public class CPU_Controller : PlayerUnit_Base
         urd = RanDom(0, UIO.EUnit_Num);
         unit = unit_box.transform.GetChild(urd).gameObject;
         acrd = RanDom(0, 8);
-        acrd = 3;
         if (unit != null)
         {
             if(acrd < 5)//ˆÚ“®
@@ -137,7 +136,7 @@ public class CPU_Controller : PlayerUnit_Base
             }
             else if(acrd < 10)//‹­‰»
             {
-
+                //ŽÀ‘•—\’è
             }
         }
     }
@@ -430,6 +429,7 @@ public class CPU_Controller : PlayerUnit_Base
                 }
             }
         }
+        summon_or_action = RanDom(0, 100);
     }
 
     int RanDom(int min, int max)

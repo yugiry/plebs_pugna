@@ -7,6 +7,8 @@ public class Unit_Operation : PlayerUnit_Base
     private SpriteRenderer SR { get; set; }
     int colorchange_time;
 
+    public Animator hit_anim;
+
     public GameObject unit;
     public GameObject act1;
     public float Unit_X;
@@ -155,10 +157,6 @@ public class Unit_Operation : PlayerUnit_Base
                 act1.SetActive(false);
                 UC.PDlete();
             }
-            if (hp <= 0)
-            {
-                Destroy(unit);
-            }
         }
     }
 
@@ -196,24 +194,21 @@ public class Unit_Operation : PlayerUnit_Base
 
     public void HitAttack(int hit)
     {
+        hit_anim.SetBool("hit", true);
         hp -= hit;
-        StartCoroutine("Hit_Anim");
+    }
+
+    public void hit_anim_stop()
+    {
+        hit_anim.SetBool("hit", false);
+        if (hp <= 0)
+        {
+            Destroy(unit);
+        }
     }
 
     public void SetAttackCnt()
     {
         attack_cnt = 0;
-    }
-
-    IEnumerator Hit_Anim()
-    {
-        while (colorchange_time < 10)
-        {
-            colorchange_time++;
-            SR.color = new Color(255, 50, 50);
-            yield return new WaitForSeconds(0.05f);
-            SR.color = new Color(255, 255, 255);
-            yield return new WaitForSeconds(0.05f);
-        }
     }
 }

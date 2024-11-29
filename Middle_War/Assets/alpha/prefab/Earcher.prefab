@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2625150764588546943}
   - component: {fileID: -313312698644246770}
   - component: {fileID: -4474272941189162353}
+  - component: {fileID: -1693268956324692535}
   m_Layer: 0
   m_Name: Earcher
   m_TagString: Eunit
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1689ddc198acf054e907e2fb99966279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_anim: {fileID: -1693268956324692535}
   unit: {fileID: 5115921953799137649}
   act1: {fileID: 5181115653565386011}
   Unit_X: 0
@@ -167,9 +169,6 @@ MonoBehaviour:
   move_ap: 2
   choice_move: 0
   attack_cnt: 0
-  unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
-  parent: {fileID: 6564277559733245726}
-  base_point_unit: {fileID: 5115921953799137649}
 --- !u!50 &-4474272941189162353
 Rigidbody2D:
   serializedVersion: 4
@@ -191,6 +190,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-1693268956324692535
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115921953799137649}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3f9db5d851a91e43b3de0f7afdccb8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5181115653565386011
 GameObject:
   m_ObjectHideFlags: 0
