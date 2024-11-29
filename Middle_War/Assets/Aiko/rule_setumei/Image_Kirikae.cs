@@ -322,6 +322,9 @@ public class Image_Kirikae : MonoBehaviour
                     case 0:
                         my_text.text = "\nUI画面にあるユニットを左クリックしてから自分の陣地を左クリックすると召喚できる。\nただし、召喚に必要なAPまたは資源が足りないと召喚できない。";
                         break;
+                    default:
+                        text_num_num = 0;
+                        break;
                 }
                 break;
 
@@ -331,6 +334,9 @@ public class Image_Kirikae : MonoBehaviour
                     case 0:
                         my_text.text = "\n移動させたいユニットを左クリックしてから行きたいマスを左クリックすれば移動できる。\n";
                         break;
+                    default:
+                        text_num_num = 0;
+                        break;
                 }
                 break;
             case 2://採取
@@ -339,13 +345,22 @@ public class Image_Kirikae : MonoBehaviour
                     case 0:
                         my_text.text = "\nフィールドマップ上にある資材まで'歩兵'を移動させてから資材を左クリックすることで回収ができる。\n";
                         break;
+                    default:
+                        text_num_num = 0;
+                        break;
                 }
                 break;
             case 3://攻撃
                 switch (text_num_num)
                 {
                     case 0:
-                my_text.text = "\n攻撃したいユニットが射程内なら、攻撃させたいユニットを左クリックして、攻撃したいユニットを左クリックすれば攻撃する事ができる。\n各ユニットの攻撃射程はユニットを左クリックしてからマウスホイールでクリックすると確認できる。\n";
+                my_text.text = "\n攻撃させたいユニットを左クリックして、攻撃したいユニットを左クリックすれば攻撃する事ができる。\n";
+                        break;
+                    case 1:
+                        my_text.text = "\n各ユニットの攻撃射程はユニットを左クリックしてからマウスホイールでクリックすると確認できる。\n";
+                        break;
+                    default:
+                        text_num_num = 1;
                         break;
                 }
                 break;
@@ -355,7 +370,10 @@ public class Image_Kirikae : MonoBehaviour
                     case 0:
                 my_text.text = "\n自軍が敵の本陣のHPを0にすれば勝利となる。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nがんばれ！\n";
                 break;
-                 }
+                    default:
+                        text_num_num = 0;
+                        break;
+                }
                 break;
             case 5://敗北条件
                 switch (text_num_num)
@@ -363,13 +381,22 @@ public class Image_Kirikae : MonoBehaviour
                     case 0:
                         my_text.text = "\n敵軍によって自軍の本陣のHPが0にされれば敗北となる。\n";
                         break;
+                    default:
+                        text_num_num = 0;
+                        break;
                 }
                 break;
             case 6://フィールド情報
                 switch (text_num_num) {
                     case 0:
-                my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。歩兵で回収が可能。\n川…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n森…どんなユニットも通ることができない場所。\n";
-                        break;  
+                my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n川…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n森…どんなユニットも通ることができない場所。\n";
+                        break;
+                    case 1:
+                        my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。歩兵で回収が可能。\n回収後は一定ターンが経過するまで再回収できなくなる。\n";
+                        break;
+                    default:
+                        text_num_num = 1;
+                        break;
                 }
                 break;
             case 7://ユニット情報
@@ -379,13 +406,22 @@ public class Image_Kirikae : MonoBehaviour
                         my_text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\n";
                         break;
                     case 1:
-                        my_text.text = "弓兵…遠距離攻撃が可能な兵士。体力が低く召喚に必要なAPも多い。\n";
+                        my_text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\n";
                         break;
                     case 2:
+                        my_text.text = "弓兵…遠距離攻撃が可能な兵士。体力が低く召喚に必要なAPも多い。\n";
+                        break;
+                    case 3:
+                        my_text.text = "弓兵…遠距離攻撃が可能な兵士。体力が低く召喚に必要なAPも多い。\n";
+                        break;
+                    case 4:
+                        my_text.text = "カタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる弱点がある。\n";
+                        break;
+                    case 5:
                         my_text.text = "カタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる弱点がある。\n";
                         break;
                     default:
-                        text_num_num = 2;
+                        text_num_num = 5;
                         break;
                 }
                               break;
