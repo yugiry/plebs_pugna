@@ -10,24 +10,44 @@ public class Pause_Setumei : MonoBehaviour
     private GameObject canvas_all_ps;
 
     public Transform parent;
-
+    
     public Sprite When_Open;
     public Sprite When_Close;
     int chan_frag = 0;
+    Vector3 tmp;
+    
 
     int i=0;
+
+    void Start()
+    {
+        
+    }
+
     public void Change_button()
     {
-        var img = GetComponent<Image>();
+        Vector3 tmp = GameObject.Find("Rule_Button").transform.position;
 
+        var img = GetComponent<Image>();
+        
         switch(chan_frag)
         {
             case 0:
+
+                GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x - 80, tmp.y-25, tmp.z);
+
                 GetComponent<Image>().sprite = When_Open;
+                
+                
                 chan_frag++;
                 break;
             default:
+
+                GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x+80, tmp.y+25, tmp.z);
+
                 img.sprite = When_Close;
+                
+                
                 chan_frag--;
                 break;
 
@@ -48,13 +68,13 @@ public class Pause_Setumei : MonoBehaviour
         switch(i)
         {
             case 0:
-                Debug.Log("bbbb");
+               
                 Destroy(canvas_all_ps);
                
                 break;
             default:
-                canvas_all_ps = Instantiate(click, new Vector3(0, 0, 15.0f), Quaternion.identity, parent) as GameObject;
-                Debug.Log("aaaa");
+                canvas_all_ps = Instantiate(click, new Vector3(80, 25, 15.0f), Quaternion.identity, parent) as GameObject;
+               
                 break;
         }
 
@@ -96,10 +116,7 @@ public class Pause_Setumei : MonoBehaviour
         Debug.Log("R");
     }
 
-    void Start()
-    {
-        
-    }
+    
     int t = 0;
     // Update is called once per frame
     void Update()
