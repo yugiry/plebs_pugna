@@ -39,6 +39,15 @@ public class Unit_Operation : PlayerUnit_Base
     Vector3 mousepos;
     Vector3 vec;
 
+    GameObject IMS;
+    AudioSource imsAS;
+
+    GameObject IAS;//INFANTRY_AUDIO_SOUND
+    GameObject AAS;//ARCHER_AUDIO_SOUND
+    GameObject CAS;//CATAPALT_AUDIO_SOUND
+    AudioSource iasAS;
+    AudioSource aasAS;
+    AudioSource casAS;
 
     public GameObject unit_click;
     public Transform parent;
@@ -58,6 +67,14 @@ public class Unit_Operation : PlayerUnit_Base
         TC = mapobj.GetComponent<Turn_change>();
         SR = unit.GetComponent<SpriteRenderer>();
         component_Start();
+        IMS = GameObject.Find("INFANTRY_MOVE_SE");
+        imsAS = IMS.GetComponent<AudioSource>();
+        IAS = GameObject.Find("INFANTRY_ATTACK_SE");
+        AAS = GameObject.Find("ARCHER_ATTACK_SE");
+        CAS = GameObject.Find("CATAPALT_ATTACK_SE");
+        iasAS = IAS.GetComponent<AudioSource>();
+        aasAS = AAS.GetComponent<AudioSource>();
+        casAS = CAS.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -87,6 +104,7 @@ public class Unit_Operation : PlayerUnit_Base
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, clickedGameObject, unit))
                             {
+                                aasAS.Play();
                                 attack_cnt++;
                             }
                         }
@@ -102,7 +120,7 @@ public class Unit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
                 //カタパルト
                 else if (unit.name == "Pcatapalt(Clone)")
@@ -114,6 +132,7 @@ public class Unit_Operation : PlayerUnit_Base
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, clickedGameObject, unit))
                             {
+                                casAS.Play();
                                 attack_cnt++;
                             }
                         }
@@ -129,7 +148,7 @@ public class Unit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
                 //歩兵
                 else if (unit.name == "Pinfantry(Clone)")
@@ -137,18 +156,17 @@ public class Unit_Operation : PlayerUnit_Base
                     //マウスの位置にあるタイルを探して攻撃できる敵ユニットがいるか確認
                     if (clickedGameObject.tag == "Eunit")
                     {
-                        vec.x = Mathf.Abs(unit.transform.position.x - clickedGameObject.transform.position.x);
-                        vec.y = Mathf.Abs(unit.transform.position.y - clickedGameObject.transform.position.y);
                         if (attack_cnt == 0)
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 1, 0, attack, clickedGameObject, unit))
                             {
+                                iasAS.Play();
                                 attack_cnt++;
                             }
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
             }
             pushmouse = Input.GetMouseButtonDown(0);

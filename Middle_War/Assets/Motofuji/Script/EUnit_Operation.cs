@@ -39,6 +39,16 @@ public class EUnit_Operation : PlayerUnit_Base
     Vector3 mousepos;
     Vector3 vec;
 
+    GameObject IMS;
+    AudioSource imsAS;
+
+    GameObject IAS;//INFANTRY_AUDIO_SOUND
+    GameObject AAS;//ARCHER_AUDIO_SOUND
+    GameObject CAS;//CATAPALT_AUDIO_SOUND
+    AudioSource iasAS;
+    AudioSource aasAS;
+    AudioSource casAS;
+
     //public GameObject unit_click;
     //public Transform parent;
     //public GameObject base_point_unit;
@@ -56,6 +66,14 @@ public class EUnit_Operation : PlayerUnit_Base
         component_Start();
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
+        IMS = GameObject.Find("INFANTRY_MOVE_SE");
+        imsAS = IMS.GetComponent<AudioSource>();
+        IAS = GameObject.Find("INFANTRY_ATTACK_SE");
+        AAS = GameObject.Find("ARCHER_ATTACK_SE");
+        CAS = GameObject.Find("CATAPALT_ATTACK_SE");
+        iasAS = IAS.GetComponent<AudioSource>();
+        aasAS = AAS.GetComponent<AudioSource>();
+        casAS = CAS.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -89,6 +107,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 2, 0, attack, clickedGameObject, unit))
                             {
+                                aasAS.Play();
                                 attack_cnt++;
                             }
                         }
@@ -106,7 +125,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの座標に移動可能な場所があるなら移動する
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
                 else if (unit.name == "Ecatapalt(Clone)")
                 {
@@ -118,6 +137,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, clickedGameObject, unit))
                             {
+                                casAS.Play();
                                 attack_cnt++;
                             }
                         }
@@ -135,7 +155,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの座標に移動可能な場所があるなら移動する
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
                 else if (unit.name == "Einfantry(Clone)")
                 {
@@ -147,12 +167,13 @@ public class EUnit_Operation : PlayerUnit_Base
                         {
                             if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 1, 0, attack, clickedGameObject, unit))
                             {
+                                iasAS.Play();
                                 attack_cnt++;
                             }
                         }
                     }
                     //マウスの座標に移動可能な場所があるなら移動する
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
             }
         }

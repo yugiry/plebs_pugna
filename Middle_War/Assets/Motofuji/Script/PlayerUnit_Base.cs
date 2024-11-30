@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEditor;
-using Unity.VisualScripting;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerUnit_Base : MonoBehaviour
 {
@@ -68,11 +66,9 @@ public class PlayerUnit_Base : MonoBehaviour
                 {
                     case "unit":
                         Cobj.GetComponent<EUnit_Operation>().HitAttack(attack);
-                        //攻撃音声を再生
                         break;
                     case "Eunit":
                         Cobj.GetComponent<Unit_Operation>().HitAttack(attack);
-                        //攻撃音声を再生
                         break;
                 }
                 return true;
@@ -102,11 +98,9 @@ public class PlayerUnit_Base : MonoBehaviour
                 {
                     case "unit":
                         ECH.HitAttack(attack);
-                        //城への攻撃の音声を再生
                         break;
                     case "Eunit":
                         PCH.HitAttack(attack);
-                        //城への攻撃の音声を再生
                         break;
                 }
                 return true;
@@ -116,7 +110,7 @@ public class PlayerUnit_Base : MonoBehaviour
     }
 
     //ユニットの移動(ユニットの座標x、ユニットの座標y、マウスの座標、 移動に使うAP、クリックしたオブジェクト、今選択しているオブジェクト)
-    public void Move_Unit(float tx, float ty, Vector3 mousepos, int m_AP, GameObject Cobj, GameObject Uobj, CreateMap cm)
+    public void Move_Unit(float tx, float ty, Vector3 mousepos, int m_AP, GameObject Cobj, GameObject Uobj, CreateMap cm, AudioSource audios)
     {
         CM = cm;
         Debug.Log("移動スタート");
@@ -155,7 +149,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -171,6 +164,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -183,7 +177,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -199,6 +192,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             else if (Cobj.name == "resource(Clone)")
@@ -219,7 +213,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -235,6 +228,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -246,7 +240,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -262,6 +255,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             else if (Cobj.name == "resource(Clone)")
@@ -282,7 +276,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -298,6 +291,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -309,7 +303,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.PChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -325,6 +318,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             break;
@@ -339,7 +333,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -355,6 +348,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -366,7 +360,6 @@ public class PlayerUnit_Base : MonoBehaviour
                                 if (apnum >= 0)
                                 {
                                     CM.EChange_REAP(apnum, renum);
-                                    //移動時の音声を再生
                                     switch (Now_Move_Anim(_x, _y, Uobj))
                                     {
                                         case 0:
@@ -382,6 +375,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                             StartCoroutine("MoveLeft");
                                             break;
                                     }
+                                    audios.Play();
                                 }
                             }
                             break;

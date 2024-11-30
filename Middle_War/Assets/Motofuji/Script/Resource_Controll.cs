@@ -15,6 +15,9 @@ public class Resource_Controll : MonoBehaviour
     GameObject cmobj;
     CreateMap CM;
 
+    GameObject GetResourceSE;
+    AudioSource GRS;
+
     int ap;
     int re;
 
@@ -24,6 +27,7 @@ public class Resource_Controll : MonoBehaviour
         troughturn = 0;
         troughtime = 5;
         RI = this.GetComponent<SpriteRenderer>();
+        GetResourceSE = GameObject.Find("");
     }
 
     // Update is called once per frame

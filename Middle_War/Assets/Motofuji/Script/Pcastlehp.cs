@@ -12,6 +12,8 @@ public class Pcastlehp : MonoBehaviour
     public GameObject panel;
     public GameObject nextBotton;
 
+    public AudioSource CastleHitAudioSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class Pcastlehp : MonoBehaviour
 
     public void HitAttack(int hit)
     {
+        CastleHitAudioSound.Play();
         Now_Hp -= hit;
         HP_TEXT.text = Now_Hp.ToString() + "/" + Max_Hp.ToString();
     }
