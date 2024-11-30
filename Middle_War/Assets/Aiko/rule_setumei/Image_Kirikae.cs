@@ -322,8 +322,11 @@ public class Image_Kirikae : MonoBehaviour
                     case 0:
                         my_text.text = "\nUI画面にあるユニットを左クリックしてから自分の陣地を左クリックすると召喚できる。\nただし、召喚に必要なAPまたは資源が足りないと召喚できない。";
                         break;
+                    case 1:
+                        my_text.text = "\nUI画面にあるユニットを左クリックしてから自分の陣地を左クリックすると召喚できる。\nただし、召喚に必要なAPまたは資源が足りないと召喚できない。";
+                        break;
                     default:
-                        text_num_num = 0;
+                        text_num_num = 1;
                         break;
                 }
                 break;

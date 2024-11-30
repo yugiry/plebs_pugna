@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 289742386651120719}
   - component: {fileID: 289742386651120712}
   - component: {fileID: 289742386651120713}
-  - component: {fileID: 289742386651120717}
   - component: {fileID: -8403598752435370280}
   m_Layer: 5
   m_Name: rule_hyouji_button
@@ -341,27 +340,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!50 &289742386651120717
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289742386651120715}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &-8403598752435370280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_num: 0
-  <image_num>k__BackingField: 0
+  <text_num_num>k__BackingField: 0
   <img>k__BackingField: 0
   <gazou_sousu>k__BackingField: 0
   <gazou_nanmai>k__BackingField: -1
