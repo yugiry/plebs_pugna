@@ -130,6 +130,7 @@ public class Image_Kirikae : MonoBehaviour
         Back.transform.position = new Vector3(pos.x+500, -51, 0.0f);
         //Back = parent.transform.Find("back").gameObject;
         //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+        Debug.Log(pos.x);
     }
 
     void Destroy_Next()
