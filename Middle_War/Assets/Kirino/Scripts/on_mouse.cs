@@ -8,6 +8,7 @@ public class on_mouse : MonoBehaviour
     AudioSource GameObject_Audio;
     AudioClip Source;
     bool first_hit = false;
+    public GameObject country_board;
 
     // Start is called before the first frame update
     public void Start()
@@ -17,7 +18,7 @@ public class on_mouse : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (first_hit == false)
+        if (first_hit == false && !country_board.activeSelf)
         {
             GameObject_Audio.Play();
             first_hit = true;
