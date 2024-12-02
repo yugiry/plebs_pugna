@@ -49,6 +49,9 @@ public class EUnit_Operation : PlayerUnit_Base
     AudioSource aasAS;
     AudioSource casAS;
 
+    GameObject DeadSEobj;
+    AudioSource DeadSE;
+
     //public GameObject unit_click;
     //public Transform parent;
     //public GameObject base_point_unit;
@@ -74,6 +77,8 @@ public class EUnit_Operation : PlayerUnit_Base
         iasAS = IAS.GetComponent<AudioSource>();
         aasAS = AAS.GetComponent<AudioSource>();
         casAS = CAS.GetComponent<AudioSource>();
+        DeadSEobj = GameObject.Find("DEAD_SE");
+        DeadSE = DeadSEobj.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -236,6 +241,7 @@ public class EUnit_Operation : PlayerUnit_Base
         if (hp <= 0)
         {
             Destroy(unit);
+            DeadSE.Play();
         }
     }
 

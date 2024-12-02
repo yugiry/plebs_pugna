@@ -26,7 +26,7 @@ public class Ecastlehp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Now_Hp == 0)
+        if(Now_Hp <= 0)
         {
             Debug.Log("Game Clear!");
             // ここにゲームオーバー時の処理を追加（例：シーンのリセットやメニュー画面の表示など）

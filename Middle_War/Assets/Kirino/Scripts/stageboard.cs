@@ -22,4 +22,9 @@ public class stageboard : MonoBehaviour
        }
      
     }
+
+    public void Cancel()
+    {
+        mapboard.SetActive(false);
+    }
 }

@@ -9,7 +9,7 @@ public class mapClick : MonoBehaviour
     public GameObject mapbatoru;
     public int countrynum;//クリックした時に値を与える
     public audio_Controller AC;
-
+    public bool clear_flag;
     [SerializeField] mapfaito mapfaito;//値を送りたいスクリプトの名前
     //[SerializeField] imagemap imagemap;//値を送りたいスクリプトの名前
 

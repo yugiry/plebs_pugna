@@ -414,7 +414,7 @@ public class PlayerUnit_Base : MonoBehaviour
 
     IEnumerator MoveUp()
     {
-        while (transform.position.y < (move_pos.y - 0.25f))
+        while (transform.position.y < move_pos.y)
         {
             transform.Translate(0, MOVE_SPEED, 0);
             yield return new WaitForSeconds(0.01f);
@@ -423,7 +423,7 @@ public class PlayerUnit_Base : MonoBehaviour
 
     IEnumerator MoveDown()
     {
-        while (transform.position.y > (move_pos.y + 0.25f))
+        while (transform.position.y > move_pos.y)
         {
             transform.Translate(0, -MOVE_SPEED, 0);
             yield return new WaitForSeconds(0.01f);
@@ -432,7 +432,7 @@ public class PlayerUnit_Base : MonoBehaviour
 
     IEnumerator MoveRight()
     {
-        while (transform.position.x < (move_pos.x - 0.25f))
+        while (transform.position.x < move_pos.x)
         {
             transform.Translate(MOVE_SPEED, 0, 0);
             yield return new WaitForSeconds(0.01f);
@@ -441,7 +441,7 @@ public class PlayerUnit_Base : MonoBehaviour
 
     IEnumerator MoveLeft()
     {
-        while (transform.position.x > (move_pos.x + 0.25f))
+        while (transform.position.x > move_pos.x)
         {
             transform.Translate(-MOVE_SPEED, 0, 0);
             yield return new WaitForSeconds(0.01f);

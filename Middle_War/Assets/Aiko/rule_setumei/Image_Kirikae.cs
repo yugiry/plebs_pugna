@@ -127,7 +127,7 @@ public class Image_Kirikae : MonoBehaviour
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
         Back = parent.transform.Find("back hyouji").gameObject;
         Back.SetActive(true);
-        Back.transform.position = new Vector3(pos.x+500, -51, 0.0f);
+        Back.transform.position = new Vector3(pos.x + 160, -51, 0.0f);
         //Back = parent.transform.Find("back").gameObject;
         //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
     }

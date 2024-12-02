@@ -7,6 +7,8 @@ public class rule_operation : MonoBehaviour
 {
     Rule_kakunin_change rule_kakunin; //呼ぶスクリプトにあだなつける
 
+    public string NextScene;
+
     int num_loads;
     // Start is called before the first frame update
     void Start()
@@ -19,19 +21,21 @@ public class rule_operation : MonoBehaviour
    public void Scene_Modoru()
     {
 
-      num_loads = Scene_Num.load_num;
+      //num_loads = Scene_Num.load_num;
 
-        switch(num_loads)
-        {
-            case 0:
-                SceneManager.LoadScene("Tile_test_Scene");      
-                break;
-            case 1:
-                SceneManager.LoadScene("Test Scene");
-                break;
-        }
+      //  switch(num_loads)
+      //  {
+      //      case 0:
+      //          SceneManager.LoadScene("");      
+      //          break;
+      //      case 1:
+      //          SceneManager.LoadScene("Test Scene");
+      //          break;
+      //  }
 
-        Debug.Log(num_loads);
+      //  Debug.Log(num_loads);
+
+        SceneManager.LoadScene(NextScene);
 
     }
 
