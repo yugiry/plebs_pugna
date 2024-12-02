@@ -431,14 +431,6 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5800922304321889861, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
-      propertyPath: m_Text
-      value: "\u30DE\u30C3\u30D7\u30B9\u30C6\u30FC\u30B8\u3078"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5800922304321889861, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6090092873857772870, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
