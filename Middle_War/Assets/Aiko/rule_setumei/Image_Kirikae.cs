@@ -51,8 +51,7 @@ public class Image_Kirikae : MonoBehaviour
     //GameObject Back;
 
     public Sprite[] next_gazou;
-    [SerializeField] GameObject Next1;
-    [SerializeField] GameObject Back2;
+   
 
     [SerializeField] GameObject Next;
     [SerializeField] GameObject Back;
@@ -67,108 +66,79 @@ public class Image_Kirikae : MonoBehaviour
 
     public AudioClip enter;
     private AudioSource audiosouse;
-    //private void Awake()
-    //{
-    //    source = GetComponents<AudioSource>()[0];
 
-    //}
-    //public void PlayFootstepsSE()
-    //{
-    //    source.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
-    //    source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
-    //}
+
+    
 
     void Start()
     {
         my_text = GameObject.Find("setumei").GetComponent<Text>();
         my_text.color = new Color(1.0f, 1.0f, 1.0f);
 
-
+        
         Destroy_Next();
         Destroy_Back();
 
 
-        //Next = button.transform.Find("next_hyouji").gameObject;
-        //Back = button.transform.Find("back_hyouji").gameObject;
-        //button = GameObject.Find("rule_hyouji_button");
-
-        //Next = GameObject.Find("next hyouji");
-        //Back = GameObject.Find("back hyouji");
-        // Next.SetActive(false);
-        // Back.SetActive(false);
-        //NBB=GetComponent<next_back_button>();
+       
     }
 
-    //public void Destroy_NB()
-    //{
-    //    GameObject[] next_back = GameObject.FindGameObjectsWithTag("Finish");
-
-    //    if (next_back.activeSelf)
-    //    {
-    //        //var unitclick = Instantiate(unit_click) as GameObject;
-    //        foreach (GameObject N_B in next_back)
-    //        {
-    //            N_B.SetActive(false);
-                
-    //        }
-    //    }
-    //}
+    
+    
     void Summon_Next()
     {
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        Next = parent.transform.Find("next hyouji").gameObject;
+        Next = parent.transform.Find("Next_Core").gameObject;
         Next.SetActive(true);
-        Next.transform.position = new Vector3(pos.x + 160, -51, 0.0f);
-        //Next = parent.transform.Find("next").gameObject;
-        //button_hyouji1 = Instantiate(Next, new Vector3(pos.x+360, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+        Next.transform.position = new Vector3( 60, -51, 0.0f);
+
+       
+
     }
     void Summon_Back()
     {
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        Back = parent.transform.Find("back hyouji").gameObject;
+        Back = parent.transform.Find("Back_Core").gameObject;
         Back.SetActive(true);
-        Back.transform.position = new Vector3(pos.x + 160, -51, 0.0f);
-        //Back = parent.transform.Find("back").gameObject;
-        //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+        Back.transform.position = new Vector3( 0, -51, 0.0f);
+       
+        
     }
-
+    
     void Destroy_Next()
     {
-        GameObject[] click_next = GameObject.FindGameObjectsWithTag("Finish");
+        GameObject[] click_next = GameObject.FindGameObjectsWithTag("Next");
 
-       // if (button_hyouji1.activeSelf)
-        //{
+      
             foreach (GameObject next_child in click_next)
             {
-            //Destroy(next_child);
+            
             next_child.SetActive(false);
             }
-        //}
+       
         
     }
 
     void Destroy_Back()
     {
-        GameObject[] click_back = GameObject.FindGameObjectsWithTag("EditorOnly");
+        GameObject[] click_back = GameObject.FindGameObjectsWithTag("Back");
 
-        //if (button_hyouji2.activeSelf)
-        //{
             foreach (GameObject back_child in click_back)
             {
-            //Destroy(back_child);
+            
             back_child.SetActive(false);
             }
-        //}
+       
         
     }
 
     void Kakunou_Mekakusi()
     {
-        GameObject[] _mekakusi = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] _mekakusi = GameObject.FindGameObjectsWithTag("Blind");
 
         foreach (GameObject mekakusi_child in _mekakusi)
         {
-            //Destroy(back_child);
+            
             mekakusi_child.SetActive(false);
         }
 
@@ -177,11 +147,9 @@ public class Image_Kirikae : MonoBehaviour
     void Yobidasi_Mekakusi()
     {
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        Mekakusi = parent.transform.Find("mekakusi_hontai").gameObject;
+        Mekakusi = parent.transform.Find("Blind_Core").gameObject;
         Mekakusi.SetActive(true);
-        //Mekakusi.transform.position = new Vector3(pos.x ,pos.y, 0.0f);
-        //Back = parent.transform.Find("back").gameObject;
-        //button_hyouji2 = Instantiate(Back, new Vector3(pos.x+300, -10, 15.0f), Quaternion.identity,parent) as GameObject;
+        
     }
 
     public void Gazou_wo_Kirikaeyo()
@@ -189,40 +157,38 @@ public class Image_Kirikae : MonoBehaviour
         audiosouse = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
 
         audiosouse.PlayOneShot(enter);
-
+        text_num_num = 0;
         Text_Kakikae();
 
         Kakunou_Mekakusi();
         Yobidasi_Mekakusi();
-        //Destroy_NB();
+       
 
         Destroy_Next();
         Destroy_Back();
 
-        // Next.SetActive(false);
-        //Back.SetActive(false);
+      
 
         text_num_num = 0;
 
-        Debug.Log("img_tag" + img);
+        
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
         gazou_nanmai = 0;
         
-        //test.sprite = summon_gazou[image_num];
+        
         test.sprite = next_gazou[gazou_nanmai];
        
        
         
-        Debug.Log("SOUSU" + gazou_sousu);
+       
 
         if(gazou_sousu>1)
         {
             Summon_Next();
             Destroy_Back();
-            //Next.SetActive(true);
-            //Back.SetActive(false);
+            
 
 
         }
@@ -230,8 +196,7 @@ public class Image_Kirikae : MonoBehaviour
         {
             Destroy_Next();
             Destroy_Back();
-               // Next.SetActive(false);
-                //Back.SetActive(false);
+               
             
         }
 
@@ -247,7 +212,7 @@ public class Image_Kirikae : MonoBehaviour
 
         Text_Kakikae();
 
-        Debug.Log("img_tag" + img);
+        
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
@@ -257,20 +222,19 @@ public class Image_Kirikae : MonoBehaviour
         {
             gazou_nanmai = gazou_sousu-1;
             
-            Debug.Log("Gazouha0"+gazou_nanmai);
+            
             test.sprite = next_gazou[gazou_nanmai];
             
                 Destroy_Next();
                 Summon_Back();
 
-                //Next.SetActive(false);
-                //Back.SetActive(true);
+               
             
         }
         else
         {
             
-            Debug.Log("gazounannmai" + gazou_nanmai);
+            
             test.sprite = next_gazou[gazou_nanmai];
             //Back.SetActive(true);
             Summon_Back();
@@ -294,7 +258,7 @@ public class Image_Kirikae : MonoBehaviour
         Text_Kakikae();
 
         
-        Debug.Log("img_tag" + img);
+       
 
         test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
 
@@ -304,13 +268,12 @@ public class Image_Kirikae : MonoBehaviour
         {
 
             gazou_nanmai = 0;
-            Debug.Log("Gazouha0" + gazou_nanmai);
+           
             test.sprite = next_gazou[gazou_nanmai];
             
                 Destroy_Back();
                 Summon_Next();
-                //Back.SetActive(false);
-                //Next.SetActive(true);
+               
             
         }
         else
@@ -318,7 +281,7 @@ public class Image_Kirikae : MonoBehaviour
             
             test.sprite = next_gazou[gazou_nanmai];
             Summon_Next();
-            //Next.SetActive(true);
+            
         }
         
 
@@ -448,6 +411,18 @@ public class Image_Kirikae : MonoBehaviour
 
     }
 
+    public void OnMouseEnter()
+    {
+        this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
+      
+    }
+    public void OnMouseExit()
+    {
+  
+        this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+
+    }
 
     // Start is called before the first frame update
 

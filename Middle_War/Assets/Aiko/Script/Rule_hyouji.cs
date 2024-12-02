@@ -104,7 +104,7 @@ public class Rule_hyouji : MonoBehaviour
             //rule_hyouji.SetActive(false);
            // text_color_change();
 
-            invisible_rules();
+            //invisible_rules();
             
             Debug.Log(hyouji_hihyouji);
         }
@@ -112,7 +112,7 @@ public class Rule_hyouji : MonoBehaviour
         {
            // text_color_change();
 
-            invisible_rules();
+            //invisible_rules();
             
             rule_hyouji.SetActive(true);
             Debug.Log(hyouji_hihyouji);
@@ -120,24 +120,24 @@ public class Rule_hyouji : MonoBehaviour
 
 
     }
-    public void text_mode_change()
-    {
+    //public void text_mode_change()
+    //{
         
-    }
+    //}
 
-    public void invisible_rules()
-    {
-       GameObject[] rule = GameObject.FindGameObjectsWithTag("Respawn");
+    //public void invisible_rules()
+    //{
+    //   GameObject[] rule = GameObject.FindGameObjectsWithTag("Respawn");
 
         
-            foreach (GameObject Push in rule)
-            {
-                Push.SetActive(false);
-                Debug.Log("destroy"+Push.name);
-            }
+    //        foreach (GameObject Push in rule)
+    //        {
+    //            Push.SetActive(false);
+    //            Debug.Log("destroy"+Push.name);
+    //        }
         
 
-    }
+    //}
 
     //public void change_black()
     //{

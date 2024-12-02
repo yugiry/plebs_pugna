@@ -11,6 +11,9 @@ TagManager:
   - unit
   - Eunit
   - resource
+  - Back
+  - Next
+  - Blind
   layers:
   - Default
   - TransparentFX

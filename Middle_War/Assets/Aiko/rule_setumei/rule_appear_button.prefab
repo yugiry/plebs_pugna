@@ -1,41 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &289742385124483871
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 289742385124483870}
-  m_Layer: 5
-  m_Name: Push
-  m_TagString: Respawn
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &289742385124483870
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289742385124483871}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.9}
-  m_LocalScale: {x: 0.00625, y: 0.028571427, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 289742386651120714}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.6942978}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &289742385352282329
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +31,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 289742386651120714}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -126,13 +90,12 @@ GameObject:
   m_Component:
   - component: {fileID: 289742386651120714}
   - component: {fileID: 289742386651120718}
-  - component: {fileID: 289742386651120719}
   - component: {fileID: 289742386651120712}
   - component: {fileID: 289742386651120713}
   - component: {fileID: -8403598752435370280}
   - component: {fileID: 5131860149266824157}
   m_Layer: 5
-  m_Name: rule_hyouji_button
+  m_Name: rule_appear_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +114,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1127205165445332732}
-  - {fileID: 289742385124483870}
   - {fileID: 289742385352282328}
   - {fileID: 4267974282295280736}
   - {fileID: 8389022374872017335}
@@ -216,21 +178,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &289742386651120719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289742386651120715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7074388d1ad62f4e8fb99c9a4c358aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rule_hyouji: {fileID: 289742385124483871}
-  text: {fileID: 0}
-  mode_change: 1
 --- !u!61 &289742386651120712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -274,30 +221,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 289742386651120719}
-          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
-          m_MethodName: rule_miseru
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 0
-        - m_Target: {fileID: -8403598752435370280}
-          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
-          m_MethodName: Text_Kakikae
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 0
         - m_Target: {fileID: -8403598752435370280}
           m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
           m_MethodName: Gazou_wo_Kirikaeyo
@@ -326,9 +249,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 289742386651120719}
-          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
-          m_MethodName: OnMouseEnter2
+        - m_Target: {fileID: -8403598752435370280}
+          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
+          m_MethodName: OnMouseEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -342,9 +265,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 289742386651120719}
-          m_TargetAssemblyTypeName: Rule_hyouji, Assembly-CSharp
-          m_MethodName: OnMouseExit2
+        - m_Target: {fileID: -8403598752435370280}
+          m_TargetAssemblyTypeName: Image_Kirikae, Assembly-CSharp
+          m_MethodName: OnMouseExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -488,8 +411,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4267974282295280736}
   m_Layer: 5
-  m_Name: next hyouji
-  m_TagString: Finish
+  m_Name: Next_Core
+  m_TagString: Next
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,13 +425,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323852843271293433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.69, y: -0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8824792067447245583}
   m_Father: {fileID: 289742386651120714}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1478329013516818183
 GameObject:
@@ -629,7 +552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.33, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8916124820162766910
@@ -841,8 +764,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8389022374872017335}
   m_Layer: 5
-  m_Name: back hyouji
-  m_TagString: EditorOnly
+  m_Name: Back_Core
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,13 +778,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3808094022856752689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.69, y: -0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4682384602759655519}
   m_Father: {fileID: 289742386651120714}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4375021118307596098
 GameObject:
@@ -893,7 +816,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 289742386651120714}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8187074409036947512
 AudioSource:
@@ -1001,8 +924,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1127205165445332732}
   m_Layer: 5
-  m_Name: mekakusi_hontai
-  m_TagString: Player
+  m_Name: Blind_Core
+  m_TagString: Blind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,7 +1030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u524D\u3078"
+  m_Text: "\u623B\u308B"
 --- !u!1 &8126532674743617696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.282, y: 0.03}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &7009937268612561625
@@ -1360,7 +1283,7 @@ GameObject:
   - component: {fileID: 3585452043622629172}
   - component: {fileID: 3490395809321002356}
   m_Layer: 5
-  m_Name: mekakusi
+  m_Name: Blind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
