@@ -17,7 +17,12 @@ public class Image_Kirikae : MonoBehaviour
 
     //public Sprite[] summon_gazou;
 
+    [SerializeField] AudioClip[] clips;
+    [SerializeField] float pitchRange = 0.1f;
+    protected AudioSource source;
+
     
+
 
     /*[SerializeField]*/
     [field: SerializeField] public int text_num_num { get; set; }
@@ -59,17 +64,19 @@ public class Image_Kirikae : MonoBehaviour
 
     [SerializeField] GameObject Mekakusi;
 
-    private void Awake()
-    {
-        //Next = GameObject.Find("Canvas(ALL)/rule_hyouji_button/next hyouji");
-        //Back = GameObject.Find("Canvas(ALL)/rule_hyouji_button/back hyouji");
 
-        //Next = GameObject.Find("Canvas(ALL)/kirikae_I/next hyouji");
-        //Back = GameObject.Find("Canvas(ALL)/kirikae_I/back hyouji");
-        
+    public AudioClip enter;
+    private AudioSource audiosouse;
+    //private void Awake()
+    //{
+    //    source = GetComponents<AudioSource>()[0];
 
-
-    }
+    //}
+    //public void PlayFootstepsSE()
+    //{
+    //    source.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+    //    source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+    //}
 
     void Start()
     {
@@ -179,6 +186,10 @@ public class Image_Kirikae : MonoBehaviour
 
     public void Gazou_wo_Kirikaeyo()
     {
+        audiosouse = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
+
+        audiosouse.PlayOneShot(enter);
+
         Text_Kakikae();
 
         Kakunou_Mekakusi();
@@ -230,6 +241,7 @@ public class Image_Kirikae : MonoBehaviour
 
     public void next_hyouji()
     {
+        audiosouse.PlayOneShot(enter);
 
         text_num_num++;
 
@@ -270,6 +282,7 @@ public class Image_Kirikae : MonoBehaviour
 
     public void back_hyouji()
     {
+        audiosouse.PlayOneShot(enter);
 
         text_num_num--;
 
