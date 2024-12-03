@@ -137,6 +137,7 @@ public class PlayerUnit_Base : MonoBehaviour
             {
                 if (mousepos.y > (_y * 4.5f) - 2 && mousepos.y < (_y * 4.5f) + 2)
                 {
+                    Debug.Log(Cobj.name);
                     switch (Uobj.name)
                     {
                         case "Pinfantry(Clone)":

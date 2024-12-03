@@ -47,7 +47,7 @@ public class mapClick : MonoBehaviour
 
     public void pointer_enter()
     {
-        change_color.color = new Color(1, 0, 0, 1);
+        change_color.color = new Color(1, 1, 0, 1);
     }
 
     public void pointer_exit()

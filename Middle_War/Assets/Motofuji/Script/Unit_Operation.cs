@@ -188,55 +188,7 @@ public class Unit_Operation : PlayerUnit_Base
                 UC.PDlete();
                 NR.Destroy_Range();
             }
-
-            //攻撃範囲を表すマス目を表示するかしないか変更
-            if (Input.GetMouseButtonDown(2))
-            {
-                if (choice_range == 0)
-                {
-                    choice_range = 1;
-                }
-            }
-            if (Input.GetMouseButtonUp(2))
-            {
-                if (choice_range == 1)
-                {
-                    choice_range = 0;
-                }
-            }
-           
-            switch (choice_range)
-            {
-                case 0:
-                    NR.Destroy_Range();
-                    //act1.SetActive(false);
-                    //UC.PDlete();
-                    break;
-
-                case 1:
-                    NR.Click_unit();
-                    break;
-
-
-            }
-
         }
-    }
-
-    private void Destroy_Range()
-    {
-        GameObject[] unitclick = GameObject.FindGameObjectsWithTag("Respawn");
-
-
-        
-        //if (unit_click.activeSelf)
-        //{
-        //    //var unitclick = Instantiate(unit_click) as GameObject;
-        //    foreach (GameObject range_child in unitclick)
-        //    {
-        //        Destroy(range_child);
-        //    }
-        //}
     }
 
     //ユニットを選択する
@@ -244,7 +196,6 @@ public class Unit_Operation : PlayerUnit_Base
     {
         if (TC.nowturn == 0)
         {
-            Destroy_Range();
             action = GameObject.FindGameObjectsWithTag("act");
             foreach (GameObject act in action)
             {
@@ -253,6 +204,7 @@ public class Unit_Operation : PlayerUnit_Base
             }
             act1.SetActive(true);
             choice_move = 0;
+            NR.Click_unit();
             UC.Punite_Serect(unit, hp, move_ap);
         }
     }

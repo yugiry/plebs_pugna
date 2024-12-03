@@ -27,7 +27,7 @@ public class New_TileColor_change : MonoBehaviour
        
         this.GetComponent<Renderer>().material.color = new Color(1.0f, 0.0f, 0.0f, 0.8f);
         //Tile.GetComponent<Renderer>().material.color = Color.blue;
-        Debug.Log("change!");
+        //Debug.Log("change!");
     }
 
     public void OnMouseExit()
@@ -35,7 +35,7 @@ public class New_TileColor_change : MonoBehaviour
         //Tile = GameObject.Find("range tile(Clone)");
         this.GetComponent<Renderer>().material.color = new Color(1.0f, 0.0f, 0.0f, 0.4f);
         //Tile.GetComponent<Renderer>().material.color = Color.green;
-        Debug.Log("not not!");
+        //Debug.Log("not not!");
     }
 
     
