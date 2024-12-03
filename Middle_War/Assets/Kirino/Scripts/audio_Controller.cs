@@ -5,16 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class audio_Controller : MonoBehaviour
 {
-    [SerializeField] AudioClip[] clips;
-    [SerializeField] float pitchRange = 0.1f;
-    protected AudioSource source;
+    [SerializeField] AudioClip[] clips;//オーディオのくりっプ製作
+    [SerializeField] float pitchRange = 0.1f;//
+    protected AudioSource source;//オーディオのソウス追加
 
     bool PlaySound;
     public mapfaito MF;
 
     private void Start()
     {
-        source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();//オーディオのオーディオソウスを取得している。
         PlaySound = false;
     }
 
@@ -28,12 +28,12 @@ public class audio_Controller : MonoBehaviour
 
     public void map_select()
     {
-        source.PlayOneShot(clips[0]);
+        source.PlayOneShot(clips[0]);//クリップ０の音声データを再生
     }
 
     public void click_fight()
     {
-        source.PlayOneShot(clips[1]);
+        source.PlayOneShot(clips[1]);//クリップ１の音声データを再生
         PlaySound = true;
     }
 }

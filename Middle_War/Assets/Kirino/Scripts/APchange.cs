@@ -8,18 +8,18 @@ public class APchange : MonoBehaviour
 {
     [SerializeField] Text apText;
 
-    int maxAp = 999;
-    float nowAp = 0;
+    int maxAp = 999;//最大のAP表示
+    float nowAp = 0;//最小のAP表示
 
     // Start is called before the first frame update
     void Start()
-    {
+    {//テキスト変更
         apText.text = nowAp.ToString() + "/" + maxAp.ToString();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 }
