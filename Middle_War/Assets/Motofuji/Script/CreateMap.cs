@@ -52,7 +52,7 @@ public class CreateMap : MonoBehaviour
     private List<string> smap = new List<string>();
     public int[] map;
     //csvファイルの場所
-    private string test_map = "Assets/alpha/Resources/map(stage2).csv";
+    //private string test_map = "Assets/alpha/Resources/map(stage2).csv";
     private string map2 = "Resources/map(stage2).csv";
     private string map3 = "Resources/map(stage3).csv";
     private string map4 = "Resources/map(stage4).csv";
@@ -139,7 +139,7 @@ public class CreateMap : MonoBehaviour
         }
         else
         {
-            smap = Csv_Input(test_map);
+            //smap = Csv_Input(test_map);
         }
 
         //マップ情報の初期化

@@ -54,6 +54,8 @@ public class Unit_Operation : PlayerUnit_Base
     public GameObject base_point_unit;
     private GameObject unitclick;
     float masume_size = 4.5f;
+    New_range_hyouji NR;
+    public int choice_range = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +77,7 @@ public class Unit_Operation : PlayerUnit_Base
         iasAS = IAS.GetComponent<AudioSource>();
         aasAS = AAS.GetComponent<AudioSource>();
         casAS = CAS.GetComponent<AudioSource>();
+        NR = GetComponent<New_range_hyouji>();
     }
 
     // Update is called once per frame
@@ -121,6 +124,9 @@ public class Unit_Operation : PlayerUnit_Base
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
+
+
+                    
                 }
                 //カタパルト
                 else if (unit.name == "Pcatapalt(Clone)")
@@ -149,6 +155,9 @@ public class Unit_Operation : PlayerUnit_Base
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
+
+                    
+
                 }
                 //歩兵
                 else if (unit.name == "Pinfantry(Clone)")
@@ -165,6 +174,9 @@ public class Unit_Operation : PlayerUnit_Base
                             }
                         }
                     }
+
+                    
+
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
                     Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
                 }
@@ -174,7 +186,40 @@ public class Unit_Operation : PlayerUnit_Base
             {
                 act1.SetActive(false);
                 UC.PDlete();
+                NR.Destroy_Range();
             }
+
+            //攻撃範囲を表すマス目を表示するかしないか変更
+            if (Input.GetMouseButtonDown(2))
+            {
+                if (choice_range == 0)
+                {
+                    choice_range = 1;
+                }
+            }
+            if (Input.GetMouseButtonUp(2))
+            {
+                if (choice_range == 1)
+                {
+                    choice_range = 0;
+                }
+            }
+           
+            switch (choice_range)
+            {
+                case 0:
+                    NR.Destroy_Range();
+                    //act1.SetActive(false);
+                    //UC.PDlete();
+                    break;
+
+                case 1:
+                    NR.Click_unit();
+                    break;
+
+
+            }
+
         }
     }
 
@@ -182,6 +227,8 @@ public class Unit_Operation : PlayerUnit_Base
     {
         GameObject[] unitclick = GameObject.FindGameObjectsWithTag("Respawn");
 
+
+        
         //if (unit_click.activeSelf)
         //{
         //    //var unitclick = Instantiate(unit_click) as GameObject;
@@ -209,6 +256,8 @@ public class Unit_Operation : PlayerUnit_Base
             UC.Punite_Serect(unit, hp, move_ap);
         }
     }
+
+    
 
     public void HitAttack(int hit)
     {

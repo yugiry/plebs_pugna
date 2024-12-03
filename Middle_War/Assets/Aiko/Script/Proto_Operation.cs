@@ -35,7 +35,7 @@ public class Proto_Operation : MonoBehaviour
     Vector3 mousepos;
     Vector3 vec;
 
-    public New_range_hyouji NR;
+     New_range_hyouji NR;
    public int choice_range=0;
 
     //public GameObject unit_click;
@@ -51,6 +51,8 @@ public class Proto_Operation : MonoBehaviour
         Unit_Y = unit.transform.position.y;
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos.z = unit.transform.position.z;
+
+        NR = GetComponent<New_range_hyouji>();
     }
 
     // Update is called once per frame
