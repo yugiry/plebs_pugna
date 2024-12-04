@@ -141,7 +141,7 @@ public class PlayerUnit_Base : MonoBehaviour
                     switch (Uobj.name)
                     {
                         case "Pinfantry(Clone)":
-                            if (Cobj.name == "grass(Clone)")
+                            if (Cobj.name == "grass(Clone)" || Cobj.name == "area1(Clone)")
                             {
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
@@ -205,7 +205,7 @@ public class PlayerUnit_Base : MonoBehaviour
                             }
                             break;
                         case "Einfantry(Clone)":
-                            if (Cobj.name == "grass(Clone)")
+                            if (Cobj.name == "grass(Clone)" || Cobj.name == "area2(Clone)")
                             {
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
@@ -268,7 +268,7 @@ public class PlayerUnit_Base : MonoBehaviour
                             break;
                         case "Parcher(Clone)":
                         case "Pcatapalt(Clone)":
-                            if (Cobj.name == "grass(Clone)")
+                            if (Cobj.name == "grass(Clone)" || Cobj.name == "area1(Clone)")
                             {
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;
@@ -325,7 +325,7 @@ public class PlayerUnit_Base : MonoBehaviour
                             break;
                         case "Earcher(Clone)":
                         case "Ecatapalt(Clone)":
-                            if (Cobj.name == "grass(Clone)")
+                            if (Cobj.name == "grass(Clone)" || Cobj.name == "area2(Clone)")
                             {
                                 apnum = CM.Now_PAP;
                                 renum = CM.Now_PResource;

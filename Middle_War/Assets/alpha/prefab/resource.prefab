@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8744705839531279789}
   - component: {fileID: 7346115164868738764}
   - component: {fileID: -4583731517906121849}
+  - component: {fileID: 5560336629493404329}
   m_Layer: 0
   m_Name: resource
   m_TagString: resource
@@ -164,3 +165,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5560336629493404329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153855201956926095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f365834a0b96c714b9fc734492ae2350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 7153855201956926095}
+  setunit: {fileID: 0}
+  TILESIZE_X: 4
+  TILESIZE_Y: 4
+  TILESPACE: 0.5
+  TileNum: 0

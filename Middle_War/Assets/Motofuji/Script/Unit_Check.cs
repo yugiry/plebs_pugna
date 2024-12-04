@@ -6,7 +6,7 @@ public class Unit_Check : MonoBehaviour
 {
     [SerializeField] bool onunit = false;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Eunit" || collision.tag == "unit" || collision.name == "move_checker")
         {
@@ -16,7 +16,7 @@ public class Unit_Check : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Eunit" || collision.tag == "unit" || collision.name == "move_checker")
+        if (collision.tag == "Eunit" || collision.tag == "unit")
         {
             onunit = false;
         }

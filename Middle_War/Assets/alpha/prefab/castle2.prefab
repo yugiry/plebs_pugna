@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4816021822375063969}
   - component: {fileID: -1119952158813899319}
   - component: {fileID: 8052336521956378420}
+  - component: {fileID: -4315259171873516915}
   m_Layer: 0
   m_Name: castle2
   m_TagString: Untagged
@@ -147,3 +148,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4315259171873516915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213876710587599552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f365834a0b96c714b9fc734492ae2350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 1213876710587599552}
+  setunit: {fileID: 0}
+  TILESIZE_X: 4
+  TILESIZE_Y: 4
+  TILESPACE: 0.5
+  TileNum: 0

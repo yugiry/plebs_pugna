@@ -25,9 +25,15 @@ public class TileInfo : MonoBehaviour
 
     Vector3 mousepos;
 
+    GameObject unitcheckobj;
+    Unit_Tile_Check UTC;
+
     // Start is called before the first frame update
     void Start()
     {
+        unitcheckobj = GameObject.Find("map");
+        UTC = unitcheckobj.GetComponent<Unit_Tile_Check>();
+
         TILE_X = tile.transform.position.x + 54;
         TILE_Y = -tile.transform.position.y + 54;
 
@@ -35,6 +41,15 @@ public class TileInfo : MonoBehaviour
         y = TILE_Y / (TILESIZE_Y + TILESPACE);
 
         TileNum = y * 25 + x;
+
+        if (tile.name == "grass(Clone)" || tile.name == "water(Clone)" || tile.name == "area2(Clone)")
+        {
+            UTC.tile[(int)TileNum] = false;
+        }
+        else
+        {
+            UTC.tile[(int)TileNum] = true;
+        }
     }
 
     // Update is called once per frame

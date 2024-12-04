@@ -18,6 +18,8 @@ public class CreateMap : MonoBehaviour
 
     [SerializeField] CPU_Controller CPUC;
 
+    [SerializeField] Unit_Tile_Check UTC;
+
     //オブジェクト
     public GameObject grass;
     public GameObject mountain;
