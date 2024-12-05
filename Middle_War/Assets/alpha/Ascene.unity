@@ -1252,7 +1252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0346443, y: 0.27173793}
   m_AnchorMax: {x: 0.19000001, y: 0.4833573}
-  m_AnchoredPosition: {x: -585.2242, y: -76.09786}
+  m_AnchoredPosition: {x: -585.2258, y: -76.09786}
   m_SizeDelta: {x: 269.70557, y: 125.56752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82519246
@@ -3954,7 +3954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8145259, y: 0.289}
   m_AnchorMax: {x: 0.9688815, y: 0.5}
-  m_AnchoredPosition: {x: 589.11755, y: -88.21656}
+  m_AnchoredPosition: {x: 589.11755, y: -88.216354}
   m_SizeDelta: {x: 278.7473, y: 124.581985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575241305
@@ -4040,6 +4040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onunit: 0
+  tilenum: 0
 --- !u!1 &584244044
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,7 +4683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20700002, y: 0.4931374}
   m_AnchorMax: {x: 0.41346413, y: 0.61939603}
-  m_AnchoredPosition: {x: -16.636986, y: 13.4}
+  m_AnchoredPosition: {x: -16.63699, y: 13.4}
   m_SizeDelta: {x: 13.74, y: 33.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635063802

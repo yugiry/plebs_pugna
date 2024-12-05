@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 7085458177389830097}
   - component: {fileID: 3604549410898241667}
   - component: {fileID: 6831444729303699316}
+  - component: {fileID: 4899659323127473418}
   m_Layer: 0
   m_Name: Ccatapalt
   m_TagString: Eunit
@@ -495,6 +496,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &4899659323127473418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3490503996061578477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5374a037b265a74d983431468aea3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Unit_TileNum: 0
 --- !u!1 &4206092327011186233
 GameObject:
   m_ObjectHideFlags: 0

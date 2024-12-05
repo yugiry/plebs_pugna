@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit_Check : MonoBehaviour
 {
     [SerializeField] bool onunit = false;
+    public int tilenum;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

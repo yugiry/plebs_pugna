@@ -18,10 +18,6 @@ public class New_range_hyouji : MonoBehaviour
     float masume_size = 4.5f;
     public void Click_unit()
     {
-
-
-
-
         //unitclick = unit_click as GameObject; 
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
         if (this.gameObject.name == "Pinfantry(Clone)"/*&&range_flag!=0*/)

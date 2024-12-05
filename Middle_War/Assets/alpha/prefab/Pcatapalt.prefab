@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: -4232326552650790399}
   - component: {fileID: 3792610450106761946}
   - component: {fileID: 8186392965692272073}
+  - component: {fileID: -3564977753515542979}
+  - component: {fileID: 7942979038782318437}
   m_Layer: 0
   m_Name: Pcatapalt
   m_TagString: unit
@@ -147,9 +149,11 @@ MonoBehaviour:
   move_ap: 3
   choice_move: 0
   attack_cnt: 0
-  unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
+  attack_range: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
+  move_range: {fileID: 6029822493269237063, guid: 510249fb2c1db52439838f480d6f0873, type: 3}
   parent: {fileID: 3527112687658814979}
   base_point_unit: {fileID: 5444054226037858539}
+  choice_range: 0
 --- !u!114 &3651871331494891070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +252,6 @@ MonoBehaviour:
   spawn_resource: 10
   move_ap: 3
   choice_move: 0
-  NR: {fileID: 3792610450106761946}
   choice_range: 0
 --- !u!114 &3792610450106761946
 MonoBehaviour:
@@ -257,7 +260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5444054226037858539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e496d364d8f7144998f7382b79cb43a, type: 3}
   m_Name: 
@@ -285,3 +288,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-3564977753515542979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444054226037858539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5374a037b265a74d983431468aea3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Unit_TileNum: 0
+--- !u!114 &7942979038782318437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444054226037858539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7cfe2028c875b4c83c69110cd2ca87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_range: {fileID: 6029822493269237063, guid: 510249fb2c1db52439838f480d6f0873, type: 3}

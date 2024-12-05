@@ -14,6 +14,7 @@ TagManager:
   - Back
   - Next
   - Blind
+  - move_range
   layers:
   - Default
   - TransparentFX

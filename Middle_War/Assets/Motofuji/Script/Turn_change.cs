@@ -32,6 +32,10 @@ public class Turn_change : MonoBehaviour
     Unit_Operation UO;
     EUnit_Operation EUO;
 
+    GameObject[] unitobj;
+    New_range_hyouji NR;
+    Show_Move_Range SMR;
+
     public GameObject Pcas;
     public GameObject Pcas2;
     public GameObject Pinf;
@@ -75,6 +79,14 @@ public class Turn_change : MonoBehaviour
         {
             Debug.Log("actタグを持ったオブジェクト名：" + act.name);
             act.SetActive(false);
+        }
+        unitobj = GameObject.FindGameObjectsWithTag("unit");
+        foreach (GameObject unit in unitobj)
+        {
+            NR = unit.GetComponent<New_range_hyouji>();
+            SMR = unit.GetComponent<Show_Move_Range>();
+            NR.Destroy_Range();
+            SMR.Destroy_Move_Range();
         }
         //
         CMobj = GameObject.Find("map");

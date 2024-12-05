@@ -25,6 +25,7 @@ public class infan : MonoBehaviour
     private GameObject reapobj;
 
     private CreateMap CMinfo;
+    UnitTile UT;
 
     private int unitnum;
     private int apnum;
@@ -76,6 +77,8 @@ public class infan : MonoBehaviour
                                     {
                                         obj = null;
                                         obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
+                                        UT = obj.GetComponent<UnitTile>();
+                                        UT.Unit_TileNum = x + y * 25;
                                         CMinfo.PChange_REAP(apnum, renum);
                                         obj.transform.parent = unitobj.transform;
                                         click = false;

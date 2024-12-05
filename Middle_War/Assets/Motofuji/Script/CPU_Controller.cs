@@ -26,7 +26,7 @@ public class CPU_Controller : PlayerUnit_Base
     Unit_Operation UO;
 
     [SerializeField] GameObject checker_box;
-    GameObject unit_checker;
+    GameObject area;
     Unit_Check UC;
 
     [SerializeField] GameObject unit_box;
@@ -54,7 +54,7 @@ public class CPU_Controller : PlayerUnit_Base
     float summon_x, summon_y;
     int unit_move_ap;
 
-    float move_x, move_y;
+    int move_x, move_y;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +63,7 @@ public class CPU_Controller : PlayerUnit_Base
         mapobj = GameObject.Find("map");
         CM = mapobj.GetComponent<CreateMap>();
         TC = mapobj.GetComponent<Turn_change>();
+        UTC = mapobj.GetComponent<Unit_Tile_Check>();
     }
 
     // Update is called once per frame
@@ -182,8 +183,8 @@ public class CPU_Controller : PlayerUnit_Base
                 break;
         }
 
-        unit_checker = checker_box.transform.GetChild(ard).gameObject;
-        UC = unit_checker.GetComponent<Unit_Check>();
+        area = checker_box.transform.GetChild(ard).gameObject;
+        UC = area.GetComponent<Unit_Check>();
         if (!UC.OnUnit())
         {
             if (UIO.EUnit_Num < 20)
@@ -196,7 +197,9 @@ public class CPU_Controller : PlayerUnit_Base
                         apnum = apnum - 2;
                         if (apnum >= 0)
                         {
-                            Sunit = Instantiate(infantry, new Vector3(castle.position.x + (summon_x * (TILESIZE_X + TILESPACE)), castle.position.y + (summon_y * (TILESIZE_Y + TILESPACE)), 14.0f), Quaternion.identity);
+                            Sunit = Instantiate(infantry, new Vector3(area.transform.position.x, area.transform.position.y, 14.0f), Quaternion.identity);
+                            UTC.tile[UC.tilenum] = true;
+                            Sunit.GetComponent<UnitTile>().Unit_TileNum = UC.tilenum;
                             CM.EChange_REAP(apnum, renum);
                         }
                         break;
@@ -204,7 +207,9 @@ public class CPU_Controller : PlayerUnit_Base
                         apnum = apnum - 6;
                         if (apnum >= 0)
                         {
-                            Sunit = Instantiate(archer, new Vector3(castle.position.x + (summon_x * (TILESIZE_X + TILESPACE)), castle.position.y + (summon_y * (TILESIZE_Y + TILESPACE)), 14.0f), Quaternion.identity);
+                            Sunit = Instantiate(archer, new Vector3(area.transform.position.x, area.transform.position.y, 14.0f), Quaternion.identity);
+                            UTC.tile[UC.tilenum] = true;
+                            Sunit.GetComponent<UnitTile>().Unit_TileNum = UC.tilenum;
                             CM.EChange_REAP(apnum, renum);
                         }
                         break;
@@ -213,7 +218,9 @@ public class CPU_Controller : PlayerUnit_Base
                         renum = renum - 10;
                         if (apnum >= 0 && renum >= 0)
                         {
-                            Sunit = Instantiate(catapalt, new Vector3(castle.position.x + (summon_x * (TILESIZE_X + TILESPACE)), castle.position.y + (summon_y * (TILESIZE_Y + TILESPACE)), 14.0f), Quaternion.identity);
+                            Sunit = Instantiate(catapalt, new Vector3(area.transform.position.x, area.transform.position.y, 14.0f), Quaternion.identity);
+                            UTC.tile[UC.tilenum] = true;
+                            Sunit.GetComponent<UnitTile>().Unit_TileNum = UC.tilenum;
                             CM.EChange_REAP(apnum, renum);
                         }
                         break;
@@ -232,7 +239,11 @@ public class CPU_Controller : PlayerUnit_Base
 
     void Unit_Move(GameObject obj)
     {
-        move_checker = obj.transform.GetChild(0).gameObject;
+        int x, y;
+        int dx, dy;
+        UT = obj.GetComponent<UnitTile>();
+        y = UT.Unit_TileNum / 25;
+        x = UT.Unit_TileNum % 25;
         hrd = RanDom(0, 2);
         hrd = 1;
         if (hrd == 0)//ì™Ç¢Ç¢
@@ -320,62 +331,104 @@ public class CPU_Controller : PlayerUnit_Base
                 default:
                     break;
             }
-
+            dx = x + move_x;
+            dy = y + move_y;
+            if (dx < 0) dx = 0;
+            if (dx > 24) dx = 24;
+            if (dy < 0) dy = 0;
+            if (dy > 24) dy = 24;
             Debug.Log("à⁄ìÆ1");
-            if (move_checker != null)
+            if (obj.name == "Cinfantry(Clone)")
             {
-                Debug.Log("à⁄ìÆ2");
-                MC = move_checker.GetComponent<Move_Check>();
-                if (MC != null)
+                if (!UTC.tile[dy * 25 + dx])
                 {
-                    Debug.Log("à⁄ìÆ3");
-                    if (MC.Can_Move() != null)
+                    switch (CM.map[dy * 25 + dx])
                     {
-                        Debug.Log("à⁄ìÆ4");
-                        if (MC.Can_Move().name == "grass(Clone)" || MC.Can_Move().name == "area2(Clone)")
-                        {
-                            Debug.Log("à⁄ìÆ5.1");
+                        case 0://ëê
                             EUO = obj.GetComponent<EUnit_Operation>();
                             apnum = CM.Now_EAP;
                             renum = CM.Now_EResource;
                             apnum = apnum - EUO.move_ap;
                             if (apnum > 0)
                             {
-                                obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
+                                UTC.tile[y * 25 + x] = false;
+                                UTC.tile[dy * 25 + dx] = true;
+                                UT.Unit_TileNum = dy * 25 + dx;
+                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
                                 CM.EChange_REAP(apnum, renum);
-                                MC.Null_CanMove();
+                                Debug.Log("à⁄ìÆäÆóπ1");
                             }
-                        }
-                        else if (MC.Can_Move().name == "water(Clone)")
-                        {
-                            Debug.Log("à⁄ìÆ5.2");
+                            break;
+                        case 2://êÖ
                             EUO = obj.GetComponent<EUnit_Operation>();
                             apnum = CM.Now_EAP;
                             renum = CM.Now_EResource;
                             apnum = apnum - (EUO.move_ap + 1);
                             if (apnum > 0)
                             {
-                                obj.transform.position = new Vector3(move_checker.transform.position.x, move_checker.transform.position.y, obj.transform.position.z);
+                                UTC.tile[y * 25 + x] = false;
+                                UTC.tile[dy * 25 + dx] = true;
+                                UT.Unit_TileNum = dy * 25 + dx;
+                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
                                 CM.EChange_REAP(apnum, renum);
-                                MC.Null_CanMove();
+                                Debug.Log("à⁄ìÆäÆóπ2");
                             }
-                        }
-                        else if (MC.Can_Move().name == "resource(Clone)")
-                        {
-                            Debug.Log("à⁄ìÆ5.3");
-                            RC = MC.Can_Move().GetComponent<Resource_Controll>();
-                            RC.EGetResource();
-                            Debug.Log("éëåπâÒé˚");
-                            MC.Null_CanMove();
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log(MC.Can_Move());
+                            break;
+                        case 3:
+                            resource = GameObject.FindGameObjectsWithTag("resource");
+                            foreach (GameObject RE in resource)
+                            {
+                                TI = RE.GetComponent<TileInfo>();
+                                if (TI.TileNum == (dy * 25 + dx))
+                                {
+                                    RC = RE.GetComponent<Resource_Controll>();
+                                    RC.EGetResource();
+                                    Debug.Log("éëåπâÒé˚");
+                                }
+                            }
+                            break;
                     }
                 }
             }
-            move_checker.transform.position = new Vector3(obj.transform.position.x + move_x * (TILESIZE_X + TILESPACE), obj.transform.position.y + move_y * (TILESIZE_Y + TILESPACE), move_checker.transform.position.z);
+            else if (obj.name == "Carcher(Clone)" || obj.name == "Ccatapalt(Clone)")
+            {
+                if (!UTC.tile[dy * 25 + dx])
+                {
+                    switch (CM.map[dy * 25 + dx])
+                    {
+                        case 0://ëê
+                            EUO = obj.GetComponent<EUnit_Operation>();
+                            apnum = CM.Now_EAP;
+                            renum = CM.Now_EResource;
+                            apnum = apnum - EUO.move_ap;
+                            if (apnum > 0)
+                            {
+                                UTC.tile[y * 25 + x] = false;
+                                UTC.tile[dy * 25 + dx] = true;
+                                UT.Unit_TileNum = dy * 25 + dx;
+                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
+                                CM.EChange_REAP(apnum, renum);
+                                Debug.Log("à⁄ìÆäÆóπ3");
+                            }
+                            break;
+                        case 2://êÖ
+                            EUO = obj.GetComponent<EUnit_Operation>();
+                            apnum = CM.Now_EAP;
+                            renum = CM.Now_EResource;
+                            apnum = apnum - (EUO.move_ap + 1);
+                            if (apnum > 0)
+                            {
+                                UTC.tile[y * 25 + x] = false;
+                                UTC.tile[dy * 25 + dx] = true;
+                                UT.Unit_TileNum = dy * 25 + dx;
+                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
+                                CM.EChange_REAP(apnum, renum);
+                                Debug.Log("à⁄ìÆäÆóπ4");
+                            }
+                            break;
+                    }
+                }
+            }
         }
     }
 

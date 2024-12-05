@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 4238738838934432006}
   - component: {fileID: 3739583458812135368}
   - component: {fileID: 1704412977119814097}
+  - component: {fileID: -304599068029575707}
   m_Layer: 0
   m_Name: Cinfantry
   m_TagString: Eunit
@@ -327,6 +328,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-304599068029575707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5993034535136562698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5374a037b265a74d983431468aea3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Unit_TileNum: 0
 --- !u!1 &8359483358158392083
 GameObject:
   m_ObjectHideFlags: 0

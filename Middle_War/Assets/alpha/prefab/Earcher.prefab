@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -313312698644246770}
   - component: {fileID: -4474272941189162353}
   - component: {fileID: -1693268956324692535}
+  - component: {fileID: 2377943424185587324}
   m_Layer: 0
   m_Name: Earcher
   m_TagString: Eunit
@@ -210,6 +211,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2377943424185587324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115921953799137649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5374a037b265a74d983431468aea3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Unit_TileNum: 0
 --- !u!1 &5181115653565386011
 GameObject:
   m_ObjectHideFlags: 0

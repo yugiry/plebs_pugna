@@ -130,7 +130,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの座標に移動可能な場所があるなら移動する
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, mapobj, imsAS);
                 }
                 else if (unit.name == "Ecatapalt(Clone)")
                 {
@@ -160,7 +160,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの座標に移動可能な場所があるなら移動する
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, mapobj, imsAS);
                 }
                 else if (unit.name == "Einfantry(Clone)")
                 {
@@ -178,7 +178,7 @@ public class EUnit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの座標に移動可能な場所があるなら移動する
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, mapobj, imsAS);
                 }
             }
         }

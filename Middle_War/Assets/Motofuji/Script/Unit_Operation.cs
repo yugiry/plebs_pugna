@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,7 +50,8 @@ public class Unit_Operation : PlayerUnit_Base
     AudioSource aasAS;
     AudioSource casAS;
 
-    public GameObject unit_click;
+    public GameObject attack_range;
+    public GameObject move_range;
     public Transform parent;
     public GameObject base_point_unit;
     private GameObject unitclick;
@@ -78,6 +80,7 @@ public class Unit_Operation : PlayerUnit_Base
         aasAS = AAS.GetComponent<AudioSource>();
         casAS = CAS.GetComponent<AudioSource>();
         NR = GetComponent<New_range_hyouji>();
+        SMR = GetComponent<Show_Move_Range>();
     }
 
     // Update is called once per frame
@@ -89,14 +92,20 @@ public class Unit_Operation : PlayerUnit_Base
             if (Input.GetMouseButtonDown(0))
             {
                 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log("移動1");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Debug.Log("移動2");
                 RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+                Debug.Log("移動3");
                 clickedGameObject = hit2d.transform.gameObject;
+                Debug.Log("移動4");
                 mousepos.x = mousepos.x + 54;
                 mousepos.y = -mousepos.y + 54;
                 mousepos.z = unit.transform.position.z;
                 tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
                 tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
+                tile_x = (float)Math.Round(tile_x, MidpointRounding.AwayFromZero);
+                tile_y = (float)Math.Round(tile_y, MidpointRounding.AwayFromZero);
                 //弓兵
                 if (unit.name == "Parcher(Clone)")
                 {
@@ -123,10 +132,7 @@ public class Unit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
-
-
-                    
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, mapobj, imsAS);
                 }
                 //カタパルト
                 else if (unit.name == "Pcatapalt(Clone)")
@@ -154,10 +160,7 @@ public class Unit_Operation : PlayerUnit_Base
                         }
                     }
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
-
-                    
-
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, mapobj, imsAS);
                 }
                 //歩兵
                 else if (unit.name == "Pinfantry(Clone)")
@@ -174,11 +177,9 @@ public class Unit_Operation : PlayerUnit_Base
                             }
                         }
                     }
-
-                    
-
+                    Debug.Log("移動");
                     //マウスの位置にあるタイルを探して移動できる場所があるか確認
-                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, CM, imsAS);
+                    Move_Unit(tile_x, tile_y, mousepos, move_ap, clickedGameObject, unit, mapobj, imsAS);
                 }
             }
             pushmouse = Input.GetMouseButtonDown(0);
@@ -187,6 +188,7 @@ public class Unit_Operation : PlayerUnit_Base
                 act1.SetActive(false);
                 UC.PDlete();
                 NR.Destroy_Range();
+                SMR.Destroy_Move_Range();
             }
         }
     }
@@ -205,6 +207,11 @@ public class Unit_Operation : PlayerUnit_Base
             act1.SetActive(true);
             choice_move = 0;
             NR.Click_unit();
+            tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
+            tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
+            tile_x = (float)Math.Round(tile_x, MidpointRounding.AwayFromZero);
+            tile_y = (float)Math.Round(tile_y, MidpointRounding.AwayFromZero);
+            SMR.Summon_Move_Range((int)tile_x, (int)tile_y);
             UC.Punite_Serect(unit, hp, move_ap);
         }
     }

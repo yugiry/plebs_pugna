@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2178788426186691266}
   - component: {fileID: -83856736337357094}
   - component: {fileID: 9098363780123498372}
+  - component: {fileID: 3744705071139696399}
   m_Layer: 0
   m_Name: Einfantry
   m_TagString: Eunit
@@ -241,3 +242,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3744705071139696399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2604027163686111074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5374a037b265a74d983431468aea3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Unit_TileNum: 0

@@ -42,7 +42,7 @@ public class TileInfo : MonoBehaviour
 
         TileNum = y * 25 + x;
 
-        if (tile.name == "grass(Clone)" || tile.name == "water(Clone)" || tile.name == "area2(Clone)")
+        if (tile.name == "grass(Clone)" || tile.name == "water(Clone)" || tile.name == "area2(Clone)" || tile.name == "resource(Clone)")
         {
             UTC.tile[(int)TileNum] = false;
         }

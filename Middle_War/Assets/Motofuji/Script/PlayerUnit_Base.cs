@@ -39,6 +39,13 @@ public class PlayerUnit_Base : MonoBehaviour
     [NonSerialized] public float vec_x;
     [NonSerialized] public float vec_y;
 
+    [NonSerialized] public Unit_Tile_Check UTC;
+    [NonSerialized] public TileInfo TI;
+    [NonSerialized] public UnitTile UT;
+    [NonSerialized] public GameObject[] resource;
+
+    [NonSerialized] public Show_Move_Range SMR;
+
     public void component_Start()
     {
         mapobj = GameObject.Find("map");
@@ -109,33 +116,39 @@ public class PlayerUnit_Base : MonoBehaviour
         return false;
     }
 
-    //ユニットの移動(ユニットの座標x、ユニットの座標y、マウスの座標、 移動に使うAP、クリックしたオブジェクト、今選択しているオブジェクト)
-    public void Move_Unit(float tx, float ty, Vector3 mousepos, int m_AP, GameObject Cobj, GameObject Uobj, CreateMap cm, AudioSource audios)
+    //ユニットの移動(ユニットの座標x、ユニットの座標y、マウスの座標、 移動に使うAP、クリックしたオブジェクト、今選択しているオブジェクト、マップオブジェクト、オーディオソース)
+    public void Move_Unit(float tx, float ty, Vector3 mousepos, int m_AP, GameObject Cobj, GameObject Uobj, GameObject MO, AudioSource audios)
     {
-        CM = cm;
+        CM = MO.GetComponent<CreateMap>();
+        int _x = (int)tx, _y = (int)ty;
+        int move_x, move_y;
+        UTC = MO.GetComponent<Unit_Tile_Check>();
+        UT = Uobj.GetComponent<UnitTile>();
+        SMR = Uobj.GetComponent<Show_Move_Range>();
         Debug.Log("移動スタート");
         for (int i = 0; i < 4; i++)
         {
-            float _x = tx;
-            float _y = ty;
+            int _dx = 0, _dy = 0;
             switch (i)
             {
                 case 0:
-                    _y--;
+                    _dy = -1;
                     break;
                 case 1:
-                    _x--;
+                    _dx = -1;
                     break;
                 case 2:
-                    _x++;
+                    _dx = 1;
                     break;
                 case 3:
-                    _y++;
+                    _dy = 1;
                     break;
             }
-            if (mousepos.x > (_x * 4.5f) - 2 && mousepos.x < (_x * 4.5f) + 2)
+            move_x = _x + _dx;
+            move_y = _y + _dy;
+            if (mousepos.x > (move_x * 4.5f) - 3.35f && mousepos.x < (move_x * 4.5f) + 3.35f)
             {
-                if (mousepos.y > (_y * 4.5f) - 2 && mousepos.y < (_y * 4.5f) + 2)
+                if (mousepos.y > (move_y * 4.5f) - 3.35f && mousepos.y < (move_y * 4.5f) + 3.35f)
                 {
                     Debug.Log(Cobj.name);
                     switch (Uobj.name)
@@ -149,23 +162,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - m_AP;
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.PChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -177,23 +181,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - (m_AP + 1);
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.PChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             else if (Cobj.name == "resource(Clone)")
@@ -213,23 +208,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - m_AP;
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.EChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -240,23 +226,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - (m_AP + 1);
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.EChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             else if (Cobj.name == "resource(Clone)")
@@ -276,23 +253,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - m_AP;
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.PChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -303,23 +271,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - (m_AP + 1);
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.PChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             break;
@@ -333,23 +292,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - m_AP;
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.EChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             else if (Cobj.name == "water(Clone)")
@@ -360,23 +310,14 @@ public class PlayerUnit_Base : MonoBehaviour
                                 apnum = apnum - (m_AP + 1);
                                 if (apnum >= 0)
                                 {
+                                    SMR.Destroy_Move_Range();
+                                    UTC.tile[_x + _y * 25] = false;
+                                    UTC.tile[move_x + move_y * 25] = true;
+                                    UT.Unit_TileNum = move_x + move_y * 25;
                                     CM.EChange_REAP(apnum, renum);
-                                    switch (Now_Move_Anim(_x, _y, Uobj))
-                                    {
-                                        case 0:
-                                            StartCoroutine("MoveUp");
-                                            break;
-                                        case 1:
-                                            StartCoroutine("MoveDown");
-                                            break;
-                                        case 2:
-                                            StartCoroutine("MoveRight");
-                                            break;
-                                        case 3:
-                                            StartCoroutine("MoveLeft");
-                                            break;
-                                    }
+                                    Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
+                                    SMR.Summon_Move_Range(move_x, move_y);
                                 }
                             }
                             break;
@@ -386,7 +327,7 @@ public class PlayerUnit_Base : MonoBehaviour
         }
     }
 
-    int Now_Move_Anim(float x, float y, GameObject obj)
+    void Now_Move_Anim(float x, float y, GameObject obj)
     {
         move_pos = new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f);
         unit_pos = obj.transform.position;
@@ -396,21 +337,20 @@ public class PlayerUnit_Base : MonoBehaviour
         //移動する方向を調べる
         if (vec_y >= 2.5f)//上
         {
-            return 0;
+            StartCoroutine("MoveUp");
         }
         else if (vec_y <= -2.5f)//下
         {
-            return 1;
+            StartCoroutine("MoveDown");
         }
         else if (vec_x >= 2.5f)//右
         {
-            return 2;
+            StartCoroutine("MoveRight");
         }
         else if (vec_x <= -2.5f)//左
         {
-            return 3;
+            StartCoroutine("MoveLeft");
         }
-        return -1;
     }
 
     IEnumerator MoveUp()
