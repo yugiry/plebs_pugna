@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Pause_Setumei : MonoBehaviour
+public class Pause_Explanation : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject click;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class rule_operation : MonoBehaviour
 {
-    Rule_kakunin_change rule_kakunin; //呼ぶスクリプトにあだなつける
+    Rule_kakunin_change rule_watch; //呼ぶスクリプトにあだなつける
 
     public string NextScene;
 
@@ -14,26 +14,14 @@ public class rule_operation : MonoBehaviour
     void Start()
     {
         
-       // GameObject obj = GameObject.Find("Rule_Button"); //Rule_Buttonっていうオブジェクトを探す
-        rule_kakunin = GetComponent<Rule_kakunin_change>(); //付いているスクリプトを取得
+       
+        //rule_watch = GetComponent<Rule_kakunin_change>(); //付いているスクリプトを取得
 
     }
-   public void Scene_Modoru()
+   public void Scene_Back()
     {
 
-      //num_loads = Scene_Num.load_num;
-
-      //  switch(num_loads)
-      //  {
-      //      case 0:
-      //          SceneManager.LoadScene("");      
-      //          break;
-      //      case 1:
-      //          SceneManager.LoadScene("Test Scene");
-      //          break;
-      //  }
-
-      //  Debug.Log(num_loads);
+     
 
         SceneManager.LoadScene(NextScene);
 

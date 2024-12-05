@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Image_Kirikae : MonoBehaviour
+public class Image_Switch : MonoBehaviour
 {
     public int text_num;
     private Text my_text;
@@ -36,13 +36,13 @@ public class Image_Kirikae : MonoBehaviour
 
     /*[SerializeField]*/
      [field: SerializeField]
-    public int gazou_sousu
+    public int all_image
     { get; set; }
     
 
     /*[SerializeField]*/
      [field: SerializeField]
-    public int gazou_nanmai
+    public int what_number_image
     {
         get; set;
     }
@@ -50,7 +50,7 @@ public class Image_Kirikae : MonoBehaviour
     //GameObject Next;
     //GameObject Back;
 
-    public Sprite[] next_gazou;
+    public Sprite[] next_image;
    
 
     [SerializeField] GameObject Next;
@@ -61,7 +61,7 @@ public class Image_Kirikae : MonoBehaviour
 
     button_color_change BCC;
 
-    [SerializeField] GameObject Mekakusi;
+    [SerializeField] GameObject Blind;
 
 
     public AudioClip enter;
@@ -72,7 +72,7 @@ public class Image_Kirikae : MonoBehaviour
 
     void Start()
     {
-        my_text = GameObject.Find("setumei").GetComponent<Text>();
+        my_text = GameObject.Find("explanation").GetComponent<Text>();
         my_text.color = new Color(1.0f, 1.0f, 1.0f);
 
         
@@ -87,7 +87,7 @@ public class Image_Kirikae : MonoBehaviour
     
     void Summon_Next()
     {
-        Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
+        Vector3 pos = parent.transform.localPosition;//クリックされたボタンの位置情報
         Next = parent.transform.Find("Next_Core").gameObject;
         Next.SetActive(true);
         Next.transform.position = new Vector3( 60, -51, 0.0f);
@@ -97,7 +97,7 @@ public class Image_Kirikae : MonoBehaviour
     }
     void Summon_Back()
     {
-        Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
+        Vector3 pos = parent.transform.localPosition;//クリックされたボタンの位置情報
         Back = parent.transform.Find("Back_Core").gameObject;
         Back.SetActive(true);
         Back.transform.position = new Vector3( 0, -51, 0.0f);
@@ -132,7 +132,7 @@ public class Image_Kirikae : MonoBehaviour
         
     }
 
-    void Kakunou_Mekakusi()
+    void Storage_Blind()
     {
         GameObject[] _mekakusi = GameObject.FindGameObjectsWithTag("Blind");
 
@@ -144,24 +144,24 @@ public class Image_Kirikae : MonoBehaviour
 
     }
 
-    void Yobidasi_Mekakusi()
+    void Summon_Blind()
     {
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        Mekakusi = parent.transform.Find("Blind_Core").gameObject;
-        Mekakusi.SetActive(true);
+        Blind = parent.transform.Find("Blind_Core").gameObject;
+        Blind.SetActive(true);
         
     }
 
-    public void Gazou_wo_Kirikaeyo()
+    public void Swith_Over_Image()
     {
         audiosouse = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
 
         audiosouse.PlayOneShot(enter);
         text_num_num = 0;
-        Text_Kakikae();
+        Text_Rewrite();
 
-        Kakunou_Mekakusi();
-        Yobidasi_Mekakusi();
+       Storage_Blind();
+        Summon_Blind();
        
 
         Destroy_Next();
@@ -173,18 +173,18 @@ public class Image_Kirikae : MonoBehaviour
 
         
 
-        test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
+        test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
 
-        gazou_nanmai = 0;
+        what_number_image = 0;
         
         
-        test.sprite = next_gazou[gazou_nanmai];
+        test.sprite = next_image[what_number_image];
        
        
         
        
 
-        if(gazou_sousu>1)
+        if(all_image>1)
         {
             Summon_Next();
             Destroy_Back();
@@ -204,26 +204,26 @@ public class Image_Kirikae : MonoBehaviour
 
     }
 
-    public void next_hyouji()
+    public void display_next()
     {
         audiosouse.PlayOneShot(enter);
 
         text_num_num++;
 
-        Text_Kakikae();
+        Text_Rewrite();
 
         
 
-        test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
+        test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
 
-        gazou_nanmai++;
+        what_number_image++;
 
-        if (gazou_nanmai == gazou_sousu-1)
+        if (what_number_image == all_image - 1)
         {
-            gazou_nanmai = gazou_sousu-1;
+            what_number_image = all_image - 1;
             
             
-            test.sprite = next_gazou[gazou_nanmai];
+            test.sprite = next_image[what_number_image];
             
                 Destroy_Next();
                 Summon_Back();
@@ -235,7 +235,7 @@ public class Image_Kirikae : MonoBehaviour
         {
             
             
-            test.sprite = next_gazou[gazou_nanmai];
+            test.sprite = next_image[what_number_image];
             //Back.SetActive(true);
             Summon_Back();
         }
@@ -244,7 +244,7 @@ public class Image_Kirikae : MonoBehaviour
         
     }
 
-    public void back_hyouji()
+    public void display_back()
     {
         audiosouse.PlayOneShot(enter);
 
@@ -255,21 +255,21 @@ public class Image_Kirikae : MonoBehaviour
             text_num_num = 0;
         }
 
-        Text_Kakikae();
+        Text_Rewrite();
 
         
        
 
-        test = GameObject.Find("kirikae_I").GetComponent<SpriteRenderer>();
+        test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
 
-        gazou_nanmai--;
+        what_number_image--;
 
-        if (gazou_nanmai == 0)
+        if (what_number_image == 0)
         {
 
-            gazou_nanmai = 0;
+            what_number_image = 0;
            
-            test.sprite = next_gazou[gazou_nanmai];
+            test.sprite = next_image[what_number_image];
             
                 Destroy_Back();
                 Summon_Next();
@@ -279,16 +279,16 @@ public class Image_Kirikae : MonoBehaviour
         else
         {
             
-            test.sprite = next_gazou[gazou_nanmai];
+            test.sprite = next_image[what_number_image];
             Summon_Next();
             
         }
         
 
-        Debug.Log(gazou_nanmai);
+        Debug.Log(what_number_image);
     }
 
-    public void Text_Kakikae()
+    public void Text_Rewrite()
     {
         switch (text_num)
         {
@@ -413,12 +413,13 @@ public class Image_Kirikae : MonoBehaviour
 
     public void OnMouseEnter()
     {
+        //ボタンにマウスカーソルが乗ったとき
         this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
       
     }
     public void OnMouseExit()
     {
-  
+        //ボタンに乗ったマウスカーソルが離れたとき
         this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
 
