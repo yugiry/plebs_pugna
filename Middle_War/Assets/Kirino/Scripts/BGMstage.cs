@@ -11,10 +11,7 @@ public class BGMstage : MonoBehaviour
     [SerializeField] float pitchRange = 0.1f;
     protected AudioSource source;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+   
     private void Awake()
     {
         source = GetComponents<AudioSource>()[0];//オーディオソウス「０」を取得する

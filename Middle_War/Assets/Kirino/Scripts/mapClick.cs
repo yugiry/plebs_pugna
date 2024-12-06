@@ -11,28 +11,8 @@ public class mapClick : MonoBehaviour
     public audio_Controller AC;
     public bool clear_flag;
     [SerializeField] mapfaito mapfaito;//値を送りたいスクリプトの名前
-    //[SerializeField] imagemap imagemap;//値を送りたいスクリプトの名前
     [SerializeField] SpriteRenderer change_color;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-    private void Awake()
-    {
-        //source = GetComponents<AudioSource>()[0];
-    }
-    public void PlayFootstepSE()
-    {
-       // source.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
-        //source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
     public void Cllik()
     {

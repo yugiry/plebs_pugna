@@ -17,9 +17,4 @@ public class APchange : MonoBehaviour
         apText.text = nowAp.ToString() + "/" + maxAp.ToString();
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 }

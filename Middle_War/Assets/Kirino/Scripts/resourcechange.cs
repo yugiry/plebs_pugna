@@ -17,9 +17,4 @@ public class resourcechange : MonoBehaviour
         resourceText.text = nowresource.ToString() + "/" + maxresource.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -8,7 +8,7 @@ public class infan : MonoBehaviour
     GameObject obj;
 
     public GameObject castlevalue;
-    public GameObject infantrystatus;
+    public GameObject unitstatus;
 
     public GameObject unitstatus1;
     public GameObject unitstatus2;
@@ -35,16 +35,11 @@ public class infan : MonoBehaviour
     float tile_x;
     float tile_y;
     Vector3 mousepos;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (infantrystatus.activeSelf)
+        if (unitstatus.activeSelf)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -100,7 +95,7 @@ public class infan : MonoBehaviour
     public void Click()
     {
         castlevalue.SetActive(false);
-        infantrystatus.SetActive(true);
+        unitstatus.SetActive(true);
         unitstatus1.SetActive(false);
         unitstatus2.SetActive(false);
         unitinfo.SetActive(false);

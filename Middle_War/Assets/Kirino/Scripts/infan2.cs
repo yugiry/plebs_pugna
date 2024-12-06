@@ -34,11 +34,8 @@ public class infan2 : MonoBehaviour
     float tile_x;
     float tile_y;
     Vector3 mousepos;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
+    
 
     // Update is called once per frame
     void Update()

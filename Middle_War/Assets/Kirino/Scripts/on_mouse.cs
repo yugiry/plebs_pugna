@@ -24,7 +24,6 @@ public class on_mouse : MonoBehaviour
             first_hit = true;
         }
     }
-
     public void OnMouseExit()
     {
         first_hit = false;

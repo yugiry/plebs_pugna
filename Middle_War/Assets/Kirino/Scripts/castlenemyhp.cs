@@ -15,9 +15,4 @@ public class castlenemyhp : MonoBehaviour
         hpText.text = nowhp.ToString() + "/" + maxhp.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -23,15 +23,6 @@ public class undo : MonoBehaviour
     public GameObject enemybutton_archer;
     public GameObject enemybutton_catapalt;
 
-  
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -55,7 +46,6 @@ public class undo : MonoBehaviour
             enemybutton_archer.SetActive(true);
             enemybutton_catapalt.SetActive(true);
 
-           
         }
     }
 }
