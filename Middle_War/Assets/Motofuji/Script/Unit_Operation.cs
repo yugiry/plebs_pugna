@@ -204,6 +204,7 @@ public class Unit_Operation : PlayerUnit_Base
                 Debug.Log("actタグを持ったオブジェクト名：" + act.name);
                 act.SetActive(false);
             }
+            SMR.Destroy_Move_Range();
             act1.SetActive(true);
             choice_move = 0;
             NR.Click_unit();
