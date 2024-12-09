@@ -217,8 +217,6 @@ public class Unit_Operation : PlayerUnit_Base
         }
     }
 
-    
-
     public void HitAttack(int hit)
     {
         hit_anim.SetBool("hit", true);

@@ -14,7 +14,7 @@ public class Show_Move_Range : MonoBehaviour
     Unit_Tile_Check UTC;
     Unit_Operation UO;
 
-    int[] move_range_research;
+    [SerializeField] int[] move_range_research;
 
     private void Start()
     {
@@ -27,6 +27,7 @@ public class Show_Move_Range : MonoBehaviour
     //AP残量によって移動できる範囲を表示(マップ座標X、マップ座標Y)
     public void Summon_Move_Range(int x, int y)
     {
+        //配列の初期化
         for (int i = 0; i < CM.MAPSIZE_Y; i++)
         {
             for (int j = 0; j < CM.MAPSIZE_X; j++)
@@ -34,11 +35,9 @@ public class Show_Move_Range : MonoBehaviour
                 move_range_research[i * 25 + j] = -1;
             }
         }
-        //int tmp1, tmp2;
         int dx = 0, dy = 0;//調べる位置を残しておくための変数
-        int summon_x, summon_y;//Instantiateをするときに使う座標
+        int summon_x, summon_y;//Instantiateを使用するときに使う座標
         ap = CM.Now_PAP / UO.move_ap;
-        ap = 1;
 
         move_range_research[y * 25 + x] = ap;
 
@@ -49,7 +48,7 @@ public class Show_Move_Range : MonoBehaviour
             {
                 for (int j = 0; j < CM.MAPSIZE_X; j++)
                 {
-                    if (move_range_research[i * 25 + j] == ap)
+                    if (move_range_research[i * 25 + j] == c)
                     {
                         for (int k = 0; k < 4; k++)
                         {
@@ -72,10 +71,13 @@ public class Show_Move_Range : MonoBehaviour
                                     dy = 0;
                                     break;
                             }
-                            summon_x = x + dx;
-                            summon_y = y + dy;
-                            if (move_range_research[summon_x + summon_y * 25] == 0 || move_range_research[summon_x + summon_y * 25] == 0)
-                                move_range_research[summon_x + summon_y * 25] = c - 1;
+                            summon_x = j + dx;
+                            summon_y = i + dy;
+                            if ((summon_x + summon_y * 25) >= 0 && (summon_x + summon_y * 25) < (CM.MAPSIZE_X * CM.MAPSIZE_Y))
+                            {
+                                if (move_range_research[summon_x + summon_y * 25] == -1 && (CM.map[summon_x + summon_y * 25] == 0 || CM.map[summon_x + summon_y * 25] == 2))
+                                    move_range_research[summon_x + summon_y * 25] = c - 1;
+                            }
                         }
                     }
                 }
@@ -86,7 +88,7 @@ public class Show_Move_Range : MonoBehaviour
         {
             for (int j = 0; j < CM.MAPSIZE_X; j++)
             {
-                if(move_range_research[i * 25 + j] != ap && move_range_research[i * 25 + j] >= 0)
+                if (move_range_research[i * 25 + j] >= 0 && move_range_research[i * 25 + j] != ap)
                 {
                     unitclick = Instantiate(move_range, new Vector3(-54 + (4 + 0.5f) * j, 54 - (4 + 0.5f) * i, 15.0f), Quaternion.identity);
                 }

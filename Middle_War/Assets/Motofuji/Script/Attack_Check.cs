@@ -16,14 +16,28 @@ public class Attack_Check : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        canattack = collision.gameObject;
-        canallattack = collision.gameObject;
+        if (collision.tag == "unit")
+        {
+            canattack = collision.gameObject;
+            canallattack = collision.gameObject;
+        }
+        else if (collision.name == "castle1(Clone)")
+        {
+            canallattack = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canattack = null;
-        canallattack = null;
+        if(collision.tag == "unit")
+        {
+            canattack = null;
+            canallattack = null;
+        }
+        if(collision.name == "castle1(Clone)")
+        {
+            canallattack = null;
+        }
     }
 
     public GameObject Can_Attack()
