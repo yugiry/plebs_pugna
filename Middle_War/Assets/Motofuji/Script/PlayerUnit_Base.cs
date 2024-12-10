@@ -146,9 +146,9 @@ public class PlayerUnit_Base : MonoBehaviour
             }
             move_x = _x + _dx;
             move_y = _y + _dy;
-            if (mousepos.x > (move_x * 4.5f) - 3.35f && mousepos.x < (move_x * 4.5f) + 3.35f)
+            if (mousepos.x > (move_x * 4.5f) - 2.0f && mousepos.x < (move_x * 4.5f) + 2.0f)
             {
-                if (mousepos.y > (move_y * 4.5f) - 3.35f && mousepos.y < (move_y * 4.5f) + 3.35f)
+                if (mousepos.y > (move_y * 4.5f) - 2.0f && mousepos.y < (move_y * 4.5f) + 2.0f)
                 {
                     Debug.Log(Cobj.name);
                     switch (Uobj.name)

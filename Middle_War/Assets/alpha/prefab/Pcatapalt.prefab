@@ -260,7 +260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5444054226037858539}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e496d364d8f7144998f7382b79cb43a, type: 3}
   m_Name: 
@@ -314,3 +314,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_range: {fileID: 6029822493269237063, guid: 510249fb2c1db52439838f480d6f0873, type: 3}
+  move_range_research: 

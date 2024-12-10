@@ -44,6 +44,9 @@ public class CPU_Controller : PlayerUnit_Base
     GameObject[] move_check;
     GameObject moveobj;
 
+    bool holizontal;
+    bool vertical;
+
     public UI_Operate UIO;
     int surd;//ユニットの出す種類のランダム
     int urd;//どのユニットを行動させるかのランダム
@@ -264,9 +267,21 @@ public class CPU_Controller : PlayerUnit_Base
             dis_x = obj.transform.position.x - castle1.transform.position.x;
             dis_y = obj.transform.position.y - castle1.transform.position.y;
 
+            if (dis_x < 0) { holizontal = true; }//城が右方向にある
+            if (dis_x > 0) { holizontal = false; }//城が左方向にある
+            if (dis_y < 0) { vertical = true; }//城が下方向にある
+            if (dis_y > 0) { vertical = false; }//城が上方向にある
+
             if (Math.Abs(dis_x) > Math.Abs(dis_y))
             {
-                dx = x + 1;
+                if (holizontal)
+                {
+                    dx = x + 1;
+                }
+                else
+                {
+                    dx = x - 1;
+                }
                 dy = y;
                 if (dx < 0) dx = 0;
                 if (dx > 24) dx = 24;
@@ -318,8 +333,15 @@ public class CPU_Controller : PlayerUnit_Base
             }
             else if (Math.Abs(dis_x) < Math.Abs(dis_y))
             {
+                if(vertical)
+                {
+                    dy = y - 1;
+                }
+                else
+                {
+                    dy = y + 1;
+                }
                 dx = x;
-                dy = y + 1;
                 if (dx < 0) dx = 0;
                 if (dx > 24) dx = 24;
                 if (dy < 0) dy = 0;
