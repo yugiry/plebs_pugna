@@ -194,6 +194,8 @@ public class CreateMap : MonoBehaviour
                     case 6://[‚¢…
                         obj = Instantiate(morewater, new Vector3(SET_X, SET_Y, SetTile_Z), Quaternion.identity);
                         break;
+                    case 7://’†—§é
+                        break;
                 }
                 obj.transform.parent = tileobj.transform;
             }

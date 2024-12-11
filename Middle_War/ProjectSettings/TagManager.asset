@@ -15,6 +15,7 @@ TagManager:
   - Next
   - Blind
   - move_range
+  - castle
   layers:
   - Default
   - TransparentFX

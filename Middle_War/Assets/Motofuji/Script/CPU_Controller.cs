@@ -26,6 +26,7 @@ public class CPU_Controller : PlayerUnit_Base
 
     EUnit_Operation EUO;
     Unit_Operation UO;
+    UnitTile UT;
 
     [SerializeField] GameObject checker_box;
     GameObject area;
@@ -568,10 +569,12 @@ public class CPU_Controller : PlayerUnit_Base
         }
     }
 
-    void Unit_Attack(GameObject obj)
+    int Unit_Attack(GameObject obj)
     {
         attack_checker = obj.transform.GetChild(1).gameObject;
         EUO = obj.GetComponent<EUnit_Operation>();
+        UT = obj.GetComponent<UnitTile>();
+        //ÉÜÉjÉbÉgÇ÷ÇÃçUåÇ
         if (EUO != null)
         {
             Debug.Log("çUåÇ1");
@@ -594,32 +597,72 @@ public class CPU_Controller : PlayerUnit_Base
                                     UO.HitAttack(EUO.attack);
                                     EUO.attack_cnt++;
                                     Debug.Log("çUåÇ4.1");
+                                    summon_or_action = RanDom(0, 100);
+                                    return 0;
                                 }
                                 break;
                             case "Carcher(Clone)":
                             case "Ccatapalt(Clone)":
-                                if (AC.Can_AllAttack().tag == "unit")
+                                if (AC.Can_Attack().tag == "unit")
                                 {
-                                    UO = AC.Can_AllAttack().GetComponent<Unit_Operation>();
+                                    UO = AC.Can_Attack().GetComponent<Unit_Operation>();
                                     UO.HitAttack(EUO.attack);
                                     EUO.attack_cnt++;
                                     Debug.Log("çUåÇ4.4");
-                                }
-                                if (AC.Can_AllAttack().name == "castle1(Clone)")
-                                {
-                                    PCH.HitAttack(EUO.attack);
-                                    EUO.attack_cnt++;
-                                    Debug.Log("çUåÇ4.5");
+                                    summon_or_action = RanDom(0, 100);
+                                    return 0;
                                 }
                                 break;
                             default:
-                                break;
+                                int x, y;
+                                y = UT.Unit_TileNum / 25;
+                                x = UT.Unit_TileNum % 25;
+                                PCH = mapobj.GetComponent<Pcastlehp>();
+                                switch (obj.name)
+                                {
+                                    case "Carcher(Clone)":
+                                        for (int i = y - 2; i < y + 2; i++)
+                                        {
+                                            for (int j = x - 2; j < x + 2; j++)
+                                            {
+                                                if (i >= 0 && i < 25 && j >= 0 && j < 25 && (i != y && j != x))
+                                                {
+                                                    if (CM.map[i * 25 + j] == 4)
+                                                    {
+                                                        PCH.HitAttack(EUO.attack);
+                                                        EUO.attack_cnt++;
+                                                        Debug.Log("çUåÇ4.5");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case "Ccatapalt(Clone)":
+                                        for (int i = y - 4; i < y + 4; i++)
+                                        {
+                                            for (int j = x - 4; j < x + 4; j++)
+                                            {
+                                                if (i >= 0 && i < 25 && j >= 0 && j < 25 && (i < y - 1 || i > y + 1 || j < x - 1 || j > x + 1))
+                                                {
+                                                    if (CM.map[i * 25 + j] == 4)
+                                                    {
+                                                        PCH.HitAttack(EUO.attack);
+                                                        EUO.attack_cnt++;
+                                                        Debug.Log("çUåÇ4.5");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        break;
+                                }
+                                summon_or_action = RanDom(0, 100);
+                                return 0;
                         }
                     }
                 }
             }
         }
-        summon_or_action = RanDom(0, 100);
+        return 0;
     }
 
     int RanDom(int min, int max)

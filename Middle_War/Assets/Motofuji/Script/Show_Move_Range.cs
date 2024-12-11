@@ -21,6 +21,7 @@ public class Show_Move_Range : MonoBehaviour
         mapobj = GameObject.Find("map");
         CM = mapobj.GetComponent<CreateMap>();
         UO = this.GetComponent<Unit_Operation>();
+        UTC = mapobj.GetComponent<Unit_Tile_Check>();
         move_range_research = new int[CM.MAPSIZE_X * CM.MAPSIZE_Y];
     }
 
@@ -75,7 +76,7 @@ public class Show_Move_Range : MonoBehaviour
                             summon_y = i + dy;
                             if ((summon_x + summon_y * 25) >= 0 && (summon_x + summon_y * 25) < (CM.MAPSIZE_X * CM.MAPSIZE_Y))
                             {
-                                if (move_range_research[summon_x + summon_y * 25] == -1 && (CM.map[summon_x + summon_y * 25] == 0 || CM.map[summon_x + summon_y * 25] == 2))
+                                if (move_range_research[summon_x + summon_y * 25] == -1 && (CM.map[summon_x + summon_y * 25] == 0 || CM.map[summon_x + summon_y * 25] == 2) && !UTC.tile[summon_x + summon_y * 25])
                                     move_range_research[summon_x + summon_y * 25] = c - 1;
                             }
                         }
