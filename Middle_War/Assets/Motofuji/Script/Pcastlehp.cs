@@ -42,6 +42,7 @@ public class Pcastlehp : MonoBehaviour
     {
         CastleHitAudioSound.Play();
         Now_Hp -= hit;
+        if (Now_Hp < 0) Now_Hp = 0;
         HP_TEXT.text = Now_Hp.ToString() + "/" + Max_Hp.ToString();
     }
 }

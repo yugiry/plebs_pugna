@@ -69,6 +69,8 @@ public class EUnit_Operation : PlayerUnit_Base
         component_Start();
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
+        UT = unit.GetComponent<UnitTile>();
+        UTC = mapobj.GetComponent<Unit_Tile_Check>();
         IMS = GameObject.Find("INFANTRY_MOVE_SE");
         imsAS = IMS.GetComponent<AudioSource>();
         IAS = GameObject.Find("INFANTRY_ATTACK_SE");
@@ -240,6 +242,7 @@ public class EUnit_Operation : PlayerUnit_Base
         //HP‚ª0‚æ‚è¬‚³‚¢‚È‚çƒ†ƒjƒbƒg‚ğ”j‰ó‚·‚é
         if (hp <= 0)
         {
+            UTC.tile[UT.Unit_TileNum] = false;
             Destroy(unit);
             DeadSE.Play();
         }

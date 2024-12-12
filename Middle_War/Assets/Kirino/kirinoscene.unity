@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 229275103}
   - component: {fileID: 229275102}
   - component: {fileID: 229275105}
+  - component: {fileID: 229275106}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -641,6 +642,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!61 &229275106
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229275100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &235857638
 GameObject:
   m_ObjectHideFlags: 0
@@ -4251,7 +4278,8 @@ PrefabInstance:
       propertyPath: change_color
       value: 
       objectReference: {fileID: 1036841913}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 133524769045137473, guid: e2f26a238a4c4714c830b4956c74e0b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e2f26a238a4c4714c830b4956c74e0b3, type: 3}
 --- !u!1001 &884282731268263673
 PrefabInstance:
@@ -4452,7 +4480,8 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 884282730544773965, guid: f7eaf895917775643a7c50acd2c0efd7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7eaf895917775643a7c50acd2c0efd7, type: 3}
 --- !u!1001 &1246587108849244823
 PrefabInstance:
@@ -4874,5 +4903,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7874961173236239727, guid: 5669c87dc5e9fb34da673362fe5feae1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5669c87dc5e9fb34da673362fe5feae1, type: 3}

@@ -50,11 +50,14 @@ public class CreateMap : MonoBehaviour
     //現在設置しているタイルのワールド座標
     private float SET_X, SET_Y;
 
+    int APpuls;
+
     //csvからマップ情報を取り出す
     private List<string> smap = new List<string>();
     public int[] map;
     //csvファイルの場所
     private string test_map = "Assets/alpha/Resources/map(stage2).csv";
+    public string[] map_info;
     //private string map2 = "Resources/map(stage2).csv";
     //private string map3 = "Resources/map(stage3).csv";
     //private string map4 = "Resources/map(stage4).csv";
@@ -116,6 +119,7 @@ public class CreateMap : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        APpuls = 0;
         map = new int[MAPSIZE_X * MAPSIZE_Y];
 
         //ステージセレクトで選択したステージの番号毎にマップの読み込みを変更する
@@ -125,18 +129,7 @@ public class CreateMap : MonoBehaviour
             RCN = CN.GetComponent<remenber_country_num>();
             if( RCN != null )
             {
-                switch(RCN.country_num )
-                {
-                    case 2:
-                        smap = Csv_Input(map2);
-                        break;
-                    case 3:
-                        smap = Csv_Input(map3);
-                        break;
-                    case 4:
-                        smap = Csv_Input(map4);
-                        break;
-                }
+                smap = Csv_Input(map_info[RCN.country_num]);
             }
         }
         else

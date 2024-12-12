@@ -16,6 +16,7 @@ TagManager:
   - Blind
   - move_range
   - castle
+  - country
   layers:
   - Default
   - TransparentFX

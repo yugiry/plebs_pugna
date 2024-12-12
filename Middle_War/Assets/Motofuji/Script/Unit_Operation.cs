@@ -66,11 +66,11 @@ public class Unit_Operation : PlayerUnit_Base
         Unit_Y = unit.transform.position.y;
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos.z = unit.transform.position.z;
-        mapobj = GameObject.Find("map");
+        component_Start();
+        UTC = mapobj.GetComponent<Unit_Tile_Check>();
         UC = mapobj.GetComponent<uniteClick>();
         TC = mapobj.GetComponent<Turn_change>();
         SR = unit.GetComponent<SpriteRenderer>();
-        component_Start();
         IMS = GameObject.Find("INFANTRY_MOVE_SE");
         imsAS = IMS.GetComponent<AudioSource>();
         IAS = GameObject.Find("INFANTRY_ATTACK_SE");
@@ -228,6 +228,7 @@ public class Unit_Operation : PlayerUnit_Base
         hit_anim.SetBool("hit", false);
         if (hp <= 0)
         {
+            UTC.tile[UT.Unit_TileNum] = false;
             Destroy(unit);
         }
     }

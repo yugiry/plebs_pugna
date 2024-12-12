@@ -12,7 +12,25 @@ public class mapClick : MonoBehaviour
     public bool clear_flag;
     [SerializeField] mapfaito mapfaito;//値を送りたいスクリプトの名前
     [SerializeField] SpriteRenderer change_color;
+    PolygonCollider2D PColl;
 
+    private void Start()
+    {
+        PColl = this.GetComponent<PolygonCollider2D>();
+    }
+
+    private void Update()
+    {
+        if(mapbatoru.activeSelf)
+        {
+            PColl.enabled = false;
+            change_color.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            PColl.enabled = true;
+        }
+    }
 
     public void Cllik()
     {
@@ -27,11 +45,17 @@ public class mapClick : MonoBehaviour
 
     public void pointer_enter()
     {
-        change_color.color = new Color(1, 1, 0, 1);
+        if (!mapbatoru.activeSelf)
+        {
+            change_color.color = new Color(1, 1, 0, 1);
+        }
     }
 
     public void pointer_exit()
     {
-        change_color.color = new Color(1, 1, 1, 1);
+        if (!mapbatoru.activeSelf)
+        {
+            change_color.color = new Color(1, 1, 1, 1);
+        }
     }
 }

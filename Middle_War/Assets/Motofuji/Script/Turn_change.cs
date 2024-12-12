@@ -23,6 +23,7 @@ public class Turn_change : MonoBehaviour
     private int PRE;
     private int EAP;
     private int ERE;
+    int APpuls;
 
     GameObject[] action;
 
@@ -55,18 +56,23 @@ public class Turn_change : MonoBehaviour
     public GameObject Earcsta;
     public GameObject Ecatsta;
     public GameObject Esta;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         nowturn = 0;
+        APpuls = 0;
+        CMobj = GameObject.Find("map");
+        CM = CMobj.GetComponent<CreateMap>();
+        ccobj = GameObject.Find("CPU");
+        CC = ccobj.GetComponent<CPU_Controller>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //ターンをエネミーに渡す
@@ -89,8 +95,6 @@ public class Turn_change : MonoBehaviour
             SMR.Destroy_Move_Range();
         }
         //
-        CMobj = GameObject.Find("map");
-        CM = CMobj.GetComponent<CreateMap>();
         EAP = CM.Now_EAP;
         ERE = CM.Now_EResource;
         EAP += 5;
@@ -119,8 +123,6 @@ public class Turn_change : MonoBehaviour
         Parcsta.SetActive(false);
         Pcatsta.SetActive(false);
         Psta.SetActive(false);
-        ccobj = GameObject.Find("CPU");
-        CC = ccobj.GetComponent<CPU_Controller>();
         CC.Turn_Here();
     }
 
@@ -136,11 +138,9 @@ public class Turn_change : MonoBehaviour
             act.SetActive(false);
         }
         //
-        CMobj = GameObject.Find("map");
-        CM = CMobj.GetComponent<CreateMap>();
         PAP = CM.Now_PAP;
         PRE = CM.Now_PResource;
-        PAP += 5;
+        PAP += 5 + 5 * APpuls;
         CM.PChange_REAP(PAP, PRE);
         rcobj = GameObject.FindGameObjectsWithTag("resource");
         foreach (GameObject tmp in rcobj)
@@ -149,7 +149,7 @@ public class Turn_change : MonoBehaviour
             RC.GetTurn();
         }
         uo = GameObject.FindGameObjectsWithTag("unit");
-        foreach(GameObject gobj in uo)
+        foreach (GameObject gobj in uo)
         {
             UO = gobj.GetComponent<Unit_Operation>();
             UO.SetAttackCnt();
@@ -168,31 +168,47 @@ public class Turn_change : MonoBehaviour
         Esta.SetActive(false);
     }
 
-    private void PNot_Click()
-    {
-        action = GameObject.FindGameObjectsWithTag("noclick");
-        foreach (GameObject act in action)
-        {
-            Destroy(act);
-        }
-        action = GameObject.FindGameObjectsWithTag("unit");
-        foreach (GameObject act in action)
-        {
-            Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
-        }
-    }
+    //private void PNot_Click()
+    //{
+    //    action = GameObject.FindGameObjectsWithTag("noclick");
+    //    foreach (GameObject act in action)
+    //    {
+    //        Destroy(act);
+    //    }
+    //    action = GameObject.FindGameObjectsWithTag("unit");
+    //    foreach (GameObject act in action)
+    //    {
+    //        Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
+    //    }
+    //}
 
-    private void ENot_Click()
+    //private void ENot_Click()
+    //{
+    //    action = GameObject.FindGameObjectsWithTag("noclick");
+    //    foreach (GameObject act in action)
+    //    {
+    //        Destroy(act);
+    //    }
+    //    action = GameObject.FindGameObjectsWithTag("Eunit");
+    //    foreach (GameObject act in action)
+    //    {
+    //        Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
+    //    }
+    //}
+
+    public void Enhance_AP()
     {
-        action = GameObject.FindGameObjectsWithTag("noclick");
-        foreach (GameObject act in action)
+        PAP = CM.Now_PAP;
+        PRE = CM.Now_PResource;
+        PRE -= 50;
+        if (PRE >= 0)
         {
-            Destroy(act);
-        }
-        action = GameObject.FindGameObjectsWithTag("Eunit");
-        foreach (GameObject act in action)
-        {
-            Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
+            APpuls++;
+            if (APpuls >= 5)
+            {
+                APpuls = 5;
+            }
+            CM.PChange_REAP(PAP, PRE);
         }
     }
 }
