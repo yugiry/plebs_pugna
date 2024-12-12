@@ -137,6 +137,7 @@ public class CPU_Controller : PlayerUnit_Base
         {
             //UŒ‚o—ˆ‚È‚¢ê‡‚ÍˆÚ“®‚³‚¹‚é
             Unit_Move(unit);
+            summon_or_action = RanDom(0, 100);
         }
     }
 
