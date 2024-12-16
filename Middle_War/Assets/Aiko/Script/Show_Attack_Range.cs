@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class New_range_hyouji : MonoBehaviour
+public class Show_Attack_Range : MonoBehaviour
 {
     int range_flag = 0;
 
@@ -22,7 +22,7 @@ public class New_range_hyouji : MonoBehaviour
     // public APchange AP;
 
     float masume_size = 4.5f;
-    public void Click_unit()
+    public void Click_unit(int attack_cnt)
     {
         //unitclick = unit_click as GameObject; 
         if (this.gameObject.name == "Pinfantry(Clone)"/*&&range_flag!=0*/)
@@ -44,7 +44,10 @@ public class New_range_hyouji : MonoBehaviour
                     }
                     else
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                        if (attack_cnt == 0)
+                        {
+                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                        }
                     }
                 }
             }
@@ -69,11 +72,14 @@ public class New_range_hyouji : MonoBehaviour
                 {
                     if (x == 0 && y == 0)
                     {
-                        
+
                     }
                     else
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                        if (attack_cnt == 0)
+                        {
+                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                        }
                     }
                 }
             }
@@ -95,7 +101,10 @@ public class New_range_hyouji : MonoBehaviour
                 {
                     if (x < -1 || x > 1 || y < -1 || y > 1)
                     {
-                        unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                        if (attack_cnt == 0)
+                        {
+                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                        }
                     }
                 }
             }

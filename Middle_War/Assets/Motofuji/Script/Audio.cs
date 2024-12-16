@@ -16,11 +16,13 @@ public class Audio : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))//エスケープが押されたら
+        //エスケープが押されたら
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             audioSource.PlayOneShot(clips[0]);
         }
 
+        //右クリックが押されたら
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("AAA");

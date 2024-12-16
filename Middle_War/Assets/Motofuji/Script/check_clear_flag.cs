@@ -6,7 +6,6 @@ public class check_clear_flag : MonoBehaviour
 {
     public int country_num;
     [SerializeField]GameObject[] clear_flag_obj;
-
     GameObject rcfobj;
     clear_flag_operation CFR;
 
@@ -19,6 +18,7 @@ public class check_clear_flag : MonoBehaviour
         {
             if (CFR.clear_flag[i])
             {
+                //クリアフラグが立っている場合フラグを表示する
                 clear_flag_obj[i].SetActive(true);
             }
         }

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -6102192520378759653}
   - component: {fileID: -9134307076199194507}
   - component: {fileID: -5931452850697039062}
-  - component: {fileID: 2115252776379223453}
   - component: {fileID: 6143094781541258155}
   - component: {fileID: -3388949908994412923}
   m_Layer: 0
@@ -35,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 6686210027933580255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40.5, y: -40.5, z: 14}
-  m_LocalScale: {x: 6.2, y: 6.2, z: 1}
+  m_LocalScale: {x: 6.7, y: 6.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7518559732481780656}
@@ -228,29 +227,6 @@ MonoBehaviour:
   unit_click: {fileID: 1296750472023822560, guid: ecd919d1581083643b3d3eb78b1f5c5d, type: 3}
   parent: {fileID: 6686210027933580249}
   base_point_unit: {fileID: 6686210027933580255}
---- !u!114 &2115252776379223453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6686210027933580255}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 6686210027933580255}
-  act1: {fileID: 7219286784236493321}
-  Unit_X: 0
-  Unit_Y: 0
-  hp: 4
-  attack: 1
-  spawn_ap: 2
-  spawn_resource: 0
-  move_ap: 1
-  choice_move: 0
-  choice_range: 0
 --- !u!95 &6143094781541258155
 Animator:
   serializedVersion: 5

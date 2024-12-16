@@ -44,6 +44,7 @@ public class PlayerUnit_Base : MonoBehaviour
     [NonSerialized] public UnitTile UT;
     [NonSerialized] public GameObject[] resource;
 
+    [NonSerialized] public Show_Attack_Range SAR;
     [NonSerialized] public Show_Move_Range SMR;
 
     public void component_Start()
@@ -57,6 +58,7 @@ public class PlayerUnit_Base : MonoBehaviour
     //敵ユニットへの攻撃行動(座標１、座標２、攻撃の最大範囲、攻撃の最小範囲、攻撃力、クリックしたオブジェクト、今選択しているオブジェクト)
     public bool Attack_Unit(Vector3 p1, Vector3 p2, float max, float min, int attack, GameObject Cobj, GameObject Uobj)
     {
+        SAR = Uobj.GetComponent<Show_Attack_Range>();
         Vector3 v;
         //攻撃したいオブジェクトまでのベクトル距離を計算
         v.x = p1.x - p2.x;
@@ -73,9 +75,11 @@ public class PlayerUnit_Base : MonoBehaviour
                 {
                     case "unit":
                         Cobj.GetComponent<EUnit_Operation>().HitAttack(attack);
+                        SAR.Destroy_Range();
                         break;
                     case "Eunit":
                         Cobj.GetComponent<Unit_Operation>().HitAttack(attack);
+                        SAR.Destroy_Range();
                         break;
                 }
                 return true;
@@ -87,6 +91,7 @@ public class PlayerUnit_Base : MonoBehaviour
     //城への攻撃行動(座標１、座標２、攻撃の最大範囲、攻撃の最小範囲、攻撃力、今選択しているオブジェクト)
     public bool Attack_Castle(Vector3 p1, Vector3 p2, float max, float min, int attack, GameObject Uobj, Ecastlehp ech, Pcastlehp pch)
     {
+        SAR = Uobj.GetComponent<Show_Attack_Range>();
         ECH = ech;
         PCH = pch;
         Vector3 v;
@@ -105,9 +110,11 @@ public class PlayerUnit_Base : MonoBehaviour
                 {
                     case "unit":
                         ECH.HitAttack(attack);
+                        SAR.Destroy_Range();
                         break;
                     case "Eunit":
                         PCH.HitAttack(attack);
+                        SAR.Destroy_Range();
                         break;
                 }
                 return true;

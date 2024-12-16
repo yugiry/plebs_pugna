@@ -53,6 +53,10 @@ public class Resource_Controll : MonoBehaviour
             CM = cmobj.GetComponent<CreateMap>();
             ap = CM.Now_PAP;
             re = CM.Now_PResource + 5;
+            if(re >= 999)
+            {
+                re = 999;
+            }
             CM.PChange_REAP(ap, re);
             RI.sprite = RS2;
         }
@@ -67,6 +71,10 @@ public class Resource_Controll : MonoBehaviour
             CM = cmobj.GetComponent<CreateMap>();
             ap = CM.Now_EAP;
             re = CM.Now_EResource + 5;
+            if(re >= 999)
+            {
+                re = 999;
+            }
             CM.EChange_REAP(ap, re);
             RI.sprite = RS2;
         }

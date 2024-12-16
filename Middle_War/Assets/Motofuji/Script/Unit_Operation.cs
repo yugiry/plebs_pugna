@@ -56,7 +56,7 @@ public class Unit_Operation : PlayerUnit_Base
     public GameObject base_point_unit;
     private GameObject unitclick;
     float masume_size = 4.5f;
-    New_range_hyouji NR;
+    Show_Attack_Range NR;
     public int choice_range = 0;
 
     // Start is called before the first frame update
@@ -79,7 +79,7 @@ public class Unit_Operation : PlayerUnit_Base
         iasAS = IAS.GetComponent<AudioSource>();
         aasAS = AAS.GetComponent<AudioSource>();
         casAS = CAS.GetComponent<AudioSource>();
-        NR = GetComponent<New_range_hyouji>();
+        NR = GetComponent<Show_Attack_Range>();
         SMR = GetComponent<Show_Move_Range>();
     }
 
@@ -207,7 +207,7 @@ public class Unit_Operation : PlayerUnit_Base
             SMR.Destroy_Move_Range();
             act1.SetActive(true);
             choice_move = 0;
-            NR.Click_unit();
+            NR.Click_unit(attack_cnt);
             tile_x = (unit.transform.position.x + 54) / (4.0f + 0.5f);
             tile_y = (-unit.transform.position.y + 54) / (4.0f + 0.5f);
             tile_x = (float)Math.Round(tile_x, MidpointRounding.AwayFromZero);

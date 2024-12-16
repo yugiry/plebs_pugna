@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 3651871331494891070}
   - component: {fileID: -3394335883027060258}
   - component: {fileID: -3802549049733241283}
-  - component: {fileID: -4232326552650790399}
   - component: {fileID: 3792610450106761946}
   - component: {fileID: 8186392965692272073}
   - component: {fileID: -3564977753515542979}
@@ -66,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 5444054226037858539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
-  m_LocalScale: {x: 6.2, y: 6.2, z: 1}
+  m_LocalScale: {x: 6.7, y: 6.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2849922815102205138}
@@ -230,29 +229,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4232326552650790399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5444054226037858539}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e0c4d3b6a8dd948843a519898999aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 5444054226037858539}
-  act1: {fileID: 1586859972480592464}
-  Unit_X: 0
-  Unit_Y: 0
-  hp: 7
-  attack: 5
-  spawn_ap: 10
-  spawn_resource: 10
-  move_ap: 3
-  choice_move: 0
-  choice_range: 0
 --- !u!114 &3792610450106761946
 MonoBehaviour:
   m_ObjectHideFlags: 0

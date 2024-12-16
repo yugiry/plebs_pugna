@@ -37,7 +37,7 @@ public class Camera_Operation : MonoBehaviour
             {
                 ZoomIn = false;
             }
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) && !ZoomOut)
             {
                 ZoomOut = true;
             }

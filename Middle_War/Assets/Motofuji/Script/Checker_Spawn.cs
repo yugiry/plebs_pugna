@@ -21,10 +21,4 @@ public class Checker_Spawn : MonoBehaviour
         TI = area.GetComponent<TileInfo>();
         UC.tilenum = (int)TI.TileNum;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

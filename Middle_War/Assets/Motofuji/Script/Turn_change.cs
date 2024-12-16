@@ -34,7 +34,7 @@ public class Turn_change : MonoBehaviour
     EUnit_Operation EUO;
 
     GameObject[] unitobj;
-    New_range_hyouji NR;
+    Show_Attack_Range NR;
     Show_Move_Range SMR;
 
     public GameObject Pcas;
@@ -89,7 +89,7 @@ public class Turn_change : MonoBehaviour
         unitobj = GameObject.FindGameObjectsWithTag("unit");
         foreach (GameObject unit in unitobj)
         {
-            NR = unit.GetComponent<New_range_hyouji>();
+            NR = unit.GetComponent<Show_Attack_Range>();
             SMR = unit.GetComponent<Show_Move_Range>();
             NR.Destroy_Range();
             SMR.Destroy_Move_Range();
@@ -168,34 +168,6 @@ public class Turn_change : MonoBehaviour
         Esta.SetActive(false);
     }
 
-    //private void PNot_Click()
-    //{
-    //    action = GameObject.FindGameObjectsWithTag("noclick");
-    //    foreach (GameObject act in action)
-    //    {
-    //        Destroy(act);
-    //    }
-    //    action = GameObject.FindGameObjectsWithTag("unit");
-    //    foreach (GameObject act in action)
-    //    {
-    //        Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
-    //    }
-    //}
-
-    //private void ENot_Click()
-    //{
-    //    action = GameObject.FindGameObjectsWithTag("noclick");
-    //    foreach (GameObject act in action)
-    //    {
-    //        Destroy(act);
-    //    }
-    //    action = GameObject.FindGameObjectsWithTag("Eunit");
-    //    foreach (GameObject act in action)
-    //    {
-    //        Instantiate(noclick_tile, new Vector3(act.transform.position.x, act.transform.position.y, act.transform.position.z - 1), Quaternion.identity);
-    //    }
-    //}
-
     public void Enhance_AP()
     {
         PAP = CM.Now_PAP;
@@ -207,8 +179,8 @@ public class Turn_change : MonoBehaviour
             if (APpuls >= 5)
             {
                 APpuls = 5;
+                CM.PChange_REAP(PAP, PRE);
             }
-            CM.PChange_REAP(PAP, PRE);
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static System.Collections.Specialized.BitVector32;
 
 public class CPU_Controller : PlayerUnit_Base
 {
@@ -77,33 +76,35 @@ public class CPU_Controller : PlayerUnit_Base
     // Update is called once per frame
     void Update()
     {
+        //マップ生成が終了したらcastle2の位置を取得する
         if (map_complete)
         {
             castle2 = tilebox.transform.Find("castle2(Clone)");
             map_complete = false;
         }
 
+        //ターン開始
         if (nowturn)
         {
             if (CM.Now_EAP > 1)
             {
+                //ステージ上のユニットの数に応じて行動を変更
                 if (UIO.EUnit_Num == 0)
                 {
-                    Debug.Log("ユニット無し");
+                    //ユニットがステージ上にいないのでユニットを召喚
                     Unit_Summon();
                 }
                 else
                 {
-                    Debug.Log("ユニット在り");
-                    if (summon_or_action < 1)
+                    if (summon_or_action < 1)//APを貯める
                     {
                         Turn_Over();
                     }
-                    else if(summon_or_action < 10)
+                    else if(summon_or_action < 10)//ステージ上のユニットを増やす
                     {
                         Unit_Summon();
                     }
-                    else if (summon_or_action < 100)
+                    else if (summon_or_action < 100)//ユニットを行動させる
                     {
                         Unit_Action();
                     }
@@ -111,6 +112,7 @@ public class CPU_Controller : PlayerUnit_Base
             }
             else
             {
+                //APがなくなったらターンを返す
                 Turn_Over();
             }
         }
@@ -144,7 +146,9 @@ public class CPU_Controller : PlayerUnit_Base
     //ユニット召喚
     void Unit_Summon()
     {
+        //どのユニットを召喚するかをランダムで決める
         surd = RanDom(0, 50);
+        //どのマスに召喚するかをランダムで決める
         ard = RanDom(0, 8);
         switch (ard)
         {
@@ -182,6 +186,7 @@ public class CPU_Controller : PlayerUnit_Base
                 break;
         }
 
+        //
         area = checker_box.transform.GetChild(ard).gameObject;
         UC = area.GetComponent<Unit_Check>();
         if (!UC.OnUnit())
@@ -190,7 +195,7 @@ public class CPU_Controller : PlayerUnit_Base
             {
                 apnum = CM.Now_EAP;
                 renum = CM.Now_EResource;
-                if(surd < 15)
+                if(surd < 15)//歩兵召喚
                 {
                     apnum = apnum - 2;
                     if (apnum >= 0)
@@ -201,7 +206,7 @@ public class CPU_Controller : PlayerUnit_Base
                         CM.EChange_REAP(apnum, renum);
                     }
                 }
-                else if(surd < 40)
+                else if(surd < 40)//弓兵召喚
                 {
                     apnum = apnum - 6;
                     if (apnum >= 0)
@@ -212,7 +217,7 @@ public class CPU_Controller : PlayerUnit_Base
                         CM.EChange_REAP(apnum, renum);
                     }
                 }
-                else if(surd < 50)
+                else if(surd < 50)//カタパルト召喚
                 {
                     apnum = apnum - 10;
                     renum = renum - 10;

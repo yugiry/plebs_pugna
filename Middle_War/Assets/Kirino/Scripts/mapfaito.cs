@@ -61,6 +61,27 @@ public class mapfaito : MonoBehaviour
                 mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
                 RCN.country_num = countrynum;
                 break;
+            case 5:
+                text1.text = "アベチネ";
+                text2.text = "国自体は狭いが漁業が盛んでいろんな国と取引している。";
+                Button.SetActive(true); //敵国はボタン表示する
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
+                break;
+            case 6:
+                text1.text = "ナクウイラ";
+                text2.text = "どの国からも狙われやすいが、攻めずらい。";
+                Button.SetActive(true); //敵国はボタン表示する
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
+                break;
+            case 7:
+                text1.text = "アブリガル";
+                text2.text = "アイべり半島と対立しており少しずつリガル教が進行している。";
+                Button.SetActive(true); //敵国はボタン表示する
+                mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
+                RCN.country_num = countrynum;
+                break;
             default:
                 Debug.Log("Default"); //switch処理の最後
                 break;
