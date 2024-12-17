@@ -19,18 +19,18 @@ public class Show_Attack_Range : MonoBehaviour
     GameObject mapobj;
 
     GameObject apobj;
-    // public APchange AP;
+    
 
     float masume_size = 4.5f;
     public void Click_unit(int attack_cnt)
     {
-        //unitclick = unit_click as GameObject; 
-        if (this.gameObject.name == "Pinfantry(Clone)"/*&&range_flag!=0*/)
+        
+        if (this.gameObject.name == "Pinfantry(Clone)")
         {
             UT = this.gameObject.GetComponent<UnitTile>();
             tilenum_y = UT.Unit_TileNum / 25;
             tilenum_x = UT.Unit_TileNum % 25;
-            //range_flag = 1;
+            
             Destroy_Range();
             Destroy_Range();
 
@@ -52,17 +52,15 @@ public class Show_Attack_Range : MonoBehaviour
                 }
             }
 
-            Debug.Log("クリックされたぞい。");
-
-            // Destroy(unitclick, 1);
+           
         }
         //弓兵処理
-        else if (this.gameObject.name == "Parcher(Clone)"/* && range_flag != 0*/)
+        else if (this.gameObject.name == "Parcher(Clone)")
         {
             UT = this.gameObject.GetComponent<UnitTile>();
             tilenum_y = UT.Unit_TileNum / 25;
             tilenum_x = UT.Unit_TileNum % 25;
-            //range_flag = 1;
+           
             Destroy_Range();
             Destroy_Range();
 
@@ -83,15 +81,15 @@ public class Show_Attack_Range : MonoBehaviour
                     }
                 }
             }
-            Debug.Log("Archer clicked");
+           
         }
         //カタパルト処理
-        else if (this.gameObject.name == "Pcatapalt(Clone)"/* && range_flag != 0*/)
+        else if (this.gameObject.name == "Pcatapalt(Clone)")
         {
             UT = this.gameObject.GetComponent<UnitTile>();
             tilenum_y = UT.Unit_TileNum / 25;
             tilenum_x = UT.Unit_TileNum % 25;
-            //range_flag = 1;
+            
             Destroy_Range();
             Destroy_Range();
 
@@ -108,7 +106,7 @@ public class Show_Attack_Range : MonoBehaviour
                     }
                 }
             }
-            Debug.Log("Catapult clicked");
+            
         }
 
 
@@ -121,11 +119,11 @@ public class Show_Attack_Range : MonoBehaviour
 
         if (unit_click.activeSelf)
         {
-            //var unitclick = Instantiate(unit_click) as GameObject;
+            
             foreach (GameObject range_child in unitclick)
             {
                 Destroy(range_child);
-                Debug.Log("destroy");
+               
             }
         }
     }
@@ -133,7 +131,7 @@ public class Show_Attack_Range : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //unitclick= Instantiate(unit_click)/* as GameObject*/;
+       
 
         mapobj = GameObject.Find("map");
         CM = mapobj.GetComponent<CreateMap>();
@@ -142,29 +140,6 @@ public class Show_Attack_Range : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.C))
-        //{
-        //    if (range_flag == 0)
-        //    {
-        //        range_flag = 1;
-        //        Debug.Log("flag on!" + range_flag);
-        //    }
-        //    else if (range_flag == 1)
-        //    {
-        //        range_flag = 0;
-        //        Destroy_Range();
-        //        Debug.Log("flag off!" + range_flag);
-        //    }
-            //エラー発生　フラグオフの状態でユニット以外をクリック→エラー
-            //仮説　マップタイルを読み込んでない状態でクリックしたから？
-            //オペレーションにはマップタイルクリック時の処理がある
-            //こちらのシーンではマップタイルが読み込めなかったためマップなしで実行している。
-            //}
-        //    if (Input.GetMouseButton(0))
-        //    {
-        //        Destroy_Range();
-        //        //range_flag = 0;
-        //    }
-        //}
+       
     }
 }

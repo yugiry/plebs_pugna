@@ -79,26 +79,7 @@ public class Pause_Explanation : MonoBehaviour
         }
 
 
-        //if (click.activeSelf)
-        //{
-        //    Debug.Log("bbbb");
-        //    Destroy(canvas_all_ps);
-        //    //click.SetActive(false);
-        //    //ResumeGame();
-        //}
-        //else
-        //{
-
-        //    canvas_all_ps = Instantiate(click, new Vector3(0, 0, 15.0f), Quaternion.identity, parent) as GameObject;
-        //    Debug.Log("aaaa");
-        //}
         
-        //else
-        //{
-
-        //    //click.SetActive(true);
-        //    //PauseGame();
-        //}
 
 
 
@@ -123,29 +104,7 @@ public class Pause_Explanation : MonoBehaviour
     {
         
         
-      //if(Input.GetMouseButtonUp(0)&&this.gameObject.name=="Rule_Button")
-      //  {
-      //      t++;
-      //      if (t > 1) { t = 0; }
-
-               
-      //      Debug.Log(t);
-      //      switch (t)
-      //      {
-      //          case 0:
-      //              ResumeGame();
-      //              break;
-                
-      //          case 1:
-                    
-      //              PauseGame();
-      //              break;
-
-
-      //      }
-
-
-      //  }
+     
         
 
     }

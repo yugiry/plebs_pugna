@@ -10,136 +10,100 @@ public class Image_Switch : MonoBehaviour
 
     GameObject button;
 
-    
-    //public int mode_change;
-
     SpriteRenderer test;
-
-    //public Sprite[] summon_gazou;
 
     [SerializeField] AudioClip[] clips;
     [SerializeField] float pitchRange = 0.1f;
     protected AudioSource source;
 
-    
-
-
-    /*[SerializeField]*/
     [field: SerializeField] public int text_num_num { get; set; }
    
-    
-
-    /*[SerializeField]*/
     [field: SerializeField] public int img { get; set; }
 
-    
-
-    /*[SerializeField]*/
      [field: SerializeField]
     public int all_image
     { get; set; }
     
-
-    /*[SerializeField]*/
      [field: SerializeField]
     public int what_number_image
     {
         get; set;
     }
 
-    //GameObject Next;
-    //GameObject Back;
-
     public Sprite[] next_image;
-   
 
     [SerializeField] GameObject Next;
     [SerializeField] GameObject Back;
-    private GameObject button_hyouji1;
-    private GameObject button_hyouji2;
+    private GameObject button_appear1;
+    private GameObject button_appear2;
     public Transform parent;
 
     button_color_change BCC;
 
     [SerializeField] GameObject Blind;
 
-
     public AudioClip enter;
     private AudioSource audiosouse;
 
-
-    
-
     void Start()
     {
-        my_text = GameObject.Find("explanation").GetComponent<Text>();
+        my_text = GameObject.Find("explanation").GetComponent<Text>();//シーン内のtextオブジェクトを取得
         my_text.color = new Color(1.0f, 1.0f, 1.0f);
 
-        
-        Destroy_Next();
-        Destroy_Back();
+        Destroy_Next();//次へボタンを非表示
+        Destroy_Back();//戻るボタンを非表示
 
-
-       
-    }
-
-    
-    
+    } 
     void Summon_Next()
     {
-        Vector3 pos = parent.transform.localPosition;//クリックされたボタンの位置情報
-        Next = parent.transform.Find("Next_Core").gameObject;
-        Next.SetActive(true);
-        Next.transform.position = new Vector3( 60, -51, 0.0f);
-
-       
+        Vector3 pos = parent.transform.localPosition;         //クリックされたボタンの位置情報
+        Next = parent.transform.Find("Next_Core").gameObject; //親オブジェクトを取得
+        Next.SetActive(true);                                 //次へボタンを表示
+        Next.transform.position = new Vector3( 60, -51, 0.0f);//次へボタンの位置を変更
 
     }
     void Summon_Back()
     {
-        Vector3 pos = parent.transform.localPosition;//クリックされたボタンの位置情報
-        Back = parent.transform.Find("Back_Core").gameObject;
-        Back.SetActive(true);
-        Back.transform.position = new Vector3( 0, -51, 0.0f);
-       
-        
+        Vector3 pos = parent.transform.localPosition;        //クリックされたボタンの位置情報
+        Back = parent.transform.Find("Back_Core").gameObject;//親オブジェクトを取得
+        Back.SetActive(true);                                //戻るボタンを表示
+        Back.transform.position = new Vector3( 0, -51, 0.0f);//戻るボタンの位置を変更
+
     }
     
     void Destroy_Next()
     {
-        GameObject[] click_next = GameObject.FindGameObjectsWithTag("Next");
+        GameObject[] click_next = GameObject.FindGameObjectsWithTag("Next");//Nextタグがついた全てのオブジェクトを取得
 
-      
             foreach (GameObject next_child in click_next)
             {
             
-            next_child.SetActive(false);
-            }
-       
+            next_child.SetActive(false);                                   //Nextタグがついた全てのオブジェクトを非表示にする
+
+            }       
         
     }
 
     void Destroy_Back()
     {
-        GameObject[] click_back = GameObject.FindGameObjectsWithTag("Back");
+        GameObject[] click_back = GameObject.FindGameObjectsWithTag("Back");//Backタグがついた全てのオブジェクトを取得
 
-            foreach (GameObject back_child in click_back)
+        foreach (GameObject back_child in click_back)
             {
             
-            back_child.SetActive(false);
-            }
-       
+            back_child.SetActive(false);                                   //Backタグがついた全てのオブジェクトを非表示にする
+        }
         
     }
 
     void Storage_Blind()
     {
-        GameObject[] _mekakusi = GameObject.FindGameObjectsWithTag("Blind");
+        GameObject[] _blind = GameObject.FindGameObjectsWithTag("Blind");//Blindタグがついた全てのオブジェクトを取得
 
-        foreach (GameObject mekakusi_child in _mekakusi)
+        foreach (GameObject blind_child in _blind)
         {
             
-            mekakusi_child.SetActive(false);
+            blind_child.SetActive(false);
         }
 
     }
@@ -163,44 +127,27 @@ public class Image_Switch : MonoBehaviour
        Storage_Blind();
         Summon_Blind();
        
-
         Destroy_Next();
         Destroy_Back();
-
       
-
         text_num_num = 0;
-
-        
 
         test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
 
         what_number_image = 0;
-        
-        
+                
         test.sprite = next_image[what_number_image];
-       
-       
-        
-       
 
         if(all_image>1)
         {
             Summon_Next();
             Destroy_Back();
-            
-
-
         }
         else
         {
             Destroy_Next();
             Destroy_Back();
-               
-            
         }
-
-       
 
     }
 
@@ -211,9 +158,7 @@ public class Image_Switch : MonoBehaviour
         text_num_num++;
 
         Text_Rewrite();
-
         
-
         test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
 
         what_number_image++;
@@ -227,21 +172,16 @@ public class Image_Switch : MonoBehaviour
             
                 Destroy_Next();
                 Summon_Back();
-
-               
-            
+  
         }
         else
         {
-            
-            
+      
             test.sprite = next_image[what_number_image];
-            //Back.SetActive(true);
+            
             Summon_Back();
         }
-        
-
-        
+  
     }
 
     public void display_back()
@@ -257,9 +197,6 @@ public class Image_Switch : MonoBehaviour
 
         Text_Rewrite();
 
-        
-       
-
         test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
 
         what_number_image--;
@@ -273,8 +210,7 @@ public class Image_Switch : MonoBehaviour
             
                 Destroy_Back();
                 Summon_Next();
-               
-            
+ 
         }
         else
         {
@@ -283,9 +219,7 @@ public class Image_Switch : MonoBehaviour
             Summon_Next();
             
         }
-        
 
-        Debug.Log(what_number_image);
     }
 
     public void Text_Rewrite()
@@ -425,12 +359,4 @@ public class Image_Switch : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
