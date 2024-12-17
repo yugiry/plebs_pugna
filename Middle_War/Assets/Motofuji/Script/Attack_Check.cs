@@ -6,21 +6,28 @@ using UnityEngine;
 public class Attack_Check : MonoBehaviour
 {
     GameObject canattack;
-    GameObject canallattack;
 
     private void Start()
     {
         canattack = null;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        canattack = collision.gameObject;
+        //unitタグを持ったオブジェクトが攻撃可能範囲に入ったらデータ保存
+        if (collision.tag == "unit")
+        {
+            canattack = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canattack = null;
+        //unitタグを持ったオブジェクトが攻撃可能範囲を出たらデータ削除
+        if (collision.gameObject == canattack)
+        {
+            canattack = null;
+        }
     }
 
     public GameObject Can_Attack()

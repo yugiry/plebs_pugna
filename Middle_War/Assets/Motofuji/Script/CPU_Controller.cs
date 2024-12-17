@@ -64,6 +64,7 @@ public class CPU_Controller : PlayerUnit_Base
     // Start is called before the first frame update
     void Start()
     {
+        //共通で使うスクリプトのコンポーネントなどを初期でしておく
         map_complete = false;
         mapobj = GameObject.Find("map");
         CM = mapobj.GetComponent<CreateMap>();
@@ -71,6 +72,10 @@ public class CPU_Controller : PlayerUnit_Base
         UTC = mapobj.GetComponent<Unit_Tile_Check>();
         PCH = mapobj.GetComponent<Pcastlehp>();
         research_move = new int[CM.MAPSIZE_X * CM.MAPSIZE_Y];
+        for(int i = 0;i<CM.MAPSIZE_X*CM.MAPSIZE_Y;i++)
+        {
+            research_move[i] = -1;
+        }
     }
 
     // Update is called once per frame
@@ -79,7 +84,11 @@ public class CPU_Controller : PlayerUnit_Base
         //マップ生成が終了したらcastle2の位置を取得する
         if (map_complete)
         {
+            //城の情報をそれぞれ取得する
+            castle1 = tilebox.transform.Find("castle1(Clone)");
             castle2 = tilebox.transform.Find("castle2(Clone)");
+            TI = castle1.GetComponent<TileInfo>();
+            research_move[(int)TI.TileNum] = 0;
             map_complete = false;
         }
 
@@ -118,11 +127,13 @@ public class CPU_Controller : PlayerUnit_Base
         }
     }
 
+    //マップ生成が終了したことを知らせる関数
     public void Map_Collect()
     {
         map_complete = true;
     }
 
+    //ターンが回ってきていることを知らせる関数
     public void Turn_Here()
     {
         nowturn = true;
@@ -186,11 +197,13 @@ public class CPU_Controller : PlayerUnit_Base
                 break;
         }
 
-        //
+        //ランダムで決定したエリアを取得する
         area = checker_box.transform.GetChild(ard).gameObject;
         UC = area.GetComponent<Unit_Check>();
+        //エリアにユニットが居るか確認
         if (!UC.OnUnit())
         {
+            //マップ上にいるユニットの数が最大数になっていないか確認
             if (UIO.EUnit_Num < 20)
             {
                 apnum = CM.Now_EAP;
@@ -231,6 +244,7 @@ public class CPU_Controller : PlayerUnit_Base
                 }
                 else
                 {
+                    //surdが50以上ならSunitにnullを入れる
                     Sunit = null;
                 }
                 if (Sunit != null)
@@ -258,21 +272,75 @@ public class CPU_Controller : PlayerUnit_Base
         {
             hrd = 0;
         }
-        if (hrd == 0)//頭いい
+        if (hrd == 0)//頭いい(弓兵とカタパルトが城に向かって進軍していく)
         {
             float dis_x, dis_y;
-            castle1 = tilebox.transform.Find("castle1(Clone)");
-
+            
+            //ユニットから城までの距離をdis_x,dis_yに入れる
             dis_x = obj.transform.position.x - castle1.transform.position.x;
             dis_y = obj.transform.position.y - castle1.transform.position.y;
 
+            //ユニットから見て城が上下左右のどの方向にいるかを調べる
             if (dis_x < 0) { holizontal = true; }//城が右方向にある
             if (dis_x > 0) { holizontal = false; }//城が左方向にある
             if (dis_y < 0) { vertical = true; }//城が下方向にある
             if (dis_y > 0) { vertical = false; }//城が上方向にある
 
+            //dis_xの絶対値のほうが大きい場合
             if (Math.Abs(dis_x) > Math.Abs(dis_y))
             {
+                if (holizontal)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                dx = x + 1;
+                                dy = y;
+                                break;
+                            case 1:
+                                dx = x;
+                                dy = y - 1;
+                                break;
+                            case 2:
+                                dx = x;
+                                dy = y + 1;
+                                break;
+                            case 3:
+                                dx = x - 1;
+                                dy = y;
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                dx = x - 1;
+                                dy = y;
+                                break;
+                            case 1:
+                                dx = x;
+                                dy = y - 1;
+                                break;
+                            case 2:
+                                dx = x;
+                                dy = y + 1;
+                                break;
+                            case 3:
+                                dx = x + 1;
+                                dy = y;
+                                break;
+                        }
+                    }
+                }
+
+                //trueの時を右として考える
                 if (holizontal)
                 {
                     dx = x + 1;
@@ -282,19 +350,28 @@ public class CPU_Controller : PlayerUnit_Base
                     dx = x - 1;
                 }
                 dy = y;
+                //ユニットの進む先がマップ外にならないようにする
                 if (dx < 0) dx = 0;
                 if (dx > 24) dx = 24;
-                if (dy < 0) dy = 0;
-                if (dy > 24) dy = 24;
+                //ユニットの進む先が移動可能ではないなら上下のどちらかに進む
                 if (UTC.tile[dy * 25 + dx])
                 {
-                    dx = x;
-                    dy = y + 1;
-                    if (dx < 0) dx = 0;
-                    if (dx > 24) dx = 24;
+                    //trueの時を下として考える
+                    if (vertical)
+                    {
+                        dx = x;
+                        dy = y - 1;
+                    }
+                    else
+                    {
+                        dx = x;
+                        dy = y + 1;
+                    }
+                    //ユニットの進む先がマップ外にならないようにする
                     if (dy < 0) dy = 0;
                     if (dy > 24) dy = 24;
                 }
+                //ユニットの進む先が移動可能であれば
                 if (!UTC.tile[dy * 25 + dx])
                 {
                     switch (CM.map[dy * 25 + dx])

@@ -28,7 +28,7 @@ public class Camera_Operation : MonoBehaviour
     {
         //カメラのズーム
         {
-            //XキーorZキーを押してズームインとズームアウトを行う
+            //Xキーでズームイン
             if (Input.GetKeyDown(KeyCode.X) && !ZoomIn)
             {
                 ZoomIn = true;
@@ -37,6 +37,7 @@ public class Camera_Operation : MonoBehaviour
             {
                 ZoomIn = false;
             }
+            //Zキーでズームアウト
             if (Input.GetKeyDown(KeyCode.Z) && !ZoomOut)
             {
                 ZoomOut = true;
@@ -73,6 +74,7 @@ public class Camera_Operation : MonoBehaviour
                 float x = 5 - ZoomPct * 5;
                 float tmp;
                 tmp = 0.7f;
+                //WASDキーもしくは方向キーでカメラ移動
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
                     CT.position = CT.position + new Vector3(0.0f, CameraSpeed, 0.0f);
@@ -90,6 +92,7 @@ public class Camera_Operation : MonoBehaviour
                     CT.position = CT.position + new Vector3(CameraSpeed, 0.0f, 0.0f);
                 }
 
+                //カメラがマップ外を映さないようにする
                 if (CT.position.x > tmp + 11 * x)
                 {
                     CT.position = new Vector3(tmp + 11 * x, CT.position.y, CT.position.z);
@@ -109,6 +112,7 @@ public class Camera_Operation : MonoBehaviour
             }
             else
             {
+                //カメラ拡大率が1倍ならカメラ位置を(0,0)にする
                 CT.position = new Vector3(0.0f, 0.0f, 0.0f);
             }
         }
