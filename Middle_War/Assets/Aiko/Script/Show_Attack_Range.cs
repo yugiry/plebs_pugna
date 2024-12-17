@@ -131,8 +131,6 @@ public class Show_Attack_Range : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-
         mapobj = GameObject.Find("map");
         CM = mapobj.GetComponent<CreateMap>();
     }

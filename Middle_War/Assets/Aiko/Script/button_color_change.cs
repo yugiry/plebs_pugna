@@ -4,39 +4,18 @@ using UnityEngine;
 
 public class button_color_change : MonoBehaviour
 {
-    public void change_button_enter()
+    public void change_button_enter()//マウスカーソルがボタンの上に乗ったら
     {
-        //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
 
-
-
-        
-
-
-            this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
-            Debug.Log("change");
-        
+            this.GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);//ボタンの色を暗くする
+                   
     }
-    public void change_button2_exit()
+    public void change_button2_exit()//マウスカーソルがボタンの上から降りたら
     {
-        //GameObject[] Button = GameObject.FindGameObjectsWithTag("Player");
 
-
-
-            this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-
-        
+            this.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);//ボタンの色を元の白色に戻す
+  
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

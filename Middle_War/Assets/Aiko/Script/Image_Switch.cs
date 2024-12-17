@@ -10,7 +10,7 @@ public class Image_Switch : MonoBehaviour
 
     GameObject button;
 
-    SpriteRenderer test;
+    SpriteRenderer SR;
 
     [SerializeField] AudioClip[] clips;
     [SerializeField] float pitchRange = 0.1f;
@@ -103,7 +103,7 @@ public class Image_Switch : MonoBehaviour
         foreach (GameObject blind_child in _blind)
         {
             
-            blind_child.SetActive(false);
+            blind_child.SetActive(false);                                   //Blindタグがついた全てのオブジェクトを非表示にする
         }
 
     }
@@ -111,118 +111,118 @@ public class Image_Switch : MonoBehaviour
     void Summon_Blind()
     {
         Vector3 pos = parent.transform.localPosition;//クリックされたユニットの位置情報
-        Blind = parent.transform.Find("Blind_Core").gameObject;
-        Blind.SetActive(true);
-        
+        Blind = parent.transform.Find("Blind_Core").gameObject;//親オブジェクトを取得
+        Blind.SetActive(true);//オブジェクトを表示
+
     }
 
     public void Swith_Over_Image()
     {
         audiosouse = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
 
-        audiosouse.PlayOneShot(enter);
+        audiosouse.PlayOneShot(enter);//効果音を再生する
         text_num_num = 0;
-        Text_Rewrite();
+        Text_Rewrite();//text内の文章を書き換える
 
-       Storage_Blind();
-        Summon_Blind();
+       Storage_Blind();//オブジェクトを非表示
+        Summon_Blind();//オブジェクトを表示
        
-        Destroy_Next();
-        Destroy_Back();
+        Destroy_Next();//次へボタンを非表示
+        Destroy_Back();//戻るボタンを非表示
       
         text_num_num = 0;
 
-        test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
+        SR = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
 
         what_number_image = 0;
                 
-        test.sprite = next_image[what_number_image];
+        SR.sprite = next_image[what_number_image];//数字に応じた画像を表示する
 
-        if(all_image>1)
+        if(all_image>1)//画像の総数が1より大きいなら
         {
-            Summon_Next();
-            Destroy_Back();
+            Summon_Next(); //次へボタンを表示
+            Destroy_Back();//戻るボタンを非表示
         }
         else
         {
-            Destroy_Next();
-            Destroy_Back();
+            Destroy_Next();//次へボタンを非表示
+            Destroy_Back();//戻るボタンを非表示
         }
 
     }
 
     public void display_next()
     {
-        audiosouse.PlayOneShot(enter);
+        audiosouse.PlayOneShot(enter);//効果音を再生する
 
-        text_num_num++;
+        text_num_num++;//増やす
 
-        Text_Rewrite();
-        
-        test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
+        Text_Rewrite();               //text内の文章を書き換える
+
+        SR = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
 
         what_number_image++;
 
-        if (what_number_image == all_image - 1)
+        if (what_number_image == all_image - 1)//現在の画像番号が画像総数と同じ値ならば
         {
-            what_number_image = all_image - 1;
+            what_number_image = all_image - 1;//その値に固定する
             
             
-            test.sprite = next_image[what_number_image];
-            
-                Destroy_Next();
-                Summon_Back();
-  
+            SR.sprite = next_image[what_number_image];//数字＝画像総数-1に応じた画像を表示する
+
+            Destroy_Next();//次へボタンを非表示
+            Summon_Back();//戻るボタンを表示
+
         }
-        else
+        else//そうでないなら＝画像総数と同値でないなら
         {
       
-            test.sprite = next_image[what_number_image];
-            
-            Summon_Back();
+            SR.sprite = next_image[what_number_image];//現在の数字に応じた画像を表示する
+
+            Summon_Back();//次へボタンを表示
         }
   
     }
 
     public void display_back()
     {
-        audiosouse.PlayOneShot(enter);
+        audiosouse.PlayOneShot(enter);//効果音を再生する
 
-        text_num_num--;
+        text_num_num--;//減らす
 
-        if (text_num_num == 0)
+        if (text_num_num == 0)//テキスト番号が0なら
         {
-            text_num_num = 0;
+            text_num_num = 0;//0のままにしておく
         }
 
-        Text_Rewrite();
+        Text_Rewrite();//text内の文章を書き換える
 
-        test = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();
+        SR = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
 
-        what_number_image--;
+        what_number_image--;//減らす
 
-        if (what_number_image == 0)
+        if (what_number_image == 0)//画像番号が0なら
         {
 
-            what_number_image = 0;
+            what_number_image = 0;//0のままにする
            
-            test.sprite = next_image[what_number_image];
-            
-                Destroy_Back();
-                Summon_Next();
- 
+            SR.sprite = next_image[what_number_image];//数字＝0に応じた画像を表示する
+
+            Destroy_Back();//戻るボタンを非表示
+            Summon_Next(); //次へボタンを表示
+
         }
-        else
+        else//そうでない＝0以外なら
         {
             
-            test.sprite = next_image[what_number_image];
-            Summon_Next();
-            
+            SR.sprite = next_image[what_number_image];//数字に応じた画像を表示する
+            Summon_Next();//次へボタンを表示
+
         }
 
     }
 
-    public void Text_Rewrite()
+    public void Text_Rewrite()//文章を書き換える
     {
         switch (text_num)
         {

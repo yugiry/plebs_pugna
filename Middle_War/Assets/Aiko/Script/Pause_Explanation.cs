@@ -16,13 +16,7 @@ public class Pause_Explanation : MonoBehaviour
     int chan_frag = 0;
     Vector3 tmp;
     
-
     int i=0;
-
-    void Start()
-    {
-        
-    }
 
     public void Change_button()
     {
@@ -78,11 +72,6 @@ public class Pause_Explanation : MonoBehaviour
                 break;
         }
 
-
-        
-
-
-
     }
 
      void PauseGame()
@@ -97,15 +86,6 @@ public class Pause_Explanation : MonoBehaviour
         Debug.Log("R");
     }
 
-    
     int t = 0;
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-     
-        
-
-    }
+   
 }
