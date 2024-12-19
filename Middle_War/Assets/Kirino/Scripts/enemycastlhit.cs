@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class enemycastlhit : MonoBehaviour
 {
+    //ゲームオブジェクト名・関数宣言
     public int maxHealth = 35;  // 最大HP
     private int currentHealth = 35;  // 現在のHP
     public Text healthText;  // HP表示用のテキスト(UI)

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class castlhit : MonoBehaviour
 {
-
+    //ゲームオブジェクト名宣言・関数宣言
     public int maxHealth = 35;  // 最大HP
     private int currentHealth = 35;  // 現在のHP
     public Text healthText;  // HP表示用のテキスト(UI)
@@ -18,7 +18,7 @@ public class castlhit : MonoBehaviour
     public GameObject nextBotton;
 
     //現在はテキスト　あとで画像に変更する
-    Text titleText;
+    Text titleText;//テキスト設定
     void Start()
     {
         // 現在のHPを最大HPで初期化
@@ -32,7 +32,7 @@ public class castlhit : MonoBehaviour
     }
 
     // ダメージを受ける関数
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage)//HP変更
     {
         currentHealth -= damage;
 
@@ -56,7 +56,7 @@ public class castlhit : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Base HP: " + currentHealth.ToString();
+            healthText.text = "Base HP: " + currentHealth.ToString();//HP管理
         }
     }
 

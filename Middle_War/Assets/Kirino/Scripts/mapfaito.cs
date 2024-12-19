@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 //[RequireComponent(typeof(AudioSource))]
 public class mapfaito : MonoBehaviour
 {
-    public int countrynum;
+    public int countrynum;//ゲームオブジェクト・関数宣言
     public GameObject mapbatoru;
     [SerializeField] public Text text1;//１つ目のテキスト変換
     [SerializeField] public Text text2;//２つ目のテキスト変換
@@ -88,8 +88,8 @@ public class mapfaito : MonoBehaviour
         }
     }
 
-    public void change_button()
+    public void change_button()//ボタン変更
     {
-        SceneManager.LoadScene(NextScene);
+        SceneManager.LoadScene(NextScene);//ボタンが押された時シーンを変える
     }
 }

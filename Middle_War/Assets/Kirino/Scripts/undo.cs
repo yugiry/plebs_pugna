@@ -5,7 +5,7 @@ using UnityEngine;
 public class undo : MonoBehaviour
 {
     GameObject clickedGameObject;
-    public GameObject castlevalue;
+    public GameObject castlevalue;//各ゲームオブジェクト名宣言
     public GameObject infantrystatus;
     public GameObject archerstatus;
     public GameObject catapultstatus;
@@ -25,10 +25,9 @@ public class undo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))//ボタン設定
         {
-
-            infantrystatus.SetActive(false);
+            infantrystatus.SetActive(false);//ボタン押された時のゲームオブジェクト表示・非表示処理
             archerstatus.SetActive(false);
             catapultstatus.SetActive(false);
             castlevalue.SetActive(true);
@@ -45,7 +44,6 @@ public class undo : MonoBehaviour
             enemybutton_infantry.SetActive(true);
             enemybutton_archer.SetActive(true);
             enemybutton_catapalt.SetActive(true);
-
         }
     }
 }

@@ -7,7 +7,7 @@ public class infan : MonoBehaviour
     [SerializeField] GameObject unitobj;
     GameObject obj;
 
-    public GameObject castlevalue;
+    public GameObject castlevalue;//各オブジェクトの名前宣言
     public GameObject unitstatus;
 
     public GameObject unitstatus1;
@@ -32,8 +32,8 @@ public class infan : MonoBehaviour
     private int renum;
 
     public bool click;
-    float tile_x;
-    float tile_y;
+    float tile_x;//マップの一マス横座標設定
+    float tile_y;//マップの一マス縦座標設定
     Vector3 mousepos;
 
     // Update is called once per frame
@@ -43,21 +43,21 @@ public class infan : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                uiobj = GameObject.Find("map");
+                uiobj = GameObject.Find("map");//マップタイル名
                 reapobj = GameObject.Find("map");
                 unitnum = uiobj.GetComponent<UI_Operate>().PUnit_Num;
                 CMinfo = reapobj.GetComponent<CreateMap>();
                 apnum = CMinfo.Now_PAP;
                 renum = CMinfo.Now_PResource;
-                apnum = apnum - consumed_AP;
+                apnum = apnum - consumed_AP;//マップに変更時AP消費
                 renum = renum - consumed_Resource;
                 if (unitnum < 20 && apnum >= 0 && renum >= 0)
                 {
-                    mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスポイント設定
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
-                    mousepos.x = mousepos.x + 54;
-                    mousepos.y = -mousepos.y + 54;
+                    mousepos.x = mousepos.x + 54;//マウスポインター反応範囲横
+                    mousepos.y = -mousepos.y + 54;//マウスポインター反応範囲縦
                     mousepos.z = 7.0f;
                     for (int y = 0; y < 25; y++)
                     {
@@ -68,12 +68,12 @@ public class infan : MonoBehaviour
                                 if (mousepos.y > (y * 4.5f) - 2 && mousepos.y < (y * 4.5f) + 2)
                                 {
                                     clickedGameObject = hit2d.transform.gameObject;
-                                    if (clickedGameObject.name == "area1(Clone)")
+                                    if (clickedGameObject.name == "area1(Clone)")//クリック時マップタイトル名の各処理
                                     {
                                         obj = null;
-                                        obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);
+                                        obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);//マップタイルにユニット召喚処理
                                         UT = obj.GetComponent<UnitTile>();
-                                        UT.Unit_TileNum = x + y * 25;
+                                        UT.Unit_TileNum = x + y * 25;//どこのマップタイルを選択されているのかの処理
                                         CMinfo.PChange_REAP(apnum, renum);
                                         obj.transform.parent = unitobj.transform;
                                         click = false;
@@ -85,14 +85,14 @@ public class infan : MonoBehaviour
                 }
                 else if(apnum < 0 || renum < 0)
                 {
-                    apnum += consumed_AP;
+                    apnum += consumed_AP;//現在のAP整理
                     renum += consumed_Resource;
                 }
             }
         }
     }
 
-    public void Click()
+    public void Click()//クリック時の処理
     {
         castlevalue.SetActive(false);
         unitstatus.SetActive(true);

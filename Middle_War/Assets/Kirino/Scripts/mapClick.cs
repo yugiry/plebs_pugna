@@ -16,25 +16,25 @@ public class mapClick : MonoBehaviour
 
     private void Start()
     {
-        PColl = this.GetComponent<PolygonCollider2D>();
+        PColl = this.GetComponent<PolygonCollider2D>();//ポリゴンを取得
     }
 
     private void Update()
     {
         if(mapbatoru.activeSelf)
         {
-            PColl.enabled = false;
-            change_color.color = new Color(1, 1, 1, 1);
+            PColl.enabled = false;//ゲームオブジェクト非表示
+            change_color.color = new Color(1, 1, 1, 1);//現在の値
         }
         else
         {
-            PColl.enabled = true;
+            PColl.enabled = true;//ゲームオブジェクト表示
         }
     }
 
     public void Cllik()
     {
-        if (Input.GetMouseButtonDown(0) && !mapbatoru.activeSelf)
+        if (Input.GetMouseButtonDown(0) && !mapbatoru.activeSelf)//ボタン設定
         {
             mapbatoru.SetActive(true);//マップボード表示
             mapfaito.Show_country(countrynum);//mapfaito.csスクリプトにクリックされたcountrynumの値を送る
@@ -43,19 +43,19 @@ public class mapClick : MonoBehaviour
         }
     }
 
-    public void pointer_enter()
+    public void pointer_enter()//キー設定
     {
         if (!mapbatoru.activeSelf)
         {
-            change_color.color = new Color(1, 1, 0, 1);
+            change_color.color = new Color(1, 1, 0, 1);//新しい値
         }
     }
 
-    public void pointer_exit()
+    public void pointer_exit()//キー設定
     {
         if (!mapbatoru.activeSelf)
         {
-            change_color.color = new Color(1, 1, 1, 1);
+            change_color.color = new Color(1, 1, 1, 1);//新しい値
         }
     }
 }

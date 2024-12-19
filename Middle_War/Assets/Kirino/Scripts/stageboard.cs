@@ -9,16 +9,14 @@ public class stageboard : MonoBehaviour
    
     void Update()
     {
-       
-       if (Input.GetMouseButtonDown(1))
+       if (Input.GetMouseButtonDown(1))//ボタン設定
        {
-            mapboard.SetActive(false);
+            mapboard.SetActive(false);//ボタン押された時ゲームオブジェクト非表示
        }
-     
     }
 
-    public void Cancel()
+    public void Cancel()//クリック設定
     {
-        mapboard.SetActive(false);
+        mapboard.SetActive(false); ;//クリックした時ゲームオブジェクト非表示
     }
 }

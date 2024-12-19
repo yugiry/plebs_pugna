@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class rule_scene_button : MonoBehaviour
 {
-    public string NextScene;
+    public string NextScene;//新しいscene
 
-    public void Button_Click()
+    public void Button_Click()//ボタンクリック設定
     {
-        SceneManager.LoadScene(NextScene);
+        SceneManager.LoadScene(NextScene);//別sceneに移動
     }
 }

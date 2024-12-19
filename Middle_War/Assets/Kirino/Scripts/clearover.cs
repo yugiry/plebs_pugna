@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class clearover : MonoBehaviour
 {
     public GameObject mainText;//image後で画像表示
-    public Sprite gameOverSpr;
+    public Sprite gameOverSpr;//ゲームオブジェクト名・関数宣言
     public Sprite gameClearSpr;
     public GameObject panel;
     public GameObject restartBotton;
@@ -24,7 +24,7 @@ public class clearover : MonoBehaviour
     }
 
     // 画像を非表示にする
-    void InactiveText()
+    void InactiveText()//テキスト宣言
     {
         mainText.SetActive(false);
     }
