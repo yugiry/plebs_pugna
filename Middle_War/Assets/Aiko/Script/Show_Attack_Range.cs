@@ -20,63 +20,63 @@ public class Show_Attack_Range : MonoBehaviour
 
     GameObject apobj;
     
-
     float masume_size = 4.5f;
     public void Click_unit(int attack_cnt)
     {
         
         if (this.gameObject.name == "Pinfantry(Clone)")
         {
-            UT = this.gameObject.GetComponent<UnitTile>();
+            UT = this.gameObject.GetComponent<UnitTile>();//UnitTileを取得
             tilenum_y = UT.Unit_TileNum / 25;
             tilenum_x = UT.Unit_TileNum % 25;
             
-            Destroy_Range();
-            Destroy_Range();
+            Destroy_Range();//呼び出されたタイルの破壊
+            Destroy_Range();//呼び出されたタイルの破壊
 
             for (int y = -1; y <= 1; y++)
             {
                 for (int x = -1; x <= 1; x++)
                 {
-                    if (x == 0 && y == 0)
+                    if (x == 0 && y == 0)//ユニットと同じ位置には
                     {
-
+                        //何もしない
                     }
                     else
                     {
                         if (attack_cnt == 0)
                         {
                             unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                            //指定座標にタイルのクローンを呼び出す
                         }
                     }
                 }
             }
-
            
         }
         //弓兵処理
         else if (this.gameObject.name == "Parcher(Clone)")
         {
-            UT = this.gameObject.GetComponent<UnitTile>();
+            UT = this.gameObject.GetComponent<UnitTile>();//UnitTileを取得
             tilenum_y = UT.Unit_TileNum / 25;
             tilenum_x = UT.Unit_TileNum % 25;
            
-            Destroy_Range();
-            Destroy_Range();
+            Destroy_Range();//呼び出されたタイルの破壊
+            Destroy_Range();//呼び出されたタイルの破壊
 
             for (int y = -2; y <= 2; y++)
             {
                 for (int x = -2; x <= 2; x++)
                 {
-                    if (x == 0 && y == 0)
+                    if (x == 0 && y == 0)//ユニットと同じ位置には
                     {
-
+                        //何もしない
                     }
                     else
                     {
                         if (attack_cnt == 0)
                         {
                             unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                            //指定座標にタイルのクローンを呼び出す
                         }
                     }
                 }
@@ -86,12 +86,12 @@ public class Show_Attack_Range : MonoBehaviour
         //カタパルト処理
         else if (this.gameObject.name == "Pcatapalt(Clone)")
         {
-            UT = this.gameObject.GetComponent<UnitTile>();
+            UT = this.gameObject.GetComponent<UnitTile>();//UnitTileを取得
             tilenum_y = UT.Unit_TileNum / 25;
             tilenum_x = UT.Unit_TileNum % 25;
             
-            Destroy_Range();
-            Destroy_Range();
+            Destroy_Range();//呼び出されたタイルの破壊
+            Destroy_Range();//呼び出されたタイルの破壊
 
             for (int y = -4; y <= 4; y++)
             {
@@ -102,14 +102,16 @@ public class Show_Attack_Range : MonoBehaviour
                         if (attack_cnt == 0)
                         {
                             unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                            //指定座標にタイルのクローンを呼び出す
                         }
+
                     }
+
                 }
+
             }
             
         }
-
-
 
     }
 
@@ -120,9 +122,9 @@ public class Show_Attack_Range : MonoBehaviour
         if (unit_click.activeSelf)
         {
             
-            foreach (GameObject range_child in unitclick)
+            foreach (GameObject range_child in unitclick)//Respawnタグのついたオブジェクトを探し出して
             {
-                Destroy(range_child);
+                Destroy(range_child);//破壊する
                
             }
         }
@@ -135,9 +137,4 @@ public class Show_Attack_Range : MonoBehaviour
         CM = mapobj.GetComponent<CreateMap>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 }

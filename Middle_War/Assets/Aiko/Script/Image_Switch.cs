@@ -34,8 +34,7 @@ public class Image_Switch : MonoBehaviour
 
     [SerializeField] GameObject Next;
     [SerializeField] GameObject Back;
-    private GameObject button_appear1;
-    private GameObject button_appear2;
+    
     public Transform parent;
 
     button_color_change BCC;
@@ -302,7 +301,7 @@ public class Image_Switch : MonoBehaviour
             case 6://フィールド情報
                 switch (text_num_num) {
                     case 0:
-                my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n川…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n森…どんなユニットも通ることができない場所。\n";
+                my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n水…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n森…どんなユニットも通ることができない場所。\n";
                         break;
                     case 1:
                         my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。歩兵で回収が可能。\n回収後は一定ターンが経過するまで再回収できなくなる。\n";

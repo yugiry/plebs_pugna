@@ -74,16 +74,15 @@ public class Pause_Explanation : MonoBehaviour
 
     }
 
-     void PauseGame()
+    void PauseGame()
     {
         Time.timeScale = 0f;
-        Debug.Log("P");
     }
 
      void ResumeGame()
     {
         Time.timeScale = 1f;
-        Debug.Log("R");
+       
     }
 
     int t = 0;
