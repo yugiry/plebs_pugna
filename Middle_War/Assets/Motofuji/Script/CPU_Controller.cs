@@ -72,7 +72,7 @@ public class CPU_Controller : PlayerUnit_Base
         UTC = mapobj.GetComponent<Unit_Tile_Check>();
         PCH = mapobj.GetComponent<Pcastlehp>();
         research_move = new int[CM.MAPSIZE_X * CM.MAPSIZE_Y];
-        for(int i = 0;i<CM.MAPSIZE_X*CM.MAPSIZE_Y;i++)
+        for (int i = 0; i < CM.MAPSIZE_X * CM.MAPSIZE_Y; i++)
         {
             research_move[i] = -1;
         }
@@ -89,6 +89,55 @@ public class CPU_Controller : PlayerUnit_Base
             castle2 = tilebox.transform.Find("castle2(Clone)");
             TI = castle1.GetComponent<TileInfo>();
             research_move[(int)TI.TileNum] = 0;
+            int dx = 0, dy = 0;//調べる位置を残しておくための変数
+            int summon_x, summon_y;//数値を入れるマスのマップ座標
+            //マップの端から端まで調べる時の最大数
+            for (int c = 0; c < 50; c++)
+            {
+                //マップ全てを調べる
+                for (int y = 0; y < CM.MAPSIZE_Y; y++)
+                {
+                    for (int x = 0; x < CM.MAPSIZE_X; x++)
+                    {
+                        //今調べてるマスの数値がcと同じならそのマスの上下左右を調べる
+                        if (research_move[y * CM.MAPSIZE_Y + x] == c)
+                        {
+                            for (int k = 0; k < 4; k++)
+                            {
+                                switch (k)
+                                {
+                                    case 0://上
+                                        dx = 0;
+                                        dy = -1;
+                                        break;
+                                    case 1://下
+                                        dx = 0;
+                                        dy = 1;
+                                        break;
+                                    case 2://右
+                                        dx = 1;
+                                        dy = 0;
+                                        break;
+                                    case 3://左
+                                        dx = -1;
+                                        dy = 0;
+                                        break;
+                                }
+                                move_x = x + dx;
+                                move_y = y + dy;
+                                //マップの外に出ないようにする
+                                if (move_x < 0) move_x = 0;
+                                if (move_x > 24) move_x = 24;
+                                if (move_y < 0) move_y = 0;
+                                if (move_y > 24) move_y = 24;
+                                //タイルが草もしくは水でありかつユニットが居ない場合数値を置く
+                                if (research_move[move_x + move_y * 25] == -1 && (CM.map[move_x + move_y * 25] == 0 || CM.map[move_x + move_y * 25] == 2))
+                                    research_move[move_x + move_y * 25] = c + 1;
+                            }
+                        }
+                    }
+                }
+            }
             map_complete = false;
         }
 
@@ -109,7 +158,7 @@ public class CPU_Controller : PlayerUnit_Base
                     {
                         Turn_Over();
                     }
-                    else if(summon_or_action < 10)//ステージ上のユニットを増やす
+                    else if (summon_or_action < 10)//ステージ上のユニットを増やす
                     {
                         Unit_Summon();
                     }
@@ -146,7 +195,7 @@ public class CPU_Controller : PlayerUnit_Base
         urd = RanDom(0, UIO.EUnit_Num);
         unit = unit_box.transform.GetChild(urd).gameObject;
         //攻撃が当たるか調べる(当たるなら攻撃)
-        if(Unit_Attack(unit))
+        if (Unit_Attack(unit))
         {
             //攻撃出来ない場合は移動させる
             Unit_Move(unit);
@@ -208,7 +257,7 @@ public class CPU_Controller : PlayerUnit_Base
             {
                 apnum = CM.Now_EAP;
                 renum = CM.Now_EResource;
-                if(surd < 15)//歩兵召喚
+                if (surd < 15)//歩兵召喚
                 {
                     apnum = apnum - 2;
                     if (apnum >= 0)
@@ -219,7 +268,7 @@ public class CPU_Controller : PlayerUnit_Base
                         CM.EChange_REAP(apnum, renum);
                     }
                 }
-                else if(surd < 40)//弓兵召喚
+                else if (surd < 40)//弓兵召喚
                 {
                     apnum = apnum - 6;
                     if (apnum >= 0)
@@ -230,7 +279,7 @@ public class CPU_Controller : PlayerUnit_Base
                         CM.EChange_REAP(apnum, renum);
                     }
                 }
-                else if(surd < 50)//カタパルト召喚
+                else if (surd < 50)//カタパルト召喚
                 {
                     apnum = apnum - 10;
                     renum = renum - 10;
@@ -260,261 +309,59 @@ public class CPU_Controller : PlayerUnit_Base
     void Unit_Move(GameObject obj)
     {
         int x, y;
-        int dx, dy;
+        int dx = 0, dy = 0;
         UT = obj.GetComponent<UnitTile>();
         y = UT.Unit_TileNum / 25;
         x = UT.Unit_TileNum % 25;
-        if(obj.name == "Cinfantry(Clone)")
-        {
-            hrd = 1;
-        }
-        else
-        {
-            hrd = 0;
-        }
+        //if (obj.name == "Cinfantry(Clone)")
+        //{
+        //    hrd = 1;
+        //}
+        //else
+        //{
+        //    hrd = 0;
+        //}
+        hrd = 0;
         if (hrd == 0)//頭いい(弓兵とカタパルトが城に向かって進軍していく)
         {
-            float dis_x, dis_y;
-            
-            //ユニットから城までの距離をdis_x,dis_yに入れる
-            dis_x = obj.transform.position.x - castle1.transform.position.x;
-            dis_y = obj.transform.position.y - castle1.transform.position.y;
-
-            //ユニットから見て城が上下左右のどの方向にいるかを調べる
-            if (dis_x < 0) { holizontal = true; }//城が右方向にある
-            if (dis_x > 0) { holizontal = false; }//城が左方向にある
-            if (dis_y < 0) { vertical = true; }//城が下方向にある
-            if (dis_y > 0) { vertical = false; }//城が上方向にある
-
-            //dis_xの絶対値のほうが大きい場合
-            if (Math.Abs(dis_x) > Math.Abs(dis_y))
+            //ユニットの位置の上下左右を調べる
+            for (int k = 0; k < 4; k++)
             {
-                if (holizontal)
+                switch (k)
                 {
-                    for (int i = 0; i < 4; i++)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                dx = x + 1;
-                                dy = y;
-                                break;
-                            case 1:
-                                dx = x;
-                                dy = y - 1;
-                                break;
-                            case 2:
-                                dx = x;
-                                dy = y + 1;
-                                break;
-                            case 3:
-                                dx = x - 1;
-                                dy = y;
-                                break;
-                        }
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < 4; i++)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                dx = x - 1;
-                                dy = y;
-                                break;
-                            case 1:
-                                dx = x;
-                                dy = y - 1;
-                                break;
-                            case 2:
-                                dx = x;
-                                dy = y + 1;
-                                break;
-                            case 3:
-                                dx = x + 1;
-                                dy = y;
-                                break;
-                        }
-                    }
-                }
-
-                //trueの時を右として考える
-                if (holizontal)
-                {
-                    dx = x + 1;
-                }
-                else
-                {
-                    dx = x - 1;
-                }
-                dy = y;
-                //ユニットの進む先がマップ外にならないようにする
-                if (dx < 0) dx = 0;
-                if (dx > 24) dx = 24;
-                //ユニットの進む先が移動可能ではないなら上下のどちらかに進む
-                if (UTC.tile[dy * 25 + dx])
-                {
-                    //trueの時を下として考える
-                    if (vertical)
-                    {
-                        dx = x;
-                        dy = y - 1;
-                    }
-                    else
-                    {
-                        dx = x;
-                        dy = y + 1;
-                    }
-                    //ユニットの進む先がマップ外にならないようにする
-                    if (dy < 0) dy = 0;
-                    if (dy > 24) dy = 24;
-                }
-                //ユニットの進む先が移動可能であれば
-                if (!UTC.tile[dy * 25 + dx])
-                {
-                    switch (CM.map[dy * 25 + dx])
-                    {
-                        case 0://草
-                            EUO = obj.GetComponent<EUnit_Operation>();
-                            apnum = CM.Now_EAP;
-                            renum = CM.Now_EResource;
-                            apnum = apnum - EUO.move_ap;
-                            if (apnum > 0)
-                            {
-                                UTC.tile[y * 25 + x] = false;
-                                UTC.tile[dy * 25 + dx] = true;
-                                UT.Unit_TileNum = dy * 25 + dx;
-                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
-                            }
-                            break;
-                        case 2://水
-                            EUO = obj.GetComponent<EUnit_Operation>();
-                            apnum = CM.Now_EAP;
-                            renum = CM.Now_EResource;
-                            apnum = apnum - (EUO.move_ap + 1);
-                            if (apnum > 0)
-                            {
-                                UTC.tile[y * 25 + x] = false;
-                                UTC.tile[dy * 25 + dx] = true;
-                                UT.Unit_TileNum = dy * 25 + dx;
-                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
-                            }
-                            break;
-                    }
-                }
-            }
-            else if (Math.Abs(dis_x) < Math.Abs(dis_y))
-            {
-                if(vertical)
-                {
-                    dy = y - 1;
-                }
-                else
-                {
-                    dy = y + 1;
-                }
-                dx = x;
-                if (dx < 0) dx = 0;
-                if (dx > 24) dx = 24;
-                if (dy < 0) dy = 0;
-                if (dy > 24) dy = 24;
-                if (UTC.tile[dy * 25 + dx])
-                {
-                    dx = x + 1;
-                    dy = y;
-                    if (dx < 0) dx = 0;
-                    if (dx > 24) dx = 24;
-                    if (dy < 0) dy = 0;
-                    if (dy > 24) dy = 24;
-                }
-                if (!UTC.tile[dy * 25 + dx])
-                {
-                    switch (CM.map[dy * 25 + dx])
-                    {
-                        case 0://草
-                            EUO = obj.GetComponent<EUnit_Operation>();
-                            apnum = CM.Now_EAP;
-                            renum = CM.Now_EResource;
-                            apnum = apnum - EUO.move_ap;
-                            if (apnum > 0)
-                            {
-                                UTC.tile[y * 25 + x] = false;
-                                UTC.tile[dy * 25 + dx] = true;
-                                UT.Unit_TileNum = dy * 25 + dx;
-                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
-                            }
-                            break;
-                        case 2://水
-                            EUO = obj.GetComponent<EUnit_Operation>();
-                            apnum = CM.Now_EAP;
-                            renum = CM.Now_EResource;
-                            apnum = apnum - (EUO.move_ap + 1);
-                            if (apnum > 0)
-                            {
-                                UTC.tile[y * 25 + x] = false;
-                                UTC.tile[dy * 25 + dx] = true;
-                                UT.Unit_TileNum = dy * 25 + dx;
-                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
-                            }
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                dy = y;
-                dx = x;
-                switch (RanDom(0, 2))
-                {
-                    case 0:
-                        dy += 1;
+                    case 0://上
+                        dx = 0;
+                        dy = -1;
                         break;
-                    case 1:
-                        dx += 1;
+                    case 1://下
+                        dx = 0;
+                        dy = 1;
+                        break;
+                    case 2://右
+                        dx = 1;
+                        dy = 0;
+                        break;
+                    case 3://左
+                        dx = -1;
+                        dy = 0;
                         break;
                 }
-                if (dx < 0) dx = 0;
-                if (dx > 24) dx = 24;
-                if (dy < 0) dy = 0;
-                if (dy > 24) dy = 24;
-                if (!UTC.tile[dy * 25 + dx])
+                move_x = x + dx;
+                move_y = y + dy;
+                //移動先にユニットがいるか確認
+                if (!UTC.tile[move_y * CM.MAPSIZE_Y + move_x])
                 {
-                    switch (CM.map[dy * 25 + dx])
+                    //今ユニットがいる場所より進む先の数値のほうが小さかったら進む
+                    if (research_move[y * CM.MAPSIZE_Y + x] > research_move[move_y * CM.MAPSIZE_Y + move_x] && research_move[move_y * CM.MAPSIZE_Y + move_x] != -1)
                     {
-                        case 0://草
-                            EUO = obj.GetComponent<EUnit_Operation>();
-                            apnum = CM.Now_EAP;
-                            renum = CM.Now_EResource;
-                            apnum = apnum - EUO.move_ap;
-                            if (apnum > 0)
-                            {
-                                UTC.tile[y * 25 + x] = false;
-                                UTC.tile[dy * 25 + dx] = true;
-                                UT.Unit_TileNum = dy * 25 + dx;
-                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
-                            }
-                            break;
-                        case 2://水
-                            EUO = obj.GetComponent<EUnit_Operation>();
-                            apnum = CM.Now_EAP;
-                            renum = CM.Now_EResource;
-                            apnum = apnum - (EUO.move_ap + 1);
-                            if (apnum > 0)
-                            {
-                                UTC.tile[y * 25 + x] = false;
-                                UTC.tile[dy * 25 + dx] = true;
-                                UT.Unit_TileNum = dy * 25 + dx;
-                                obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
-                            }
-                            break;
+                        EUO = obj.GetComponent<EUnit_Operation>();
+                        apnum = CM.Now_EAP;
+                        renum = CM.Now_EResource;
+                        apnum = apnum - EUO.move_ap;
+                        if (apnum > 0)
+                        {
+                            obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * move_x, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * move_y, obj.transform.position.z);
+                        }
                     }
                 }
             }
