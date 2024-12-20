@@ -6,6 +6,7 @@ public class ButtonFalseManager1 : MonoBehaviour
 {
     public GameObject NameButton;
 
+    public GameObject NameEnter;
    
   
     // Start is called before the first frame update
@@ -17,6 +18,8 @@ public class ButtonFalseManager1 : MonoBehaviour
   
     public void onClick()
     {
-        NameButton.SetActive(false);
+        NameButton.SetActive(false);//•\Ž¦
+
+        NameEnter.SetActive(true);
     }
 }

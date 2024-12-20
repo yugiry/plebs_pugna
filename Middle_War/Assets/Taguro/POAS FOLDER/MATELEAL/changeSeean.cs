@@ -8,7 +8,7 @@ public class changeSeean : MonoBehaviour
    
     public void change_button()
     {
-        FadeManager.Instance.LoadScene("NameSeean", 1.0f);
+        FadeManager.Instance.LoadScene("NameSeean", 1.0f);//フェードマネージャーを使ってシーン移動をする
         
     }
 }

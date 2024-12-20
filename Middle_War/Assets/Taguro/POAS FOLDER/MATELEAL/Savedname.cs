@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TextNamemaneger : MonoBehaviour
+public class Savedname : MonoBehaviour
 {
     [SerializeField]
     private Text nameText;
     // Start is called before the first frame update
     void Start()
     {
-        nameText.text = NameMneger.name;
+        nameText.text = NameMneger.name;//保存した名前を表示する
         //nameText.text = NameMneger.name;
     }
 
@@ -24,7 +24,7 @@ public class TextNamemaneger : MonoBehaviour
     public void Show_Name()
     {
         
-        nameText.text = NameMneger.name;
+        nameText.text = NameMneger.name;//保存した名前を表示する
         DontDestroyOnLoad(gameObject);
     }
    

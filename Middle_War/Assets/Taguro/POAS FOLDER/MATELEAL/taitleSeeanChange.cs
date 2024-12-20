@@ -7,6 +7,6 @@ public class taitleSeeanChange : MonoBehaviour
 {
   public void change_button()
     {
-        SceneManager.LoadScene("taitle");
+        SceneManager.LoadScene("taitle");//タイトルにシーン移動
     }
 }

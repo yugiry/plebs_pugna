@@ -9,9 +9,9 @@ public class testSeen : MonoBehaviour
 
     public void change_button()
     {
-        if(NameMneger.name != "")
+        if(NameMneger.name != "")//–¼‘O‚ª“ü—Í‚³‚ê‚½‚ç
         {
-            FadeManager.Instance.LoadScene(NextScene,1.0f);
+            FadeManager.Instance.LoadScene(NextScene,1.0f);//ƒV[ƒ“ˆÚ“®
         }
        
     }
