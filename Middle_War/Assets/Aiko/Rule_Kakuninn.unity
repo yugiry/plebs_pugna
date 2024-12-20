@@ -435,6 +435,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5800922302750730387, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800922302869990739, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
     - target: {fileID: 5800922302954992339, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -479,6 +487,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5800922302994451435, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800922303401942120, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800922303913279491, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800922303920806358, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
     - target: {fileID: 5800922304321889861, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: m_Text
       value: "\u30DE\u30C3\u30D7\u30B9\u30C6\u30FC\u30B8\u306B\u623B\u308B"
@@ -486,6 +510,14 @@ PrefabInstance:
     - target: {fileID: 5800922304321889861, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800922304520779028, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800922304687352583, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: m_Name
+      value: rule_appear_button
       objectReference: {fileID: 0}
     - target: {fileID: 6090092873026486791, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: m_IsActive
@@ -653,15 +685,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909700807667108216, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: next_image.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6909700807667108216, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: next_image.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 8938e311b207e524ea31ecf105585915, type: 3}
+      objectReference: {fileID: 21300000, guid: a86aaade3d33efa49ab02cd87459ae49, type: 3}
+    - target: {fileID: 6909700807667108216, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
+      propertyPath: next_image.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: d791746df9e2095448f32039e9b14027, type: 3}
     - target: {fileID: 6909700807667108216, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: <all_image>k__BackingField
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6909700807758622656, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: next_image.Array.size
@@ -774,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 6909700809426856340, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: next_image.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 02d04992b88e3b3458ac83bbec40de9b, type: 3}
+      objectReference: {fileID: 21300000, guid: 94794a88d0533b544be5bb27c8e6bb54, type: 3}
     - target: {fileID: 6909700809426856340, guid: d92ac0623a61f3341bc419c00458adf5, type: 3}
       propertyPath: next_image.Array.data[1]
       value: 

@@ -12,14 +12,8 @@ public class Image_Switch : MonoBehaviour
 
     SpriteRenderer SR;
 
-    [SerializeField] AudioClip[] clips;
-    [SerializeField] float pitchRange = 0.1f;
-    protected AudioSource source;
-
     [field: SerializeField] public int text_num_num { get; set; }
    
-    [field: SerializeField] public int img { get; set; }
-
      [field: SerializeField]
     public int all_image
     { get; set; }
@@ -244,7 +238,7 @@ public class Image_Switch : MonoBehaviour
                 switch (text_num_num)
                 {
                     case 0:
-                        my_text.text = "\n移動させたいユニットを左クリックしてから行きたいマスを左クリックすれば移動できる。\n";
+                        my_text.text = "\n移動させたいユニットを左クリックしてから、そのユニットの行きたい方向の上下左右1マスを左クリックすれば移動できる。\n";
                         break;
                     default:
                         text_num_num = 0;
@@ -269,7 +263,7 @@ public class Image_Switch : MonoBehaviour
                 my_text.text = "\n攻撃させたいユニットを左クリックして、攻撃したいユニットを左クリックすれば攻撃する事ができる。\n";
                         break;
                     case 1:
-                        my_text.text = "\n各ユニットの攻撃射程はユニットを左クリックしてからマウスホイールでクリックすると確認できる。\n";
+                        my_text.text = "\n各ユニットの攻撃射程はユニットを左クリックすると確認できる。\n";
                         break;
                     default:
                         text_num_num = 1;
@@ -301,10 +295,10 @@ public class Image_Switch : MonoBehaviour
             case 6://フィールド情報
                 switch (text_num_num) {
                     case 0:
-                my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n水…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n森…どんなユニットも通ることができない場所。\n";
+                my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n森、深い水…全てのユニットが通ることができない場所。\n水…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n";
                         break;
                     case 1:
-                        my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。歩兵で回収が可能。\n回収後は一定ターンが経過するまで再回収できなくなる。\n";
+                        my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。\n歩兵でのみ回収が可能。\n回収後は一定ターンが経過するまで再回収できなくなる。\n";
                         break;
                     default:
                         text_num_num = 1;
