@@ -86,6 +86,7 @@ public class Turn_change : MonoBehaviour
             Debug.Log("actタグを持ったオブジェクト名：" + act.name);
             act.SetActive(false);
         }
+        //プレイヤー側のユニットの移動範囲と攻撃範囲の表示を消す
         unitobj = GameObject.FindGameObjectsWithTag("unit");
         foreach (GameObject unit in unitobj)
         {
@@ -94,17 +95,19 @@ public class Turn_change : MonoBehaviour
             NR.Destroy_Range();
             SMR.Destroy_Move_Range();
         }
-        //
+        //エネミーにAPを追加する
         EAP = CM.Now_EAP;
         ERE = CM.Now_EResource;
         EAP += 5;
         CM.EChange_REAP(EAP, ERE);
+        //マップ内全ての資源の回収不可時間を１つ減らす
         rcobj = GameObject.FindGameObjectsWithTag("resource");
         foreach (GameObject tmp in rcobj)
         {
             RC = tmp.GetComponent<Resource_Controll>();
             RC.GetTurn();
         }
+        //エネミー側のユニットの攻撃を全て可能にする
         euo = GameObject.FindGameObjectsWithTag("Eunit");
         foreach (GameObject gobj in euo)
         {
@@ -137,17 +140,19 @@ public class Turn_change : MonoBehaviour
             Debug.Log("actタグを持ったオブジェクト名：" + act.name);
             act.SetActive(false);
         }
-        //
+        //プレイヤーにAPを追加する
         PAP = CM.Now_PAP;
         PRE = CM.Now_PResource;
         PAP += 5 + 5 * APpuls;
         CM.PChange_REAP(PAP, PRE);
+        //マップ内全ての資源の回収不可時間を１つ減らす
         rcobj = GameObject.FindGameObjectsWithTag("resource");
         foreach (GameObject tmp in rcobj)
         {
             RC = tmp.GetComponent<Resource_Controll>();
             RC.GetTurn();
         }
+        //プレイヤー側のユニットの攻撃を全て可能にする
         uo = GameObject.FindGameObjectsWithTag("unit");
         foreach (GameObject gobj in uo)
         {
@@ -168,6 +173,7 @@ public class Turn_change : MonoBehaviour
         Esta.SetActive(false);
     }
 
+    //プレイヤー側が城を強化する
     public void Enhance_AP()
     {
         PAP = CM.Now_PAP;

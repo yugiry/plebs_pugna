@@ -22,6 +22,7 @@ public class Ecastlehp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //é‚ÌHP‚ğ‰Šú‰»
         Max_Hp = 35;
         Now_Hp = 35;
         HP_TEXT.text = Now_Hp.ToString() + "/" + Max_Hp.ToString();

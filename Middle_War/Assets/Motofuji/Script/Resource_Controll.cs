@@ -46,13 +46,16 @@ public class Resource_Controll : MonoBehaviour
 
     public void PGetResource()
     {
+        //‘Œ¹‚ªÌ‚ê‚éó‘Ô‚È‚ç
         if(OnResource)
         {
+            //‘Œ¹‚ğÌ‚ê‚È‚¢ó‘Ô‚É‚·‚é
             troughturn = troughtime;
             cmobj = GameObject.Find("map");
             CM = cmobj.GetComponent<CreateMap>();
             ap = CM.Now_PAP;
             re = CM.Now_PResource + 5;
+            //ãŒÀˆÈã‚Í‚È‚©‚Á‚½‚±‚Æ‚É‚·‚é
             if(re >= 999)
             {
                 re = 999;
@@ -64,13 +67,16 @@ public class Resource_Controll : MonoBehaviour
 
     public void EGetResource()
     {
+        //‘Œ¹‚ªÌ‚ê‚éó‘Ô‚È‚ç
         if (OnResource)
         {
+            //‘Œ¹‚ğÌ‚ê‚È‚¢ó‘Ô‚É‚·‚é
             troughturn = troughtime;
             cmobj = GameObject.Find("map");
             CM = cmobj.GetComponent<CreateMap>();
             ap = CM.Now_EAP;
             re = CM.Now_EResource + 5;
+            //ãŒÀˆÈã‚Í‚È‚©‚Á‚½‚±‚Æ‚É
             if(re >= 999)
             {
                 re = 999;

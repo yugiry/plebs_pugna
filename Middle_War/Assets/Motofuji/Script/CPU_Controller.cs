@@ -34,7 +34,6 @@ public class CPU_Controller : PlayerUnit_Base
     [SerializeField] GameObject unit_box;
     GameObject unit;
     GameObject move_checker;
-    Move_Check MC;
     GameObject attack_checker;
     Attack_Check AC;
 
@@ -313,16 +312,8 @@ public class CPU_Controller : PlayerUnit_Base
         UT = obj.GetComponent<UnitTile>();
         y = UT.Unit_TileNum / 25;
         x = UT.Unit_TileNum % 25;
-        //if (obj.name == "Cinfantry(Clone)")
-        //{
-        //    hrd = 1;
-        //}
-        //else
-        //{
-        //    hrd = 0;
-        //}
-        hrd = 0;
-        if (hrd == 0)//頭いい(弓兵とカタパルトが城に向かって進軍していく)
+        hrd = RanDom(0,10);
+        if (hrd < 5)//頭いい(弓兵とカタパルトが城に向かって進軍していく)
         {
             //ユニットの位置の上下左右を調べる
             for (int k = 0; k < 4; k++)
@@ -352,22 +343,36 @@ public class CPU_Controller : PlayerUnit_Base
                 if (!UTC.tile[move_y * CM.MAPSIZE_Y + move_x])
                 {
                     //今ユニットがいる場所より進む先の数値のほうが小さかったら進む
-                    if (research_move[y * CM.MAPSIZE_Y + x] > research_move[move_y * CM.MAPSIZE_Y + move_x] && research_move[move_y * CM.MAPSIZE_Y + move_x] != -1)
+                    if (research_move[y * CM.MAPSIZE_Y + x] > research_move[move_y * CM.MAPSIZE_Y + move_x] && research_move[move_y * CM.MAPSIZE_Y + move_x] >= 0)
                     {
                         EUO = obj.GetComponent<EUnit_Operation>();
                         apnum = CM.Now_EAP;
                         renum = CM.Now_EResource;
-                        apnum = apnum - EUO.move_ap;
+                        switch (CM.map[move_y * CM.MAPSIZE_Y + move_x])
+                        {
+                            case 0:
+                                apnum = apnum - EUO.move_ap;
+                                break;
+                            case 2:
+                                apnum = apnum - (EUO.move_ap + 1);
+                                break;
+                        }
+                        //APが0以下で無ければ移動する
                         if (apnum > 0)
                         {
+                            UTC.tile[y * 25 + x] = false;
+                            UTC.tile[move_y * 25 + move_x] = true;
+                            UT.Unit_TileNum = move_y * 25 + move_x;
                             obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * move_x, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * move_y, obj.transform.position.z);
+                            CM.EChange_REAP(apnum, renum);
                         }
                     }
                 }
             }
         }
-        else if (hrd == 1)//頭悪い
+        else if (hrd < 10)//頭悪い
         {
+            //移動方向を四方向からランダムに決める
             mrd = RanDom(0, 4);
             switch (mrd)
             {
@@ -433,7 +438,7 @@ public class CPU_Controller : PlayerUnit_Base
                                 Debug.Log("移動完了2");
                             }
                             break;
-                        case 3:
+                        case 3://資源
                             resource = GameObject.FindGameObjectsWithTag("resource");
                             foreach (GameObject RE in resource)
                             {

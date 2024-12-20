@@ -34,14 +34,14 @@ public class TileInfo : MonoBehaviour
         unitcheckobj = GameObject.Find("map");
         UTC = unitcheckobj.GetComponent<Unit_Tile_Check>();
 
+        //現在の座標からマップ座標を調べる
         TILE_X = tile.transform.position.x + 54;
         TILE_Y = -tile.transform.position.y + 54;
-
         x = TILE_X / (TILESIZE_X + TILESPACE);
         y = TILE_Y / (TILESIZE_Y + TILESPACE);
-
         TileNum = y * 25 + x;
-
+        
+        //移動可能のタイルならそのマップ座標をfalseに移動不可ならtrueにする
         if (tile.name == "grass(Clone)" || tile.name == "water(Clone)" || tile.name == "area2(Clone)" || tile.name == "resource(Clone)")
         {
             UTC.tile[(int)TileNum] = false;

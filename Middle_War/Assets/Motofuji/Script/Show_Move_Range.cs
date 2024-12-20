@@ -79,13 +79,9 @@ public class Show_Move_Range : MonoBehaviour
                             if (summon_y < 0) summon_y = 0;
                             if (summon_x >= 25) summon_x = 24;
                             if (summon_y >= 25) summon_y = 24;
-                            //範囲がマップ外に出ていない
-                            if ((summon_x + summon_y * 25) >= 0 && (summon_x + summon_y * 25) < (CM.MAPSIZE_X * CM.MAPSIZE_Y))
-                            {
-                                //タイルが草もしくは水でユニットが居ない場合数値を置く
-                                if (move_range_research[summon_x + summon_y * 25] == -1 && (CM.map[summon_x + summon_y * 25] == 0 || CM.map[summon_x + summon_y * 25] == 2) && !UTC.tile[summon_x + summon_y * 25])
-                                    move_range_research[summon_x + summon_y * 25] = c - 1;
-                            }
+                            //タイルが草もしくは水でユニットが居ない場合数値を置く
+                            if (move_range_research[summon_x + summon_y * 25] == -1 && (CM.map[summon_x + summon_y * 25] == 0 || CM.map[summon_x + summon_y * 25] == 2) && !UTC.tile[summon_x + summon_y * 25])
+                                move_range_research[summon_x + summon_y * 25] = c - 1;
                         }
                     }
                 }

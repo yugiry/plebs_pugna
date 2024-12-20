@@ -11,6 +11,7 @@ public class singleton : MonoBehaviour
 
     private void Awake()
     {
+        //同じオブジェクトは消す
         if(instance != null)
         {
             Destroy(gameObject);

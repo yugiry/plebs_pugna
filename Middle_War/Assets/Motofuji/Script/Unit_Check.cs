@@ -9,7 +9,8 @@ public class Unit_Check : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Eunit" || collision.tag == "unit" || collision.name == "move_checker")
+        //ユニットがいるならtrueにする
+        if (collision.tag == "Eunit" || collision.tag == "unit")
         {
             onunit = true;
         }
@@ -17,6 +18,7 @@ public class Unit_Check : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //ユニットがいなくなったらfalseにする
         if (collision.tag == "Eunit" || collision.tag == "unit")
         {
             onunit = false;

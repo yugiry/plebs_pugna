@@ -25,6 +25,7 @@ public class UI_Operate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //ユニットがマップ上に召喚されたら増やす
         if (other.tag == "unit" && PUnit_Num < MaxUnit)
         {
             PUnit_Num++;
@@ -39,6 +40,7 @@ public class UI_Operate : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //ユニットが破壊されたら減らす
         if (other.tag == "unit")
         {
             PUnit_Num--;
