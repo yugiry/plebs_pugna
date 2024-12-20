@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class OnClick : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] GameObject panel;
-
+    [SerializeField] GameObject panel;//他から変数読み取り
+    //ゲームオブジェクト名・変数宣言
     public Sprite newSprite;
     private Image image;
 
@@ -17,10 +17,9 @@ public class OnClick : MonoBehaviour, IPointerClickHandler
         image = GetComponent<Image>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)//特定の場所をクリックすると条件内に入る
     {
-        // クリックされた時に行いたい処理
-        panel.SetActive(true);
-        image.sprite = newSprite;
+        panel.SetActive(true); // クリックされた時プラン表示処理
+        image.sprite = newSprite;//画像＝新しいスクリプト
     }
 }

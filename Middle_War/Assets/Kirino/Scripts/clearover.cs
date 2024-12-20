@@ -26,6 +26,6 @@ public class clearover : MonoBehaviour
     // 画像を非表示にする
     void InactiveText()//テキスト宣言
     {
-        mainText.SetActive(false);
+        mainText.SetActive(false);//テキスト非表示
     }
 }

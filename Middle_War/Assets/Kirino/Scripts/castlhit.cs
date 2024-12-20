@@ -18,7 +18,7 @@ public class castlhit : MonoBehaviour
     public GameObject nextBotton;
 
     //現在はテキスト　あとで画像に変更する
-    Text titleText;//テキスト設定
+    Text titleText;//タイトルテキスト設定
     void Start()
     {
         // 現在のHPを最大HPで初期化

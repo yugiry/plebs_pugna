@@ -17,7 +17,7 @@ public class enemycastlhit : MonoBehaviour
     public GameObject nextBotton;
 
     //現在はテキスト　あとで画像に変更する
-    Text titleText;
+    Text titleText;//タイトルテキスト設定
     void Start()
     {
         // 現在のHPを最大HPで初期化
@@ -55,7 +55,7 @@ public class enemycastlhit : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Base HP: " + currentHealth.ToString();
+            healthText.text = "Base HP: " + currentHealth.ToString();//HP管理
         }
     }
 

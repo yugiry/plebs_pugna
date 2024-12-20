@@ -5,7 +5,7 @@ using UnityEngine;
 public class unitsummohn : MonoBehaviour
 {
   
-    GameObject clickedGameObject;
+    GameObject clickedGameObject;//ゲームオブジェクト宣言
 
     // Update is called once per frame
     void Update()

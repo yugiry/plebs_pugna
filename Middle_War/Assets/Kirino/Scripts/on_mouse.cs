@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class on_mouse : MonoBehaviour
-{
+{//ゲームオブジェクト名・関数宣言
     public GameObject obj;
     AudioSource GameObject_Audio;
     AudioClip Source;
@@ -13,19 +13,19 @@ public class on_mouse : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        GameObject_Audio = obj.GetComponent<AudioSource>();
+        GameObject_Audio = obj.GetComponent<AudioSource>();//ゲームオブジェクトにオーディオソースを追加
     }
 
     public void OnMouseEnter()
     {
-        if (first_hit == false && !country_board.activeSelf)
+        if (first_hit == false && !country_board.activeSelf)//なにかが非表示になった時条件内に入る
         {
-            GameObject_Audio.Play();
-            first_hit = true;
+            GameObject_Audio.Play();//ゲームオブジェクトのオーディオソースをプレイする
+            first_hit = true;//なにかがヒットした時表示する
         }
     }
-    public void OnMouseExit()
+    public void OnMouseExit()//キー設定
     {
-        first_hit = false;
+        first_hit = false;//非表示
     }
 }

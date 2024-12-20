@@ -51,7 +51,7 @@ public class infan : MonoBehaviour
                 renum = CMinfo.Now_PResource;
                 apnum = apnum - consumed_AP;//マップに変更時AP消費
                 renum = renum - consumed_Resource;
-                if (unitnum < 20 && apnum >= 0 && renum >= 0)
+                if (unitnum < 20 && apnum >= 0 && renum >= 0)//条件設定
                 {
                     mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスポイント設定
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -63,9 +63,9 @@ public class infan : MonoBehaviour
                     {
                         for (int x = 0; x < 25; x++)
                         {
-                            if (mousepos.x > (x * 4.5f) - 2 && mousepos.x < (x * 4.5f) + 2)
+                            if (mousepos.x > (x * 4.5f) - 2 && mousepos.x < (x * 4.5f) + 2)//マウスポインター横軸升目計算
                             {
-                                if (mousepos.y > (y * 4.5f) - 2 && mousepos.y < (y * 4.5f) + 2)
+                                if (mousepos.y > (y * 4.5f) - 2 && mousepos.y < (y * 4.5f) + 2)//マウスポインター縦軸升目計算
                                 {
                                     clickedGameObject = hit2d.transform.gameObject;
                                     if (clickedGameObject.name == "area1(Clone)")//クリック時マップタイトル名の各処理
@@ -94,7 +94,7 @@ public class infan : MonoBehaviour
 
     public void Click()//クリック時の処理
     {
-        castlevalue.SetActive(false);
+        castlevalue.SetActive(false);//クリック時ゲームオブジェクト表示・非表示設定
         unitstatus.SetActive(true);
         unitstatus1.SetActive(false);
         unitstatus2.SetActive(false);
