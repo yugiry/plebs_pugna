@@ -58,15 +58,18 @@ public class CreateMap : MonoBehaviour
     //csvファイルの場所
     private string test_map = "Assets/alpha/Resources/map(stage2).csv";
     public string[] map_info;
-    //private string map2 = "Resources/map(stage2).csv";
-    //private string map3 = "Resources/map(stage3).csv";
-    //private string map4 = "Resources/map(stage4).csv";
-    private string map2 = "Assets/alpha/Resources/map(stage2).csv";
-    private string map3 = "Assets/alpha/Resources/map(stage3).csv";
-    private string map4 = "Assets/alpha/Resources/map(stage4).csv";
-    private string map5 = "Assets/alpha/Resources/map(stage5).csv";
-    private string map6 = "Assets/alpha/Resources/map(stage6).csv";
-    private string map7 = "Assets/alpha/Resources/map(stage7).csv";
+    private string map2 = "Resources/map(stage2).csv";
+    private string map3 = "Resources/map(stage3).csv";
+    private string map4 = "Resources/map(stage4).csv";
+    private string map5 = "Resources/map(stage5).csv";
+    private string map6 = "Resources/map(stage6).csv";
+    private string map7 = "Resources/map(stage7).csv";
+    //private string map2 = "Assets/alpha/Resources/map(stage2).csv";
+    //private string map3 = "Assets/alpha/Resources/map(stage3).csv";
+    //private string map4 = "Assets/alpha/Resources/map(stage4).csv";
+    //private string map5 = "Assets/alpha/Resources/map(stage5).csv";
+    //private string map6 = "Assets/alpha/Resources/map(stage6).csv";
+    //private string map7 = "Assets/alpha/Resources/map(stage7).csv";
 
     //playerAPの管理をする数値。
     int Maximam_PAP = 999;
