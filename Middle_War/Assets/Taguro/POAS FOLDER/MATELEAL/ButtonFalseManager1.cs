@@ -18,8 +18,8 @@ public class ButtonFalseManager1 : MonoBehaviour
   
     public void onClick()
     {
-        NameButton.SetActive(false);//•\Ž¦
+        NameButton.SetActive(false);//”ñ•\Ž¦
 
-        NameEnter.SetActive(true);
+        NameEnter.SetActive(true);//•\Ž¦
     }
 }

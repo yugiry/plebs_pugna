@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class changeSeean : MonoBehaviour
+public class ChangeScene : MonoBehaviour
 {
    
     public void change_button()
