@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6134193627843715364}
   - component: {fileID: 902332047830696948}
   - component: {fileID: 2769780600076685392}
-  - component: {fileID: 1523884558810518888}
   - component: {fileID: 5360477876072996604}
   m_Layer: 0
   m_Name: move_checker
@@ -82,18 +81,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1523884558810518888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383385519064879902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d8d7278c3faf24099da6f9345bc19b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &5360477876072996604
 SpriteRenderer:
   m_ObjectHideFlags: 0

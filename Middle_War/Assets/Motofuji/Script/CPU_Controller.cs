@@ -312,8 +312,8 @@ public class CPU_Controller : PlayerUnit_Base
         UT = obj.GetComponent<UnitTile>();
         y = UT.Unit_TileNum / 25;
         x = UT.Unit_TileNum % 25;
-        hrd = RanDom(0,10);
-        if (hrd < 5)//頭いい(弓兵とカタパルトが城に向かって進軍していく)
+        hrd = RanDom(0,12);
+        if (hrd < 8)//頭いい(城に向かって進軍していく)
         {
             //ユニットの位置の上下左右を調べる
             for (int k = 0; k < 4; k++)
@@ -365,12 +365,13 @@ public class CPU_Controller : PlayerUnit_Base
                             UT.Unit_TileNum = move_y * 25 + move_x;
                             obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * move_x, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * move_y, obj.transform.position.z);
                             CM.EChange_REAP(apnum, renum);
+                            break;
                         }
                     }
                 }
             }
         }
-        else if (hrd < 10)//頭悪い
+        else if (hrd < 12)//頭悪い
         {
             //移動方向を四方向からランダムに決める
             mrd = RanDom(0, 4);
