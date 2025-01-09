@@ -20,6 +20,8 @@ public class mapfaito : MonoBehaviour
     GameObject rcnobj;
     remenber_country_num RCN;
 
+    private Text nameText;
+
     private void Awake()
     {
         rcnobj = GameObject.Find("country_info");
@@ -34,7 +36,7 @@ public class mapfaito : MonoBehaviour
         switch (countrynum) //受け取った値別処理
         {
             case 1:
-                text1.text = "自国"; //国名
+                text1.text = NameMneger.name+"の国"; //国名
                 text2.text = "どんどん敵国を攻め領土を拡張して天下統一を目指そう！！"; //国説明
                 Button.SetActive(false); //ボタン表示（自国はボタン表示しない）
                 mapbatoru.transform.position = new Vector3(0, 0, 50); //国情報ボード表示位置
