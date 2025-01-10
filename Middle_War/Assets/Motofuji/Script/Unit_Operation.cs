@@ -142,7 +142,7 @@ public class Unit_Operation : PlayerUnit_Base
                     {
                         if (attack_cnt == 0)
                         {
-                            if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, clickedGameObject, unit))
+                            if (Attack_Unit(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, clickedGameObject, unit))
                             {
                                 casAS.Play();
                                 attack_cnt++;
@@ -153,7 +153,7 @@ public class Unit_Operation : PlayerUnit_Base
                     {
                         if (attack_cnt == 0)
                         {
-                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 1, attack, unit, ECH, PCH))
+                            if (Attack_Castle(unit.transform.position, clickedGameObject.transform.position, 4, 2, attack, unit, ECH, PCH))
                             {
                                 attack_cnt++;
                             }

@@ -19,6 +19,10 @@ public class Attack_Check : MonoBehaviour
         {
             canattack = collision.gameObject;
         }
+        if (collision.tag == "castle")
+        {
+            canattack = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

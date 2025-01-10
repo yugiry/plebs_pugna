@@ -11,8 +11,8 @@ public class PlayerUnit_Base : MonoBehaviour
     [NonSerialized] public float SetTileStart_Y = 54;
     [NonSerialized] public float SetTile_Z = 20;
     //タイルの大きさ
-    [NonSerialized] public float TILESIZE_X = 4;
-    [NonSerialized] public float TILESIZE_Y = 4;
+    [NonSerialized] public float TILESIZE_X = 4.0f;
+    [NonSerialized] public float TILESIZE_Y = 4.0f;
     //マップサイズ
     [NonSerialized] public int MAPSIZE_X = 25;
     [NonSerialized] public int MAPSIZE_Y = 25;
@@ -67,9 +67,9 @@ public class PlayerUnit_Base : MonoBehaviour
         v.x = Mathf.Abs(v.x);
         v.y = Mathf.Abs(v.y);
         //攻撃範囲に攻撃したいオブジェクトがいるか確認
-        if (v.x <= max * (TILESIZE_X + TILESPACE) && v.y <= max * (TILESIZE_Y + TILESPACE))
+        if (v.x <= max * (TILESIZE_X + TILESPACE + TILESPACE) && v.y <= max * (TILESIZE_Y + TILESPACE + TILESPACE))
         {
-            if (v.x >= min * (TILESIZE_X + TILESPACE) || v.y >= min * (TILESIZE_Y + TILESPACE))
+            if (v.x >= min * (TILESIZE_X + TILESPACE - TILESPACE) || v.y >= min * (TILESIZE_Y + TILESPACE - TILESPACE))
             {
                 switch (Uobj.tag)
                 {
@@ -102,9 +102,9 @@ public class PlayerUnit_Base : MonoBehaviour
         v.x = Mathf.Abs(v.x);
         v.y = Mathf.Abs(v.y);
         //攻撃範囲に攻撃したいオブジェクトがいるか確認
-        if (v.x <= max * (TILESIZE_X + TILESPACE) && v.y <= max * (TILESIZE_Y + TILESPACE))
+        if (v.x <= max * (TILESIZE_X + TILESPACE + TILESPACE) && v.y <= max * (TILESIZE_Y + TILESPACE + TILESPACE))
         {
-            if (v.x >= min * (TILESIZE_X + TILESPACE) || v.y >= min * (TILESIZE_Y + TILESPACE))
+            if (v.x >= min * (TILESIZE_X + TILESPACE - TILESPACE) || v.y >= min * (TILESIZE_Y + TILESPACE - TILESPACE))
             {
                 switch (Uobj.tag)
                 {

@@ -541,24 +541,13 @@ public class CPU_Controller : PlayerUnit_Base
                                     summon_or_action = RanDom(0, 100);
                                     return false;
                                 }
-                                y = UT.Unit_TileNum / 25;
-                                x = UT.Unit_TileNum % 25;
-                                for (int i = y - 2; i < y + 2; i++)
+                                else if(AC.Can_Attack().tag == "castle")
                                 {
-                                    for (int j = x - 2; j < x + 2; j++)
-                                    {
-                                        if (i >= 0 && i < 25 && j >= 0 && j < 25 && (i != y && j != x))
-                                        {
-                                            if (CM.map[i * 25 + j] == 4)
-                                            {
-                                                PCH.HitAttack(EUO.attack);
-                                                EUO.attack_cnt++;
-                                                Debug.Log("çUåÇ4.5");
-                                                summon_or_action = RanDom(0, 100);
-                                                return false;
-                                            }
-                                        }
-                                    }
+                                    PCH.HitAttack(EUO.attack);
+                                    EUO.attack_cnt++;
+                                    Debug.Log("çUåÇ4.5");
+                                    summon_or_action= RanDom(0, 100);
+                                    return false;
                                 }
                                 break;
                             case "Ccatapalt(Clone)":
@@ -571,26 +560,15 @@ public class CPU_Controller : PlayerUnit_Base
                                     summon_or_action = RanDom(0, 100);
                                     return false;
                                 }
-                                y = UT.Unit_TileNum / 25;
-                                x = UT.Unit_TileNum % 25;
-                                for (int i = y - 4; i < y + 4; i++)
+                                else if (AC.Can_Attack().tag == "castle")
                                 {
-                                    for (int j = x - 4; j < x + 4; j++)
-                                    {
-                                        if (i >= 0 && i < 25 && j >= 0 && j < 25 && (i < y - 1 || i > y + 1 || j < x - 1 || j > x + 1))
-                                        {
-                                            if (CM.map[i * 25 + j] == 4)
-                                            {
-                                                PCH.HitAttack(EUO.attack);
-                                                EUO.attack_cnt++;
-                                                Debug.Log("çUåÇ4.5");
-                                                summon_or_action = RanDom(0, 100);
-                                                return false;
-                                            }
-                                        }
-                                    }
+                                    PCH.HitAttack(EUO.attack);
+                                    EUO.attack_cnt++;
+                                    Debug.Log("çUåÇ4.5");
+                                    summon_or_action = RanDom(0, 100);
+                                    return false;
                                 }
-                                break;                    
+                                break;                 
                         }
                     }
                 }

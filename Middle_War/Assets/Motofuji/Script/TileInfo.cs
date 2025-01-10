@@ -55,7 +55,11 @@ public class TileInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //自陣のエリアはずっと進行不能にする
+        if(tile.name == "area1(Clone)" && UTC.tile[(int)TileNum] == false)
+        {
+            UTC.tile[(int)TileNum] = true;
+        }
     }
 
     public void OnClicked()
