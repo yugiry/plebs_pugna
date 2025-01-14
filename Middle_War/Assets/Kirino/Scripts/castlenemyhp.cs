@@ -60,4 +60,11 @@ public class castlenemyhp : MonoBehaviour
             
         
     }
+
+    public void HitAttack(int hit)
+    {
+        nowhp -= hit;
+        hpText.text = nowhp.ToString() + "/" + maxhp.ToString();//HPテキスト変更処理
+    }
+
 }
