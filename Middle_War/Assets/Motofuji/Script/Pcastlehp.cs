@@ -14,6 +14,10 @@ public class Pcastlehp : MonoBehaviour
 
     public AudioSource CastleHitAudioSound;
 
+    //城の差分を変えるエリア
+    SpriteRenderer SR;
+    [SerializeField] Sprite[] player_castle_image;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,41 @@ public class Pcastlehp : MonoBehaviour
             bt.interactable = false;
             //mainText.GetComponent<Text>().sprite = gameOverSpr; //画像を設定する
         }
+
+        if (SR == null)
+        {
+
+            SR = GameObject.Find("castle1(Clone)").GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
+                                                                                  //SR.sprite = enemy_castle_image[2];
+
+        }
+
+
+        Debug.Log("検索終了");
+
+        switch (Now_Hp / 7)
+        {
+            case 0:
+                SR.sprite = player_castle_image[4];
+                break;
+            case 1:
+                SR.sprite = player_castle_image[3];
+                break;
+            case 2:
+                SR.sprite = player_castle_image[2];
+                break;
+            case 3:
+                SR.sprite = player_castle_image[1];
+                break;
+            case 4:
+                SR.sprite = player_castle_image[0];
+                break;
+            default:
+                SR.sprite = player_castle_image[0];
+                break;
+
+        }
+
     }
 
     public void HitAttack(int hit)
