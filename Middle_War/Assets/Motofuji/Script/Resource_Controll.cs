@@ -33,6 +33,7 @@ public class Resource_Controll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //5‰ñƒ^[ƒ“‚ª‰ß‚¬‚½‚ç‘Œ¹‚ğÌ‚ê‚éó‘Ô‚É‚·‚é
         if (troughturn == 0)
         {
             OnResource = true;

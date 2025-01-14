@@ -11,7 +11,7 @@ public class audio_Controller : MonoBehaviour
     //ゲームオブジェクト名・変数宣言
     bool PlaySound;
     public mapfaito MF;
-
+    [SerializeField] GameObject NotClick;
     private void Start()
     {
         source = GetComponent<AudioSource>();//オーディオソウスを取得。
@@ -33,6 +33,7 @@ public class audio_Controller : MonoBehaviour
 
     public void click_fight()
     {
+        NotClick.SetActive(true);
         source.PlayOneShot(clips[1]);//クリップ１の音声データを再生
         PlaySound = true;//サウンド再生
     }

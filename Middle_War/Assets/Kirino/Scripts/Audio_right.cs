@@ -8,6 +8,8 @@ public class Audio_right : MonoBehaviour
     AudioSource audioSource;
     public GameObject soundObj;//サウンドオブジェクト
     public GameObject info;
+    [SerializeField] audio_Controller AC;
+
     void Start()
     {
         //Componentを取得
