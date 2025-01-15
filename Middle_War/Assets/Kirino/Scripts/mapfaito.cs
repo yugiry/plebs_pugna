@@ -13,7 +13,6 @@ public class mapfaito : MonoBehaviour
     public GameObject mapbatoru;
     [SerializeField] public Text text1;//１つ目のテキスト変換
     [SerializeField] public Text text2;//２つ目のテキスト変換
-    //[SerializeField] enemynemaplate enemynemaplate;
     public Image image; //画像表示
     public GameObject Button;//敵とのバトルボタン
     public Sprite[] newSprite;//画像表示追加

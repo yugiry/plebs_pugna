@@ -5,6 +5,7 @@ using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class CreateMap : MonoBehaviour
 {
@@ -91,6 +92,8 @@ public class CreateMap : MonoBehaviour
     public int Now_EResource = 0;
     [SerializeField] Text ERE_Text;
 
+    public Text country_text;
+
     /// <summary>
     /// csvファイルの読み込み用モジュール
     /// </summary>
@@ -132,9 +135,33 @@ public class CreateMap : MonoBehaviour
         if (CN != null)
         {
             RCN = CN.GetComponent<remenber_country_num>();
-            if( RCN != null )
+            if (RCN != null)
             {
                 smap = Csv_Input(map_info[RCN.country_num]);
+                switch (RCN.country_num)
+                {
+                case 2:
+                   country_text.text = "フスラン";
+                   break;
+                case 3:
+                   country_text.text = "ア・タイリ";
+                   break;
+                case 4:
+                   country_text.text = "アイべり半島";
+                   break;
+                case 5:
+                   country_text.text = "アベチネ";
+                   break;
+                case 6:
+                   country_text.text = "ナクウイラ";
+                   break;
+                case 7:
+                   country_text.text = "アブリカル";
+                   break;
+                default:
+                   Debug.Log("Default"); //switch処理の最後
+                   break;
+                }
             }
         }
         else
