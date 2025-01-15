@@ -17,6 +17,7 @@ public class Mouse_SE : MonoBehaviour
 
     public void OnMouseEnter()
     {
+        //マウスカーソルが重なったとき一度だけ音声を鳴らす
         if (first_hit == false) 
         {
            button_Audio.Play();
@@ -26,6 +27,7 @@ public class Mouse_SE : MonoBehaviour
 
     public void OnMouseExit()
     {
+        //マウスカーソルが離れたら鳴るように戻す
         first_hit = false;
     }
 

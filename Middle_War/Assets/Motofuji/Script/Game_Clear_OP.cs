@@ -14,7 +14,7 @@ public class Game_Clear_OP : MonoBehaviour
         CFO = clear_flag.GetComponent<clear_flag_operation>();
         if (CFO.clear_flag[3])
         {
-            clear_board.SetActive(true);
+            //clear_board.SetActive(true);
         }
     }
 

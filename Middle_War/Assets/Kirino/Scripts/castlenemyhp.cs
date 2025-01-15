@@ -13,7 +13,9 @@ public class castlenemyhp : MonoBehaviour
     SpriteRenderer SR;
     [SerializeField] Sprite[] enemy_castle_image;
 
-    Ecastlehp Ecas_hp;
+    GameObject MAP;
+    Ecastlehp ECHP;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +25,17 @@ public class castlenemyhp : MonoBehaviour
         //SR = c2.GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
         //SR.sprite = enemy_castle_image[2];
 
+        
+        MAP = GameObject.Find("map");
+        ECHP = MAP.GetComponent<Ecastlehp>();
+        
 
     }
-
+    public void HitAttack(int hit)
+    {
+        nowhp -= hit;
+        hpText.text = nowhp.ToString() + "/" + maxhp.ToString();//HPテキスト変更処理
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,35 +46,33 @@ public class castlenemyhp : MonoBehaviour
                                                    //SR.sprite = enemy_castle_image[2];
 
         }
-       // Ecas_hp = GetComponent<Ecastlehp>;
+        
 
         Debug.Log("検索終了");
-            
-                if (nowhp >= 30&&nowhp<35)
-                {
-                    SR.sprite = enemy_castle_image[0];
-                }
-                 if (nowhp >= 20 && nowhp < 30)
-                {
-                    SR.sprite = enemy_castle_image[1];
-                }
-                 if (nowhp >= 10 && nowhp < 20)
-                {
-                    SR.sprite = enemy_castle_image[2];
-                }
 
-                if (nowhp == 0)
-                {
+        //nowhp = Ecas_hp.Now_Hp;
 
-                }
+       /* if (nowhp >= 30 && nowhp <= 35)
+        {
+            SR.sprite = enemy_castle_image[0];
+        }
+        else if (nowhp >= 20 && nowhp < 30)
+        {
+            SR.sprite = enemy_castle_image[1];
+        }
+        else if (nowhp >= 10 && nowhp < 20)
+        {
+            SR.sprite = enemy_castle_image[2];
+        }*/
+
+        if (nowhp == 0)
+        {
+
+        }
             
         
     }
 
-    public void HitAttack(int hit)
-    {
-        nowhp -= hit;
-        hpText.text = nowhp.ToString() + "/" + maxhp.ToString();//HPテキスト変更処理
-    }
+   
 
 }

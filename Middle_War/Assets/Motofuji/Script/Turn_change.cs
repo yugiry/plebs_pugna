@@ -185,8 +185,8 @@ public class Turn_change : MonoBehaviour
             if (APpuls >= 5)
             {
                 APpuls = 5;
-                CM.PChange_REAP(PAP, PRE);
             }
+            CM.PChange_REAP(PAP, PRE);
         }
     }
 }

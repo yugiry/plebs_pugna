@@ -15,11 +15,13 @@ public class remenber_country_num : MonoBehaviour
 
     public void Check_GameClear()
     {
+        //敵の城を破壊したらクリアフラグをtrueにする
         clear_flag = true;
     }
 
     public void Check_GameOver()
     {
+        //プレイヤーの城が破壊されたらクリアフラグをfalseにする
         clear_flag = false;
     }
 }
