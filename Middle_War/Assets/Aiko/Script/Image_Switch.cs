@@ -285,7 +285,7 @@ public class Image_Switch : MonoBehaviour
                 switch (text_num_num)
                 {
                     case 0:
-                        my_text.text = "\n敵軍によって自軍の本陣のHPが0にされれば敗北となる。\n";
+                        my_text.text = "\n敵の攻撃によって\n自軍の本陣のHPが0にされれば敗北となる。\n";
                         break;
                     default:
                         text_num_num = 0;
@@ -298,7 +298,7 @@ public class Image_Switch : MonoBehaviour
                 my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n森、深い水…全てのユニットが通ることができない場所。\n水…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n";
                         break;
                     case 1:
-                        my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。\n歩兵でのみ回収が可能。\n回収後は一定ターンが経過するまで再回収できなくなる。\n";
+                        my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。\n歩兵でのみ回収が可能だが、回収後は一定ターンが経過するまで再回収できなくなる。\n";
                         break;
                     default:
                         text_num_num = 1;
