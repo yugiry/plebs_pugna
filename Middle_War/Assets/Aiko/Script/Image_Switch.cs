@@ -295,13 +295,16 @@ public class Image_Switch : MonoBehaviour
             case 6://フィールド情報
                 switch (text_num_num) {
                     case 0:
-                my_text.text = "\n草…どのユニットも特に障害なく移動することができる。\n森、深い水…全てのユニットが通ることができない場所。\n水…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n";
+                my_text.text = "\n草…どのユニットも特に障害なく移動することができる\n\n水…どのユニットでも通ることができるが移動時の消費AP量がそれぞれ1ずつ増える。\n";
                         break;
                     case 1:
+                        my_text.text = "\n森、深い水…全てのユニットが通ることができない場所\n";
+                        break;
+                    case 2:
                         my_text.text = "\n資材…カタパルトを召喚する為に必要なもの。\n歩兵でのみ回収が可能だが、回収後は一定ターンが経過するまで再回収できなくなる。\n";
                         break;
                     default:
-                        text_num_num = 1;
+                        text_num_num = 2;
                         break;
                 }
                 break;
