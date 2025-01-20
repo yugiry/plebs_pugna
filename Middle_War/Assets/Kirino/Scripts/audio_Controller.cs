@@ -22,7 +22,7 @@ public class audio_Controller : MonoBehaviour
     {
         if(PlaySound && !source.isPlaying)
         {
-            MF.change_button();//ボタン変更
+            MF.Change_Button();//ボタン変更
         }
     }
 
