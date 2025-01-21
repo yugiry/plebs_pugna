@@ -61,7 +61,7 @@ public class Resource_Controll : MonoBehaviour
             {
                 re = 999;
             }
-            CM.PChange_REAP(ap, re);
+            CM.Character(ap, re, 0);
             RI.sprite = RS2;
         }
     }
@@ -82,7 +82,7 @@ public class Resource_Controll : MonoBehaviour
             {
                 re = 999;
             }
-            CM.EChange_REAP(ap, re);
+            CM.Character(ap, re, 1);
             RI.sprite = RS2;
         }
     }

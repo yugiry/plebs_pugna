@@ -45,7 +45,7 @@ public class Show_Attack_Range : MonoBehaviour
                     {
                         if (attack_cnt == 0)
                         {
-                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TileSize_X + CM.TileSpace) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TileSize_Y + CM.TileSpace) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
                             //指定座標にタイルのクローンを呼び出す
                         }
                     }
@@ -75,7 +75,7 @@ public class Show_Attack_Range : MonoBehaviour
                     {
                         if (attack_cnt == 0)
                         {
-                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TileSize_X + CM.TileSpace) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TileSize_Y + CM.TileSpace) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
                             //指定座標にタイルのクローンを呼び出す
                         }
                     }
@@ -101,7 +101,7 @@ public class Show_Attack_Range : MonoBehaviour
                     {
                         if (attack_cnt == 0)
                         {
-                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TILESIZE_X + CM.TILESPACE) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TILESIZE_Y + CM.TILESPACE) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
+                            unitclick = Instantiate(unit_click, new Vector3(CM.SetTileStart_X + (CM.TileSize_X + CM.TileSpace) * (tilenum_x + x), CM.SetTileStart_Y - (CM.TileSize_Y + CM.TileSpace) * (tilenum_y + y), 15.0f), Quaternion.identity, parent) as GameObject;
                             //指定座標にタイルのクローンを呼び出す
                         }
 

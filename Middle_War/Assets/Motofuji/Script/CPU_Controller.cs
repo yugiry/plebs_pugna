@@ -70,8 +70,8 @@ public class CPU_Controller : PlayerUnit_Base
         TC = mapobj.GetComponent<Turn_change>();
         UTC = mapobj.GetComponent<Unit_Tile_Check>();
         PCH = mapobj.GetComponent<Pcastlehp>();
-        research_move = new int[CM.MAPSIZE_X * CM.MAPSIZE_Y];
-        for (int i = 0; i < CM.MAPSIZE_X * CM.MAPSIZE_Y; i++)
+        research_move = new int[CM.MapSize_X * CM.MapSize_Y];
+        for (int i = 0; i < CM.MapSize_X * CM.MapSize_Y; i++)
         {
             research_move[i] = -1;
         }
@@ -94,12 +94,12 @@ public class CPU_Controller : PlayerUnit_Base
             for (int c = 0; c < 50; c++)
             {
                 //マップ全てを調べる
-                for (int y = 0; y < CM.MAPSIZE_Y; y++)
+                for (int y = 0; y < CM.MapSize_Y; y++)
                 {
-                    for (int x = 0; x < CM.MAPSIZE_X; x++)
+                    for (int x = 0; x < CM.MapSize_X; x++)
                     {
                         //今調べてるマスの数値がcと同じならそのマスの上下左右を調べる
-                        if (research_move[y * CM.MAPSIZE_Y + x] == c)
+                        if (research_move[y * CM.MapSize_Y + x] == c)
                         {
                             for (int k = 0; k < 4; k++)
                             {
@@ -264,7 +264,7 @@ public class CPU_Controller : PlayerUnit_Base
                         Sunit = Instantiate(infantry, new Vector3(area.transform.position.x, area.transform.position.y, 14.0f), Quaternion.identity);
                         UTC.tile[UC.tilenum] = true;
                         Sunit.GetComponent<UnitTile>().Unit_TileNum = UC.tilenum;
-                        CM.EChange_REAP(apnum, renum);
+                        CM.Character(apnum, renum, 1);
                     }
                 }
                 else if (surd < 40)//弓兵召喚
@@ -275,7 +275,7 @@ public class CPU_Controller : PlayerUnit_Base
                         Sunit = Instantiate(archer, new Vector3(area.transform.position.x, area.transform.position.y, 14.0f), Quaternion.identity);
                         UTC.tile[UC.tilenum] = true;
                         Sunit.GetComponent<UnitTile>().Unit_TileNum = UC.tilenum;
-                        CM.EChange_REAP(apnum, renum);
+                        CM.Character(apnum, renum, 1);
                     }
                 }
                 else if (surd < 50)//カタパルト召喚
@@ -287,7 +287,7 @@ public class CPU_Controller : PlayerUnit_Base
                         Sunit = Instantiate(catapalt, new Vector3(area.transform.position.x, area.transform.position.y, 14.0f), Quaternion.identity);
                         UTC.tile[UC.tilenum] = true;
                         Sunit.GetComponent<UnitTile>().Unit_TileNum = UC.tilenum;
-                        CM.EChange_REAP(apnum, renum);
+                        CM.Character(apnum, renum, 1);
                     }
                 }
                 else
@@ -340,15 +340,15 @@ public class CPU_Controller : PlayerUnit_Base
                 move_x = x + dx;
                 move_y = y + dy;
                 //移動先にユニットがいるか確認
-                if (!UTC.tile[move_y * CM.MAPSIZE_Y + move_x])
+                if (!UTC.tile[move_y * CM.MapSize_Y + move_x])
                 {
                     //今ユニットがいる場所より進む先の数値のほうが小さかったら進む
-                    if (research_move[y * CM.MAPSIZE_Y + x] > research_move[move_y * CM.MAPSIZE_Y + move_x] && research_move[move_y * CM.MAPSIZE_Y + move_x] >= 0)
+                    if (research_move[y * CM.MapSize_Y + x] > research_move[move_y * CM.MapSize_Y + move_x] && research_move[move_y * CM.MapSize_Y + move_x] >= 0)
                     {
                         EUO = obj.GetComponent<EUnit_Operation>();
                         apnum = CM.Now_EAP;
                         renum = CM.Now_EResource;
-                        switch (CM.map[move_y * CM.MAPSIZE_Y + move_x])
+                        switch (CM.map[move_y * CM.MapSize_Y + move_x])
                         {
                             case 0:
                                 apnum = apnum - EUO.move_ap;
@@ -364,7 +364,7 @@ public class CPU_Controller : PlayerUnit_Base
                             UTC.tile[move_y * 25 + move_x] = true;
                             UT.Unit_TileNum = move_y * 25 + move_x;
                             obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * move_x, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * move_y, obj.transform.position.z);
-                            CM.EChange_REAP(apnum, renum);
+                            CM.Character(apnum, renum, 1);
                             break;
                         }
                     }
@@ -420,7 +420,7 @@ public class CPU_Controller : PlayerUnit_Base
                                 UTC.tile[dy * 25 + dx] = true;
                                 UT.Unit_TileNum = dy * 25 + dx;
                                 obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
+                                CM.Character(apnum, renum, 1);
                                 Debug.Log("移動完了1");
                             }
                             break;
@@ -435,7 +435,7 @@ public class CPU_Controller : PlayerUnit_Base
                                 UTC.tile[dy * 25 + dx] = true;
                                 UT.Unit_TileNum = dy * 25 + dx;
                                 obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
+                                CM.Character(apnum, renum, 1);
                                 Debug.Log("移動完了2");
                             }
                             break;
@@ -472,7 +472,7 @@ public class CPU_Controller : PlayerUnit_Base
                                 UTC.tile[dy * 25 + dx] = true;
                                 UT.Unit_TileNum = dy * 25 + dx;
                                 obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
+                                CM.Character(apnum, renum, 1);
                                 Debug.Log("移動完了3");
                             }
                             break;
@@ -487,7 +487,7 @@ public class CPU_Controller : PlayerUnit_Base
                                 UTC.tile[dy * 25 + dx] = true;
                                 UT.Unit_TileNum = dy * 25 + dx;
                                 obj.transform.position = new Vector3(SetTileStart_X + (TILESIZE_X + TILESPACE) * dx, SetTileStart_Y - (TILESIZE_Y + TILESPACE) * dy, obj.transform.position.z);
-                                CM.EChange_REAP(apnum, renum);
+                                CM.Character(apnum, renum, 1);
                                 Debug.Log("移動完了4");
                             }
                             break;

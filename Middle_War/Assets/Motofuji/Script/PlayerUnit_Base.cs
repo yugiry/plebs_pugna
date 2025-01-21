@@ -173,7 +173,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.PChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 0);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -192,7 +192,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.PChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 0);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -219,7 +219,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.EChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 1);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -237,7 +237,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.EChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 1);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -264,7 +264,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.PChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 0);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -282,7 +282,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.PChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 0);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -303,7 +303,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.EChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 1);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);
@@ -321,7 +321,7 @@ public class PlayerUnit_Base : MonoBehaviour
                                     UTC.tile[_x + _y * 25] = false;
                                     UTC.tile[move_x + move_y * 25] = true;
                                     UT.Unit_TileNum = move_x + move_y * 25;
-                                    CM.EChange_REAP(apnum, renum);
+                                    CM.Character(apnum, renum, 1);
                                     Now_Move_Anim(move_x, move_y, Uobj);
                                     audios.Play();
                                     SMR.Summon_Move_Range(move_x, move_y);

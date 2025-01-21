@@ -22,16 +22,16 @@ public class Show_Move_Range : MonoBehaviour
         CM = mapobj.GetComponent<CreateMap>();
         UO = this.GetComponent<Unit_Operation>();
         UTC = mapobj.GetComponent<Unit_Tile_Check>();
-        move_range_research = new int[CM.MAPSIZE_X * CM.MAPSIZE_Y];
+        move_range_research = new int[CM.MapSize_X * CM.MapSize_Y];
     }
 
     //AP残量によって移動できる範囲を表示(マップ座標X、マップ座標Y)
     public void Summon_Move_Range(int x, int y)
     {
         //配列の初期化
-        for (int i = 0; i < CM.MAPSIZE_Y; i++)
+        for (int i = 0; i < CM.MapSize_Y; i++)
         {
-            for (int j = 0; j < CM.MAPSIZE_X; j++)
+            for (int j = 0; j < CM.MapSize_X; j++)
             {
                 move_range_research[i * 25 + j] = -1;
             }
@@ -46,9 +46,9 @@ public class Show_Move_Range : MonoBehaviour
         for (int c = ap; c > 0; c--)
         {
             //マップの全マスを調べる
-            for (int i = 0; i < CM.MAPSIZE_Y; i++)
+            for (int i = 0; i < CM.MapSize_Y; i++)
             {
-                for (int j = 0; j < CM.MAPSIZE_X; j++)
+                for (int j = 0; j < CM.MapSize_X; j++)
                 {
                     if (move_range_research[i * 25 + j] == c)
                     {
@@ -91,9 +91,9 @@ public class Show_Move_Range : MonoBehaviour
         }
 
         //範囲の表示
-        for (int i = 0; i < CM.MAPSIZE_Y; i++)
+        for (int i = 0; i < CM.MapSize_Y; i++)
         {
-            for (int j = 0; j < CM.MAPSIZE_X; j++)
+            for (int j = 0; j < CM.MapSize_X; j++)
             {
                 //自分の位置と0以下の数値の時は表示しない
                 if (move_range_research[i * 25 + j] >= 0 && move_range_research[i * 25 + j] != ap)

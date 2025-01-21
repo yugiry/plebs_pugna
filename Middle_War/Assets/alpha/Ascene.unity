@@ -1252,7 +1252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0346443, y: 0.27173793}
   m_AnchorMax: {x: 0.19000001, y: 0.4833573}
-  m_AnchoredPosition: {x: -572.45856, y: -74.99999}
+  m_AnchoredPosition: {x: -572.4589, y: -74.99999}
   m_SizeDelta: {x: 297.708, y: 125.568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82519246
@@ -1470,7 +1470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038000003, y: 0.84784514}
   m_AnchorMax: {x: 0.19000001, y: 0.97953606}
-  m_AnchoredPosition: {x: 0.4210205, y: 11.154022}
+  m_AnchoredPosition: {x: 0.42089844, y: 11.154053}
   m_SizeDelta: {x: 77.784, y: -13.969}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140220745
@@ -3704,7 +3704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038000003, y: 0.67022645}
   m_AnchorMax: {x: 0.19000001, y: 0.85828537}
-  m_AnchoredPosition: {x: 2.7664795, y: 0}
+  m_AnchoredPosition: {x: 2.7663574, y: 0}
   m_SizeDelta: {x: 73.093, y: 19.919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461119040
@@ -4507,7 +4507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8145259, y: 0.289}
   m_AnchorMax: {x: 0.9688815, y: 0.5}
-  m_AnchoredPosition: {x: 578.5464, y: -78.99947}
+  m_AnchoredPosition: {x: 578.5464, y: -78.99943}
   m_SizeDelta: {x: 295.859, y: 124.582}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575241305
@@ -9024,7 +9024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8146444, y: 0.4833573}
   m_AnchorMax: {x: 0.9682887, y: 0.6976427}
-  m_AnchoredPosition: {x: -11.251038, y: -15.386002}
+  m_AnchoredPosition: {x: -11.250977, y: -15.386002}
   m_SizeDelta: {x: 63.688, y: -30.772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254311365
@@ -11077,26 +11077,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ba5b856cf83f4cba5da87eabb5630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileobj: {fileID: 1021346003}
+  TileObj: {fileID: 1021346003}
   CPUC: {fileID: 663311805}
   UTC: {fileID: 1523374846}
-  grass: {fileID: 4821690102011471434, guid: 910c4841c38b42948bf23ae5a256363e, type: 3}
-  mountain: {fileID: 5104088506441295888, guid: 33e1834dc703e924a983abded1c94798, type: 3}
-  water: {fileID: 7893296592390915762, guid: 8d677c2da07d8cf489bfb035805b3617, type: 3}
-  morewater: {fileID: 5632881253260303119, guid: 26667867c5b3a2d4c973b6b6be58d7e1, type: 3}
-  castle1: {fileID: 4359976221516815202, guid: bbba697feb0637c4e8770d6d39d3ec6b, type: 3}
-  area1: {fileID: 2426507382235697720, guid: 54e391cc32b95b243a08c4c918013840, type: 3}
-  castle2: {fileID: 1213876710587599552, guid: 186fd56998069884083810863b4b910c, type: 3}
-  area2: {fileID: 5287506839225980733, guid: 59e498487c070914a9dffd6462afce28, type: 3}
-  resource: {fileID: 7153855201956926095, guid: 2c57a343951a4b44486ecb16c9732c69, type: 3}
+  Grass: {fileID: 4821690102011471434, guid: 910c4841c38b42948bf23ae5a256363e, type: 3}
+  Mountain: {fileID: 5104088506441295888, guid: 33e1834dc703e924a983abded1c94798, type: 3}
+  Water: {fileID: 7893296592390915762, guid: 8d677c2da07d8cf489bfb035805b3617, type: 3}
+  Morewater: {fileID: 5632881253260303119, guid: 26667867c5b3a2d4c973b6b6be58d7e1, type: 3}
+  Castle1: {fileID: 4359976221516815202, guid: bbba697feb0637c4e8770d6d39d3ec6b, type: 3}
+  Area1: {fileID: 2426507382235697720, guid: 54e391cc32b95b243a08c4c918013840, type: 3}
+  Castle2: {fileID: 1213876710587599552, guid: 186fd56998069884083810863b4b910c, type: 3}
+  Area2: {fileID: 5287506839225980733, guid: 59e498487c070914a9dffd6462afce28, type: 3}
+  Resource: {fileID: 7153855201956926095, guid: 2c57a343951a4b44486ecb16c9732c69, type: 3}
   SetTileStart_X: -54
   SetTileStart_Y: 54
   SetTile_Z: 20
-  TILESIZE_X: 4
-  TILESIZE_Y: 4
-  MAPSIZE_X: 25
-  MAPSIZE_Y: 25
-  TILESPACE: 0.5
+  TileSize_X: 4
+  TileSize_Y: 4
+  MapSize_X: 25
+  MapSize_Y: 25
+  TileSpace: 0.5
   map: 
   map_info:
   - 
@@ -11115,7 +11115,6 @@ MonoBehaviour:
   EAP_Text: {fileID: 381439892}
   Now_EResource: 0
   ERE_Text: {fileID: 820109108}
-  country_text: {fileID: 2087684489}
 --- !u!212 &1523374836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11983,7 +11982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21059379, y: 0.52742845}
   m_AnchorMax: {x: 0.38673028, y: 0.64971423}
-  m_AnchoredPosition: {x: -7.0460052, y: 5.3999996}
+  m_AnchoredPosition: {x: -7.04599, y: 5.3999996}
   m_SizeDelta: {x: 14.092, y: 32.179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657127362
@@ -12065,7 +12064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0346443, y: 0.4723454}
   m_AnchorMax: {x: 0.19000001, y: 0.6781787}
-  m_AnchoredPosition: {x: 5.450989, y: 0.000061035156}
+  m_AnchoredPosition: {x: 5.4509277, y: 0.000061035156}
   m_SizeDelta: {x: 67.724, y: -25.802}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677333994
@@ -12221,7 +12220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.12388733, y: 0.5}
   m_AnchorMax: {x: 0.90658504, y: 0.708452}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 1.9379997}
+  m_AnchoredPosition: {x: 0.000015258789, y: 1.9379997}
   m_SizeDelta: {x: -12.448, y: 3.876}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695794368
@@ -12540,7 +12539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8146444, y: 0.84784514}
   m_AnchorMax: {x: 0.97832364, y: 0.9903574}
-  m_AnchoredPosition: {x: -20.490051, y: 8.99939}
+  m_AnchoredPosition: {x: -20.490112, y: 8.99939}
   m_SizeDelta: {x: 50.053, y: -29.147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764445865
@@ -13425,7 +13424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8146444, y: 0.69100004}
   m_AnchorMax: {x: 0.975, y: 0.86700004}
-  m_AnchoredPosition: {x: -17.830994, y: -11.428001}
+  m_AnchoredPosition: {x: -17.830933, y: -11.428009}
   m_SizeDelta: {x: 55.371, y: 35.502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900730032

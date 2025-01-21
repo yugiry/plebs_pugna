@@ -71,7 +71,7 @@ public class infan2 : MonoBehaviour
                                     {
                                         obj = null;
                                         obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);//マップタイルにユニット召喚処理
-                                        CMinfo.EChange_REAP(apnum, renum);
+                                        CMinfo.Character(apnum, renum, 1);
                                         obj.transform.parent = unitobj.transform;
                                         click = false;
                                     }

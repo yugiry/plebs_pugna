@@ -99,7 +99,7 @@ public class Turn_change : MonoBehaviour
         EAP = CM.Now_EAP;
         ERE = CM.Now_EResource;
         EAP += 5;
-        CM.EChange_REAP(EAP, ERE);
+        CM.Character(EAP, ERE, 1);
         //マップ内全ての資源の回収不可時間を１つ減らす
         rcobj = GameObject.FindGameObjectsWithTag("resource");
         foreach (GameObject tmp in rcobj)
@@ -144,7 +144,7 @@ public class Turn_change : MonoBehaviour
         PAP = CM.Now_PAP;
         PRE = CM.Now_PResource;
         PAP += 5 + 5 * APpuls;
-        CM.PChange_REAP(PAP, PRE);
+        CM.Character(PAP, PRE, 0);
         //マップ内全ての資源の回収不可時間を１つ減らす
         rcobj = GameObject.FindGameObjectsWithTag("resource");
         foreach (GameObject tmp in rcobj)
@@ -186,7 +186,7 @@ public class Turn_change : MonoBehaviour
             {
                 APpuls = 5;
             }
-            CM.PChange_REAP(PAP, PRE);
+            CM.Character(PAP, PRE, 0);
         }
     }
 }

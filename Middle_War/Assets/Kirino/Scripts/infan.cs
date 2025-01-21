@@ -74,7 +74,7 @@ public class infan : MonoBehaviour
                                         obj = Instantiate(unit_infantry, new Vector3(-54 + x * 4.5f, 54 - y * 4.5f, 14.0f), Quaternion.identity);//マップタイルにユニット召喚処理
                                         UT = obj.GetComponent<UnitTile>();
                                         UT.Unit_TileNum = x + y * 25;//どこのマップタイルを選択されているのかの処理
-                                        CMinfo.PChange_REAP(apnum, renum);
+                                        CMinfo.Character(apnum, renum, 0);
                                         obj.transform.parent = unitobj.transform;
                                         click = false;
                                     }
