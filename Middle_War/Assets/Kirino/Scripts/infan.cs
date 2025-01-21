@@ -7,6 +7,8 @@ public class infan : MonoBehaviour
     [SerializeField] GameObject unitobj;
     GameObject obj;
 
+    [SerializeField] private AudioSource a;//召喚音
+
     public GameObject castlevalue;//各オブジェクトの名前宣言
     public GameObject unitstatus;
 
@@ -36,6 +38,10 @@ public class infan : MonoBehaviour
     float tile_y;//マップの一マス縦座標設定
     Vector3 mousepos;
 
+    //private void Awake()///追加
+    //{
+    //    source = GetComponents<AudioSource>()[0];
+    //}
     // Update is called once per frame
     void Update()
     {
@@ -77,6 +83,7 @@ public class infan : MonoBehaviour
                                         CMinfo.Character(apnum, renum, 0);
                                         obj.transform.parent = unitobj.transform;
                                         click = false;
+                                        a.Play();//流す音
                                     }
                                 }
                             }

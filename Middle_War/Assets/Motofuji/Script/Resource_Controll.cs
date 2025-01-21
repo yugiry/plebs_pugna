@@ -21,6 +21,9 @@ public class Resource_Controll : MonoBehaviour
     int ap;
     int re;
 
+    public AudioClip collisionSound; // 接触時に再生する効果音
+    private AudioSource audioSource; // AudioSourceコンポーネント
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,7 @@ public class Resource_Controll : MonoBehaviour
         troughtime = 5;
         RI = this.GetComponent<SpriteRenderer>();
         GetResourceSE = GameObject.Find("");
+        audioSource = gameObject.AddComponent<AudioSource>();//追加
     }
 
     // Update is called once per frame
@@ -38,10 +42,14 @@ public class Resource_Controll : MonoBehaviour
         {
             OnResource = true;
             RI.sprite = RS1;
+           
         }
         else
         {
             OnResource = false;
+           
+            audioSource.PlayOneShot(collisionSound);
+            
         }
     }
 

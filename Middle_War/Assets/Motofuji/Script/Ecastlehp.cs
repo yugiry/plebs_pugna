@@ -54,10 +54,8 @@ public class Ecastlehp : MonoBehaviour
 
         if (SR == null)
         {
-
             SR = GameObject.Find("castle2(Clone)").GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
-                                                                                  //SR.sprite = enemy_castle_image[2];
-
+                                                                                  //SR.sprite = enemy_castle_image[2]
         }
 
 
