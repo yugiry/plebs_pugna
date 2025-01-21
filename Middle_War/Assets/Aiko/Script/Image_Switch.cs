@@ -37,6 +37,8 @@ public class Image_Switch : MonoBehaviour
 
     private Color DarkGray = new Color(0.3f, 0.3f, 0.3f);
 
+    private GameObject next_back;
+    private string NEXT_BACK;
     private enum Rule_Number
     {
         Summon,
@@ -68,11 +70,9 @@ public class Image_Switch : MonoBehaviour
     //説明
     void Start()
     {
-        My_Text = GameObject.Find("explanation").GetComponent<Text>();//シーン内のtextオブジェクトを取得
-        
+        My_Text = GameObject.Find("Explanation").GetComponent<Text>();//シーン内のtextオブジェクトを取得
 
-        Destroy_Next();//次へボタンを非表示
-        Destroy_Back();//戻るボタンを非表示
+        Hidden_Next_Or_Back();
 
     } 
     void Summon_Next()
@@ -89,32 +89,58 @@ public class Image_Switch : MonoBehaviour
         Back.transform.position = new Vector3( 0, -51, 0.0f);//戻るボタンの位置を変更
 
     }
-    
-    void Destroy_Next()
-    {
-        GameObject[] Click_Next = GameObject.FindGameObjectsWithTag("Next");//Nextタグがついた全てのオブジェクトを取得
 
-        foreach (GameObject Next_Child in Click_Next)
+  public void Indication_Next_Or_Back(string a)
+    {
+        
+        NEXT_BACK = a;
+        Debug.Log(NEXT_BACK);
+        if(NEXT_BACK=="back"&& What_Num_Image != (int)Text_Number.Zero)
         {
-            Next_Child.SetActive(false);  //Nextタグがついた全てのオブジェクトを非表示にする
-        }       
-        
-    }
-
-    void Destroy_Back()
-    {
-        GameObject[] Click_Back = GameObject.FindGameObjectsWithTag("Back");//Backタグがついた全てのオブジェクトを取得
-
-        foreach (GameObject Back_Child in Click_Back)
-        {    
-            Back_Child.SetActive(false); //Backタグがついた全てのオブジェクトを非表示にする
+            next_back = parent.transform.Find("Back_Core").gameObject;//親オブジェクトを取得
+            next_back.transform.position = new Vector3(0, -51, 0.0f);//戻るボタンの位置を変更
+            next_back.SetActive(true);
         }
-        
+        else
+        {
+            Hidden_Next_Or_Back();
+        }
+         if(NEXT_BACK=="next" && Total_Image!=What_Num_Image-1)
+        {
+            next_back = parent.transform.Find("Next_Core").gameObject;//親オブジェクトを取得
+            next_back.transform.position = new Vector3(60, -51, 0.0f);//戻るボタンの位置を変更
+            next_back.SetActive(true);
+        }
+        else
+        {
+            Hidden_Next_Or_Back();
+        }
+       
+    }
+ 
+    void Hidden_Next_Or_Back()
+    {
+        if(Back.activeSelf)
+        {
+            GameObject[] Click_Back = GameObject.FindGameObjectsWithTag("Back");//Backタグがついた全てのオブジェクトを取得
+
+            foreach (GameObject Back_Child in Click_Back)
+            {
+                Back_Child.SetActive(false); //Backタグがついた全てのオブジェクトを非表示にする
+            }
+        }
+        if(Next.activeSelf)
+        {
+            GameObject[] Click_Next = GameObject.FindGameObjectsWithTag("Next");//Nextタグがついた全てのオブジェクトを取得
+
+            foreach (GameObject Next_Child in Click_Next)
+            {
+                Next_Child.SetActive(false);  //Nextタグがついた全てのオブジェクトを非表示にする
+            }
+        }
     }
 
-    
-
-    void Storage_Blind()
+    void Color_Change_White()
     {
         GameObject[] _blind = GameObject.FindGameObjectsWithTag("Blind");//Blindタグがついた全てのオブジェクトを取得
 
@@ -127,7 +153,7 @@ public class Image_Switch : MonoBehaviour
 
     }
     
-    void Summon_Blind()
+    void Color_Change_DarkGray()
     {
         this.GetComponent<Renderer>().material.color = DarkGray;
     }
@@ -137,37 +163,40 @@ public class Image_Switch : MonoBehaviour
         AudioSource = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
 
         AudioSource.PlayOneShot(Push);//効果音を再生する
-        Text_Num_Num = 0;
+        Text_Num_Num = (int)Text_Number.Zero;
         Text_Rewrite();//text内の文章を書き換える
 
-       Storage_Blind();//オブジェクトを非表示
-        Summon_Blind();//オブジェクトを表示
-       
-        Destroy_Next();//次へボタンを非表示
-        Destroy_Back();//戻るボタンを非表示
+        Color_Change_White();//デフォルトの白色に戻す
+        Color_Change_DarkGray();//濃い灰色にする
 
-        Text_Num_Num = 0;
+
+        Hidden_Next_Or_Back();
+
+        Text_Num_Num = (int)Text_Number.Zero;
 
         SR = GameObject.Find("switch_image").GetComponent<SpriteRenderer>();//オブジェクトのスプライト情報を取得
 
-        What_Num_Image = 0;
+        What_Num_Image = (int)Text_Number.Zero;
                 
         SR.sprite = Next_Image[What_Num_Image];//数字に応じた画像を表示する
 
-        if(Total_Image > 1)//画像の総数が1より大きいなら
+        if(Total_Image > (int)Text_Number.One)//画像の総数が1より大きいなら
         {
+            Hidden_Next_Or_Back();
+            //Indication_Next_Or_Back(NEXT_BACK);
             Summon_Next(); //次へボタンを表示
-            Destroy_Back();//戻るボタンを非表示
+
+            
         }
         else
         {
-            Destroy_Next();//次へボタンを非表示
-            Destroy_Back();//戻るボタンを非表示
+ 
+            Hidden_Next_Or_Back();
         }
 
     }
 
-    public void display_next()
+    public void Display_Next_Image_And_Text()
     {
         AudioSource.PlayOneShot(Push);//効果音を再生する
 
@@ -179,14 +208,15 @@ public class Image_Switch : MonoBehaviour
 
         What_Num_Image++;
 
-        if (What_Num_Image == Total_Image - 1)//現在の画像番号が画像総数と同じ値ならば
+        if (What_Num_Image == Total_Image - (int)Text_Number.One)//現在の画像番号が画像総数と同じ値ならば
         {
-            What_Num_Image = Total_Image - 1;//その値に固定する
+            What_Num_Image = Total_Image - (int)Text_Number.One;//その値に固定する
             
             
             SR.sprite = Next_Image[What_Num_Image];//数字＝画像総数-1に応じた画像を表示する
 
-            Destroy_Next();//次へボタンを非表示
+            Hidden_Next_Or_Back();
+            //Indication_Next_Or_Back(NEXT_BACK);
             Summon_Back();//戻るボタンを表示
 
         }
@@ -196,19 +226,20 @@ public class Image_Switch : MonoBehaviour
             SR.sprite = Next_Image[What_Num_Image];//現在の数字に応じた画像を表示する
 
             Summon_Back();//次へボタンを表示
+            //Indication_Next_Or_Back(NEXT_BACK);
         }
   
     }
 
-    public void display_back()
+    public void Display_Back_Image_And_Text()
     {
         AudioSource.PlayOneShot(Push);//効果音を再生する
 
         Text_Num_Num--;//減らす
 
-        if (Text_Num_Num == 0)//テキスト番号が0なら
+        if (Text_Num_Num == (int)Text_Number.Zero)//テキスト番号が0なら
         {
-            Text_Num_Num = 0;//0のままにしておく
+            Text_Num_Num = (int)Text_Number.Zero;//0のままにしておく
         }
 
         Text_Rewrite();//text内の文章を書き換える
@@ -217,14 +248,15 @@ public class Image_Switch : MonoBehaviour
 
         What_Num_Image--;//減らす
 
-        if (What_Num_Image == 0)//画像番号が0なら
+        if (What_Num_Image == (int)Text_Number.Zero)//画像番号が0なら
         {
 
-            What_Num_Image = 0;//0のままにする
+            What_Num_Image = (int)Text_Number.Zero;//0のままにする
            
             SR.sprite = Next_Image[What_Num_Image];//数字＝0に応じた画像を表示する
 
-            Destroy_Back();//戻るボタンを非表示
+            Hidden_Next_Or_Back();
+            //Indication_Next_Or_Back(NEXT_BACK);
             Summon_Next(); //次へボタンを表示
 
         }
@@ -233,7 +265,7 @@ public class Image_Switch : MonoBehaviour
             
             SR.sprite = Next_Image[What_Num_Image];//数字に応じた画像を表示する
             Summon_Next();//次へボタンを表示
-
+            //Indication_Next_Or_Back(NEXT_BACK);
         }
 
     }

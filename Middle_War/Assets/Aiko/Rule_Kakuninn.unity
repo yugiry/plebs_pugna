@@ -452,6 +452,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Blind
       objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
 --- !u!224 &295640808 stripped
@@ -743,9 +759,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Blind
       objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5468215015623500401, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
@@ -1155,6 +1187,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Blind
       objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5368198964134598438, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -1162,6 +1202,14 @@ PrefabInstance:
     - target: {fileID: 8916124820162766910, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
@@ -1344,6 +1392,22 @@ PrefabInstance:
     - target: {fileID: 289742386651120715, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_TagString
       value: Blind
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
@@ -1619,12 +1683,52 @@ PrefabInstance:
       value: Blind
       objectReference: {fileID: 0}
     - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1290745757}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Indication_Next_Or_Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: next
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5131860149266824157, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_PlayOnAwake
@@ -1635,12 +1739,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1290745757}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Indication_Next_Or_Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
@@ -1649,6 +1793,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 289742386651120714, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
   m_PrefabInstance: {fileID: 1290745755}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1290745757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8403598752435370280, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+  m_PrefabInstance: {fileID: 1290745755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1508282970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,7 +1898,7 @@ GameObject:
   - component: {fileID: 1622311004}
   - component: {fileID: 1622311003}
   m_Layer: 5
-  m_Name: explanation
+  m_Name: Explanation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2123,6 +2278,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Blind
       objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
 --- !u!224 &1780466529 stripped
@@ -2478,6 +2649,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Blind
       objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
 --- !u!224 &1932658337 stripped
@@ -2667,6 +2854,22 @@ PrefabInstance:
     - target: {fileID: 289742386651120715, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
       propertyPath: m_TagString
       value: Blind
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Next_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832153490515178033, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Display_Back_Image_And_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990177344577140096, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Image_Switch, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f8b7377e282c34191bea75a0d37e1e, type: 3}
