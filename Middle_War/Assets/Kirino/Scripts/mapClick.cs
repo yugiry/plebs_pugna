@@ -37,7 +37,7 @@ public class mapClick : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !mapbatoru.activeSelf)//ボタン設定
         {
             mapbatoru.SetActive(true);//マップボード表示
-            mapfaito.Show_country(countrynum);//mapfaito.csスクリプトにクリックされたcountrynumの値を送る
+            mapfaito.Country_Num(countrynum);//mapfaito.csスクリプトにクリックされたcountrynumの値を送る
             AC.map_select();
             //imagemap.Shew_island(countrynum);//imagemap.csスクリプトにクリックされたcountrynumの値を送る
         }
