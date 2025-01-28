@@ -11,11 +11,11 @@ public class mapfaito : MonoBehaviour
 {
     public GameObject Map_Batoru;
 
-    [SerializeField] public Text[] text;//テキスト変換
+    [SerializeField] public Text[] text;//配列テキスト変換・追加
 
-    public Image image; //画像表示
-    public GameObject Button;//敵とのバトルボタン
-    public Sprite[] newSprite;//画像表示で新しくマップを追加した時でも簡単に表示できる。
+    public Image image; //マップの国画像表示
+    public GameObject Button;//敵とのバトルする時のボタン
+    public Sprite[] newSprite;//画像表示で新しくマップを追加した時でも簡単に追加して表示できる。
     public string NextScene;//変数を文字に変えることでどこでもシーンの名前を変更すればすぐに違うシーンに移動できる。
 
     //RCNの空OBJECT
@@ -26,8 +26,7 @@ public class mapfaito : MonoBehaviour
     remenber_country_num RCN;
 
     //呼び出し関数
-    //説明　　startよりも先にAwaekが呼ばれ非アクティブ状態にしていてもAwakeメソッドは呼ばれる
-    //ゲーム(敵とのバトルが終わった時)
+    //説明　　startよりも先にAwaek(アウェイク)が呼ばれ非アクティブ状態にしていてもAwakeメソッドは呼ばれる
     private void Awake()
     {
         RCNobj = GameObject.Find("country_info");
