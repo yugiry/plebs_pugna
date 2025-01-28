@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Image_Switch : MonoBehaviour
 {
     public int Text_Num;
-    private Text My_Text;
+    private Text My_Text;//変更するテキスト
 
-    SpriteRenderer SR;
+    SpriteRenderer SR;//変更する画像のスプライト情報
 
     [field: SerializeField] public int Text_Num_Num { get; set; }
    
@@ -105,7 +105,7 @@ public class Image_Switch : MonoBehaviour
         {
             Hidden_Next_Or_Back();
         }
-         if(NEXT_BACK=="next" && Total_Image!=What_Num_Image-1)
+         if(NEXT_BACK=="next" && Total_Image!=What_Num_Image-(int)Text_Number.One)
         {
             next_back = parent.transform.Find("Next_Core").gameObject;//親オブジェクトを取得
             next_back.transform.position = new Vector3(60, -51, 0.0f);//戻るボタンの位置を変更
@@ -118,9 +118,9 @@ public class Image_Switch : MonoBehaviour
        
     }
  
-    void Hidden_Next_Or_Back()
+    void Hidden_Next_Or_Back()//次へボタンと戻るボタンを非表示にする
     {
-        if(Back.activeSelf)
+        if(Back.activeSelf)//戻るボタンが表示されているなら
         {
             GameObject[] Click_Back = GameObject.FindGameObjectsWithTag("Back");//Backタグがついた全てのオブジェクトを取得
 
@@ -129,7 +129,7 @@ public class Image_Switch : MonoBehaviour
                 Back_Child.SetActive(false); //Backタグがついた全てのオブジェクトを非表示にする
             }
         }
-        if(Next.activeSelf)
+        if(Next.activeSelf)//次へボタンが表示されているなら
         {
             GameObject[] Click_Next = GameObject.FindGameObjectsWithTag("Next");//Nextタグがついた全てのオブジェクトを取得
 
@@ -140,7 +140,7 @@ public class Image_Switch : MonoBehaviour
         }
     }
 
-    void Color_Change_White()
+    void Color_Change_White()//ボタンの色を白色に変える
     {
         GameObject[] _blind = GameObject.FindGameObjectsWithTag("Blind");//Blindタグがついた全てのオブジェクトを取得
 
@@ -153,12 +153,12 @@ public class Image_Switch : MonoBehaviour
 
     }
     
-    void Color_Change_DarkGray()
+    void Color_Change_DarkGray()//ボタンの色を濃い灰色に変える
     {
         this.GetComponent<Renderer>().material.color = DarkGray;
     }
 
-    public void Swith_Over_Image()
+    public void Swith_Over_Image()//表示する画像を切り替える
     {
         AudioSource = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
 
@@ -200,7 +200,7 @@ public class Image_Switch : MonoBehaviour
     {
         AudioSource.PlayOneShot(Push);//効果音を再生する
 
-        Text_Num_Num++;//増やす
+        Text_Num_Num++;               //増やす
 
         Text_Rewrite();               //text内の文章を書き換える
 
@@ -284,7 +284,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\nUI画面にあるユニットを左クリックしてから自分の陣地を左クリックすると召喚できる。\nただし、召喚に必要なAPまたは資源が足りないと召喚できない。";
                         break;
                     default:
-                        Text_Num_Num = 1;
+                        Text_Num_Num = (int)Text_Number.One;
                         break;
                 }
                 break;
@@ -296,7 +296,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\n移動させたいユニットを左クリックしてから、そのユニットの行きたい方向の上下左右1マスを左クリックすれば移動できる。\n";
                         break;
                     default:
-                        Text_Num_Num = 0;
+                        Text_Num_Num = (int)Text_Number.Zero;
                         break;
                 }
                 break;
@@ -307,7 +307,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\nフィールドマップ上にある資材まで'歩兵'を移動させてから資材を左クリックすることで回収ができる。\n";
                         break;
                     default:
-                        Text_Num_Num = 0;
+                        Text_Num_Num = (int)Text_Number.Zero;
                         break;
                 }
                 break;
@@ -321,7 +321,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\n各ユニットの攻撃射程はユニットを左クリックすると確認できる。\n";
                         break;
                     default:
-                        Text_Num_Num = 1;
+                        Text_Num_Num = (int)Text_Number.One;
                         break;
                 }
                 break;
@@ -332,7 +332,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\n自軍が敵の本陣のHPを0にすれば勝利となる。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nがんばれ！\n";
                 break;
                     default:
-                        Text_Num_Num = 0;
+                        Text_Num_Num = (int)Text_Number.Zero;
                         break;
                 }
                 break;
@@ -343,7 +343,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\n敵の攻撃によって\n自軍の本陣のHPが0にされれば敗北となる。\n";
                         break;
                     default:
-                        Text_Num_Num = 0;
+                        Text_Num_Num = (int)Text_Number.Zero;
                         break;
                 }
                 break;
@@ -359,7 +359,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\n資材…カタパルトを召喚する為に必要なもの。\n歩兵でのみ回収が可能だが、回収後は一定ターンが経過するまで再回収できなくなる。\n";
                         break;
                     default:
-                        Text_Num_Num = 2;
+                        Text_Num_Num = (int)Text_Number.Two;
                         break;
                 }
                 break;
@@ -385,7 +385,7 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\nカタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる弱点がある。\n";
                         break;
                     default:
-                        Text_Num_Num = 5;
+                        Text_Num_Num = (int)Text_Number.Five;
                         break;
                 }
                   break;
@@ -396,9 +396,9 @@ public class Image_Switch : MonoBehaviour
     {
         //ボタンにマウスカーソルが乗ったとき
 
-        if (this.GetComponent<Renderer>().material.color ==Color.white)
+        if (this.GetComponent<Renderer>().material.color ==Color.white)//ボタンの色が白色なら
         {
-            this.GetComponent<Renderer>().material.color = Color.gray;
+            this.GetComponent<Renderer>().material.color = Color.gray;//ボタンの色を灰色に変える
         }
 
         AudioSource = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
@@ -410,13 +410,13 @@ public class Image_Switch : MonoBehaviour
     {
         //ボタンに乗ったマウスカーソルが離れたとき
        
-        if (this.GetComponent<Renderer>().material.color == DarkGray)
+        if (this.GetComponent<Renderer>().material.color == DarkGray)//マウスカーソルが乗ったボタンの色がDarkGrayだった場合
         {
-            this.GetComponent<Renderer>().material.color = DarkGray;
+            this.GetComponent<Renderer>().material.color = DarkGray;//色をDarkGrayに変える
         }
-        else
+        else //そうでないなら＝ボタンの色が白色または灰色の場合
         {
-            this.GetComponent<Renderer>().material.color = Color.white;
+            this.GetComponent<Renderer>().material.color = Color.white;//ボタンの色を白色に変える
         }
 
     }
