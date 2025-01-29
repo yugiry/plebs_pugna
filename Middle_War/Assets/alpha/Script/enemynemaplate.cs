@@ -5,52 +5,51 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-
 public class enemynemaplate : MonoBehaviour
 {
     public int countrynum;
-    [SerializeField] public Text text2;
-    GameObject rcnobj;
-    remenber_country_num RCN;
+    [SerializeField] public Text[] text;
 
-    private Text nameText;
+    GameObject RCNobj;
+    remenber_country_num RCN;
 
     private void Awake()
     {
-        rcnobj = GameObject.Find("country_info");
-        RCN = rcnobj.GetComponent<remenber_country_num>();
+        RCNobj = GameObject.Find("country_info");
+        RCN = RCNobj.GetComponent<remenber_country_num>();
     }
 
-    public void Show_country(int countrynum)
-    { //mapClickから受け取った値を読み取る
-        switch (countrynum) //受け取った値別処理
+    public void Country_Num(int Country_Num)
+    { 
+        RCN.country_num = Country_Num;
+
+        switch (Country_Num) //受け取った値別処理
         {
             case 1:
                 //text2.text = "自国"; //国名
                 break;
             case 2:
-                text2.text = "フスラン"; //国名
+                text[0].text = "フスラン"; //国名
                 RCN.country_num = countrynum;
                 break;
             case 3:
-                text2.text = "ア・タイリ"; //国名           
+                text[0].text = "ア・タイリ"; //国名           
                 RCN.country_num = countrynum;
                 break;
             case 4:
-                text2.text = "アイべり半島"; //国名             
+                text[0].text = "アイべり半島"; //国名             
                 RCN.country_num = countrynum;
                 break;
             case 5:
-                text2.text = "アベチネ";
+                text[0].text = "アベチネ";
                 RCN.country_num = countrynum;
                 break;
             case 6:
-                text2.text = "ナクウイラ";
+                text[0].text = "ナクウイラ";
                 RCN.country_num = countrynum;
                 break;
             case 7:
-                text2.text = "アブリガル";
+                text[0].text = "アブリガル";
                 RCN.country_num = countrynum;
                 break;
             default:
@@ -58,5 +57,4 @@ public class enemynemaplate : MonoBehaviour
                 break;
         }
     }
-
 }

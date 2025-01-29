@@ -11,9 +11,10 @@ public class mapClick : MonoBehaviour
     public audio_Controller AC;
     public bool clear_flag;
     [SerializeField] mapfaito mapfaito;//値を送りたいスクリプトの名前
+    [SerializeField] enemynemaplate enemynemaplate;//値を送りたいスクリプトの名前
     [SerializeField] SpriteRenderer change_color;
     PolygonCollider2D PColl;
-
+    
     private void Start()
     {
         PColl = this.GetComponent<PolygonCollider2D>();//ポリゴンを取得
@@ -31,13 +32,14 @@ public class mapClick : MonoBehaviour
             PColl.enabled = true;//ゲームオブジェクト表示
         }
     }
-
+   
     public void Cllik()
     {
         if (Input.GetMouseButtonDown(0) && !mapbatoru.activeSelf)//ボタン設定
         {
             mapbatoru.SetActive(true);//マップボード表示
             mapfaito.Country_Num(countrynum);//mapfaito.csスクリプトにクリックされたcountrynumの値を送る
+            enemynemaplate.Country_Num(countrynum);
             AC.map_select();
             //imagemap.Shew_island(countrynum);//imagemap.csスクリプトにクリックされたcountrynumの値を送る
         }
@@ -50,7 +52,7 @@ public class mapClick : MonoBehaviour
             change_color.color = new Color(1, 1, 0, 1);//新しい値
         }
     }
-
+  
     public void pointer_exit()//キー設定
     {
         if (!mapbatoru.activeSelf)

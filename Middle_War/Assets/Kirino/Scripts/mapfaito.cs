@@ -12,7 +12,9 @@ public class mapfaito : MonoBehaviour
     public GameObject Map_Batoru;
 
     [SerializeField] public Text[] text;//配列テキスト変換・追加
+    [SerializeField] enemynemaplate enemynemaplate;//値を送りたいスクリプトの名前
 
+    public int countrynum;//クリックした時に値を与える
     public Image image; //マップの国画像表示
     public GameObject Button;//敵とのバトルする時のボタン
     public Sprite[] newSprite;//画像表示で新しくマップを追加した時でも簡単に追加して表示できる。
@@ -47,7 +49,7 @@ public class mapfaito : MonoBehaviour
             case 1:
                 text[0].text = NameMneger.name+"の国"; //国名
                 text[1].text = "どんどん敵国を攻め\n領土を拡張し\n天下統一を目指そう！"; //国説明
-                Button.SetActive(false); //ボタン表示（自国はボタン表示しない）
+                //Button.SetActive(false); //ボタン表示（自国はボタン表示しない）
                 break;
             case 2:
                 text[0].text = "フスラン"; //国名
@@ -81,5 +83,6 @@ public class mapfaito : MonoBehaviour
     public void Change_Button()//ボタン変更
     {
         SceneManager.LoadScene(NextScene);//ボタンが押された時シーンを変える
+        enemynemaplate.Country_Num(countrynum);
     }
 }
