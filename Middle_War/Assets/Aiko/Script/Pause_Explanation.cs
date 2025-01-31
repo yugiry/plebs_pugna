@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Pause_Explanation : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
+
     // Start is called before the first frame update
     public GameObject click;
     private GameObject canvas_all_ps;
@@ -14,13 +18,13 @@ public class Pause_Explanation : MonoBehaviour
     public Sprite When_Open;
     public Sprite When_Close;
     int chan_frag = 0;
-    Vector3 tmp;
+   
     
     int i=0;
 
     public void Change_button()
     {
-        Vector3 tmp = GameObject.Find("Rule_Button").transform.position;
+        //Vector3 tmp = GameObject.Find("Rule_Button").transform.position;
 
         var img = GetComponent<Image>();
         
@@ -28,16 +32,16 @@ public class Pause_Explanation : MonoBehaviour
         {
             case 0:
 
-                GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x - 80, tmp.y-25, tmp.z);
+                //GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x - 80, tmp.y-25, tmp.z);
 
-                GetComponent<Image>().sprite = When_Open;
+                img.sprite = When_Open;
                 
                 
                 chan_frag++;
                 break;
             default:
 
-                GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x+80, tmp.y+25, tmp.z);
+                //GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x+80, tmp.y+25, tmp.z);
 
                 img.sprite = When_Close;
                 
@@ -67,8 +71,10 @@ public class Pause_Explanation : MonoBehaviour
                
                 break;
             default:
-                canvas_all_ps = Instantiate(click, new Vector3(80, 25, 15.0f), Quaternion.identity, parent) as GameObject;
-               
+                canvas_all_ps = Instantiate(click, new Vector3(0, 0, -25.0f), Quaternion.identity, parent) as GameObject;
+
+                click.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
                 break;
         }
 
@@ -85,6 +91,6 @@ public class Pause_Explanation : MonoBehaviour
        
     }
 
-    int t = 0;
+    
    
 }

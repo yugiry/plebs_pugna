@@ -277,20 +277,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1734e140225410448b8ca29fc8d05e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_num: 0
-  clips:
-  - {fileID: 0}
-  pitchRange: 0.1
-  <text_num_num>k__BackingField: 0
-  <img>k__BackingField: 0
-  <all_image>k__BackingField: 0
-  <what_number_image>k__BackingField: 0
-  next_image: []
+  Text_Num: 0
+  <Text_Num_Num>k__BackingField: 0
+  <Total_Image>k__BackingField: 0
+  <What_Num_Image>k__BackingField: 0
+  Next_Image: []
   Next: {fileID: 8944805801189266979, guid: 5595587915441b94a96a19533adea7c3, type: 3}
   Back: {fileID: 2276376461948686094, guid: 6ca64b648bfc5394181eaf6049e29480, type: 3}
   parent: {fileID: 289742386651120714}
   Blind: {fileID: 5468215015623500401}
-  enter: {fileID: 8300000, guid: 6621dc6b4da09b24d9df140a8101fe92, type: 3}
+  Enter: {fileID: 0}
+  Push: {fileID: 0}
 --- !u!82 &5131860149266824157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -510,7 +507,6 @@ GameObject:
   - component: {fileID: 8824792067447245583}
   - component: {fileID: 8916124820162766910}
   - component: {fileID: 8221101905429257610}
-  - component: {fileID: 1420290686896311509}
   - component: {fileID: 4832153490515178033}
   - component: {fileID: 7869523376436957945}
   m_Layer: 5
@@ -619,26 +615,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1420290686896311509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2581238252720754890}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25ccae4e88c0a7648a1d40359323f95b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyouji_num: 0
-  parent: {fileID: 289742386651120714}
-  i1: 0
-  i2: 0
-  i3: 0
-  i4: 0
-  fullpage: 0
-  page: 0
 --- !u!114 &4832153490515178033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,7 +1004,6 @@ GameObject:
   - component: {fileID: 4682384602759655519}
   - component: {fileID: 7009937268612561625}
   - component: {fileID: 2878906303786246891}
-  - component: {fileID: 451681852355130242}
   - component: {fileID: 8990177344577140096}
   - component: {fileID: 7309221574626658213}
   m_Layer: 5
@@ -1137,26 +1112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &451681852355130242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8126532674743617696}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25ccae4e88c0a7648a1d40359323f95b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hyouji_num: 0
-  parent: {fileID: 289742386651120714}
-  i1: 0
-  i2: 0
-  i3: 0
-  i4: 0
-  fullpage: 0
-  page: 0
 --- !u!114 &8990177344577140096
 MonoBehaviour:
   m_ObjectHideFlags: 0
