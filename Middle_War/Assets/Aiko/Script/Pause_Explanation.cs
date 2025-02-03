@@ -18,13 +18,18 @@ public class Pause_Explanation : MonoBehaviour
     public Sprite When_Open;
     public Sprite When_Close;
     int chan_frag = 0;
-   
+
     
+    public GameObject canvas;
+
     int i=0;
 
     public void Change_button()
     {
         //Vector3 tmp = GameObject.Find("Rule_Button").transform.position;
+
+        //canvas = GameObject.Find("Canvas");
+        Debug.Log(canvas.name);
 
         var img = GetComponent<Image>();
         
@@ -55,6 +60,8 @@ public class Pause_Explanation : MonoBehaviour
 
     public void Button_Click()
     {
+       
+
         i++;
 
         if(i>1)
@@ -71,9 +78,11 @@ public class Pause_Explanation : MonoBehaviour
                
                 break;
             default:
-                canvas_all_ps = Instantiate(click, new Vector3(0, 0, -25.0f), Quaternion.identity, parent) as GameObject;
-
-                click.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                //canvas_all_ps = Instantiate(click, new Vector3(44, 36, 1.0f), Quaternion.identity, parent) as GameObject;
+                //canvas_all_ps = Instantiate(click, new Vector3(138, 86, 1.0f), Quaternion.identity, parent) as GameObject;350,250
+                canvas_all_ps = Instantiate(click, new Vector3(188, 100, 1.0f), Quaternion.identity, parent) as GameObject;
+                click.transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
+                canvas_all_ps.transform.SetParent(canvas.transform, false);
 
                 break;
         }
@@ -91,6 +100,15 @@ public class Pause_Explanation : MonoBehaviour
        
     }
 
-    
-   
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Destroy(canvas_all_ps);
+            GetComponent<Image>().sprite = When_Close;
+            i = 0;
+            chan_frag = 0;
+        }
+    }
+
 }
