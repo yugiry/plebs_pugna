@@ -5,6 +5,7 @@ using UnityEngine;
 //using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static mapClick;
 
 //[RequireComponent(typeof(AudioSource))]
 public class mapfaito : MonoBehaviour
@@ -26,6 +27,7 @@ public class mapfaito : MonoBehaviour
     //remenber_country_num 訳 = RCN 
     //別スクリプト
     remenber_country_num RCN;
+
 
     //呼び出し関数
     //説明　　startよりも先にAwaek(アウェイク)が呼ばれ非アクティブ状態にしていてもAwakeメソッドは呼ばれる
@@ -83,6 +85,6 @@ public class mapfaito : MonoBehaviour
     public void Change_Button()//ボタン変更
     {
         SceneManager.LoadScene(NextScene);//ボタンが押された時シーンを変える
-        enemynemaplate.Country_Num(countrynum);
+        Gamecountrynum.countrynum += 1;
     }
 }

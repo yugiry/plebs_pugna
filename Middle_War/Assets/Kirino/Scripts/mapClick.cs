@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //[RequireComponent(typeof(AudioSource))]
 public class mapClick : MonoBehaviour
 {
     public GameObject mapbatoru;
-    public int countrynum;//クリックした時に値を与える
+    public  int countrynum;//クリックした時に値を与える
     public audio_Controller AC;
     public bool clear_flag;
     [SerializeField] mapfaito mapfaito;//値を送りたいスクリプトの名前
     [SerializeField] enemynemaplate enemynemaplate;//値を送りたいスクリプトの名前
     [SerializeField] SpriteRenderer change_color;
     PolygonCollider2D PColl;
-    
+
+    public static class Gamecountrynum
+    {
+       public static int countrynum = 1;
+    }
+
+
+
     private void Start()
     {
         PColl = this.GetComponent<PolygonCollider2D>();//ポリゴンを取得

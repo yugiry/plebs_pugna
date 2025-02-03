@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static mapClick;
 
 public class enemynemaplate : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class enemynemaplate : MonoBehaviour
 
     GameObject RCNobj;
     remenber_country_num RCN;
+
+    private void Start()
+    {
+        Gamecountrynum.countrynum = countrynum;
+    }
 
     private void Awake()
     {
