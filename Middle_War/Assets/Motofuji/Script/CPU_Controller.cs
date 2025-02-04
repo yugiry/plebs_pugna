@@ -524,7 +524,14 @@ public class CPU_Controller : PlayerUnit_Base
                                 if (AC.Can_Attack().tag == "unit")
                                 {
                                     UO = AC.Can_Attack().GetComponent<Unit_Operation>();
-                                    UO.HitAttack(EUO.attack);
+                                    if (AC.Can_Attack().name == "Pcatapalt(Clone)")
+                                    {
+                                        UO.HitAttack(EUO.attack * 4);
+                                    }
+                                    else
+                                    {
+                                        UO.HitAttack(EUO.attack);
+                                    }
                                     EUO.attack_cnt++;
                                     Debug.Log("çUåÇ4.1");
                                     summon_or_action = RanDom(0, 100);

@@ -74,11 +74,25 @@ public class PlayerUnit_Base : MonoBehaviour
                 switch (Uobj.tag)
                 {
                     case "unit":
-                        Cobj.GetComponent<EUnit_Operation>().HitAttack(attack);
+                        if (Uobj.name == "Pinfantry(Clone)" && Cobj.name == "Ccatapalt(Clone)")
+                        {
+                            Cobj.GetComponent<EUnit_Operation>().HitAttack(attack * 4);
+                        }
+                        else
+                        {
+                            Cobj.GetComponent<EUnit_Operation>().HitAttack(attack);
+                        }
                         SAR.Destroy_Range();
                         break;
                     case "Eunit":
-                        Cobj.GetComponent<Unit_Operation>().HitAttack(attack);
+                        if (Uobj.name == "Cinfantry(Clone)" && Cobj.name == "Pcatapalt(Clone)")
+                        {
+                            Cobj.GetComponent<Unit_Operation>().HitAttack(attack * 4);
+                        }
+                        else
+                        {
+                            Cobj.GetComponent<Unit_Operation>().HitAttack(attack);
+                        }
                         SAR.Destroy_Range();
                         break;
                 }

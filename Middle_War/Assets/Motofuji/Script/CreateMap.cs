@@ -142,7 +142,9 @@ public class CreateMap : MonoBehaviour
         CPUC.Map_Collect();//初期化が全て終わったことを送る
     }
 
-    //マップの情報をint型配列に読み込む
+    /// <summary>
+    /// マップの情報をint型配列に読み込むための関数
+    /// </summary>
     void Load_Map()
     {
         //ステージセレクトで選択したステージの番号によってマップ読み込みのcsvファイルを変更する
@@ -173,7 +175,9 @@ public class CreateMap : MonoBehaviour
         }
     }
 
-    //map配列からマップをゲームワールド上に生成をする関数
+    /// <summary>
+    /// map配列からマップをゲームワールド上に生成をする関数
+    /// </summary>
     void Map_Creation()
     {
         for (y = 0; y < MapSize_Y; y++)
@@ -272,12 +276,13 @@ public class CreateMap : MonoBehaviour
             ERE_Text.text = Now_EResource.ToString() + "/" + Maximam_EResource.ToString();
         }
     }
-
-    //APと資源の変更をする関数
-    //chが0の時はプレイヤー、1の時はエネミーのAPと資源が変更される
-    //ap…ActionPointを持ってくる変数
-    //re…Resourceを持ってくる変数
-    //ch…プレイヤーかエネミーか判別する変数
+    /// <summary>
+    /// APと資源の変更をする関数<br/>
+    /// chが0の時はプレイヤー、1の時はエネミーのAPと資源が変更される
+    /// </summary>
+    /// <param name="ap">ActionPointを持ってくる変数</param>
+    /// <param name="re">Resourceを持ってくる変数</param>
+    /// <param name="ch">プレイヤーかエネミーか判別する変数</param>
     public void Character(int ap, int re, int ch)
     {
         if (ch == 0)
