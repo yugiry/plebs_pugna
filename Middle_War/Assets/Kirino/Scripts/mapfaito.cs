@@ -10,10 +10,12 @@ using static mapClick;
 //[RequireComponent(typeof(AudioSource))]
 public class mapfaito : MonoBehaviour
 {
+    public static mapfaito instance;
+
     public GameObject Map_Batoru;
 
     [SerializeField] public Text[] text;//配列テキスト変換・追加
-    [SerializeField] enemynemaplate enemynemaplate;//値を送りたいスクリプトの名前
+    //[SerializeField] enemynemaplate enemynemaplate;//値を送りたいスクリプトの名前
 
     public int countrynum;//クリックした時に値を与える
     public Image image; //マップの国画像表示
@@ -35,6 +37,7 @@ public class mapfaito : MonoBehaviour
     {
         RCNobj = GameObject.Find("country_info");
         RCN = RCNobj.GetComponent<remenber_country_num>();
+        instance = this;
     }
 
     //mapClickから受け取った値を読み取る
@@ -45,6 +48,10 @@ public class mapfaito : MonoBehaviour
         RCN.country_num = Country_Num;
 
         Button.SetActive(true); //敵国はボタン表示する
+
+        countrynum= Country_Num;
+
+        //Gamecountrynum.countrynum = countrynum;
 
         switch (Country_Num) //受け取った値別テキスト処理
         {
@@ -85,6 +92,5 @@ public class mapfaito : MonoBehaviour
     public void Change_Button()//ボタン変更
     {
         SceneManager.LoadScene(NextScene);//ボタンが押された時シーンを変える
-        Gamecountrynum.countrynum += 1;
     }
 }

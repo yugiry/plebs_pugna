@@ -1185,6 +1185,7 @@ MonoBehaviour:
   text:
   - {fileID: 1703621612}
   - {fileID: 1615030289}
+  countrynum: 0
   image: {fileID: 235857640}
   Button: {fileID: 229275100}
   newSprite:

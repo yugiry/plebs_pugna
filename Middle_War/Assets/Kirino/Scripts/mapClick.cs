@@ -7,6 +7,8 @@ using UnityEngine.UI;
 //[RequireComponent(typeof(AudioSource))]
 public class mapClick : MonoBehaviour
 {
+    public static mapClick instance;
+
     public GameObject mapbatoru;
     public  int countrynum;//クリックした時に値を与える
     public audio_Controller AC;
@@ -15,10 +17,11 @@ public class mapClick : MonoBehaviour
     [SerializeField] enemynemaplate enemynemaplate;//値を送りたいスクリプトの名前
     [SerializeField] SpriteRenderer change_color;
     PolygonCollider2D PColl;
+    
 
     public static class Gamecountrynum
     {
-       public static int countrynum = 1;
+       public static int countrynum;
     }
 
 
@@ -26,6 +29,7 @@ public class mapClick : MonoBehaviour
     private void Start()
     {
         PColl = this.GetComponent<PolygonCollider2D>();//ポリゴンを取得
+        instance = this;
     }
 
     private void Update()
@@ -47,9 +51,7 @@ public class mapClick : MonoBehaviour
         {
             mapbatoru.SetActive(true);//マップボード表示
             mapfaito.Country_Num(countrynum);//mapfaito.csスクリプトにクリックされたcountrynumの値を送る
-            enemynemaplate.Country_Num(countrynum);
             AC.map_select();
-            //imagemap.Shew_island(countrynum);//imagemap.csスクリプトにクリックされたcountrynumの値を送る
         }
     }
 
