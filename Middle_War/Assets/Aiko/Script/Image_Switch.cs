@@ -29,7 +29,7 @@ public class Image_Switch : MonoBehaviour
     
     public Transform parent;
 
-    [SerializeField] GameObject Blind;
+    //[SerializeField] GameObject Blind;
 
     public AudioClip Enter;//カーソルが乗ったときに鳴らす音
     public AudioClip Push;//マウスを押したときに鳴らす音
@@ -120,7 +120,7 @@ public class Image_Switch : MonoBehaviour
  
     void Hidden_Next_Or_Back()//次へボタンと戻るボタンを非表示にする
     {
-        if(Back.activeSelf)//戻るボタンが表示されているなら
+        //if(Back.activeSelf||GameObject.Find("Back_Core").activeSelf)//戻るボタンが表示されているなら
         {
             GameObject[] Click_Back = GameObject.FindGameObjectsWithTag("Back");//Backタグがついた全てのオブジェクトを取得
 
@@ -128,8 +128,8 @@ public class Image_Switch : MonoBehaviour
             {
                 Back_Child.SetActive(false); //Backタグがついた全てのオブジェクトを非表示にする
             }
-        }
-        if(Next.activeSelf)//次へボタンが表示されているなら
+       }
+       // if(Next.activeSelf || GameObject.Find("Next_Core").activeSelf)//次へボタンが表示されているなら
         {
             GameObject[] Click_Next = GameObject.FindGameObjectsWithTag("Next");//Nextタグがついた全てのオブジェクトを取得
 
@@ -146,7 +146,7 @@ public class Image_Switch : MonoBehaviour
 
         foreach (GameObject blind_child in _blind)
         {
-            //Blindタグがついた全てのオブジェクトを非表示にする
+            //Blindタグがついた全てのオブジェクトを白色にする
             blind_child.GetComponent<Renderer>().material.color = Color.white;
             
         }
@@ -225,7 +225,7 @@ public class Image_Switch : MonoBehaviour
       
             SR.sprite = Next_Image[What_Num_Image];//現在の数字に応じた画像を表示する
 
-            Summon_Back();//次へボタンを表示
+            Summon_Back();//戻るボタンを表示
             //Indication_Next_Or_Back(NEXT_BACK);
         }
   
@@ -329,7 +329,7 @@ public class Image_Switch : MonoBehaviour
                 switch (Text_Num_Num)
                 {
                     case (int)Text_Number.Zero:
-                        My_Text.text = "\n自軍が敵の本陣のHPを0にすれば勝利となる。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nがんばれ！\n";
+                        My_Text.text = "\n自軍が敵の本陣のHPを0にすれば勝利となる。\n歩兵では城を攻撃することが出来ないので、弓兵かカタパルトで攻撃しよう。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nがんばれ！\n";
                 break;
                     default:
                         Text_Num_Num = (int)Text_Number.Zero;

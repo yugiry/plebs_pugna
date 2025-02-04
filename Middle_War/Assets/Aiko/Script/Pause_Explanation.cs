@@ -80,7 +80,7 @@ public class Pause_Explanation : MonoBehaviour
             default:
                 //canvas_all_ps = Instantiate(click, new Vector3(44, 36, 1.0f), Quaternion.identity, parent) as GameObject;
                 //canvas_all_ps = Instantiate(click, new Vector3(138, 86, 1.0f), Quaternion.identity, parent) as GameObject;350,250
-                canvas_all_ps = Instantiate(click, new Vector3(188, 100, 1.0f), Quaternion.identity, parent) as GameObject;
+                canvas_all_ps = Instantiate(click, new Vector3(170, 86, 1.0f), Quaternion.identity, parent) as GameObject;
                 click.transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
                 canvas_all_ps.transform.SetParent(canvas.transform, false);
 
