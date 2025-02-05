@@ -26,10 +26,7 @@ public class Pause_Explanation : MonoBehaviour
 
     public void Change_button()
     {
-        //Vector3 tmp = GameObject.Find("Rule_Button").transform.position;
-
-        //canvas = GameObject.Find("Canvas");
-        Debug.Log(canvas.name);
+        
 
         var img = GetComponent<Image>();
         
@@ -37,7 +34,7 @@ public class Pause_Explanation : MonoBehaviour
         {
             case 0:
 
-                //GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x - 80, tmp.y-25, tmp.z);
+                
 
                 img.sprite = When_Open;
                 
@@ -46,7 +43,7 @@ public class Pause_Explanation : MonoBehaviour
                 break;
             default:
 
-                //GameObject.Find("Rule_Button").transform.position = new Vector3(tmp.x+80, tmp.y+25, tmp.z);
+                
 
                 img.sprite = When_Close;
                 
@@ -78,9 +75,8 @@ public class Pause_Explanation : MonoBehaviour
                
                 break;
             default:
-                //canvas_all_ps = Instantiate(click, new Vector3(44, 36, 1.0f), Quaternion.identity, parent) as GameObject;
-                //canvas_all_ps = Instantiate(click, new Vector3(138, 86, 1.0f), Quaternion.identity, parent) as GameObject;350,250
-                canvas_all_ps = Instantiate(click, new Vector3(170, 86, 1.0f), Quaternion.identity, parent) as GameObject;
+               
+                canvas_all_ps = Instantiate(click, new Vector3(0, 0, 1.0f), Quaternion.identity, parent) as GameObject;
                 click.transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
                 canvas_all_ps.transform.SetParent(canvas.transform, false);
 
