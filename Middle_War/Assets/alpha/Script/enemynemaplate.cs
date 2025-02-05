@@ -25,7 +25,8 @@ public class enemynemaplate : MonoBehaviour
         switch (Country_Num) //ó‚¯æ‚Á‚½’l•Êˆ—
         {
             case 1:
-                //text2.text = "©‘"; //‘–¼
+                text[0].text = "“G(—ûK)"; //‘–¼
+                countryname.text = text[0].text;
                 break;
             case 2:
                 text[0].text = "ƒtƒXƒ‰ƒ“"; //‘–¼
