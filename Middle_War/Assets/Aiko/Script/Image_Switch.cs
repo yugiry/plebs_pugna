@@ -367,10 +367,10 @@ public class Image_Switch : MonoBehaviour
                 switch (Text_Num_Num)
                 {
                     case (int)Text_Number.Zero:
-                        My_Text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\n";
+                        My_Text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\nカタパルトに対してダメージを多く与えることが出来る。\n";
                         break;
                     case (int)Text_Number.One:
-                        My_Text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\n";
+                        My_Text.text = "\n歩兵…近接攻撃しかできないが召喚に必要なAPが少なく資材を回収する事ができる唯一の兵士。\nカタパルトに対してダメージを多く与えることが出来る。\n";
                         break;
                     case (int)Text_Number.Two:
                         My_Text.text = "\n弓兵…遠距離攻撃が可能な兵士。体力が低く召喚に必要なAPも多い。\n";
@@ -379,10 +379,10 @@ public class Image_Switch : MonoBehaviour
                         My_Text.text = "\n弓兵…遠距離攻撃が可能な兵士。体力が低く召喚に必要なAPも多い。\n";
                         break;
                     case (int)Text_Number.Four:
-                        My_Text.text = "\nカタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる弱点がある。\n";
+                        My_Text.text = "\nカタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる、歩兵からの攻撃で受けるダメージ量が多くなるなどの弱点がある。\n";
                         break;
                     case (int)Text_Number.Five:
-                        My_Text.text = "\nカタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる弱点がある。\n";
+                        My_Text.text = "\nカタパルト…長距離攻撃が可能な攻城兵器。攻撃力が高いが召喚コストも移動に使用するAP量も多く周囲1マスまで近寄られると何もできなくなる、歩兵からの攻撃で受けるダメージ量が多くなるなどの弱点がある。\n";
                         break;
                     default:
                         Text_Num_Num = (int)Text_Number.Five;
