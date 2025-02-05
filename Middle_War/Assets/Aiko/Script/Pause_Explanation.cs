@@ -18,15 +18,20 @@ public class Pause_Explanation : MonoBehaviour
     public Sprite When_Open;
     public Sprite When_Close;
     int chan_frag = 0;
-
     
     public GameObject canvas;
+
+    public AudioClip click_sound;
+    private AudioSource AudioSource;
+
 
     int i=0;
 
     public void Change_button()
     {
-        
+        AudioSource = this.gameObject.GetComponent<AudioSource>(); //オーディオソース取得
+
+      
 
         var img = GetComponent<Image>();
         
@@ -57,7 +62,8 @@ public class Pause_Explanation : MonoBehaviour
 
     public void Button_Click()
     {
-       
+
+        AudioSource.PlayOneShot(click_sound);//効果音を再生する
 
         i++;
 
@@ -90,21 +96,16 @@ public class Pause_Explanation : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-     void ResumeGame()
+    
+
+    public void _Pause()
     {
-        Time.timeScale = 1f;
-       
+        GetComponent<Image>().sprite = When_Close;
+        Destroy(canvas_all_ps);
+        i = 0;
+        chan_frag = 0;
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Destroy(canvas_all_ps);
-            GetComponent<Image>().sprite = When_Close;
-            i = 0;
-            chan_frag = 0;
-        }
-    }
+    
 
 }
